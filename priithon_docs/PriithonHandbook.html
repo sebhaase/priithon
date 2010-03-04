@@ -1,0 +1,1816 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<title>PriithonHandbook</title>
+
+</head>
+
+<body  lang="en" dir="ltr">
+
+
+<div id="page" lang="en" dir="ltr"><!-- start page -->
+
+
+<h1 id="title">PriithonHandbook</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a>
+<p>From: "Sebastian Haase" &lt;seb.haase AT (nospam) gmail . com&gt; [use <tt>@</tt> for <tt>AT</tt>, remove spaces and the <tt>(nospam)</tt> part]<br>
+ Date: 2007-03-10 </p>
+<hr class="hr6">
+<p> <big>Priithon</big> </p>
+<hr class="hr6">
+<p> </p>
+<div>
+<table>
+<tr>
+<td style="vertical-align: top;">
+<p> <ol>
+
+<li>
+<a href="#head-3ca35c3f3efc0125ca7b5b245344eb6cf8b51362">Introduction</a>
+</li>
+
+<li>
+<a href="#head-62da9bd0abc19b1b45972d43c81e4a9d0839aef3">Python Tutorial</a>
+</li>
+
+<li>
+<a href="#head-d71b31d3251f0b9c49b2b1a3a9b44e5a4ae4cdd5">Tutorial: Numerical Python</a>
+</li>
+
+<li>
+<a href="#head-8fcbf8359de25c028abc1374b9b67b2d66d4e461">Priithon Tutorial</a>
+</li>
+
+<li>
+<a href="#head-0977034282614846fa0ac3be1801a8785e52e682-2">Design</a>
+</li>
+
+<li>
+<a href="#head-8b988993b98ca8702a8eef626ae070a447eb6bfa">Reference</a>
+</li>
+
+</ol>
+ </p>
+</td>
+<td style="vertical-align: top;">
+<p> <ol>
+
+<li>
+<a href="#head-3ca35c3f3efc0125ca7b5b245344eb6cf8b51362">Introduction</a>
+<ol>
+
+<li>
+<a href="#head-298a27f606d5a81b53b6ee113a43bd5fca8349de">Motivation</a>
+</li>
+
+<li>
+<a href="#head-0977034282614846fa0ac3be1801a8785e52e682">Design</a>
+</li>
+
+<li>
+<a href="#head-1c3bac3db43c0ae4034ffc93528797fb7689e9ef">Start</a>
+</li>
+
+<li>
+<a href="#head-08b198f2cc71fa6dfe92104ff37447ba96fa3e6d">Demo 1: synthetic "star/bead images"</a>
+</li>
+
+<li>
+<a href="#head-93922b2c08fb2a9ef8f1c9f99388864c6f31a197">Demo 2: image file analysis</a>
+</li>
+
+</ol>
+
+<li>
+<a href="#head-62da9bd0abc19b1b45972d43c81e4a9d0839aef3">Python Tutorial</a>
+<ol>
+
+<li>
+<a href="#head-b439cf3b6011295e5d67b66b6cc4560d9451b892">Python</a>
+</li>
+
+<li>
+<a href="#head-13928fe26431bd3a49e07f6f53b577a5a35061d4">Things to memorize</a>
+</li>
+
+<li>
+<a href="#head-347791a74c19657c80aa89661a6f7dcec7afa482">Now let's start</a>
+</li>
+
+<li>
+<a href="#head-1684eee31fdd92d91fbc5ec723c55a31218c385f">loops and functions</a>
+</li>
+
+<li>
+<a href="#head-e1760e96d5df2471c53feb8c64ce340e8c997b5d">we don't need this (yet)</a>
+</li>
+
+<li>
+<a href="#head-cf975dadc44619cd62b46d6089269a8e1bddc31a">last Python notes</a>
+</li>
+
+<li>
+<a href="#head-8b53e1850e5d0987b2aeddeed610f1b4d53afd43">debugger</a>
+</li>
+
+</ol>
+
+<li>
+<a href="#head-d71b31d3251f0b9c49b2b1a3a9b44e5a4ae4cdd5">Tutorial: Numerical Python</a>
+<ol>
+
+<li>
+<a href="#head-b7a1c917dbce13c0e6f0448b32082014ad9543df">some history</a>
+</li>
+
+<li>
+<a href="#head-43db4f35f4fd9694e033dd42412410980a4784b8">Quick start</a>
+</li>
+
+<li>
+<a href="#head-59494ef204c614e609cc3f12fa5c836fb5ba54d4">more exercising</a>
+</li>
+
+</ol>
+
+<li>
+<a href="#head-8fcbf8359de25c028abc1374b9b67b2d66d4e461">Priithon Tutorial</a>
+<ol>
+
+<li>
+<a href="#head-4447aa60958c50df93fe6f7b8c452fd4d6fb52b1">images</a>
+</li>
+
+<li>
+<a href="#head-91e64fb1c89c6c60aff0e634d052f9aa1d6785ef">Coordinate System</a>
+</li>
+
+<li>
+<a href="#head-5e1f4e768a1d67e7f06542e593a633a518bf1b36">"Useful" stuff</a>
+<ol>
+
+<li>
+<a href="#head-3671d38b4bf8100e2e083e07f9bad33aead8d9ce">"This is really part of numpy"</a>
+<ol>
+
+<li>
+<a href="#head-b8ad7fab71712303d8d091e99e0638706dcfb8e1">wrong: was true when Priithon was using numarray</a>
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+
+<li>
+<a href="#head-23c9f3c89190a7e5b95dc58c6fd1cc4b02bbd7b3">Priithon: F-module</a>
+</li>
+
+<li>
+<a href="#head-05affcfa7a256c898bb1277b2f1cca65d01f1b44">Scripts</a>
+</li>
+
+</ol>
+
+<li>
+<a href="#head-0977034282614846fa0ac3be1801a8785e52e682-2">Design</a>
+<ol>
+
+<li>
+<a href="#head-32965073f8b5bab330f3b7972f5e229f8b6b8cd2">PyShell</a>
+</li>
+
+<li>
+<a href="#head-3af4aed47755074ec6ce609350ffbcc44812c381">Swig</a>
+</li>
+
+<li>
+<a href="#head-0410d5f1eb3269932d38a1eebcf22dd90495157b">OpenGL</a>
+</li>
+
+<li>
+<a href="#head-949f8e09dbdf7d1f203cf615b4d1f107d31e1a6f">SciPy: plot</a>
+</li>
+
+<li>
+<a href="#head-b242865020ae21bd8e84e0b03ba2e702d7e63acb">ScientifiPython</a>
+</li>
+
+<li>
+<a href="#head-754bbe638554fe1b80477c6ad39113b12c9e0040">MatplotLib (pylab)</a>
+</li>
+
+<li>
+<a href="#head-ffbd855d539b99e69f5314ecee85744095c23e20">MayaVi / VTK / UCSF-Chimera</a>
+</li>
+
+</ol>
+
+<li>
+<a href="#head-8b988993b98ca8702a8eef626ae070a447eb6bfa">Reference</a>
+<ol>
+
+<li>
+<a href="#head-9bef282d414278d6eabf3ab4bcfbe188d1b82e6e">N: numerical python modules</a>
+</li>
+
+<li>
+<a href="#head-b7e4fd1d04598a3678b02b38e2f7bf1d8db75340">Priithon</a>
+<ol>
+
+<li>
+<a href="#head-693faaa66bf642df67a718ed2a50fbd43b729e41">U: "useful" module</a>
+</li>
+
+<li>
+<a href="#head-f7d0cba5faf88d6ea65d4c945a48b5663cb4097b">Y: wxPython/OpenGL based display module  [[FN(),DIR()]]</a>
+</li>
+
+<li>
+<a href="#head-225266f1fc309c504268b6e16d18f71b6f81a8cf">F: "think (physical) fields" and fft module</a>
+</li>
+
+<li>
+<a href="#head-40ce8d8e7c48fceaf1d3aba404ba95df6b5c6d9c">Mrc: MRC/Priism file module</a>
+</li>
+
+<li>
+<a href="#head-b7d69d4d837ba4dfc0fc7dfa719fd32aff7d39ab">gone: P: obsolete C++ based MRC/Priism file I/O</a>
+</li>
+
+<li>
+<a href="#head-b4a9b70bbaff0a8542e35fef255c89bfab0dcc77">S: C++ (fortran) based functions  (make array from known memory address, think e.g. hardware driver lib for CCD cam)</a>
+</li>
+
+<li>
+<a href="#head-a12ceb3ff5e5ad44cde91108f04f2a0219ae53eb">Wvl: see wavelet paper</a>
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+ </p>
+</td>
+</tr>
+</table>
+</div>
+<hr class="hr3">
+<p> </p>
+
+<h2 id="head-3ca35c3f3efc0125ca7b5b245344eb6cf8b51362">1. Introduction</h2>
+
+
+<h3 id="head-298a27f606d5a81b53b6ee113a43bd5fca8349de">1.1. Motivation</h3>
+
+<ul>
+<li style="list-style-type:none"><p>Priithon is my attempt to make (certain) people's lives easier. The lab I work in has thousands of line of fortran and C code meant to make image analysis accessible to biologists and microscopists. The collection of all those programs is called Priism/IVE (Imaging and Visualization Environment). Ten plus years ago that was a state of the art platform running on (expensive - cheap compared to main-frames !) SGI workstations. When I joined the lab I quickly realized that big parts of IVE are about providing a graphical user interface, parsing command-line options and file handling. Each program contains often extended sections dealing with that. The "core" algorithm implementing the actual image analysis is hidden in between. </p>
+<p>I decided to start over. </p>
+<p>Python is a modern programming language. It's relatively fast, <sup><a href="#fndef-1ccdd13db4ffea6e2902d21df9b82b327dc60e39-0" id="fnref-1ccdd13db4ffea6e2902d21df9b82b327dc60e39-0">1</a></sup> interactive <sup><a href="#fndef-d71259cfb205b189bf5ce05842606b68e4a139a5-1" id="fnref-d71259cfb205b189bf5ce05842606b68e4a139a5-1">2</a></sup>, objective-oriented, extensible<sup><a href="#fndef-c3aaea9d5c661a077bfb292a04b2a76afe6f8857-2" id="fnref-c3aaea9d5c661a077bfb292a04b2a76afe6f8857-2">3</a></sup>, clean(intuitively readable) and easy-to-learn <sup><a href="#fndef-2bb39c6f233446cee64804fcdd9fee833d280e21-3" id="fnref-2bb39c6f233446cee64804fcdd9fee833d280e21-3">4</a></sup>. That's why it is already the choice of many in the scientific community including space science telescope institute (Hubble) and LLNL. Python provides very powerful libraries for building graphical user interfaces. Lots and lots of functions for data handling <sup><a href="#fndef-a1259cea8704176bdef6540cbc752795b9c67f4c-4" id="fnref-a1259cea8704176bdef6540cbc752795b9c67f4c-4">5</a></sup> are provided by many labs and the scientific-python-community around the world. The main complaints about using Python in science might be that there is no consistent documentation and that it requires to much prior system-administrative knowledge to get started. </p>
+<p>I have put together all the needed components for image analysis. Just extract the zipped-archive into a directory, and start the "master-script" program. This is currently available for Windows (any:98/NT/2000/XP), Linux(Debian/<a class="nonexistent" href="/mywiki/RedHat">RedHat</a>/...) and OS-X (10.2?/10.3/10.4?).  </p>
+<p>Priithon is an integrated image analysis and algorithm development platform. I will use the term <em>Priithon</em> to meaning three different aspects of this: </p>
+</li>
+</ul>
+<ol type="1">
+<li><p>The entire collection of <em>all</em> the provided modules </p>
+</li>
+<li><p>The <em><a class="nonexistent" href="/mywiki/PyShell">PyShell</a></em> graphical text interface (including drag-and-drop functionality) </p>
+</li>
+<li><p>A package of many <em>Useful</em> modules that I wrote; including the OpenGL based image viewer and many <em>computation shortcuts</em> that allow quick interactive development </p>
+</li>
+</ol>
+
+<h3 id="head-0977034282614846fa0ac3be1801a8785e52e682">1.2. Design</h3>
+
+<ul>
+<li style="list-style-type:none"><p>The focus of Priithon lies more in algorithm development than in having a simple "mouse-click-clack" user interface.<sup><a href="#fndef-49362498b601da9ca0b2bc27e09e2adb0e7d9abf-5" id="fnref-49362498b601da9ca0b2bc27e09e2adb0e7d9abf-5">6</a></sup> As the interactive program (shell) Priithon uses <a class="nonexistent" href="/mywiki/PyShell">PyShell</a>. <sup><a href="#fndef-4209d370ea735f6564acae90d0c9be801cf7e1a3-6" id="fnref-4209d370ea735f6564acae90d0c9be801cf7e1a3-6">7</a></sup> The feature I like most is the help popup windows that provide a list of all available commands, their function arguments and a short description of the selected function. This feature minimizes the need for remembering names and exact spellings. All functions are sorted into one letter  modules. The actual letter used could be considered as rather arbitrary; mainly this is needed to trigger <a class="nonexistent" href="/mywiki/PyShell">PyShell</a>'s help mechanism (which only kicks in when typing a <em>dot</em>. But it also makes clear that the respective function is not a build-in (standard) python function and where to look for documentation.  There is already a plethora of (standard/buildin and scientific-community provided) python libraries for data (memory) handling, file handling, (graph-) plotting, linear-algebra and much more. My own code can be listed as follows:  </p>
+</li>
+</ul>
+<ol type="a">
+<li><p>a fast OpenGL based image viewer that ...  </p>
+</li>
+<li><p>a very fast (because it uses STScI's memory mapping module) MRC/Priism file handling module <sup><a href="#fndef-e66e11d73b44f85d11876ef119974a6b2a626cc7-7" id="fnref-e66e11d73b44f85d11876ef119974a6b2a626cc7-7">8</a></sup>  </p>
+</li>
+<li><p>a module for using fftw (using short function names I like)  </p>
+</li>
+<li><p>collection of "ND test images" ("hard" disk or square, gaussian bell shape, gaussian noise, poisson noise, ...)  </p>
+</li>
+<li><p>collection of "useful" (one-liner type) functions (min-max-mean-stddev, phase(of complex valued images)  </p>
+</li>
+<li><p>framework for easy C/C++/fortran extensions writing (uses SWIG with my typemaps) </p>
+</li>
+</ol>
+
+<h3 id="head-1c3bac3db43c0ae4034ffc93528797fb7689e9ef">1.3. Start</h3>
+
+<ol type="1">
+<li><p>Get Python version 2.4: </p>
+<ul>
+<li><p> Linux will probably have it </p>
+</li>
+<li><p> Mac or Windows: go to [www.python.org/download] and follow the link  </p>
+</li>
+</ul>
+</li>
+<li><p>Get Priithon as a zipped-archive:  </p>
+<ul>
+<li><p> Linux: <tt>PrLinN_2007......tbz</tt> or <tt>PrLinN64_2007......tbz</tt> for i386 or 64-bit-Linux/-Python </p>
+</li>
+<li><p> Mac OSX: <tt>PrMacNPPC_2007.....tbz</tt> or <tt>PrMacNInt_2007.....tbz</tt> for PowerPC or Intel  </p>
+</li>
+<li><p> Windows: <tt>PrWinN_2007......zip</tt> </p>
+</li>
+</ul>
+</li>
+<li><p>Extract it - All is contained inside one directory: </p>
+<ul>
+<li><p> Linux: <tt>PrLinN</tt> (or <tt>PrLinN64</tt>) - put this directory were ever you want - e.g. your home directoy </p>
+</li>
+<li><p> Mac:  <tt>PrMacNPPC</tt> or <tt>PrMacNInt</tt>  - put this directory were ever you want - e.g. your home directoy </p>
+</li>
+<li><p> Windows: <tt>PrWinN</tt> must be put into <tt>C:\</tt> (i.e. <tt>C:\PrWinN</tt>) </p>
+</li>
+</ul>
+</li>
+<li class="gap"><p>The <em>master</em>-script is called <tt>priithon_script</tt> or <tt>priithonN.bat</tt> on Windows </p>
+<ol type="a">
+<li><p>create a link to the script to a convenient place: </p>
+<ul>
+<li><p> Windows: drag and drop e.g. to Desktop </p>
+</li>
+<li><p> Mac and Linux: use symbolic links (e.g. <tt>ln&nbsp;-s&nbsp;priithon_script&nbsp;~/bin/priithon</tt>) </p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>start priithon by typing <tt>priithon</tt> or double-click on the priithon-script file </p>
+</li>
+</ol>
+
+<h3 id="head-08b198f2cc71fa6dfe92104ff37447ba96fa3e6d">1.4. Demo 1: synthetic "star/bead images"</h3>
+
+<p>Simulation of 2d images of resolution limited point sources with two types of noise sources: 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/JavaScript">
+function isnumbered(obj) {
+  return obj.childNodes.length && obj.firstChild.childNodes.length && obj.firstChild.firstChild.className == 'LineNumber';
+}
+function nformat(num,chrs,add) {
+  var nlen = Math.max(0,chrs-(''+num).length), res = '';
+  while (nlen>0) { res += ' '; nlen-- }
+  return res+num+add;
+}
+function addnumber(did, nstart, nstep) {
+  var c = document.getElementById(did), l = c.firstChild, n = 1;
+  if (!isnumbered(c))
+    if (typeof nstart == 'undefined') nstart = 1;
+    if (typeof nstep  == 'undefined') nstep = 1;
+    n = nstart;
+    while (l != null) {
+      if (l.tagName == 'SPAN') {
+        var s = document.createElement('SPAN');
+        s.className = 'LineNumber'
+        s.appendChild(document.createTextNode(nformat(n,4,' ')));
+        n += nstep;
+        if (l.childNodes.length)
+          l.insertBefore(s, l.firstChild)
+        else
+          l.appendChild(s)
+      }
+      l = l.nextSibling;
+    }
+  return false;
+}
+function remnumber(did) {
+  var c = document.getElementById(did), l = c.firstChild;
+  if (isnumbered(c))
+    while (l != null) {
+      if (l.tagName == 'SPAN' && l.firstChild.className == 'LineNumber') l.removeChild(l.firstChild);
+      l = l.nextSibling;
+    }
+  return false;
+}
+function togglenumber(did, nstart, nstep) {
+  var c = document.getElementById(did);
+  if (isnumbered(c)) {
+    remnumber(did);
+  } else {
+    addnumber(did,nstart,nstep);
+  }
+  return false;
+}
+</script>
+
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-ea181770f1986f7303dbab2df021ce7ebc088f07_000\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-ea181770f1986f7303dbab2df021ce7ebc088f07_000" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">gaussianArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">sigma</span><span class="Operator">=</span><span class="Number">3</span><span class="Operator">,</span> <span class="ID">peakVal</span><span class="Operator">=</span><span class="Number">100</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span> <span class="Comment"># shape of a perfect bead</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">poissonArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">mean</span><span class="Operator">=</span><span class="Number">.001</span><span class="Operator">)</span>        <span class="Comment"># random bead positions</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c</span> <span class="Operator">=</span> <span class="Number">100</span> <span class="Operator">+</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">convolve</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">,</span><span class="ID">b</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">d</span> <span class="Operator">=</span> <span class="ID">c</span> <span class="Operator">+</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">noiseArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">stddev</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">e</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">poissonize</span><span class="Operator">(</span><span class="ID">d</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">c</span><span class="Operator">)</span> <span class="Comment"># noise free</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">e</span><span class="Operator">)</span> <span class="Comment"># with "readout" noise and quantum shot noise</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h3 id="head-93922b2c08fb2a9ef8f1c9f99388864c6f31a197">1.5. Demo 2: image file analysis</h3>
+
+<p>Image analysis of data saved in <em>any</em> file format 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-7ed5478c4a6c0a74b8a2e1ece51aeb24084e356a_001\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-7ed5478c4a6c0a74b8a2e1ece51aeb24084e356a_001" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span>  <span class="ID">Drag</span> <span class="ID">image</span><span class="Operator">-</span><span class="ID">file</span> <span class="ID">into</span> <span class="ID">PyShell</span> <span class="ID">window</span> <span class="Operator">(</span><span class="ID">jpg</span><span class="Operator">,</span><span class="ID">bmp</span><span class="Operator">,</span><span class="ID">tiff</span><span class="Operator">,</span> <span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span> <span class="ResWord">or</span> <span class="ID">fits</span> <span class="ResWord">or</span> <span class="ID">MRC</span><span class="Operator">/</span><span class="ID">Priism</span> <span class="ID">format</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   2 </span>  <span class="ID">Select</span><span class="Operator">:</span> <span class="String">'view'</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">vd</span><span class="Operator">(</span><span class="Operator">-</span><span class="Number">1</span><span class="Operator">)</span> <span class="Comment"># get data from latest viewer</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">U</span><span class="Operator">.</span><span class="ID">mmms</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">)</span> <span class="Comment"># show min,max,mean,stddev of whole (nd)data-set</span></span>
+<span class="line"><span class="LineNumber">   5 </span></span>
+<span class="line"><span class="LineNumber">   6 </span> <span class="Comment"># set viewer into mode so that each left-mouse-click shows a line profile</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Comment"></span> <span class="Comment">#   (averaged over deltaY=15 pixel) in graph-plot window</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">vLeftClickHorizProfile</span><span class="Operator">(</span><span class="Operator">-</span><span class="Number">1</span><span class="Operator">,</span> <span class="Number">15</span><span class="Operator">,</span> <span class="String">'-+'</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   9 </span> <span class="Comment"># click into the image viewer window !</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h2 id="head-62da9bd0abc19b1b45972d43c81e4a9d0839aef3">2. Python Tutorial</h2>
+
+<ul>
+<li style="list-style-type:none"><p>There are already many many Python tutorial and lot's of books. The documentation of Numerical Python is also quite extensive (many hundred pages). But I have not seen a tutorial that explains both in a satisfatory manner to <em>just get going</em>.  This is my take on a quick tutorial that focuses on <em>new comers</em>. </p>
+</li>
+</ul>
+
+<h3 id="head-b439cf3b6011295e5d67b66b6cc4560d9451b892">2.1. Python</h3>
+
+<ul>
+<li style="list-style-type:none"><p>The name comes from <em>"Monty Python's Flying Circus"</em>  - not the snake. It's meant to be "short, unique, and slightly mysterious". Guido van Rossum, started it all about 1990, then at <a href="http://www.cwi.nl/~guido"><img src="/wiki/modern/img/moin-www.png" alt="[WWW]" height="11" width="11"> http://www.cwi.nl/~guido</a> The Release 1.0.0 is dated 26 January 1994. Python is an interpreted, interactive, object-oriented programming language. </p>
+</li>
+</ul>
+
+<h3 id="head-13928fe26431bd3a49e07f6f53b577a5a35061d4">2.2. Things to memorize</h3>
+
+<ul>
+<li style="list-style-type:none"><p>There are a few guidelines one has to realize when using Python: </p>
+<ol type="a">
+<li><p>A "variable" is really "just a name" for something !! Every assignment to a variable, like <tt>a=5</tt> or <tt>a=F.fft(a)</tt> throws the old meaning (value) of <tt>a</tt> away <sup><a href="#fndef-65be2ce2a9823c0228365ffe401b711b1423a56e-8" id="fnref-65be2ce2a9823c0228365ffe401b711b1423a56e-8">9</a></sup> and <strong>reassigns</strong> <tt>a</tt> to whatever is the result of whats on the rights side of <tt>=</tt>-sign. <strong>But note:  <tt>a[:]&nbsp;=&nbsp;F.fft(a)</tt> is <em>NOT</em> an assignment: there is more than "just the variable name" left of the <tt>=</tt>-sign</strong>. In other words: is <tt>a</tt> was a big array, <tt>a[:]=&nbsp;2</tt> would overwrite <tt>a</tt>'s values (each 'pixel' would be set to 2, whereas <tt>a=2</tt> would destroy that array and <tt>a</tt> would from then on refer to the number 2. </p>
+</li>
+<li><p>Indentation matters: This must be the strangest "feature" of python: Instead of using curly brackets (like in C/C++/Java) or BEGIN/END (like in PASCAL) or do/done (still others) Python infers the "bracketing" from the way a code-section is indented. This feature seems very strange at first <sup><a href="#fndef-c5f88b5e0c3e1c2c3efc3e39b193a1483deff688-9" id="fnref-c5f88b5e0c3e1c2c3efc3e39b193a1483deff688-9">10</a></sup>, but it is supposed to make everyones code look more alike; [ also you don't have to decide if those opening brackets go at the end of the last section or in a separate line between the code sections. Think of it this way: every time you save two lines of code <img src="/wiki/modern/img/smile4.png" alt=";-)" height="15" width="15"> ] <strong>Please make up your mind if you want to use tabs or spaces to indend</strong>; there are <em>pros</em> and <em>cons</em> for each choice -- but <strong>stick</strong> with it and don't mix!!<sup><a href="#fndef-6b2efc7c58ba2c7d6160f51c843275b912595eca-10" id="fnref-6b2efc7c58ba2c7d6160f51c843275b912595eca-10">11</a></sup> </p>
+</li>
+<li><p>Everything is <strong>case-sensitive</strong> </p>
+</li>
+<li><p>Every variable lives inside its modules </p>
+</li>
+<li><p>Importing a module makes its variables<sup><a href="#fndef-4302389915fa25a1ec5a5116ca5d3c5fb1aa00b0-11" id="fnref-4302389915fa25a1ec5a5116ca5d3c5fb1aa00b0-11">12</a></sup> visible - all code inside the module's defining file gets executed only the first time it gets imported (by anything - since python started)<sup><a href="#fndef-d6ae2dabbe8d8c85b748e5de7b29b4281152f251-12" id="fnref-d6ae2dabbe8d8c85b748e5de7b29b4281152f251-12">13</a></sup> </p>
+</li>
+</ol>
+</li>
+</ul>
+
+<h3 id="head-347791a74c19657c80aa89661a6f7dcec7afa482">2.3. Now let's start</h3>
+
+<ul>
+<li style="list-style-type:none"><p>Three greater-than symbols (<strong><tt>&gt;&gt;&gt;</tt></strong>) make the interactive prompt; type something, press return and you get the output on the next line (mostly the value of the typed expression) and another prompt on the next line. Often the typed line does not have an output or value  (its value is <tt>None</tt>), then you are awarded with another prompt immediately. <sup><a href="#fndef-34cc83eb5f5e75f00db32d0a535abb16ebbb46a9-13" id="fnref-34cc83eb5f5e75f00db32d0a535abb16ebbb46a9-13">14</a></sup> The number-sign (#) introduces a comment up to the end of its line. If a line <em>requires</em> a next line - like an <tt>if</tt>-statement - pressing return automatically gives you the "three dot" (<strong><tt>...</tt></strong>) continuation prompt: enter now the other lines; an empty line ends the continuation  and finishes the command. (If you forgot a line and need to insert a new line in the middle of a <tt>...</tt>-section, press "Control-Return") </p>
+</li>
+</ul>
+<ul>
+<li style="list-style-type:none"><p>Python has a special mechanism for dealing with errors: "exception handling" (just like Java and (newer) C++ ). The way it works is that whenever an fault-situation occurs, the respective function just <em>raises</em> ("throws" in C++/Java's lingo) an exception which can be detected inside the same function or the "calling  function" <sup><a href="#fndef-8088376fd64ae572664b4dcbb7fd41fa582b1621-14" id="fnref-8088376fd64ae572664b4dcbb7fd41fa582b1621-14">15</a></sup>. By default this results in an error message including a (somewhat) meaningful <strong>traceback</strong> telling you where the error occurred and which function called the failing function: </p>
+</li>
+</ul>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-c3378990983d1f8c1ef1356714d573482bbda186_002\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-c3378990983d1f8c1ef1356714d573482bbda186_002" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">def</span> <span class="ID">f</span><span class="Operator">(</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">a</span> <span class="Operator">=</span> <span class="Number">4</span><span class="Operator">/</span><span class="Number">0</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">f</span><span class="Operator">(</span><span class="Operator">)</span> <span class="Comment"># "uncaught" error</span></span>
+<span class="line"><span class="LineNumber">   5 </span>  <span class="ID">Traceback</span> <span class="Operator">(</span><span class="ID">most</span> <span class="ID">recent</span> <span class="ID">call</span> <span class="ID">last</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   6 </span>  <span class="ID">File</span> <span class="String">"&lt;input&gt;"</span><span class="Operator">,</span> <span class="ID">line</span> <span class="Number">1</span><span class="Operator">,</span> <span class="ResWord">in</span> <span class="Comment">#</span></span>
+<span class="line"><span class="LineNumber">   7 </span>  <span class="ID">File</span> <span class="String">"&lt;input&gt;"</span><span class="Operator">,</span> <span class="ID">line</span> <span class="Number">2</span><span class="Operator">,</span> <span class="ResWord">in</span> <span class="ID">f</span> <span class="ID">ZeroDivisionError</span><span class="Operator">:</span> <span class="ID">integer</span> <span class="ID">division</span> <span class="ResWord">or</span> <span class="ID">modulo</span> <span class="ID">by</span> <span class="ID">zero</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>The following shows how one would have a "controlled" response to an (anticipated) error situation. Most people will get by without ever using this ! 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-b3a354a0602bf489afd7029b045c6bdc2cff5ef9_003\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-b3a354a0602bf489afd7029b045c6bdc2cff5ef9_003" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">try</span><span class="Operator">:</span> <span class="Comment"># now we catch it and handle it in a "controlled" way</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">f</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span> <span class="ResWord">except</span> <span class="ID">Exception</span><span class="Operator">,</span> <span class="ID">e</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ResWord">print</span> <span class="String">"*** there is a problem:"</span><span class="Operator">,</span> <span class="ID">e</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span> <span class="Operator">**</span><span class="Operator">*</span> <span class="ID">there</span> <span class="ResWord">is</span> <span class="ID">a</span> <span class="ID">problem</span><span class="Operator">:</span> <span class="ID">integer</span> <span class="ID">division</span> <span class="ResWord">or</span> <span class="ID">modulo</span> <span class="ID">by</span> <span class="ID">zero</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span><span class="Text"></span></span>
+</pre>
+</div>
+<ul>
+<li style="list-style-type:none"><p>Standard Python knows of a few (quite interesting) data types: numbers, strings, lists, tuples and dictionaries <sup><a href="#fndef-0ca0f70cb553534b520aef50818693b873bff0c4-15" id="fnref-0ca0f70cb553534b520aef50818693b873bff0c4-15">16</a></sup> Numbers are either integer (of unlimited size - really!), floating point (double precision)<sup><a href="#fndef-798f02f43b5dac6cca42adaa55bacfb07bd97440-16" id="fnref-798f02f43b5dac6cca42adaa55bacfb07bd97440-16">17</a></sup> or complex (j is the imaginary unit: e.g. <tt>1j</tt> or <tt>10-.1j</tt>). (More differentiated number types come with "Numerical Python", see later) Python has these common operators: +,-,/(division), *(multiplication), **(power), %(modulo). <sup><a href="#fndef-d3cf43cc4260185fdc20f69b463a5c89d4038e84-17" id="fnref-d3cf43cc4260185fdc20f69b463a5c89d4038e84-17">18</a></sup> ;the bit-wise operators |,&amp;;, 'and', 'or', ....) </p>
+<p>Each such operator comes also with a "special assignment" (seb: better/correct word!!) operator: +=,-=,/=,*=,**=,%= ; these get very useful with Numerical Python, because they are <strong>inplace operations</strong> and do not require allocation of a new array (and garbage-collecting the old one). Python understands "chained" comparisons, like <tt>a&nbsp;==&nbsp;b&nbsp;==&nbsp;c</tt> or <tt>0&nbsp;&lt;=&nbsp;a&nbsp;&lt;&nbsp;1</tt>. <sup><a href="#fndef-797b5a879453ac0907f426b7471b0c024919bf92-18" id="fnref-797b5a879453ac0907f426b7471b0c024919bf92-18">19</a></sup> </p>
+</li>
+</ul>
+<ul>
+<li style="list-style-type:none"><p>Strings are either between single or double quotes: <tt>'cat'</tt> or <tt>"cat"</tt> are exactly the same. Additionally you can use: <tt>'''cat'''</tt> or <tt>"""cat"""</tt> are still exactly identical to those before, but the triple single/double quotes can go over multiple lines; They are often used for documentation strings (e.g. at the beginning of a functions); also they are a convenient way of effectively commenting out large sections of code. Strings can be concatenated with <tt>+</tt>, or appended-to with <tt>+=</tt>; <tt>'cat'*2</tt> equals <tt>'catcat'</tt> If a string is preceded by <tt>r</tt> then the backlash loses it's special meaning: <tt>r"C:\new&nbsp;folder\myData"</tt> is what you want; without the <tt>r</tt> the <tt>'\n'</tt> would have been a newline (like in C). Best of all is the <tt>%</tt>-operator for strings: <tt>"%d)&nbsp;%8.2f"&nbsp;%(4,&nbsp;2.1)</tt> equals <tt>"4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.10"</tt> (think printf in C/C++). This is how to get nicely formatted print-lines; and it works wherever a string works, not only for <tt>print</tt>. </p>
+<p>Lists are "sequences" of things; anything can be mixed into the same sequence: integers, floats, strings, modules, ...!  </p>
+</li>
+</ul>
+<p><strong>Important note</strong>: indices are used differntly then you might expect:  </p>
+<ul>
+<li><p> the first element has index 0 (like in C/C++) </p>
+</li>
+<li><p> the last element has index <em>length - 1</em> (like in C/C++) </p>
+</li>
+<li><p> <em>slices</em> do <strong>NOT</strong> include the the last element specified: <tt>a=[0,1,2,3];&nbsp;a[1:3]</tt> gives <tt>[1,2]</tt> ( this might seems strange at first, but it's going to safe you many <tt>-1</tt> and <tt>+1</tt> <em>fixes</em> in your code ) </p>
+</li>
+</ul>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-9ca4dc960278339b2bc104f8e38b0afbbf218f41_004\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-9ca4dc960278339b2bc104f8e38b0afbbf218f41_004" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="Operator">[</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">3.1</span><span class="Operator">,</span> <span class="Number">4j</span><span class="Operator">,</span> <span class="String">"hello"</span><span class="Operator">]</span> <span class="Comment"># list</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Number">0</span><span class="Operator">]</span> <span class="Comment"># get first element - index 0 !!</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Number">1</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Number">1</span><span class="Operator">:</span><span class="Number">3</span><span class="Operator">]</span> <span class="Comment"># get '''slice''' of elements 1 and 2</span></span>
+<span class="line"><span class="LineNumber">   5 </span>           <span class="Comment"># when slicing, the last one (3) is NOT included</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Comment"></span><span class="Operator">[</span><span class="Number">3.1</span><span class="Operator">,</span> <span class="Number">4j</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Operator">-</span><span class="Number">1</span><span class="Operator">]</span>  <span class="Comment"># negative indices count from the end</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="String">'hello'</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">len</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Number">4</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">+</span> <span class="Operator">[</span><span class="String">'qqqq'</span><span class="Operator">]</span> <span class="Comment"># appends to list</span></span>
+<span class="line"><span class="LineNumber">  12 </span><span class="Operator">[</span><span class="Number">1</span><span class="Operator">,</span> <span class="Number">3.1</span><span class="Operator">,</span> <span class="Number">4j</span><span class="Operator">,</span> <span class="String">'hello'</span><span class="Operator">,</span> <span class="String">'qqqq'</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  13 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">+=</span> <span class="Operator">[</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">2</span><span class="Operator">,</span><span class="Number">3</span><span class="Operator">]</span> <span class="Comment"># appends to list</span></span>
+<span class="line"><span class="LineNumber">  14 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="Comment"># a += 4     # error: you meant: a += [4]</span><span class="Text"></span></span>
+</pre>
+</div>
+<ul>
+<li style="list-style-type:none"><p><tt>range(...)</tt> returns a <strong>list of integers</strong>; (float-lists can be gotten with <tt>N.arange(...)</tt> in Numerical Python.) </p>
+</li>
+</ul>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-ad96487533557108864e5c2904baf6121f9dea47_005\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-ad96487533557108864e5c2904baf6121f9dea47_005" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">5</span><span class="Operator">)</span> <span class="Comment"># returns a list, start at 0, up to (not including !) 5, increment 1</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">[</span><span class="Number">0</span><span class="Operator">,</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">2</span><span class="Operator">,</span><span class="Number">3</span><span class="Operator">,</span><span class="Number">4</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">4</span><span class="Operator">,</span><span class="Number">8</span><span class="Operator">)</span>  <span class="Comment"># start at 4, up to &lt; 8, in steps of 1</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">[</span><span class="Number">4</span><span class="Operator">,</span><span class="Number">5</span><span class="Operator">,</span><span class="Number">6</span><span class="Operator">,</span><span class="Number">7</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">4</span><span class="Operator">,</span><span class="Number">13</span><span class="Operator">,</span><span class="Number">3</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">12</span><span class="Operator">,</span><span class="Number">6</span><span class="Operator">,</span><span class="Operator">-</span><span class="Number">3</span><span class="Operator">)</span>  <span class="Comment"># return list: start with 12, go in steps of -3, stay larger than 6</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">[</span><span class="Number">12</span><span class="Operator">,</span> <span class="Number">9</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">12</span><span class="Operator">,</span><span class="Number">5</span><span class="Operator">,</span><span class="Operator">-</span><span class="Number">3</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="Operator">[</span><span class="Number">12</span><span class="Operator">,</span> <span class="Number">9</span><span class="Operator">,</span> <span class="Number">6</span><span class="Operator">]</span><span class="Text"></span></span>
+</pre>
+</div>
+<ul>
+<li style="list-style-type:none"><p>Now comes something pretty cool: "List Comprehensions", you might never need them, but they are just so cool ... see for your self: </p>
+</li>
+</ul>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-9340da3be1faea606f67bd357a771d99b5c2e5c8_006\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-9340da3be1faea606f67bd357a771d99b5c2e5c8_006" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="Operator">[</span><span class="ID">i</span><span class="Operator">**</span><span class="Number">2</span> <span class="ResWord">for</span> <span class="ID">i</span> <span class="ResWord">in</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">3</span><span class="Operator">)</span><span class="Operator">]</span> <span class="Comment"># list comprehension: [/any-expression/ for VAR in LIST]</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">[</span><span class="Number">0</span><span class="Operator">,</span> <span class="Number">1</span><span class="Operator">,</span> <span class="Number">4</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="Operator">[</span><span class="ID">i</span><span class="Operator">**</span><span class="Number">2</span> <span class="ResWord">for</span> <span class="ID">i</span> <span class="ResWord">in</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">5</span><span class="Operator">)</span> <span class="ResWord">if</span> <span class="ID">i</span><span class="Operator">**</span><span class="Number">3</span><span class="Operator">!=</span><span class="Number">27</span><span class="Operator">]</span> <span class="Comment">#list comprehension with if-clause</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">[</span><span class="Number">1</span><span class="Operator">,</span> <span class="Number">4</span><span class="Operator">,</span> <span class="Number">16</span><span class="Operator">]</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h3 id="head-1684eee31fdd92d91fbc5ec723c55a31218c385f">2.4. loops and functions</h3>
+
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-9f45357761e14d8d7b4e351e3c48b40033b76db0_007\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-9f45357761e14d8d7b4e351e3c48b40033b76db0_007" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">for</span> <span class="ID">i</span> <span class="ResWord">in</span> <span class="ID">range</span><span class="Operator">(</span><span class="Number">10</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ResWord">print</span> <span class="ID">i</span><span class="Operator">,</span><span class="ID">i</span><span class="Operator">**</span><span class="Number">2</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="Number">10</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">while</span> <span class="ID">a</span><span class="Operator">&gt;</span><span class="Number">5</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ResWord">print</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">a</span> <span class="Operator">-=</span> <span class="Number">1</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">   9 </span>      <span class="Operator">&lt;</span> <span class="ID">prints</span> <span class="ID">result</span> <span class="ID">here</span> <span class="Operator">&gt;</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">def</span> <span class="ID">f</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">=</span><span class="Number">10</span><span class="Operator">)</span><span class="Operator">:</span> <span class="Comment"># argument with default value</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>    <span class="ResWord">if</span> <span class="ID">a</span><span class="Operator">==</span><span class="Number">0</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  12 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>        <span class="ResWord">return</span> <span class="Number">1</span></span>
+<span class="line"><span class="LineNumber">  13 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>    <span class="ResWord">return</span> <span class="ID">a</span><span class="Operator">*</span><span class="ID">f</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">-</span><span class="Number">1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  14 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">  15 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">del</span> <span class="ID">a</span> <span class="Comment"># delete variable name a; if no one else has a reference to a, a get garbage collected</span></span>
+<span class="line"><span class="LineNumber">  16 </span></span>
+<span class="line"><span class="LineNumber">  17 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">import</span> <span class="ID">string</span> <span class="Comment"># if you want to use other modules/packages</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h3 id="head-e1760e96d5df2471c53feb8c64ce340e8c997b5d">2.5. we don't need this (yet)</h3>
+
+<ul>
+<li style="list-style-type:none"><p>Dictionaries are like telephone books: You can find anything in them. </p>
+</li>
+</ul>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-0acec993c958d46c5361925983c964d0021ec4ef_008\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-0acec993c958d46c5361925983c964d0021ec4ef_008" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="Operator">{</span><span class="Operator">}</span> <span class="Comment"># empty dictionary</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="String">'boss'</span><span class="Operator">]</span> <span class="Operator">=</span> <span class="Number">1000000</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Number">1234</span><span class="Operator">]</span> <span class="Operator">=</span> <span class="String">"string"</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">{</span><span class="Number">1234</span><span class="Operator">:</span> <span class="Operator">-</span><span class="Number">1</span><span class="Operator">,</span> <span class="String">'boss'</span><span class="Operator">:</span> <span class="Number">1000000</span><span class="Operator">}</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">len</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">)</span> <span class="Number">3</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">keys</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Operator">[</span><span class="Number">1234</span><span class="Operator">,</span> <span class="String">'boss'</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">values</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Operator">[</span><span class="Operator">-</span><span class="Number">1</span><span class="Operator">,</span> <span class="Number">1000000</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">items</span><span class="Operator">(</span><span class="Operator">)</span> <span class="Comment"># returns a list of tuples: (key,value) pairs</span></span>
+<span class="line"><span class="LineNumber">  12 </span><span class="Operator">[</span><span class="Operator">(</span><span class="Number">1234</span><span class="Operator">,</span> <span class="Operator">-</span><span class="Number">1</span><span class="Operator">)</span><span class="Operator">,</span> <span class="Operator">(</span><span class="String">'boss'</span><span class="Operator">,</span> <span class="Number">1000000</span><span class="Operator">)</span><span class="Operator">]</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>Tuples are very similar to lists: the one big difference is that they are unchangeable (immutable). This allows using them as keys in dictinaries.  Together lists and tuple are referred to as <em>sequences</em>. 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-1b3b472ccb6f237b7c531e61fa4521d8a688a25a_009\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-1b3b472ccb6f237b7c531e61fa4521d8a688a25a_009" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">=</span> <span class="Operator">(</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">3.1</span><span class="Operator">,</span> <span class="Number">4j</span><span class="Operator">,</span> <span class="String">"hello"</span><span class="Operator">)</span> <span class="Comment"># tuple</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">len</span><span class="Operator">(</span><span class="ID">b</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Number">4</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">+</span> <span class="Operator">[</span><span class="Number">3</span><span class="Operator">,</span><span class="Number">4</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="ID">Traceback</span> <span class="Operator">(</span><span class="ID">most</span> <span class="ID">recent</span> <span class="ID">call</span> <span class="ID">last</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   6 </span>  <span class="ID">File</span> <span class="String">"&lt;input&gt;"</span><span class="Operator">,</span> <span class="ID">line</span> <span class="Number">1</span><span class="Operator">,</span> <span class="ResWord">in</span> <span class="Comment">#</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="ID">TypeError</span><span class="Operator">:</span> <span class="ID">can</span> <span class="ID">only</span> <span class="ID">concatenate</span> <span class="ID">tuple</span> <span class="Operator">(</span><span class="ResWord">not</span> <span class="String">"list"</span><span class="Operator">)</span> <span class="ID">to</span> <span class="ID">tuple</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="Operator">{</span><span class="Operator">}</span> <span class="Comment"># empty dictionary</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Operator">(</span><span class="Number">4</span><span class="Operator">,</span><span class="Number">5</span><span class="Operator">)</span><span class="Operator">]</span> <span class="Operator">=</span> <span class="Operator">[</span><span class="Number">6</span><span class="Operator">,</span><span class="Number">7</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="String">'boss'</span><span class="Operator">]</span> <span class="Operator">=</span> <span class="Number">1000000</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Number">1234</span><span class="Operator">]</span> <span class="Operator">=</span> <span class="String">"string"</span></span>
+<span class="line"><span class="LineNumber">  12 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">items</span><span class="Operator">(</span><span class="Operator">)</span> <span class="Comment"># returns a list of tuples: (key,value) pairs</span></span>
+<span class="line"><span class="LineNumber">  13 </span><span class="Operator">[</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">4</span><span class="Operator">,</span> <span class="Number">5</span><span class="Operator">)</span><span class="Operator">,</span> <span class="Operator">(</span><span class="Number">6</span><span class="Operator">,</span> <span class="Number">7</span><span class="Operator">)</span><span class="Operator">)</span><span class="Operator">,</span> <span class="Operator">(</span><span class="Number">1234</span><span class="Operator">,</span> <span class="Operator">-</span><span class="Number">1</span><span class="Operator">)</span><span class="Operator">,</span> <span class="Operator">(</span><span class="String">'boss'</span><span class="Operator">,</span> <span class="Number">1000000</span><span class="Operator">)</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  14 </span></span>
+<span class="line"><span class="LineNumber">  15 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">+=</span> <span class="Operator">(</span><span class="Number">3</span><span class="Operator">,</span><span class="Number">4</span><span class="Operator">)</span>  <span class="Comment"># works - NO error: BUT new b get's created</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>Generic file I/O is supported (if you realy need it ! But see the <strong>Priithon-"useful"</strong> sections first !) 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-b5155509a7ae2378491244d2eaa8d79f968ddea7_010\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-b5155509a7ae2378491244d2eaa8d79f968ddea7_010" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span>  <span class="ID">f</span> <span class="Operator">=</span> <span class="ID">open</span><span class="Operator">(</span><span class="String">"c:/lines.txt"</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   2 </span>  <span class="ResWord">for</span> <span class="ID">line</span> <span class="ResWord">in</span> <span class="ID">f</span><span class="Operator">.</span><span class="ID">readlines</span><span class="Operator">(</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   3 </span>      <span class="ResWord">print</span> <span class="String">"%4d "</span> <span class="Operator">%</span> <span class="ID">len</span><span class="Operator">(</span><span class="ID">line</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">line</span><span class="Operator">,</span> <span class="Comment"># line already contains a 'newline'</span></span>
+<span class="line"><span class="LineNumber">   4 </span>  <span class="ID">f</span><span class="Operator">.</span><span class="ID">close</span><span class="Operator">(</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>Python is a real object-orieted language - so here are your classes. (But you might never need to create a class in your life.) 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-8e78e96c11d28cc900e60965544a185f75d09e07_011\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-8e78e96c11d28cc900e60965544a185f75d09e07_011" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span>  <span class="ResWord">class</span> <span class="ID">myClass</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   2 </span>    <span class="ResWord">def</span> <span class="ID">__init__</span><span class="Operator">(</span><span class="ID">self</span><span class="Operator">,</span> <span class="ID">a</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   3 </span>       <span class="ID">self</span><span class="Operator">.</span><span class="ID">a</span> <span class="Operator">=</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">   4 </span>    <span class="ResWord">def</span> <span class="ID">getVal</span><span class="Operator">(</span><span class="ID">self</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   5 </span>       <span class="ResWord">return</span> <span class="ID">self</span><span class="Operator">.</span><span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">   6 </span>    <span class="ResWord">def</span> <span class="ID">setVal</span><span class="Operator">(</span><span class="ID">self</span><span class="Operator">,</span> <span class="ID">a</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">   7 </span>       <span class="ID">self</span><span class="Operator">.</span><span class="ID">a</span> <span class="Operator">=</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">   8 </span>    <span class="ResWord">def</span> <span class="ID">__str__</span><span class="Operator">(</span><span class="ID">self</span><span class="Operator">)</span><span class="Operator">:</span>   <span class="Comment"># define "string"-representation</span></span>
+<span class="line"><span class="LineNumber">   9 </span>       <span class="ResWord">return</span> <span class="String">"&lt;myClass with val = %s"</span> <span class="Operator">%</span> <span class="ID">self</span><span class="Operator">.</span><span class="ID">a</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h3 id="head-cf975dadc44619cd62b46d6089269a8e1bddc31a">2.6. last Python notes</h3>
+
+<ul>
+<li style="list-style-type:none"><p>Python knows a "special value" called <strong><tt>None</tt></strong>. It is both different from <tt>0</tt> or the empty string <tt>""</tt>. If is very useful in cases where 0 or the empty string represent valid values.  </p>
+<p>There is a special operator testing the <em>identity</em> of two things as opposed to their <em>equality</em>: the <tt>is</tt>-operator. This one is to be used to check if a variable is <tt>None</tt>. <sup><a href="#fndef-25e780057e65a45bb30acbe1212f259ec1c9a526-19" id="fnref-25e780057e65a45bb30acbe1212f259ec1c9a526-19">20</a></sup> (Example: <tt>if&nbsp;a&nbsp;is&nbsp;None:&nbsp;print&nbsp;"using&nbsp;default..."</tt>) </p>
+</li>
+</ul>
+
+<h3 id="head-8b53e1850e5d0987b2aeddeed610f1b4d53afd43">2.7. debugger</h3>
+
+<p>If something goes wrong and you get a traceback, you might be interested in the python debugger. He allows you (among other things) to go in ("post mortem" !)  and check on variables and their values right before the exception occurs 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-0353c69ba3255053ebcd0d94c30675ea653a1333_012\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-0353c69ba3255053ebcd0d94c30675ea653a1333_012" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">U</span><span class="Operator">.</span><span class="ID">debug</span><span class="Operator">(</span><span class="Operator">)</span>    <span class="Comment"># short for: U.pdb.pm()</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">(</span><span class="ID">pdb</span><span class="Operator">)</span> <span class="ID">l</span>   <span class="Comment"># 'l' lists some lines before and after where the error occured</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">(</span><span class="ID">pdb</span><span class="Operator">)</span> <span class="ID">up</span>  <span class="Comment"># 'up' goes one level up into the calling function</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">(</span><span class="ID">pdb</span><span class="Operator">)</span> <span class="ID">l</span>   <span class="Comment"># 'l' lists some lines before and after - now in the calling function</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">(</span><span class="ID">pdb</span><span class="Operator">)</span> <span class="ID">p</span> <span class="ID">varname</span>  <span class="Comment"># print value of a variable</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">(</span><span class="ID">pdb</span><span class="Operator">)</span> <span class="ID">help</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">(</span><span class="ID">pdb</span><span class="Operator">)</span> <span class="ID">quit</span></span>
+<span class="line"><span class="LineNumber">  12 </span></span>
+<span class="line"><span class="LineNumber">  13 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>(SEB TODO  more excercise!) </p>
+
+<h2 id="head-d71b31d3251f0b9c49b2b1a3a9b44e5a4ae4cdd5">3. Tutorial: Numerical Python</h2>
+
+<p>When I started with Priithon in 2001/2002 the (supposed to be) current version of numerical python was numarray. But it was never accepted by everyone in the cummunity (mostly because small array/matrix handling was not optimized enough). Now (2007, starting in 2005) the two camps are reunited into <strong>numpy</strong>. Numpy is now the <em>official</em> name (of the project and of the actual python <em>module</em>). Before it was used for the original <em>Numeric</em> package as a nickname (keep this is mind when you google old web pages) </p>
+
+<h3 id="head-b7a1c917dbce13c0e6f0448b32082014ad9543df">3.1. some history</h3>
+
+<ul>
+<li style="list-style-type:none"><p>First some confusion regarding the current state (Jun 2005) </p>
+</li>
+</ul>
+<ul>
+<li><p> Numerical Python (often called "numpy" or Numeric) grew out of a  "Python special interest group" (SIG) formed in Aug 1995. Jim Hugunin wrote most of the code and documentation while a graduate student at MIT. Numerical Python 1.1 was released Mar 1998 mostly written by Paul F. Dubois (LLNL).  </p>
+</li>
+<li><p> In Mar 2002 STScI announced numarray 0.3, a complete reimplementation focused on efficient and fast handling of large (astronomical) data sets. <sup><a href="#fndef-60217c90dee021e6a51e7e5263b16a583cda4348-20" id="fnref-60217c90dee021e6a51e7e5263b16a583cda4348-20">21</a></sup> Among the key features is e.g. "Ability to reference byteswapped data or non-aligned data (as might be found in record arrays) without producing new temporary arrays.")  </p>
+</li>
+<li><p> Sadly Numeric and numarray are not efficiently convertable into each other<sup><a href="#fndef-4c440abdc544b08f1769f025b1190c13639a884e-21" id="fnref-4c440abdc544b08f1769f025b1190c13639a884e-21">22</a></sup>; even though (python) code written for one likely runs with the other without any change needed. </p>
+</li>
+<li class="gap"><p> The good news is that starting about Jan 2005 Oliphant Travis (<a href="http://www.ece.byu.edu/faculty/oliphant/"><img src="/wiki/modern/img/moin-www.png" alt="[WWW]" height="11" width="11"> http://www.ece.byu.edu/faculty/oliphant/</a>) is trying to bring everybody back into the same boat: including <strong>Guido van Rossum</strong> himself to make (at least the basic array data type) numerical python go into the standard python library. First the name <strong>Numeric3</strong> was used; then <strong>scipy_core</strong>; now it's officially called numpy </p>
+</li>
+<li class="gap"><p> <a class="external" href="http://scipy.org"><img src="/wiki/modern/img/moin-www.png" alt="[WWW]" height="11" width="11"> http://scipy.org</a> is a good place to start looking for numerical python related documentation. </p>
+<ul>
+<li style="list-style-type:none"><p>Also there is an (electronic) book for sale at <a class="external" href="http://www.tramy.us/guidetoscipy.html"><img src="/wiki/modern/img/moin-www.png" alt="[WWW]" height="11" width="11"> http://www.tramy.us/guidetoscipy.html</a>. Its title is <strong>Guide to <a class="nonexistent" href="/mywiki/NumPy">NumPy</a></strong> and it has about 300 pages describing all(!) details about both the Python and the C (C-API) side of numpy. </p>
+</li>
+</ul>
+</li>
+<li><p> <a class="external" href="http://numeric.scipy.org"><img src="/wiki/modern/img/moin-www.png" alt="[WWW]" height="11" width="11"> http://numeric.scipy.org</a> decribes how some of the C parts of numpy (including header files) can go into standart python. This would allow other projects like wxPython, PIL (python imaging library) or PyOpenGL to optimize and standardize memory (array) handling </p>
+</li>
+<li class="gap"><p> As of 2007 priithon imports numpy as <tt>N</tt> (the old <tt>numarray</tt> imported as <tt>na</tt> is gone)  </p>
+</li>
+</ul>
+
+<h3 id="head-43db4f35f4fd9694e033dd42412410980a4784b8">3.2. Quick start</h3>
+
+<p>(we use numpy; priithon imports numpy as <strong><tt>N</tt></strong>) </p>
+<p>Numpy provides a efficient data type for multi-dimensional numerical data array; we will call them always <em>arrays</em> even though <em>vector</em> would sometimes sound nicer (especially for the mathematically trained ear).  </p>
+<p>Arrays are not extensible in size. <sup><a href="#fndef-afa94b4847ca60c27b4a75b9bfbef4b52a01dd46-22" id="fnref-afa94b4847ca60c27b4a75b9bfbef4b52a01dd46-22">23</a></sup> In Numerical Python the convention for n&gt;1 dimensional arrays is to use the <strong>axis order</strong> as <strong>z,y,x</strong>. That is for 2d arrays (matrices) the <strong>first</strong> index references to the <strong>row</strong> and the <strong>second</strong> to the <strong>column</strong>.   </p>
+<p>Indices <strong>start at \0\</strong> and end "one early" (like in C/C++: a[5] has elements from a[0] to a[4]; a[5] gives an error message (no segmentation fault <img src="/wiki/modern/img/smile.png" alt=":-)" height="15" width="15"> ) </p>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-24556ddefde00d647428f0122fdf87833265db58_013\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-24556ddefde00d647428f0122fdf87833265db58_013" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span> <span class="Comment"># create an single precision float array with 256 by 256 elements</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">zeros</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">float32</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   3 </span> <span class="Comment"># 3 by 256 by 256 elements unsigned short (16bit) integer, all elements set to one.</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">ones</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">3</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">uint16</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   5 </span> <span class="Comment"># create 1d-array: start with 1 increment .1, up to (not including!) 10  </span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c</span> <span class="Operator">=</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">arange</span><span class="Operator">(</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">10</span><span class="Operator">,</span><span class="Number">.1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   7 </span> <span class="Comment"># N.arange: type defaults to double precision or int32(if that's enough)</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c</span><span class="Operator">.</span><span class="ID">dtype</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="ID">float64</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c</span><span class="Operator">.</span><span class="ID">shape</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">(</span><span class="Number">90</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h3 id="head-59494ef204c614e609cc3f12fa5c836fb5ba54d4">3.3. more exercising</h3>
+
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-271fa7cead126b74fb6d7cac1eb47752f22e8882_014\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-271fa7cead126b74fb6d7cac1eb47752f22e8882_014" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">array</span><span class="Operator">(</span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">2</span><span class="Operator">]</span><span class="Operator">,</span> <span class="Operator">[</span><span class="Number">3</span><span class="Operator">,</span><span class="Number">4</span><span class="Operator">]</span><span class="Operator">,</span> <span class="Operator">[</span><span class="Number">5</span><span class="Operator">,</span><span class="Number">6</span><span class="Operator">]</span><span class="Operator">]</span><span class="Operator">)</span> <span class="Comment"># create array from sequence (list or tuple)</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">2</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   4 </span> <span class="Operator">[</span><span class="Number">3</span> <span class="Number">4</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   5 </span> <span class="Operator">[</span><span class="Number">5</span> <span class="Number">6</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">arange</span><span class="Operator">(</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">7</span><span class="Operator">)</span><span class="Operator">;</span> <span class="ID">b</span><span class="Operator">.</span><span class="ID">shape</span><span class="Operator">=</span><span class="Operator">(</span><span class="Number">3</span><span class="Operator">,</span><span class="Number">2</span><span class="Operator">)</span><span class="Operator">;</span> <span class="ID">b</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">2</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   8 </span> <span class="Operator">[</span><span class="Number">3</span> <span class="Number">4</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   9 </span> <span class="Operator">[</span><span class="Number">5</span> <span class="Number">6</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Number">0</span><span class="Operator">]</span>  <span class="Comment"># values for row(y) 0</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">2</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  12 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Number">0</span><span class="Operator">,</span><span class="Operator">:</span><span class="Operator">]</span> <span class="Comment"># all following (non specified) indices default to ':' anyway !!</span></span>
+<span class="line"><span class="LineNumber">  13 </span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">2</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  14 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Operator">:</span><span class="Operator">,</span><span class="Number">1</span><span class="Operator">]</span> <span class="Comment"># values column(x) 1</span></span>
+<span class="line"><span class="LineNumber">  15 </span><span class="Operator">[</span><span class="Number">2</span> <span class="Number">4</span> <span class="Number">6</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  16 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">shape</span></span>
+<span class="line"><span class="LineNumber">  17 </span><span class="Operator">(</span><span class="Number">3</span><span class="Operator">,</span> <span class="Number">2</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  18 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">rank</span> <span class="Comment"># number of dimensions of a ( equals len(a.shape) ) 2</span></span>
+<span class="line"><span class="LineNumber">  19 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">dtype</span></span>
+<span class="line"><span class="LineNumber">  20 </span><span class="ID">int32</span></span>
+<span class="line"><span class="LineNumber">  21 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span><span class="Operator">.</span><span class="ID">shape</span><span class="Operator">=</span> <span class="Operator">(</span><span class="Number">2</span><span class="Operator">,</span><span class="Number">3</span><span class="Operator">)</span>  <span class="Comment"># you can assign a new shape IF the total number of elements matches</span></span>
+<span class="line"><span class="LineNumber">  22 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span></span>
+<span class="line"><span class="LineNumber">  23 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">2</span> <span class="Number">3</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  24 </span> <span class="Operator">[</span><span class="Number">4</span> <span class="Number">5</span> <span class="Number">6</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  25 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">sum</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  26 </span><span class="Number">21</span></span>
+<span class="line"><span class="LineNumber">  27 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">stddev</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  28 </span><span class="Number">1.87082869339</span></span>
+<span class="line"><span class="LineNumber">  29 </span></span>
+<span class="line"><span class="LineNumber">  30 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">diagonal</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  31 </span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">4</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  32 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">trace</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  33 </span><span class="Number">5</span></span>
+<span class="line"><span class="LineNumber">  34 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">where</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">&gt;</span><span class="Number">2</span><span class="Operator">,</span><span class="Number">1</span><span class="Operator">,</span><span class="Number">4</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  35 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">4</span> <span class="Number">4</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  36 </span> <span class="Operator">[</span><span class="Number">1</span> <span class="Number">1</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  37 </span> <span class="Operator">[</span><span class="Number">1</span> <span class="Number">1</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  38 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">flat</span>   <span class="Comment"># python uses C order (not Fortran)</span></span>
+<span class="line"><span class="LineNumber">  39 </span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">2</span> <span class="Number">3</span> <span class="Number">4</span> <span class="Number">5</span> <span class="Number">6</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  40 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">dtype</span></span>
+<span class="line"><span class="LineNumber">  41 </span><span class="ID">int32</span></span>
+<span class="line"><span class="LineNumber">  42 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">average</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">.</span><span class="ID">flat</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  43 </span><span class="Number">3.5</span></span>
+<span class="line"><span class="LineNumber">  44 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">transpose</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  45 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">  46 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">3</span> <span class="Number">5</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  47 </span> <span class="Operator">[</span><span class="Number">2</span> <span class="Number">4</span> <span class="Number">6</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  48 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Operator">:</span><span class="Operator">,</span><span class="Number">0</span><span class="Operator">]</span> <span class="Operator">=</span> <span class="Number">77</span></span>
+<span class="line"><span class="LineNumber">  49 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">  50 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">77</span>  <span class="Number">3</span>  <span class="Number">5</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  51 </span> <span class="Operator">[</span><span class="Number">77</span>  <span class="Number">4</span>  <span class="Number">6</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  52 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">[</span><span class="Number">1</span><span class="Operator">]</span> <span class="Operator">=</span> <span class="Number">0</span></span>
+<span class="line"><span class="LineNumber">  53 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span></span>
+<span class="line"><span class="LineNumber">  54 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">77</span>  <span class="Number">3</span>  <span class="Number">5</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  55 </span> <span class="Operator">[</span> <span class="Number">0</span>  <span class="Number">0</span>  <span class="Number">0</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  56 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">arange</span><span class="Operator">(</span><span class="Number">10</span><span class="Operator">)</span><span class="Operator">[</span><span class="Operator">:</span><span class="Operator">:</span><span class="Number">3</span><span class="Operator">]</span> <span class="Comment"># strides !</span></span>
+<span class="line"><span class="LineNumber">  57 </span><span class="Operator">[</span><span class="Number">0</span> <span class="Number">3</span> <span class="Number">6</span> <span class="Number">9</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  58 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">arange</span><span class="Operator">(</span><span class="Number">0</span><span class="Operator">,</span><span class="Number">10</span><span class="Operator">,</span><span class="Number">3</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  59 </span><span class="Operator">[</span><span class="Number">0</span> <span class="Number">3</span> <span class="Number">6</span> <span class="Number">9</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  60 </span></span>
+<span class="line"><span class="LineNumber">  61 </span></span>
+<span class="line"><span class="LineNumber">  62 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">identity</span><span class="Operator">(</span><span class="Number">3</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  63 </span><span class="Operator">[</span><span class="Operator">[</span><span class="Number">1</span> <span class="Number">0</span> <span class="Number">0</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  64 </span> <span class="Operator">[</span><span class="Number">0</span> <span class="Number">1</span> <span class="Number">0</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  65 </span> <span class="Operator">[</span><span class="Number">0</span> <span class="Number">0</span> <span class="Number">1</span><span class="Operator">]</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">  66 </span></span>
+<span class="line"><span class="LineNumber">  67 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">pi</span></span>
+<span class="line"><span class="LineNumber">  68 </span><span class="Number">3.14159265359</span></span>
+<span class="line"><span class="LineNumber">  69 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">e</span></span>
+<span class="line"><span class="LineNumber">  70 </span><span class="Number">2.71828182846</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h2 id="head-8fcbf8359de25c028abc1374b9b67b2d66d4e461">4. Priithon Tutorial</h2>
+
+<p></p>
+<p>Now the tutorial for my  <strong>image analysis</strong> package (a collection of several module that I wrote) </p>
+
+<h3 id="head-4447aa60958c50df93fe6f7b8c452fd4d6fb52b1">4.1. images</h3>
+
+<ul>
+<li><p> <tt>U.loadImg(filename)</tt> loads a tiff/jpg/bmp/gif/... image and returns it as an array. RGB images are returned as a stack of 2d-images (<tt>shape&nbsp;=&nbsp;(3,height,width)</tt>) <sup><a href="#fndef-11aaf666dd7d2d36d56dab0e3296e86eabaaf50f-23" id="fnref-11aaf666dd7d2d36d56dab0e3296e86eabaaf50f-23">24</a></sup>  </p>
+</li>
+<li><p> <tt>U.loadFits(filename,&nbsp;slot=0)</tt> loads a fits file and returns the data contained in the given "slot" as array  </p>
+</li>
+<li><p> <tt>Mrc.bindFile(filename,&nbsp;mode='r')</tt> returns a ("memory mapped") array that is "bound" to the MRC/Priithm file on disk. This allows instantaneous access to very large files <sup><a href="#fndef-4b4e60b158aaa0f408818c34150ed338685b3bfa-24" id="fnref-4b4e60b158aaa0f408818c34150ed338685b3bfa-24">25</a></sup> Changing values in that array gets written to the original file on disk - <em>but only</em> if the "binding" is done in <strong>"write mode"</strong> - <strong>not the default!</strong> (in read-only-mode an exception is raised instead). </p>
+<p>Likely you won't need any of those three commands for a while: You can just drag (using the mouse) the file from the explorer(windows) or konqueror (Linus/KDE) or alike (Mac,Linux/Gnome,...) into the priithon <a class="nonexistent" href="/mywiki/PyShell">PyShell</a> window or any viewer window and a new viewer window opens showing the data of that file. <sup><a href="#fndef-0c47c8bd3db03dbcc95537177a19cda54cf75c97-25" id="fnref-0c47c8bd3db03dbcc95537177a19cda54cf75c97-25">26</a></sup> The data array of a viewer window can be accessed with Y.vd(viewerID).  To open a new viewer window showing the data of an n(&gt;1) dimensional array call <tt>Y.view(array)</tt>. </p>
+<p>For reading text files containing 2d (seb: or 3d ??) "tables" of space (or comma ?) separated values use <tt>U.readArray(filename)</tt>. The corresponding "saving" functions are: <tt>U.saveImg()</tt>, <sup><a href="#fndef-10420061474f8c6f75d46a41b5b1aecdda6a64e9-26" id="fnref-10420061474f8c6f75d46a41b5b1aecdda6a64e9-26">27</a></sup>  <tt>U.saveFits()</tt> and <tt>Mrc.save()</tt>. </p>
+<p>To quickly browse through many files on the disk call <tt>Y.listFilesViewer()</tt>: a window lists all files in the current directory, a single-click on a filename shows the data (reusing a newly opened viewer window). </p>
+<p>As a mnemonic: </p>
+</li>
+<li><p> all commands in the <tt>Y</tt> module deal with graphic display (in one way or the other) </p>
+</li>
+<li><p> all commands starting with <tt>Y.v</tt>... have to do with the image viewer:  </p>
+<ul>
+<li><p> <tt>Y.view()</tt> </p>
+</li>
+<li><p> <tt>Y.vd(id)</tt>: gets the data array of a viewer </p>
+</li>
+<li><p> <tt>Y.vLeftClickTriangleMeasure(viewerID)</tt>: measures circle diameter and center pos for each three mouse clicks into the viewer window number <tt>viewerID</tt> </p>
+</li>
+<li><p> ...  and many more ... </p>
+</li>
+</ul>
+</li>
+<li><p> All commands starting with <tt>Y.plot</tt>... have to do with 1d graph plotting:  </p>
+<ul>
+<li><p> <tt>Y.ploty(array)</tt> plots a graph where array contains the <em>y</em>-values (the <em>x</em>-values are assumed to be [0,1,2,3,...]). Array can contain multiple rows (or columns) of such <em>y</em>-values; then multiple graphs are plotted in colors ordered as  red, green, blue, black, cyan, magenta.  </p>
+</li>
+<li><p> <tt>Y.plotxy()</tt>: if the <em>x</em>-value are to be specified;  </p>
+<ul>
+<li><p> if given a <em>single array</em> the first row(or column) is to specify the <em>x</em>-values the following specify (multiple rows/columns of) <em>y</em>-values;  </p>
+</li>
+<li><p> call <tt>Y.plotxy(xVals,&nbsp;yVals)</tt> where <tt>xVals</tt> gives one row(or column) of <em>x</em>-values and <tt>yVals</tt> works the same as in <tt>Y.ploty()</tt>.  </p>
+</li>
+</ul>
+</li>
+<li><p> <tt>Y.plothold(on=1)</tt>: add more graphs to a plot-figure by setting into "hold"-mode with.  </p>
+</li>
+<li><p> <tt>Y.plotFigure()</tt>: open a new plot-figure window, or to re-activate an old one.  </p>
+</li>
+<li class="gap"><p> <tt>Y.plotProfileVert()</tt> and  </p>
+</li>
+<li><p> <tt>Y.plotProfileHoriz()</tt>   plot line-pofiles along a given axis and position, possibly averaging over a "band" of pixel more than 1 pixels wide.   </p>
+<ul>
+<li><p> These functions can be called with as argument either a <tt>viewerID</tt> (integer number) or a <tt>two-dimensional&nbsp;array</tt>. </p>
+</li>
+</ul>
+</li>
+<li class="gap"><p> <tt>Y.vLeftClickHorizProfile()</tt> </p>
+</li>
+<li><p> <tt>Y.vLeftClickVertProfileHoriz()</tt> set a viewer window into a mode such that clicking into it will plot a line pofile (either vertical or horizontal), possibly averaging over a "band" of pixel more than 1 pixels wide. </p>
+</li>
+<li class="gap"><p> <tt>Y.inspect()</tt> opens a special browser window allowing you to inspect all variables, functions, modules; and viewer their source code ! </p>
+</li>
+<li class="gap"><p> FN()  and DIR() Use <tt>FN()</tt> whenever you need to specify a filename but prefer using a graphical dialog window instead <sup><a href="#fndef-a246018438cdaff6ffc3101668ad34888724e94a-27" id="fnref-a246018438cdaff6ffc3101668ad34888724e94a-27">28</a></sup> Use <tt>DIR()</tt> for directory names. <sup><a href="#fndef-9d388e9ca183b30e28ae892241785b6383bf22dd-28" id="fnref-9d388e9ca183b30e28ae892241785b6383bf22dd-28">29</a></sup>.  </p>
+<p>Instead you can actually drag file or directories from your systems file explorer into the shell window and there path appears <sup><a href="#fndef-15e2f1e64ce356ff1dedf10d86b3725a09bf0590-29" id="fnref-15e2f1e64ce356ff1dedf10d86b3725a09bf0590-29">30</a></sup> </p>
+</li>
+<li><p> <tt>Y.saveSession(filename)</tt> saves all text of the shell window in to a file. [[<a class="nonexistent" href="/mywiki/FootNote">FootNote</a>( the default filename (<tt>None</tt>) means that a file dialog window opens (default name: <tt>"_pySession_&lt;date&gt;&lt;time&gt;.py"</tt>) ]] </p>
+</li>
+</ul>
+<p>Mac OSX has a bug in it's OpenGL library (concerning textures with floating point values) since version 10.3. Call <tt>Y._bugOSX1036(1)</tt> to activate my workaround code for that. </p>
+</li>
+</ul>
+
+<h3 id="head-91e64fb1c89c6c60aff0e634d052f9aa1d6785ef">4.2. Coordinate System</h3>
+
+<p>this paragraph is from PIL: ( we do it differently !!!! todo fixme) 
+</p>
+<pre>
+The Python Imaging Library uses a Cartesian pixel coordinate system, with (0,0) in the upper left corner. 
+Note that the coordinates refer to the implied pixel corners; 
+the centre of a pixel addressed as (0, 0) actually lies at (0.5, 0.5).
+
+Coordinates are usually passed to the library as 2-tuples (x, y). 
+Rectangles are represented as 4-tuples, with the upper left corner given first. 
+For example, a rectangle covering all of an 800x600 pixel image is written as (0, 0, 800, 600).
+</pre>
+
+<h3 id="head-5e1f4e768a1d67e7f06542e593a633a518bf1b36">4.3. "Useful" stuff</h3>
+
+<p>The purpose of the <tt>U</tt>-module is to provide "useful" "one-liner kind-of" functions. </p>
+<p>First, if you have a dataset and want to see all of it's min,max,mean and standard-deviation values, call <tt>U.mmms(&nbsp;array&nbsp;)</tt>.  </p>
+<p>If your eyes start hurting because you look at many arrays (their element value) and <em>don't</em> care at all about all those decimals and <em>e</em>-numbers try calling <tt>U.naSetArrayPrintMode(precision=4,&nbsp;suppress_small=1)</tt> <sup><a href="#fndef-257f4637beeefb9d1d87eb2319765e6bd9cd4410-30" id="fnref-257f4637beeefb9d1d87eb2319765e6bd9cd4410-30">31</a></sup>  </p>
+<ul>
+<li><p> <tt>U.deriv1D(arr)</tt> returns the gradient (derivative) of a one dimensional array (by finite differencing) </p>
+</li>
+</ul>
+<p>For (1D?) curve fitting we have:  </p>
+<ul>
+<li><p> <tt>U.fitLine()</tt> </p>
+</li>
+<li><p> <tt>U.fitPoly()</tt> (polynomial function: y=a+bx+cx**2+dx**3+...) </p>
+</li>
+<li><p> <tt>U.fitDecay()</tt> (fit single exponential or sum of many exponentials with offset; each exponential is given by it's <tt>time=0</tt> value and it's <em><strong>half-time</strong></em>; the offset is to be given as the first parameter; total number of parameters needs to be odd: 1 offset, two for each exponential) </p>
+</li>
+<li><p> <tt>fitGaussian1D()</tt> (parameters: it's sigma value and it's peak value (seb: add x-center value as 3rd parameter !!)) </p>
+</li>
+<li><p> <tt>fitAny()</tt> (you can use <em>any</em> python function that takes a data array and a parameter tuple as <em>model</em> to be fit).  </p>
+<p>Each of these functions take either just an array of <em>y</em>-values to be fitted or additionally an array of corresponding <em>x</em>-values; if the <em>x</em>-values are not given [0,1,2,3,...] is automatically used.  </p>
+</li>
+</ul>
+<p>To calculate a histogram of any (real values) data array you can use either <tt>U.histogram()</tt> or <tt>U.histogramYX()</tt>.<sup><a href="#fndef-e1f83de8722470e3a1396e4bc5fce9ab4c141e5f-31" id="fnref-e1f83de8722470e3a1396e4bc5fce9ab4c141e5f-31">32</a></sup> Please notice that if you specify <em>too many</em> bins then some might stay at zero count. </p>
+<ul>
+<li style="list-style-type:none"><p>Suppose you have a time series of 2d images (array), to plot the mean intensity as a function of time use  </p>
+</li>
+<li><p> <tt>Y.plot(&nbsp;U.mean2d(array)&nbsp;)</tt>. </p>
+<ul>
+<li style="list-style-type:none"><p>There is also  </p>
+</li>
+</ul>
+</li>
+<li><p> <tt>U.min2d()</tt> </p>
+</li>
+<li><p> <tt>U.max2d()</tt> </p>
+</li>
+<li><p> <tt>U.mm2d()</tt> </p>
+</li>
+<li><p> <tt>U.mmm2d()</tt> </p>
+</li>
+<li><p> <tt>U.mmms2d()</tt>.  The last three functions return an array with a first axis contain all or parts of min,max,mean,stddev. All the above functions work for <em>any</em>-dimensional arrays (rank must be &gt;= 2; probably should be &gt; 2)  and do the min/max/mean/stddev calculation over each(!) plane/section of the last two dimensions; e.g. for 3d <em>z-y-x</em> stacks for each <em>z</em> value over the <em>y-x</em> sections, for 4d <em>w-z-y-x</em> stacks for each <em>w-z</em> pair over the corresponding <em>y-x</em> section. </p>
+</li>
+<li><p> <tt>U.topPercentile(array,&nbsp;percentile=3)</tt> returns the value of the given percentile (counted from the highest values down; with <tt>percentile=50</tt> it returns the median) </p>
+<p>If the values of a data set are assumed to be gaussian distributed <tt>U.FWHM(arr)</tt> returns the <strong>Full-Width-Half-Max value</strong> of that distributions.<sup><a href="#fndef-4955407ee41d4c443a1e7a6ff187b3bf758620f5-32" id="fnref-4955407ee41d4c443a1e7a6ff187b3bf758620f5-32">33</a></sup> </p>
+</li>
+<li><p> <tt>U.phase(complexArr)</tt> returns a real valued array with same shape as <tt>complexArr</tt> containing the <em>complex phase</em>-values of <tt>complexArr</tt> (it uses numpy's <tt>N.arctan2(a.imag,&nbsp;a.real)</tt>) </p>
+</li>
+<li class="gap"><p> <tt>U.signal2noise(arr)</tt> </p>
+</li>
+<li><p> <tt>U.writeDataSets()</tt>  </p>
+</li>
+<li><p> <tt>U.thrsh(arr,&nbsp;min=0)</tt>  </p>
+</li>
+<li><p> <tt>noiseSigma(arr,&nbsp;backgroundMean=None)</tt> (check this with Erik Hom) </p>
+</li>
+<li class="gap"><p> <tt>U.asFloat32(arr)</tt> - just a little less typing than <tt>N.asarray(arr,N.float32)</tt> </p>
+</li>
+</ul>
+
+<h4 id="head-3671d38b4bf8100e2e083e07f9bad33aead8d9ce">4.3.1. "This is really part of numpy"</h4>
+
+<dl>
+<dt>U.nd is a "module shortcut" to scipy.nd_image</dt>
+<dd></dd>
+</dl>
+<p>This module is written  by Peter J. Verveer; it contains various functions for multi-dimension image processing. Those include operations for smoothing filter, first and second derivative filter, image segmentation, segmented image measuring functions and much more. </p>
+
+<h5 id="head-b8ad7fab71712303d8d091e99e0638706dcfb8e1">4.3.1.1. wrong: was true when Priithon was using numarray</h5>
+
+<dl>
+<dt>U.la is a "module shortcut" to numarray.linear_algebra</dt>
+<dd></dd>
+</dl>
+<p>This module provides some commonly used linear algebra routines; it uses (if properly installed) very machine optimized implementation provided by system libraries (lapack/blas/atlas).  <sup><a href="#fndef-29299a15339930bc3fa54ef2d1948467af2b6147-33" id="fnref-29299a15339930bc3fa54ef2d1948467af2b6147-33">34</a></sup> <sup><a href="#fndef-ff1fc936fcf29ab5fda074d7862de663e4c59a76-34" id="fnref-ff1fc936fcf29ab5fda074d7862de663e4c59a76-34">35</a></sup> </p>
+<ul>
+<li style="list-style-type:none"><p>( from the numarray docs: ) </p>
+<dl>
+<dt>   U.la.linear_least_squares( a, b, rcond=1e-10)</dt>
+<dd></dd>
+</dl>
+</li>
+</ul>
+<p>This function returns the least-squares solution of an overdetermined system of linear equations. An optional third argument indicates the cutoff for the range of singular values (defaults to ). There are four return values: the least-squares solution itself, the sum of the squared residuals (i.e. the quantity minimized by the solution), the rank of the matrix a, and the singular values of a in descending order. </p>
+<dl>
+<dt>   U.la.solve_linear_equations( a, b)</dt>
+<dd></dd>
+</dl>
+<p>This function solves a system of linear equations with a square non-singular matrix a and a right-hand-side vector b. Several right-hand-side vectors can be treated simultaneously by making b a two-dimensional array (i.e. a sequence of vectors). The function inverse(a) calculates the inverse of the square non-singular matrix a by calling solve_linear_equations(a, b) with a suitable b. </p>
+<dl>
+<dt>   U.la.singular_value_decomposition( a, full_matrices=0)</dt>
+<dd></dd>
+</dl>
+<p>This function returns three arrays V, S, and WT whose matrix product is the original matrix a. V and WT are unitary matrices (rank-2 arrays), whereas S is the vector (rank-1 array) of diagonal elements of the singular-value matrix. This function is mainly used to check whether (and in what way) a matrix is ill-conditioned. </p>
+<br>
+<br>
+<p> </p>
+<dl>
+<dt>U.ra is a "module shortcut" to numarray.random_array</dt>
+<dd></dd>
+</dl>
+<p>This provides a multitude of different random number generators/distributions: like uniform, normal(or gaussian), poisson and more. They are implemented using "ranlib", which is a good quality C implementation of a random-number generator. All functions in <tt>U.ra</tt> return <tt>float64</tt> numbers (randint() returns <tt>int32</tt>)  </p>
+<ul>
+<li><p> <tt>U.ra.random(shape=[])</tt> returns a single random number between 0.0 and 1.0 (never returning either 0 or 1) or a whole array of them if you specify a shape (different from []).  </p>
+</li>
+<li><p> <tt>U.ra.randint(min,max,&nbsp;shape=[])</tt>  does the same returning always integers &gt;= min and &lt;max.  </p>
+</li>
+<li><p> <tt>U.ra.permutation(n)</tt>  returns a random permutation of <tt>N.arange(n)</tt>.  </p>
+</li>
+<li><p> <tt>U.ra.normal(mean,stddev,shape=[])</tt>  returns normal (gaussian) distributed values. </p>
+</li>
+</ul>
+<br>
+<br>
+<p> </p>
+<dl>
+<dt>U.mlab is a "module shortcut" to numarray.mlab</dt>
+<dd></dd>
+</dl>
+<p>This provides some functions you might know from matlab which are still missing in the normal na module. </p>
+<p>(seb: check: "Masked arrays" are arrays that may have missing or invalid entries) </p>
+<p>(seb: check if "numarray.convolve" is useful besides nd_image) </p>
+
+<h3 id="head-23c9f3c89190a7e5b95dc58c6fd1cc4b02bbd7b3">4.4. Priithon: F-module</h3>
+
+<ul>
+<li style="list-style-type:none"><p>"F" as in "FFT" or "fields" (think fancy <em>electric</em> or <em>magnetic</em> or <em>scalar</em> fields) <sup><a href="#fndef-dbda59e4c4e859871607a6bd2855b3452fd6d2de-35" id="fnref-dbda59e4c4e859871607a6bd2855b3452fd6d2de-35">36</a></sup> </p>
+</li>
+</ul>
+<ul>
+<li style="list-style-type:none"><p>F is a collection of two different kinds of functions. Both have inherently to do with either generation or operating on ("big, whole") n-dimensional arrays.  </p>
+</li>
+</ul>
+<dl>
+<dt>First there is a set of fft (fast fourier transform) functions</dt>
+<dd></dd>
+</dl>
+<ul>
+<li><p> <tt>F.fft()</tt> transforms a given array and returns (of fills in a specified output array) a complex array of the same shape.  </p>
+</li>
+<li><p> <tt>F.ifft()</tt> does the inverse operation: it takes a complex array and <em>but</em> returns (or fills in) still a complex valued array of same shape. Your starting array could have also been complex valued and the fact that it might have been real will only be reflected in the output of <tt>ifft</tt> having <em>small</em> imaginary components (numerical rounding error/machine precision maybe about 1e-6 for <tt>float32</tt>).  If your start array is real valued you might want to use  </p>
+</li>
+<li><p> <tt>F.rfft()</tt>: This should be twice the speed and use (about) half the memory. <strong>Note</strong> that the output array is <strong>complex</strong> valued with <strong>different shape</strong>: the last axis has <em><strong>half plus one</em></strong> length of the input array (<tt>shape=(nz,ny,1+nx/2)</tt>). (<tt>Y.view()</tt> recognized this special shape (if the input shape was squared) and automatically reorders the display so that you see a squared image with origin in the center! Refer to <strong>o</strong> key in <tt>Y.view()</tt>)  </p>
+</li>
+<li><p> <tt>F.irfft</tt> takes those complex ("half shaped") arrays and returns the inverse transform as real valued having the original shape. All those functions do the full fft over all dimensions. If you have a <strong>stack of 2d images</strong> and want the fft done <em><strong>section-wise</strong></em> use the corresponding <tt>fft2d</tt>, <tt>ifft2d</tt>, <tt>rfft2d</tt> and <tt>irfft2d</tt> functions.  There are also functions for 1d. (seb: check 3d) </p>
+</li>
+</ul>
+<br>
+<br>
+<p> </p>
+<p>these function use the fftw library (version 2) </p>
+<br>
+<br>
+<p> </p>
+<ul>
+<li style="list-style-type:none"><p>Secondly the F modules contains a collection of <em>test</em> or <em>base</em> arrays (of 1, 2 or 3 dimensions).  These are:  </p>
+</li>
+<li><p> <tt>F.coneArr()</tt> </p>
+</li>
+<li><p> <tt>F.cosSqDiscArr()</tt> </p>
+</li>
+<li><p> <tt>F.discArr()</tt> </p>
+</li>
+<li><p> <tt>F.gaussianArr()</tt> </p>
+</li>
+<li><p> <tt>F.mexhatArr()</tt> </p>
+</li>
+<li><p> <tt>F.noiseArr()</tt> </p>
+</li>
+<li><p> <tt>F.poissonArr()</tt> </p>
+</li>
+<li><p> <tt>F.ringArr()</tt> </p>
+</li>
+<li><p> <tt>F.squareArr()</tt> </p>
+</li>
+<li><p> <tt>F.zzernikeArr()</tt> </p>
+</li>
+</ul>
+<p>Each such function takes a shape argument. If not specified it defaults to <tt>F.defshape</tt> ( <tt>=&nbsp;(256,256)</tt> ).  </p>
+<p>All other arguments all have <strong><em>reasonable</em> default values</strong> so that calling any of the above functions give you something <em>nice to look at</em>.  </p>
+<p>Many functions have arguments for a <tt>radius</tt> (disc, cone, cosSqDisc, gaussian, maxhat) or two radii (ring) or parameters like <tt>mean</tt> and/or <tt>standard&nbsp;deviation</tt> (noise, poisson).  </p>
+<p>Most of the functions take an <tt>orig</tt> (origin) argument (a coordinate tuple); it defaults to <tt>None</tt> which is to mean <em>"center"</em> of the total volume (or area in 2d; or length in 1d); use a scalar as <tt>orig</tt> and it gets expanded to the full rank, so that <tt>0</tt> means e.g. <tt>(0,0)</tt> for a 2d array.  </p>
+<p><tt>F.zzernikeArr()</tt> returns a zernike base-function (2d) of given zernike order. <sup><a href="#fndef-ac845623cf4923a0bfe37bdd1e4c7c22a824156c-36" id="fnref-ac845623cf4923a0bfe37bdd1e4c7c22a824156c-36">37</a></sup> The <tt>crop</tt> argument is either <tt>1</tt> ( yes, do crop at radius ) or <tt>0</tt> (no cropping, extend the polynomials to fill the full (squared) array;  this might not be useful!(still one might be curious to take a look)) </p>
+<p>The functions <tt>F.maxNormRadialArr()</tt>, <tt>F.radialArr()</tt>, <tt>F.radialPhiArr()</tt> are generic <em>work horse</em> functions used to implement the functions above. </p>
+<ul>
+<li><p> <tt>F.zeroArrU()</tt> </p>
+</li>
+<li><p> <tt>zeroArrF()</tt> </p>
+</li>
+<li><p> <tt>zeroArrD()</tt> </p>
+</li>
+<li><p> <tt>zeroArrS()</tt> </p>
+</li>
+<li><p> <tt>zeroArrI()</tt> </p>
+</li>
+<li><p> <tt>zeroArrC()</tt> </p>
+</li>
+</ul>
+<p>These function are meant to be (slightly) easier to type than <tt>N.zeros()</tt>: The capital letter at the end specifies the array type: <tt>U</tt> - <tt>uint16</tt> <tt>F</tt> - <tt>float32</tt> <tt>D</tt> - <tt>float64</tt> <tt>S</tt> - <tt>int16</tt> <tt>I</tt> - <tt>int32</tt> <tt>C</tt> - <tt>complex64</tt> </p>
+<p>(The choice of types comes from image analysis of large data sets acquired by CCD cameras as 16 unsigned integer pixel values)  </p>
+<p>And the shape can be given by the sequence of arguments: E.g. use  
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-ad48b4fe5c9b6ad6446dc518b2ae2e7b59502f82_015\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-ad48b4fe5c9b6ad6446dc518b2ae2e7b59502f82_015" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">zeroArrF</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span> <span class="Comment"># instead of:  N.zeros((256,256), N.float32)</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">zeroArrC</span><span class="Operator">(</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">shape</span> <span class="Operator">)</span> <span class="Comment"># a shape-tuple argument also works!</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>Additionally the F modules contains other functions:  </p>
+<ul>
+<li><p> <tt>F.poissonize(arr)</tt> takes an array and returns a version with added "quantumn noise/shotnoise" (type <tt>N.uint16</tt>). That is, each pixel in the output array is taken from a random poisson distribution with the input pixel value giving the distribution standard deviation. (That is: the std.dev. is different for each pixel! High values get high noise, low values get low noise - BUT <em>relative</em> noise goes down the higher the input value ("photon count")) </p>
+</li>
+</ul>
+<p>seb TODO: </p>
+<ul>
+<li style="list-style-type:none"><p><tt>lowPassGaussFilter2d</tt> , <tt>convolve</tt>, <tt>copyPadded</tt>, <tt>shift</tt> </p>
+</li>
+</ul>
+
+<h3 id="head-05affcfa7a256c898bb1277b2f1cca65d01f1b44">4.5. Scripts</h3>
+
+<ul>
+<li style="list-style-type:none"><p>Even thought the main focus of Priithon is it's <em>convenient</em> interactive <a class="nonexistent" href="/mywiki/PyShell">PyShell</a> interface you would want to write script-files sooner or later. The simplest reason for wanting to do this might be just to preseve a sequence of commands that you found to work well. Then you can "mold" it into a new function and later execute the whole sequence by typing one line. </p>
+</li>
+</ul>
+<p>To do this you start your favorite editor and create a file with it's name ending on ".py". If you then start the file with the first line being 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-57f610a22c6430da79ce1cfee19e17def2427bac_016\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-57f610a22c6430da79ce1cfee19e17def2427bac_016" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="ResWord">from</span> <span class="ID">Priithon</span><span class="Operator">.</span><span class="ID">all</span> <span class="ResWord">import</span> <span class="Operator">*</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>you can from then on use all the familiar module names like in the interactive mode: e.g. <tt>N.arange</tt> or <tt>F.zeroArrF(512,512)</tt>. To use those new functions you type (assuming you file is called "my1.py" and is in the current directory) 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-7ac459bd320852e6fd8a7f8577d1d66a657ed908_017\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-7ac459bd320852e6fd8a7f8577d1d66a657ed908_017" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="ResWord">import</span> <span class="ID">my1</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="ID">my1</span><span class="Operator">.</span><span class="ID">myFunction</span><span class="Operator">(</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>You can see that your new file acts just like any other module in Python ! </p>
+<p>Instead of having to be in the directory where you files are you can set a enviroment variable in your system. I have for example on my Linux system this line in my <tt>.bashrc</tt> file: 
+</p>
+<pre>
+export PYTHONPATH=/home/haase/myPy
+</pre>
+<p>Then I put all my little script files in to the <tt>myPy</tt> folder in my home-directory  and Priithon always finds them. (If you have more then one such directory separate them by colons (like: <tt>PYTHONPATH=dir1:dir2:dir3</tt>) </p>
+<p>Now, when you edit a file you need to type  
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-97fff6595f407439d746fbe377453057032db0b8_018\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-97fff6595f407439d746fbe377453057032db0b8_018" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="ID">reload</span><span class="Operator">(</span><span class="ID">my1</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+<p>This is NOT a prefect way to do this, because: </p>
+<ol type="1">
+<li><p>It doesn't reload modules that are imported for my1 </p>
+</li>
+<li><p>If you were to (accentially) delete a global name (like a function or a variale) from you file the old definition still "sticks" around </p>
+<ol type="1">
+<li><p><em>reload</em> only <em>overwrites</em> and <em>adds</em> - it does NOT <em>delete</em> things inside the module </p>
+</li>
+</ol>
+</li>
+<li><p>IF you reload multiple modules that also <tt>import</tt> each other the ORDER MATTERS in which you call the <tt>reload</tt>s </p>
+</li>
+</ol>
+
+<h2 id="head-0977034282614846fa0ac3be1801a8785e52e682-2">5. Design</h2>
+
+
+<h3 id="head-32965073f8b5bab330f3b7972f5e229f8b6b8cd2">5.1. PyShell</h3>
+
+
+<h3 id="head-3af4aed47755074ec6ce609350ffbcc44812c381">5.2. Swig</h3>
+
+
+<h3 id="head-0410d5f1eb3269932d38a1eebcf22dd90495157b">5.3. OpenGL</h3>
+
+
+<h3 id="head-949f8e09dbdf7d1f203cf615b4d1f107d31e1a6f">5.4. SciPy: plot</h3>
+
+
+<h3 id="head-b242865020ae21bd8e84e0b03ba2e702d7e63acb">5.5. ScientifiPython</h3>
+
+
+<h3 id="head-754bbe638554fe1b80477c6ad39113b12c9e0040">5.6. MatplotLib (pylab)</h3>
+
+
+<h3 id="head-ffbd855d539b99e69f5314ecee85744095c23e20">5.7. MayaVi / VTK / UCSF-Chimera</h3>
+
+
+<h2 id="head-8b988993b98ca8702a8eef626ae070a447eb6bfa">6. Reference</h2>
+
+
+<h3 id="head-9bef282d414278d6eabf3ab4bcfbe188d1b82e6e">6.1. N: numerical python modules</h3>
+
+<p>todo: </p>
+
+<h3 id="head-b7e4fd1d04598a3678b02b38e2f7bf1d8db75340">6.2. Priithon</h3>
+
+
+<h4 id="head-693faaa66bf642df67a718ed2a50fbd43b729e41">6.2.1. U: "useful" module</h4>
+
+
+<h4 id="head-f7d0cba5faf88d6ea65d4c945a48b5663cb4097b">6.2.2. Y: wxPython/OpenGL based display module  [[FN(),DIR()]]</h4>
+
+<ul>
+<li><p>  <tt>Y.viewers</tt>: list of all viewer windows [(class <tt>Priithon.splitND</tt>) - <tt>None</tt> if window got closed] </p>
+</li>
+<li class="gap"><p>  <tt>Y.view()</tt>: opens a new (2d image + slider for each addition dimension) viewer window </p>
+<ul>
+<li style="list-style-type:none"><p>...function arguments... </p>
+</li>
+</ul>
+<ul>
+<li style="list-style-type:none"><p>A text line above the image shows the current mouse pointer (pixel) position and the corresponding pixel value; also the zoom factor is shown if it is not 1.  If the data has more than two dimensions a slider is provided left of the text display; one for each extra dimension, and the same order as the appear in /arr.shape/ </p>
+</li>
+</ul>
+<ul>
+<li><p>  key commands:  </p>
+<ul>
+<li><p> <strong>o</strong>  cycle through 4 /origin/ modes: </p>
+<ul>
+<li><p>  (0,0) at left bottom </p>
+</li>
+<li><p>  (0,0) at left top </p>
+</li>
+<li><p>  (0,0) at center ( for fft images ) </p>
+</li>
+<li><p>  (0,0) at center &amp;amp; "double width" ( for rfft images)  </p>
+</li>
+</ul>
+</li>
+<li><p> <strong>c</strong>  cycle through many /color map/ modes: </p>
+<ul>
+<li><p> gray scale </p>
+</li>
+<li><p> gray scale /logarithmic/ </p>
+</li>
+<li><p> rainbow  red to blue </p>
+</li>
+<li><p> /circular/ rainbow - good for phase images, where <tt>-PI</tt> is the same as <tt>+PI</tt> </p>
+</li>
+<li><p> "heat like" black body </p>
+</li>
+<li><p> fast cycling rainbow with 0 black - good to see iso-conturs and gradients  </p>
+</li>
+</ul>
+</li>
+<li><p> <strong>a</strong> show /amplitudes/ of complex data set  </p>
+</li>
+<li><p> <strong>p</strong> show /phases/     of complex data set  </p>
+</li>
+<li><p> <strong>f</strong> open new viewer showing the ("half-shaped",real-) fft(2d) of the image </p>
+</li>
+<li><p> <strong>F</strong> open new viewer showing the inverse fft(2d) of the current image (should be a "half-shaped" fft image) </p>
+</li>
+<li><p> <strong>v</strong> open new viewer showing "maximum intensity projection" (/"vomit"/)  along z-axis  </p>
+</li>
+<li><p> <strong>g</strong> cycle through: no /grid/, one pixel grid, ten pixel grid  </p>
+</li>
+<li><p> <strong>x</strong> open new viewer showing x-z side on view  </p>
+</li>
+<li><p> <strong>y</strong> open new viewer showing y-z side on view </p>
+</li>
+<li><p> <strong>0</strong> reset zoom to one pixel per data point and move image to left bottom in viewer frame  </p>
+</li>
+<li><p> <strong>9</strong> center image in viewer frame d "double" zoom - zoom in  </p>
+</li>
+<li><p> <strong>h</strong> "half"   zoom - zoom out </p>
+</li>
+<li><p> &lt;page up/down&gt; zoom in/out l toggle histogram with and with out /logarithmic/ /y/-axis </p>
+</li>
+<li class="gap"><p> &lt;Home&gt; </p>
+</li>
+<li><p> arrow keys left,right  - walk through /z/ axis (or what ever the higher dimensions are for)  </p>
+</li>
+<li><p> arrow keys up, down    - walk through /t/ axis (or what ever the higher dimensions are for)  </p>
+</li>
+<li><p> arrow keys with &lt;shift&gt; OR &lt;control&gt; - shift image by quarter of it's size in the respective direction </p>
+</li>
+</ul>
+</li>
+<li class="gap"><p> Mouse interaction in image part:  </p>
+<ul>
+<li><p> press middle mouse button to drag image </p>
+</li>
+<li><p> press middle mouse button with &lt;shift&gt; or &lt;Ctrl&gt; key to zoom (move mouse up/down) </p>
+</li>
+<li><p>  or use mouse wheel to zoom in/out </p>
+</li>
+<li><p> right mouse button gives "context menu" </p>
+</li>
+</ul>
+</li>
+<li class="gap"><p> Mouse interaction in histogram part: </p>
+<ul>
+<li><p> press middle mouse button to move histogram graph:  </p>
+<ul>
+<li><p> left/right; up/down zooms in/out  </p>
+</li>
+<li><p> also you can use the mouse wheel to zoom  (seb: CHECK on Win98 wheel still zooms image) </p>
+</li>
+</ul>
+</li>
+<li><p> press left mouse button to change image "scaling" (meaning: it brightness and contrast):  </p>
+<ul>
+<li><p> click close to left (red) bracket to change min (black) value,  </p>
+</li>
+<li><p> click close to right red bracket to modify the max (white) value   </p>
+</li>
+<li><p> or click in the center to move them both together. </p>
+</li>
+</ul>
+</li>
+<li><p> right mouse button gives "context menu" </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="gap"><p> <tt>V.vd()</tt>: return data array of whats displayed in a viewer </p>
+</li>
+<li><p> <tt>Y.varrange()</tt> </p>
+</li>
+<li><p> <tt>Y.vLeftClickHorizProfile()</tt> </p>
+</li>
+<li><p> <tt>Y.vLeftClickVertProfile()</tt> </p>
+</li>
+<li><p> <tt>Y.vLeftClickZProfile()</tt> </p>
+</li>
+<li><p> <tt>Y.ploty()</tt> </p>
+</li>
+<li><p> <tt>Y.plotxy()</tt> </p>
+</li>
+<li><p> <tt>Y.plotDatapoints()</tt> </p>
+</li>
+<li><p> <tt>Y.plothold()</tt> </p>
+</li>
+<li><p> <tt>Y.plotFigure()</tt> </p>
+</li>
+<li><p> <tt>Y.plotRaise()</tt> </p>
+</li>
+<li><p> <tt>Y.plotsave()</tt> </p>
+</li>
+</ul>
+
+<h4 id="head-225266f1fc309c504268b6e16d18f71b6f81a8cf">6.2.3. F: "think (physical) fields" and fft module</h4>
+
+
+<h4 id="head-40ce8d8e7c48fceaf1d3aba404ba95df6b5c6d9c">6.2.4. Mrc: MRC/Priism file module</h4>
+
+<p>The Mrc module provides file I/O functions to read and write Mrc/Priism files. These are used in the Biology and Microscopy community.  </p>
+<p>The module uses a technology called <em>memory mapping</em>: so after opening a file you get a (special) numpy that is still "connected" to that file; any changes to the array will eventually get written to the file <em>if</em> it was opened as writable (NOT the default!!). To remind you of this "connected-ness" instead of "<tt>load</tt>" the function is called <tt>Mrc.bindFile()</tt>. </p>
+<p>The numpy object returned by those functions all have a special attribute named <tt>Mrc</tt>; you can access Mrc-specific parts of your data through this attribute: Example: 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-fd1a551c4ecba99bc84e335e1ae135371a4ff093_019\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-fd1a551c4ecba99bc84e335e1ae135371a4ff093_019" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">Mrc</span><span class="Operator">.</span><span class="ID">bindFile</span><span class="Operator">(</span><span class="String">"myData.mrc"</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">Mrc</span><span class="Operator">.</span><span class="ID">info</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   3 </span> <span class="Operator">&lt;</span><span class="ID">some</span> <span class="ID">summary</span> <span class="ID">of</span> <span class="ID">the</span> <span class="ID">Mrc</span><span class="Operator">-</span><span class="ID">header</span> <span class="ResWord">is</span> <span class="ID">printed</span> <span class="ID">here</span><span class="Operator">&gt;</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">Mrc</span><span class="Operator">.</span><span class="ID">hdr</span><span class="Operator">.</span><span class="ID">title</span><span class="Operator">[</span><span class="Number">0</span><span class="Operator">]</span></span>
+<span class="line"><span class="LineNumber">   5 </span> <span class="Operator">&lt;</span><span class="ID">returns</span> <span class="ID">the</span> <span class="ID">first</span> <span class="Operator">(</span><span class="ID">of</span> <span class="ID">the</span> <span class="Number">10</span> <span class="ID">possible</span><span class="Operator">)</span> <span class="ID">titles</span> <span class="ID">stored</span> <span class="ResWord">in</span> <span class="ID">the</span> <span class="ID">Mrc</span><span class="Operator">-</span><span class="ID">header</span><span class="Operator">&gt;</span><span class="Text"></span></span>
+</pre>
+</div>
+<ul>
+<li><p> <tt>Mrc.bindFile()</tt>:  "loads" (rather <em>binds</em>, see above) an Mrc-file to a memmapped array </p>
+</li>
+<li><p> <tt>Mrc.load()</tt>:  loads(!) an Mrc-file to regular (non-memmapped) array </p>
+</li>
+<li><p> <tt>Mrc.save()</tt>: saves an array into a Mrc-file -- you can use the <tt>evalHdr</tt> argument to set header information (e.g. <tt>save(...evalHdr='''hdr.d=(.1,.1,.5)''')</tt> </p>
+<p><em>NOTE:</em>  <tt>Mrc.bindArr()</tt> and  <tt>Mrc.bindNew()</tt> are not available anymore since the switch to <tt>numpy</tt> -- use <tt>Mrc.save()</tt> </p>
+</li>
+</ul>
+
+<h4 id="head-b7d69d4d837ba4dfc0fc7dfa719fd32aff7d39ab">6.2.5. gone: P: obsolete C++ based MRC/Priism file I/O</h4>
+
+
+<h4 id="head-b4a9b70bbaff0a8542e35fef255c89bfab0dcc77">6.2.6. S: C++ (fortran) based functions  (make array from known memory address, think e.g. hardware driver lib for CCD cam)</h4>
+
+<ul>
+<li style="list-style-type:none"><p>the <tt>S</tt> module is mostly to be used via samenamed funtion in <tt>U</tt>. E.g.  <tt>U.findMax()</tt>.  These functions ensure that the array is (if needed copied into a) well-behaved array (i.e. contiguous, native byt-order, ...) as required by C/fortran functions. </p>
+</li>
+</ul>
+<p>Therefore the <tt>S</tt> module is nort even loaded into the top-level (<tt>__main__</tt>) module, but is loaded into <tt>U</tt> (i.e. <tt>U.S</tt>) </p>
+<p>The (maybe!?) only exceptions to the <em>don't use <tt>S</tt> rule</em> is creating a buffer object from a memory pointer, to be used as buffer in <tt>N.ndarray(buffer=...)</tt> are </p>
+<ul>
+<li><p> <tt>U.S.my_PyBuffer_FromReadWriteMemory()</tt> </p>
+</li>
+<li><p> <tt>U.S.my_PyBuffer_FromMemory()</tt> </p>
+</li>
+</ul>
+<p>I dno't remember the status / usefulness of </p>
+<ul>
+<li><p> <tt>U.S.my_PyErr_SetInterrupt()</tt> </p>
+</li>
+</ul>
+
+<h4 id="head-a12ceb3ff5e5ad44cde91108f04f2a0219ae53eb">6.2.7. Wvl: see wavelet paper</h4>
+
+<p><strong>THIS IS *NOT* PART OF PRIITHON !!</strong> </p>
+<p><tt>This&nbsp;is&nbsp;being&nbsp;given&nbsp;out&nbsp;on&nbsp;special&nbsp;request&nbsp;to&nbsp;UCSF&nbsp;for&nbsp;academic&nbsp;use&nbsp;only</tt> </p>
+<p><em>J Microsc.</em> 2005 Aug;<strong>219(Pt 2)</strong>:43-9. </p>
+<p><strong>A novel 3D wavelet-based filter for visualizing features in noisy biological data</strong> </p>
+<p>Moss WC, Haase S, Lyle JM, Agard DA, Sedat JW. </p>
+<p>Lawrence Livermore National Laboratory, CA 94550, USA. <a href="mailto:wmoss@llnl.gov"><img src="/wiki/modern/img/moin-email.png" alt="[MAILTO]" height="10" width="14"> wmoss@llnl.gov</a> </p>
+<p>Summary We have developed a three-dimensional (3D) wavelet-based filter for visualizing structural features in volumetric data. The only variable parameter is a characteristic linear size of the feature of interest. The filtered output contains only those regions that are correlated with the characteristic size, thus de-noising the image. We demonstrate the use of the filter by applying it to 3D data from a variety of electron microscopy samples, including low-contrast vitreous ice cryogenic preparations, as well as 3D optical microscopy specimens. </p>
+<p>Exercise  
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-eb30ee0a1d75a33ebd33818933b10badec18ec09_020\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-eb30ee0a1d75a33ebd33818933b10badec18ec09_020" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">import</span> <span class="ID">Wvl</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b1</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">discArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">512</span><span class="Operator">,</span> <span class="Number">512</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">radius</span><span class="Operator">=</span><span class="Number">10</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">valIn</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">,</span> <span class="ID">valOut</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b2</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">discArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">512</span><span class="Operator">,</span> <span class="Number">512</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">radius</span><span class="Operator">=</span><span class="Number">20</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">valIn</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">,</span> <span class="ID">valOut</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">bp1</span> <span class="Operator">=</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">where</span><span class="Operator">(</span><span class="ID">F</span><span class="Operator">.</span><span class="ID">poissonArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">512</span><span class="Operator">,</span><span class="Number">512</span><span class="Operator">)</span><span class="Operator">,</span> <span class="Number">10</span><span class="Operator">)</span><span class="Operator">&gt;</span><span class="Number">25</span><span class="Operator">,</span> <span class="Number">1</span><span class="Operator">,</span><span class="Number">0</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c0</span> <span class="Operator">=</span><span class="ID">F</span><span class="Operator">.</span><span class="ID">convolve</span><span class="Operator">(</span><span class="ID">bp1</span><span class="Operator">,</span> <span class="ID">b1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">bp2</span> <span class="Operator">=</span> <span class="ID">N</span><span class="Operator">.</span><span class="ID">where</span><span class="Operator">(</span><span class="ID">F</span><span class="Operator">.</span><span class="ID">poissonArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">512</span><span class="Operator">,</span><span class="Number">512</span><span class="Operator">)</span><span class="Operator">,</span> <span class="Number">10</span><span class="Operator">)</span><span class="Operator">&gt;</span><span class="Number">25</span><span class="Operator">,</span> <span class="Number">1</span><span class="Operator">,</span><span class="Number">0</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c0</span><span class="Operator">+=</span><span class="ID">F</span><span class="Operator">.</span><span class="ID">convolve</span><span class="Operator">(</span><span class="ID">bp2</span><span class="Operator">,</span> <span class="ID">b2</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c0</span><span class="Operator">+=</span><span class="Number">100</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c</span> <span class="Operator">=</span> <span class="ID">c0</span> <span class="Operator">+</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">noiseArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">512</span><span class="Operator">,</span><span class="Number">512</span><span class="Operator">)</span><span class="Operator">,</span> <span class="Number">2</span><span class="Operator">)</span>    <span class="Comment">## SNR: 1/2=(peak-bgk)/noiseStdDev </span></span>
+<span class="line"><span class="LineNumber">  10 </span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">s</span><span class="Operator">=</span><span class="Number">512</span></span>
+<span class="line"><span class="LineNumber">  12 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">s</span><span class="Operator">*</span><span class="Number">2</span><span class="Operator">**</span><span class="Number">.5</span></span>
+<span class="line"><span class="LineNumber">  13 </span><span class="Number">724.077343935</span></span>
+<span class="line"><span class="LineNumber">  14 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">s</span><span class="Operator">*</span><span class="Number">2</span><span class="Operator">**</span><span class="Number">.5</span> <span class="Operator">+</span> <span class="Number">3</span><span class="Operator">*</span><span class="Number">30</span>   <span class="Comment"># size * sqrt(2)  + 3*wvlOrder</span></span>
+<span class="line"><span class="LineNumber">  15 </span><span class="Number">814.077343935</span></span>
+<span class="line"><span class="LineNumber">  16 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">cc</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">zeroArrF</span><span class="Operator">(</span><span class="Number">800</span><span class="Operator">,</span><span class="Number">800</span><span class="Operator">)</span>   <span class="Comment"># little less ;-)</span></span>
+<span class="line"><span class="LineNumber">  17 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">copyPadded</span><span class="Operator">(</span><span class="ID">c</span><span class="Operator">,</span><span class="ID">cc</span><span class="Operator">,</span>  <span class="Number">100</span><span class="Operator">)</span> <span class="Comment"># bkg is 100</span></span>
+<span class="line"><span class="LineNumber">  18 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">ww</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">zeroArrF</span><span class="Operator">(</span><span class="Number">800</span><span class="Operator">,</span><span class="Number">800</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  19 </span></span>
+<span class="line"><span class="LineNumber">  20 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Wvl</span><span class="Operator">.</span><span class="ID">twoD</span><span class="Operator">(</span><span class="ID">cc</span><span class="Operator">,</span> <span class="ID">ww</span><span class="Operator">,</span> <span class="Number">40</span><span class="Operator">,</span> <span class="ID">nAngles</span><span class="Operator">=</span><span class="Number">6</span><span class="Operator">,</span> <span class="ID">verboseLvl</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  21 </span><span class="ID">begin</span> <span class="ID">angle</span> <span class="Number">0</span></span>
+<span class="line"><span class="LineNumber">  22 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">15.0</span></span>
+<span class="line"><span class="LineNumber">  23 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">30.0</span></span>
+<span class="line"><span class="LineNumber">  24 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">45.0</span></span>
+<span class="line"><span class="LineNumber">  25 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">60.0</span></span>
+<span class="line"><span class="LineNumber">  26 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">75.0</span></span>
+<span class="line"><span class="LineNumber">  27 </span></span>
+<span class="line"><span class="LineNumber">  28 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">w40</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">zeroArrF</span><span class="Operator">(</span><span class="Number">512</span><span class="Operator">,</span><span class="Number">512</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  29 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">copyPadded</span><span class="Operator">(</span><span class="ID">ww</span><span class="Operator">,</span><span class="ID">w40</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  30 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">w40</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  31 </span></span>
+<span class="line"><span class="LineNumber">  32 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Wvl</span><span class="Operator">.</span><span class="ID">twoD</span><span class="Operator">(</span><span class="ID">cc</span><span class="Operator">,</span> <span class="ID">ww</span><span class="Operator">,</span> <span class="Number">20</span><span class="Operator">,</span> <span class="ID">nAngles</span><span class="Operator">=</span><span class="Number">6</span><span class="Operator">,</span> <span class="ID">verboseLvl</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  33 </span><span class="ID">begin</span> <span class="ID">angle</span> <span class="Number">0</span></span>
+<span class="line"><span class="LineNumber">  34 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">15.0</span></span>
+<span class="line"><span class="LineNumber">  35 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">30.0</span></span>
+<span class="line"><span class="LineNumber">  36 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">45.0</span></span>
+<span class="line"><span class="LineNumber">  37 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">60.0</span></span>
+<span class="line"><span class="LineNumber">  38 </span><span class="ID">begin</span> <span class="ID">angle</span>  <span class="Number">75.0</span></span>
+<span class="line"><span class="LineNumber">  39 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">w20</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">zeroArrF</span><span class="Operator">(</span><span class="Number">512</span><span class="Operator">,</span><span class="Number">512</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  40 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">copyPadded</span><span class="Operator">(</span><span class="ID">ww</span><span class="Operator">,</span><span class="ID">w20</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  41 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">w20</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+<div class="footnotes"><div></div>
+<ul>
+<li><span><a href="#fnref-1ccdd13db4ffea6e2902d21df9b82b327dc60e39-0" id="fndef-1ccdd13db4ffea6e2902d21df9b82b327dc60e39-0">1</a></span></p>
+<ul>
+<li style="list-style-type:none"><p>the automatically compiled code runs e.g. loops <em>much</em> faster than Matlab </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-d71259cfb205b189bf5ce05842606b68e4a139a5-1" id="fndef-d71259cfb205b189bf5ce05842606b68e4a139a5-1">2</a></span><ul>
+<li style="list-style-type:none"><p>of course you can write non interactive scripts also </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-c3aaea9d5c661a077bfb292a04b2a76afe6f8857-2" id="fndef-c3aaea9d5c661a077bfb292a04b2a76afe6f8857-2">3</a></span><ul>
+<li style="list-style-type:none"><p>One can add new functions written in C/C++ easily (see later) </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-2bb39c6f233446cee64804fcdd9fee833d280e21-3" id="fndef-2bb39c6f233446cee64804fcdd9fee833d280e21-3">4</a></span><ul>
+<li style="list-style-type:none"><p>because it's interactive </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-a1259cea8704176bdef6540cbc752795b9c67f4c-4" id="fndef-a1259cea8704176bdef6540cbc752795b9c67f4c-4">5</a></span><ul>
+<li style="list-style-type:none"><p>this might be the big difference where scripting languages like Perl and Ruby cannot compete </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-49362498b601da9ca0b2bc27e09e2adb0e7d9abf-5" id="fndef-49362498b601da9ca0b2bc27e09e2adb0e7d9abf-5">6</a></span><ul>
+<li style="list-style-type:none"><p>They tend to provide easy access to a relively small set of functions while blocking any access to more complex operations which were not anticipated. </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-4209d370ea735f6564acae90d0c9be801cf7e1a3-6" id="fndef-4209d370ea735f6564acae90d0c9be801cf7e1a3-6">7</a></span><ul>
+<li style="list-style-type:none"><p>The very popular shell <em>IPython</em> should also work </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-e66e11d73b44f85d11876ef119974a6b2a626cc7-7" id="fndef-e66e11d73b44f85d11876ef119974a6b2a626cc7-7">8</a></span><ul>
+<li style="list-style-type:none"><p>many in optical and electron microscopy use this format </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-65be2ce2a9823c0228365ffe401b711b1423a56e-8" id="fndef-65be2ce2a9823c0228365ffe401b711b1423a56e-8">9</a></span><ul>
+<li style="list-style-type:none"><p>This is done by a <em>garbage collector</em> </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-c5f88b5e0c3e1c2c3efc3e39b193a1483deff688-9" id="fndef-c5f88b5e0c3e1c2c3efc3e39b193a1483deff688-9">10</a></span><ul>
+<li style="list-style-type:none"><p>especially annoying if your editor messes with those "white spaces" ... </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-6b2efc7c58ba2c7d6160f51c843275b912595eca-10" id="fndef-6b2efc7c58ba2c7d6160f51c843275b912595eca-10">11</a></span><ul>
+<li style="list-style-type:none"><p>I use tabs so that everyone can set their tab-width to what they like best to look at </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-4302389915fa25a1ec5a5116ca5d3c5fb1aa00b0-11" id="fndef-4302389915fa25a1ec5a5116ca5d3c5fb1aa00b0-11">12</a></span><ul>
+<li style="list-style-type:none"><p>all names: variables,functions,classes,other modules </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-d6ae2dabbe8d8c85b748e5de7b29b4281152f251-12" id="fndef-d6ae2dabbe8d8c85b748e5de7b29b4281152f251-12">13</a></span><ul>
+<li style="list-style-type:none"><p>To force a <em>reload</em> of a module call the <tt>reload(''modulename'')</tt> - but there are some issues with reloading ... seb: more </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-34cc83eb5f5e75f00db32d0a535abb16ebbb46a9-13" id="fndef-34cc83eb5f5e75f00db32d0a535abb16ebbb46a9-13">14</a></span><ul>
+<li style="list-style-type:none"><p>Multiple instructions can be put in one line with a semicolon (and any number of spaces) in between them - don't use this too much ! </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-8088376fd64ae572664b4dcbb7fd41fa582b1621-14" id="fndef-8088376fd64ae572664b4dcbb7fd41fa582b1621-14">15</a></span><ul>
+<li style="list-style-type:none"><p>or the function that called the function that called the "faulty" function and so on </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-0ca0f70cb553534b520aef50818693b873bff0c4-15" id="fndef-0ca0f70cb553534b520aef50818693b873bff0c4-15">16</a></span><ul>
+<li style="list-style-type:none"><p>boolean is now also a data type (since python2.2)  and file objects and sets(since Python2.3) and ?? </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-798f02f43b5dac6cca42adaa55bacfb07bd97440-16" id="fndef-798f02f43b5dac6cca42adaa55bacfb07bd97440-16">17</a></span><ul>
+<li style="list-style-type:none"><p>all scalars are always double precision; single precision is provided by Numerical Python for arrays (note: it supports rank-0 arrays which are almost <em>practically scalars</em>) </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-d3cf43cc4260185fdc20f69b463a5c89d4038e84-17" id="fndef-d3cf43cc4260185fdc20f69b463a5c89d4038e84-17">18</a></span><ul>
+<li style="list-style-type:none"><p>the complete list includes: ==, !=, &lt;,&gt;,&lt;&gt;,&lt;=,&gt;=,&lt;=&gt; (returns -1,0,1 for less,equal or greater relationship between the two of operands </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-797b5a879453ac0907f426b7471b0c024919bf92-18" id="fndef-797b5a879453ac0907f426b7471b0c024919bf92-18">19</a></span><ul>
+<li style="list-style-type:none"><p>finally! this has always been a so ugly since the old days of BASIC when you had to take those constructs apart and write things like <tt>0&lt;=a&nbsp;and&nbsp;a&lt;1</tt>  </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-25e780057e65a45bb30acbe1212f259ec1c9a526-19" id="fndef-25e780057e65a45bb30acbe1212f259ec1c9a526-19">20</a></span><ul>
+<li style="list-style-type:none"><p>don't use ==, since this raises an exception if the two types are not comparable </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-60217c90dee021e6a51e7e5263b16a583cda4348-20" id="fndef-60217c90dee021e6a51e7e5263b16a583cda4348-20">21</a></span><ul>
+<li style="list-style-type:none"><p>Numarray was written by Perry Greenfield, Rick White, Todd Miller, JC Hsu, Paul Barrett, and Phil Hodge at the Space Telescope Science Institute.  Numarray is made available under a BSD-style License.  See LICENSE.txt in the source distribution for details.  </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-4c440abdc544b08f1769f025b1190c13639a884e-21" id="fndef-4c440abdc544b08f1769f025b1190c13639a884e-21">22</a></span><ul>
+<li style="list-style-type:none"><p>Conversion/Mixing Numeric and numarray might actually be quite efficient now, as of 2005 </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-afa94b4847ca60c27b4a75b9bfbef4b52a01dd46-22" id="fndef-afa94b4847ca60c27b4a75b9bfbef4b52a01dd46-22">23</a></span><ul>
+<li style="list-style-type:none"><p>The resize function actually creates a new array and throws the old one away </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-11aaf666dd7d2d36d56dab0e3296e86eabaaf50f-23" id="fndef-11aaf666dd7d2d36d56dab0e3296e86eabaaf50f-23">24</a></span><ul>
+<li style="list-style-type:none"><p>The formats that are supported are those supported by PIL </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-4b4e60b158aaa0f408818c34150ed338685b3bfa-24" id="fndef-4b4e60b158aaa0f408818c34150ed338685b3bfa-24">25</a></span><ul>
+<li style="list-style-type:none"><p><em>Very large files</em> here means smaller than about 1GB on 32bit computers  </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-0c47c8bd3db03dbcc95537177a19cda54cf75c97-25" id="fndef-0c47c8bd3db03dbcc95537177a19cda54cf75c97-25">26</a></span><ul>
+<li style="list-style-type:none"><p>Internally one of the three described functions is called  </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-10420061474f8c6f75d46a41b5b1aecdda6a64e9-26" id="fndef-10420061474f8c6f75d46a41b5b1aecdda6a64e9-26">27</a></span><ul>
+<li style="list-style-type:none"><p><tt>U.saveImg8()</tt> forces 8 bit, e.g. in case of tiff which could save 16bit values which isn't supported by many viewers </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-a246018438cdaff6ffc3101668ad34888724e94a-27" id="fndef-a246018438cdaff6ffc3101668ad34888724e94a-27">28</a></span><ul>
+<li style="list-style-type:none"><p>it calls a dialog function, that open a window and returns the filename as string </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-9d388e9ca183b30e28ae892241785b6383bf22dd-28" id="fndef-9d388e9ca183b30e28ae892241785b6383bf22dd-28">29</a></span><ul>
+<li style="list-style-type:none"><p>Both <tt>FN()</tt> and <tt>DIR()</tt> are part of the <tt>Y</tt>-module (because it has to do with graphic user interface), but they are the only two functions in Priithon available <em>"outside"</em> any module  </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-15e2f1e64ce356ff1dedf10d86b3725a09bf0590-29" id="fndef-15e2f1e64ce356ff1dedf10d86b3725a09bf0590-29">30</a></span><ul>
+<li style="list-style-type:none"><p>don't worry about the <tt>r</tt> in front the string, it means it's a raw-string (see python tutorial section) to allow backslashes (mostly under windows) to be part of the file path name </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-257f4637beeefb9d1d87eb2319765e6bd9cd4410-30" id="fndef-257f4637beeefb9d1d87eb2319765e6bd9cd4410-30">31</a></span><ul>
+<li style="list-style-type:none"><p>It's closely related to numarray/numpy's little appraised "pretty-print" arrayprint module </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-e1f83de8722470e3a1396e4bc5fce9ab4c141e5f-31" id="fndef-e1f83de8722470e3a1396e4bc5fce9ab4c141e5f-31">32</a></span><ul>
+<li style="list-style-type:none"><p><tt>U.histogramYX()</tt> returns a tuple of two array: the bin-counts <em><strong>and</strong></em> their corresponding <em>x</em>-values. </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-4955407ee41d4c443a1e7a6ff187b3bf758620f5-32" id="fndef-4955407ee41d4c443a1e7a6ff187b3bf758620f5-32">33</a></span><ul>
+<li style="list-style-type:none"><p>that is the array's standard deviation times 2.35482004503 </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-29299a15339930bc3fa54ef2d1948467af2b6147-33" id="fndef-29299a15339930bc3fa54ef2d1948467af2b6147-33">34</a></span><ul>
+<li style="list-style-type:none"><p>seb: On some platforms, precompiled optimized versions of the LAPACK and BLAS libraries are preinstalled on the operating system, and the setup procedure needs to be modified to force the lapack_lite module to be linked against those rather than the builtin replacement functions. </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-ff1fc936fcf29ab5fda074d7862de663e4c59a76-34" id="fndef-ff1fc936fcf29ab5fda074d7862de663e4c59a76-34">35</a></span><ul>
+<li style="list-style-type:none"><p>Edit Packages/<a class="nonexistent" href="/mywiki/LinearAlgebra2">LinearAlgebra2</a>/setup.py and edit the variables sourcelist, lapack_dirs, and lapack_libs. In sourcelist you should remove all sourcefiles besides lapack_litemodule.c. In lapack_libs you have to specified all libraries needed on your system to successfully link against LAPACK. Often this includes 'lapack' and 'blas'. If you need to specify any non-standard directories to find these libraries, you can specify them in lapack_dirs.      Note: A frequent request is that somehow the maintainers of Numerical Python invent a procedure which will automatically find and use the best available versions of these libraries. We welcome any patches that provide the functionality in a simple, platform independent, and reliable way. The scipy project has done some work to provide such functionality, but is probably not mature enough for use by numarray yet. </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-dbda59e4c4e859871607a6bd2855b3452fd6d2de-35" id="fndef-dbda59e4c4e859871607a6bd2855b3452fd6d2de-35">36</a></span><ul>
+<li style="list-style-type:none"><p>Also the fact that array in German is "Feld" might help to remember this letter. </p>
+</li>
+</ul>
+</li>
+<li><span><a href="#fnref-ac845623cf4923a0bfe37bdd1e4c7c22a824156c-36" id="fndef-ac845623cf4923a0bfe37bdd1e4c7c22a824156c-36">37</a></span><ul>
+<li style="list-style-type:none"><p>the extra <em>z</em> is just to ensure that the much more often used <tt>zeroArr</tt> functions come first in the <a class="nonexistent" href="/mywiki/PyShell">PyShell</a> popup menu </p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<a id="bottom"></a>
+
+</div>
+<p id="pageinfo" class="info" lang="en" dir="ltr">last edited 2007-03-09 17:34:09 by <span title="colobus.ucsf.edu"><a href="/mywiki/SebastianHaase">SebastianHaase</a></span></p>
+
+</div> <!-- end page -->
+
+
+<div id="footer">
+<ul class="editbar">
+<li><a href="/mywiki/PriithonHandbook?action=edit">Edit</a></li>
+<li><a href="/mywiki/PriithonHandbook?action=diff">Show Changes</a></li>
+<li><a href="/mywiki/PriithonHandbook?action=info">Get Info</a></li>
+<li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    <label>More Actions:</label>
+    <select name="action"
+        onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Show Raw Text</option>
+<option value="print">Show Print View</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled class="disabled">--------</option>
+<option value="AttachFile">Attachments</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Show Like Pages</option>
+<option value="LocalSiteMap">Show Local Site Map</option>
+<option value="show" disabled class="disabled">--------</option>
+<option value="RenamePage" disabled class="disabled">Rename Page</option>
+<option value="DeletePage" disabled class="disabled">Delete Page</option>
+    </select>
+    <input type="submit" value="Do">
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li>
+</ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li>
+<li><a href="http://www.python.org/">Python Powered</a></li>
+<li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-4146848-1";
+urchinTracker();
+</script>
+</body>
+</html>
+

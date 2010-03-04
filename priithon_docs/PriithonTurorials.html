@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<title>PriithonTutorials</title>
+
+</head>
+
+<body  lang="en" dir="ltr">
+
+<div id="page" lang="en" dir="ltr"><!-- start page -->
+
+
+<h1 id="title">PriithonTutorials</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a>
+<p>Learning is best done by browsing and excercising (working / complete) examples </p>
+
+<h2 id="head-9b36ad061a9313b1eab69fd24aee6ee5c1dbb7eb">From the PriithonHandbook</h2>
+
+
+<h3 id="head-15c2fd8b7b8ffec815b3ce881463479c6d72a137">Demo 1: synthetic "star/bead images"</h3>
+
+<p>Simulation of 2d images of resolution limited point sources with two types of noise sources: 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/JavaScript">
+function isnumbered(obj) {
+  return obj.childNodes.length && obj.firstChild.childNodes.length && obj.firstChild.firstChild.className == 'LineNumber';
+}
+function nformat(num,chrs,add) {
+  var nlen = Math.max(0,chrs-(''+num).length), res = '';
+  while (nlen>0) { res += ' '; nlen-- }
+  return res+num+add;
+}
+function addnumber(did, nstart, nstep) {
+  var c = document.getElementById(did), l = c.firstChild, n = 1;
+  if (!isnumbered(c))
+    if (typeof nstart == 'undefined') nstart = 1;
+    if (typeof nstep  == 'undefined') nstep = 1;
+    n = nstart;
+    while (l != null) {
+      if (l.tagName == 'SPAN') {
+        var s = document.createElement('SPAN');
+        s.className = 'LineNumber'
+        s.appendChild(document.createTextNode(nformat(n,4,' ')));
+        n += nstep;
+        if (l.childNodes.length)
+          l.insertBefore(s, l.firstChild)
+        else
+          l.appendChild(s)
+      }
+      l = l.nextSibling;
+    }
+  return false;
+}
+function remnumber(did) {
+  var c = document.getElementById(did), l = c.firstChild;
+  if (isnumbered(c))
+    while (l != null) {
+      if (l.tagName == 'SPAN' && l.firstChild.className == 'LineNumber') l.removeChild(l.firstChild);
+      l = l.nextSibling;
+    }
+  return false;
+}
+function togglenumber(did, nstart, nstep) {
+  var c = document.getElementById(did);
+  if (isnumbered(c)) {
+    remnumber(did);
+  } else {
+    addnumber(did,nstart,nstep);
+  }
+  return false;
+}
+</script>
+
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-ea181770f1986f7303dbab2df021ce7ebc088f07_000\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-ea181770f1986f7303dbab2df021ce7ebc088f07_000" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">gaussianArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">sigma</span><span class="Operator">=</span><span class="Number">3</span><span class="Operator">,</span> <span class="ID">peakVal</span><span class="Operator">=</span><span class="Number">100</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span> <span class="Comment"># shape of a perfect bead</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">poissonArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">mean</span><span class="Operator">=</span><span class="Number">.001</span><span class="Operator">)</span>        <span class="Comment"># random bead positions</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c</span> <span class="Operator">=</span> <span class="Number">100</span> <span class="Operator">+</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">convolve</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">,</span><span class="ID">b</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">d</span> <span class="Operator">=</span> <span class="ID">c</span> <span class="Operator">+</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">noiseArr</span><span class="Operator">(</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span><span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">stddev</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">e</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">poissonize</span><span class="Operator">(</span><span class="ID">d</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">c</span><span class="Operator">)</span> <span class="Comment"># noise free</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">e</span><span class="Operator">)</span> <span class="Comment"># with "readout" noise and quantum shot noise</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h3 id="head-27ff64f881ac8a92ccefeb07bd275c2018d8f2ba">Demo 2: image file analysis</h3>
+
+<p>Image analysis of data saved in <em>any</em> file format 
+</p>
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-7ed5478c4a6c0a74b8a2e1ece51aeb24084e356a_001\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-7ed5478c4a6c0a74b8a2e1ece51aeb24084e356a_001" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span>  <span class="ID">Drag</span> <span class="ID">image</span><span class="Operator">-</span><span class="ID">file</span> <span class="ID">into</span> <span class="ID">PyShell</span> <span class="ID">window</span> <span class="Operator">(</span><span class="ID">jpg</span><span class="Operator">,</span><span class="ID">bmp</span><span class="Operator">,</span><span class="ID">tiff</span><span class="Operator">,</span> <span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span> <span class="ResWord">or</span> <span class="ID">fits</span> <span class="ResWord">or</span> <span class="ID">MRC</span><span class="Operator">/</span><span class="ID">Priism</span> <span class="ID">format</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   2 </span>  <span class="ID">Select</span><span class="Operator">:</span> <span class="String">'view'</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">vd</span><span class="Operator">(</span><span class="Operator">-</span><span class="Number">1</span><span class="Operator">)</span> <span class="Comment"># get data from latest viewer</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">U</span><span class="Operator">.</span><span class="ID">mmms</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">)</span> <span class="Comment"># show min,max,mean,stddev of whole (nd)data-set</span></span>
+<span class="line"><span class="LineNumber">   5 </span></span>
+<span class="line"><span class="LineNumber">   6 </span> <span class="Comment"># set viewer into mode so that each left-mouse-click shows a line profile</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Comment"></span> <span class="Comment">#   (averaged over deltaY=15 pixel) in graph-plot window</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">vLeftClickHorizProfile</span><span class="Operator">(</span><span class="Operator">-</span><span class="Number">1</span><span class="Operator">,</span> <span class="Number">15</span><span class="Operator">,</span> <span class="String">'-+'</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   9 </span> <span class="Comment"># click into the image viewer window !</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h2 id="head-522881003d59f73d7c5ce7424e067250226642db">some first steps in image processing</h2>
+
+
+<h3 id="head-bcfbf8170337dfb63334d6f7d4a3aa5765d2d92d">interactive session</h3>
+
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-e0d4e86cff29f4230682c9d510c5351e149117bb_002\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-e0d4e86cff29f4230682c9d510c5351e149117bb_002" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">noiseArr</span><span class="Operator">(</span><span class="ID">shape</span><span class="Operator">=</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span> <span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">stddev</span><span class="Operator">=</span><span class="Number">1.0</span><span class="Operator">,</span> <span class="ID">mean</span><span class="Operator">=</span><span class="Number">0.0</span><span class="Operator">,</span> <span class="ID">type</span><span class="Operator">=</span><span class="ID">N</span><span class="Operator">.</span><span class="ID">float32</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Comment"># window: 0) a</span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">gaussianArr</span><span class="Operator">(</span><span class="ID">shape</span><span class="Operator">=</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span> <span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">sigma</span><span class="Operator">=</span><span class="Number">3</span><span class="Operator">,</span> <span class="ID">integralScale</span><span class="Operator">=</span><span class="ID">None</span><span class="Operator">,</span> <span class="ID">peakVal</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="ID">True</span><span class="Operator">,</span> <span class="ID">type</span><span class="Operator">=</span><span class="ID">N</span><span class="Operator">.</span><span class="ID">float32</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="Comment"># window: 1) b</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">b</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">c</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">convolve</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">,</span> <span class="ID">b</span><span class="Operator">,</span> <span class="ID">conj</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">killDC</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="Comment"># window: 3) c</span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">c</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">def</span> <span class="ID">doit</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  12 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">gaussianArr</span><span class="Operator">(</span><span class="ID">shape</span><span class="Operator">=</span><span class="ID">a</span><span class="Operator">.</span><span class="ID">shape</span><span class="Operator">,</span> <span class="ID">sigma</span><span class="Operator">=</span><span class="Number">3</span><span class="Operator">,</span> <span class="ID">integralScale</span><span class="Operator">=</span><span class="ID">None</span><span class="Operator">,</span> <span class="ID">peakVal</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="ID">True</span><span class="Operator">,</span> <span class="ID">type</span><span class="Operator">=</span><span class="ID">N</span><span class="Operator">.</span><span class="ID">float32</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  13 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">c</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">convolve</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">,</span> <span class="ID">b</span><span class="Operator">,</span> <span class="ID">conj</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">killDC</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  14 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">b</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  15 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">  16 </span></span>
+<span class="line"><span class="LineNumber">  17 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span></span>
+<span class="line"><span class="LineNumber">  18 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span></span>
+<span class="line"><span class="LineNumber">  19 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">w</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">ringArr</span><span class="Operator">(</span><span class="ID">shape</span><span class="Operator">=</span><span class="Operator">(</span><span class="Number">256</span><span class="Operator">,</span> <span class="Number">256</span><span class="Operator">)</span><span class="Operator">,</span> <span class="ID">radius1</span><span class="Operator">=</span><span class="Number">20</span><span class="Operator">,</span> <span class="ID">radius2</span><span class="Operator">=</span><span class="Number">40</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="ID">None</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">type</span><span class="Operator">=</span><span class="ID">N</span><span class="Operator">.</span><span class="ID">float32</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  20 </span><span class="Comment"># window: 4) w</span></span>
+<span class="line"><span class="LineNumber">  21 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">w</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  22 </span><span class="Comment"># window: 5) b</span></span>
+<span class="line"><span class="LineNumber">  23 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">doit</span><span class="Operator">(</span><span class="ID">w</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  24 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ResWord">def</span> <span class="ID">doit2</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">,</span> <span class="ID">sigma</span><span class="Operator">=</span><span class="Number">3</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  25 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="String">'''</span></span>
+<span class="line"><span class="LineNumber">  26 </span><span class="String">...     this low-pass filters with gaussian </span></span>
+<span class="line"><span class="LineNumber">  27 </span><span class="String">...     gaussian sigma can be specified (or defaults to 3)</span></span>
+<span class="line"><span class="LineNumber">  28 </span><span class="String">...     '''</span></span>
+<span class="line"><span class="LineNumber">  29 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">b</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">gaussianArr</span><span class="Operator">(</span><span class="ID">shape</span><span class="Operator">=</span><span class="ID">a</span><span class="Operator">.</span><span class="ID">shape</span><span class="Operator">,</span> <span class="ID">sigma</span><span class="Operator">=</span><span class="Number">3</span><span class="Operator">,</span> <span class="ID">integralScale</span><span class="Operator">=</span><span class="ID">None</span><span class="Operator">,</span> <span class="ID">peakVal</span><span class="Operator">=</span><span class="Number">1</span><span class="Operator">,</span> <span class="ID">orig</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">wrap</span><span class="Operator">=</span><span class="ID">True</span><span class="Operator">,</span> <span class="ID">type</span><span class="Operator">=</span><span class="ID">N</span><span class="Operator">.</span><span class="ID">float32</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  30 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">c</span> <span class="Operator">=</span> <span class="ID">F</span><span class="Operator">.</span><span class="ID">convolve</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">,</span> <span class="ID">b</span><span class="Operator">,</span> <span class="ID">conj</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">,</span> <span class="ID">killDC</span><span class="Operator">=</span><span class="Number">0</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  31 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span>     <span class="ID">Y</span><span class="Operator">.</span><span class="ID">view</span><span class="Operator">(</span><span class="ID">c</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  32 </span><span class="Operator">.</span><span class="Operator">.</span><span class="Operator">.</span></span>
+<span class="line"><span class="LineNumber">  33 </span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span></span>
+<span class="line"><span class="LineNumber">  34 </span><span class="Comment"># window: 7) c</span></span>
+<span class="line"><span class="LineNumber">  35 </span><span class="Comment"></span><span class="Operator">&gt;&gt;</span><span class="Operator">&gt;</span> <span class="ID">doit2</span><span class="Operator">(</span><span class="ID">w</span><span class="Operator">+</span><span class="ID">a</span><span class="Operator">,</span> <span class="ID">sigma</span><span class="Operator">=</span><span class="Number">3</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h3 id="head-8675a11ee6ed1551f8b28f96c2515131ee21420c">from a "script-file"</h3>
+
+<p>put this into a file <tt>listInfo.py</tt> ! You can either execute this from a unix terminal with 
+</p>
+<pre>
+priithon listInfo.py
+</pre>
+<p>or -- if you  </p>
+<ol type="i">
+<li><p>set the 'x' (executable) permission (( <tt>chmod&nbsp;+x&nbsp;listInfo.py</tt> )) you can even call it by  </p>
+</li>
+<li><p>make sure to include the first line (<tt>#!/usr/bin/env&nbsp;priithon</tt>) and hope that it really finds your priithon installation in the shell <tt>$PATH</tt> </p>
+</li>
+</ol>
+
+<pre>
+listInfo.py
+#or you might need:
+./listInfo.py
+</pre>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-cdf2b8ab00d8950934da62830d91f53d1cc2a91f_003\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-cdf2b8ab00d8950934da62830d91f53d1cc2a91f_003" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Comment">#!/usr/bin/env priithon</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Comment"></span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="ResWord">from</span> <span class="ID">Priithon</span><span class="Operator">.</span><span class="ID">all</span> <span class="ResWord">import</span> <span class="Operator">*</span> <span class="Comment"># this preload all Priithon-modules the same way as the interactive shell</span></span>
+<span class="line"><span class="LineNumber">   4 </span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="ResWord">import</span> <span class="ID">glob</span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="ID">dd</span> <span class="Operator">=</span> <span class="ID">glob</span><span class="Operator">.</span><span class="ID">glob</span><span class="Operator">(</span><span class="String">'/home/haase/Brandeis/2004_Nov/*.mrc'</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="Comment"># here you could "drag and drop" a multiple files and assign var name 'dd'</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="Comment"></span><span class="ID">dd</span><span class="Operator">.</span><span class="ID">sort</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">   9 </span></span>
+<span class="line"><span class="LineNumber">  10 </span><span class="ResWord">for</span> <span class="ID">f</span> <span class="ResWord">in</span> <span class="ID">dd</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  11 </span>    <span class="ResWord">print</span> <span class="String">'================================'</span></span>
+<span class="line"><span class="LineNumber">  12 </span>    <span class="ResWord">print</span> <span class="ID">f</span></span>
+<span class="line"><span class="LineNumber">  13 </span>    <span class="ResWord">print</span> <span class="String">'================================'</span></span>
+<span class="line"><span class="LineNumber">  14 </span>    <span class="ID">a</span> <span class="Operator">=</span> <span class="ID">Mrc</span><span class="Operator">.</span><span class="ID">bindFile</span><span class="Operator">(</span><span class="ID">f</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  15 </span>    <span class="ResWord">print</span> <span class="ID">a</span><span class="Operator">.</span><span class="ID">Mrc</span><span class="Operator">.</span><span class="ID">info</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  16 </span>    <span class="ResWord">print</span> <span class="String">"recalculate Min/Max/Mean/Stddev over all sections:"</span></span>
+<span class="line"><span class="LineNumber">  17 </span>    <span class="ResWord">print</span> <span class="ID">U</span><span class="Operator">.</span><span class="ID">mmms</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  18 </span>    <span class="ResWord">print</span> <span class="String">"min/max/mean of first extended header float from all sections:"</span></span>
+<span class="line"><span class="LineNumber">  19 </span>    <span class="ResWord">print</span> <span class="ID">U</span><span class="Operator">.</span><span class="ID">mmm</span><span class="Operator">(</span><span class="ID">a</span><span class="Operator">.</span><span class="ID">Mrc</span><span class="Operator">.</span><span class="ID">extFloats</span><span class="Operator">[</span><span class="Operator">:</span><span class="Operator">,</span><span class="Number">0</span><span class="Operator">]</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h2 id="head-6cfa72de639404be1c59509e723907ce5367c954">The simplest standalone GUI program</h2>
+
+<p>Here is a boiled down GUI program. For a more complete one see next section. However, this still contains -- at the end of the file -- the obligatory <tt>&nbsp;if&nbsp;__name__&nbsp;==&nbsp;'__main__'&nbsp;</tt> check, that allows to also import the file as a module. In the case <tt>__name__</tt> is NOT '<tt>__main__</tt>' ! The rest is "short-circuited" by using the oh-so-powerful  <tt>Y.buttonbox</tt> </p>
+<p>Put this into a file <tt>gui.py</tt> ! You can either execute this from a unix terminal with 
+</p>
+<pre>
+priithon gui.py
+</pre>
+<p>or -- if you  </p>
+<ol type="i">
+<li><p>make sure to include the first line (<tt>#!/usr/bin/env&nbsp;priithon</tt>) and hope that it really finds your priithon installation in the shell <tt>$PATH</tt> </p>
+</li>
+<li><p>set the 'x' (executable) permission (( <tt>chmod&nbsp;+x&nbsp;gui.py</tt> ))  </p>
+</li>
+</ol>
+<p>you can even call it by  
+</p>
+<pre>
+gui.py
+#or you might need:
+./gui.py
+</pre>
+
+<div lang="en" class="codearea" dir="ltr">
+<script type="text/javascript">
+document.write('<a href="#" onClick="return togglenumber(\'CA-8ac3dbcef79225058999d5e1d744561ac2d06927_004\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre lang="en" id="CA-8ac3dbcef79225058999d5e1d744561ac2d06927_004" dir="ltr">
+<span class="line"><span class="LineNumber">   1 </span><span class="Comment">#!/usr/bin/env priithon</span></span>
+<span class="line"><span class="LineNumber">   2 </span><span class="Comment"></span></span>
+<span class="line"><span class="LineNumber">   3 </span><span class="Comment">## this a template for the </span></span>
+<span class="line"><span class="LineNumber">   4 </span><span class="Comment"></span><span class="Comment">## most simple / standalone GUI program</span></span>
+<span class="line"><span class="LineNumber">   5 </span><span class="Comment"></span></span>
+<span class="line"><span class="LineNumber">   6 </span><span class="ResWord">import</span> <span class="ID">sys</span></span>
+<span class="line"><span class="LineNumber">   7 </span><span class="ID">sys</span><span class="Operator">.</span><span class="ID">app</span> <span class="Operator">=</span> <span class="ID">None</span> <span class="Comment"># dummy to force Priithon.Y getting loaded</span></span>
+<span class="line"><span class="LineNumber">   8 </span><span class="ResWord">import</span> <span class="ID">wx</span></span>
+<span class="line"><span class="LineNumber">   9 </span><span class="ResWord">from</span> <span class="ID">Priithon</span><span class="Operator">.</span><span class="ID">all</span> <span class="ResWord">import</span> <span class="ID">Y</span> <span class="Comment"># *</span></span>
+<span class="line"><span class="LineNumber">  10 </span></span>
+<span class="line"><span class="LineNumber">  11 </span><span class="ResWord">def</span> <span class="ID">main</span><span class="Operator">(</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  12 </span>    <span class="ID">Y</span><span class="Operator">.</span><span class="ID">buttonBox</span><span class="Operator">(</span><span class="Operator">[</span></span>
+<span class="line"><span class="LineNumber">  13 </span>        <span class="Operator">(</span><span class="String">'hello'</span><span class="Operator">,</span> <span class="String">'wx.MessageBox("Welcome to Priithon GUI !")'</span><span class="Operator">)</span><span class="Operator">,</span></span>
+<span class="line"><span class="LineNumber">  14 </span>        <span class="Operator">(</span><span class="String">'ask'</span><span class="Operator">,</span>   <span class="String">'a=wx.GetTextFromUser("enter var a:")'</span><span class="Operator">)</span><span class="Operator">,</span></span>
+<span class="line"><span class="LineNumber">  15 </span>        <span class="String">'\n'</span><span class="Operator">,</span></span>
+<span class="line"><span class="LineNumber">  16 </span>        <span class="Operator">(</span><span class="String">'shell'</span><span class="Operator">,</span> <span class="String">'Y.shell()'</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  17 </span>        <span class="Operator">]</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  18 </span></span>
+<span class="line"><span class="LineNumber">  19 </span><span class="ResWord">if</span> <span class="ID">__name__</span> <span class="Operator">==</span> <span class="String">'__main__'</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  20 </span>    <span class="ResWord">if</span> <span class="ID">wx</span><span class="Operator">.</span><span class="ID">GetApp</span><span class="Operator">(</span><span class="Operator">)</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  21 </span>        <span class="ID">main</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  22 </span>    <span class="ResWord">else</span><span class="Operator">:</span></span>
+<span class="line"><span class="LineNumber">  23 </span>        <span class="ResWord">import</span> <span class="ID">sys</span></span>
+<span class="line"><span class="LineNumber">  24 </span>        <span class="ID">sys</span><span class="Operator">.</span><span class="ID">app</span> <span class="Operator">=</span> <span class="ID">wx</span><span class="Operator">.</span><span class="ID">PySimpleApp</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  25 </span>        <span class="ID">main</span><span class="Operator">(</span><span class="Operator">)</span></span>
+<span class="line"><span class="LineNumber">  26 </span>        <span class="ID">sys</span><span class="Operator">.</span><span class="ID">app</span><span class="Operator">.</span><span class="ID">MainLoop</span><span class="Operator">(</span><span class="Operator">)</span><span class="Text"></span></span>
+</pre>
+</div>
+
+<h2 id="head-66d2a54d12f56d974308ef32038723bc1de50624">Another simple standalone GUI program</h2>
+
+<p>A wxPython GUI program requires some -- essentially always constant -- extra lines of code. a. at the end of the file the <tt>&nbsp;if&nbsp;__name__&nbsp;==&nbsp;'__main__'&nbsp;</tt> check, that allows to also import the file as a module. In the case <tt>__name__</tt> is NOT '<tt>__main__</tt>' ! a. the application class that starts everyhing (if <a class="nonexistent" href="/mywiki/PyShell">PyShell</a> is not already running -- see a. ) a. the frame class that shows the "main window" </p>
+<p><strong>TODO.</strong> </p>
+<a id="bottom"></a>
+
+</div>
+<p id="pageinfo" class="info" lang="en" dir="ltr">last edited 2007-03-15 04:58:55 by <span title="169.230.27.203=guanine.cgl.ucsf.edu">guanine</span></p>
+
+</div> <!-- end page -->
+
+
+<div id="footer">
+<ul class="editbar">
+<li><a href="/mywiki/PriithonTutorials?action=edit">Edit</a></li>
+<li><a href="/mywiki/PriithonTutorials?action=diff">Show Changes</a></li>
+<li><a href="/mywiki/PriithonTutorials?action=info">Get Info</a></li>
+<li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    <label>More Actions:</label>
+    <select name="action"
+        onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Show Raw Text</option>
+<option value="print">Show Print View</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled class="disabled">--------</option>
+<option value="AttachFile">Attachments</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Show Like Pages</option>
+<option value="LocalSiteMap">Show Local Site Map</option>
+<option value="show" disabled class="disabled">--------</option>
+<option value="RenamePage" disabled class="disabled">Rename Page</option>
+<option value="DeletePage" disabled class="disabled">Delete Page</option>
+    </select>
+    <input type="submit" value="Do">
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li>
+</ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li>
+<li><a href="http://www.python.org/">Python Powered</a></li>
+<li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+</body>
+</html>
+
