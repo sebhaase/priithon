@@ -95,3 +95,6 @@
 2010-03-04 15:07:09 #25607> hg commit -m 'priithon epydoc documentation as of 2010-03-04'
 2010-03-04 15:07:56 #25607> hg push
 2010-03-04 17:09:59 #25607> mv priithon_docs/PriithonTurorials.html priithon_docs/PriithonTutorials.html
+2010-03-04 17:10:17 #25607> hg commit -m 'rename PriithonTutorials'
+2010-03-04 17:10:24 #25607> hd add .
+2010-03-04 17:10:28 #25607> hg add .
