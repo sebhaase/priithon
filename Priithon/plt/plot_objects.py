@@ -374,6 +374,8 @@ class axis_object(property_object):
         self.bounds = ['auto', 'auto'] # each object needs its own bounds list
         self.omit_first_label = 0
         self.omit_last_label = 0
+        self.tickFormatter = str # seb 20100302
+
     def calculate_ticks(self,data_bounds):
         """ data bounds is (lower bound, upper bound)
            axis_settings is a 3-tuple (lower bound, upper bound, interval)
@@ -408,7 +410,7 @@ class axis_object(property_object):
     
     def create_labels(self):
         self.labels = []
-        tick_text = format_tick_labels(self.ticks)
+        tick_text = format_tick_labels(self.ticks, self.tickFormatter)
         for text in tick_text:
             label = text_object(text,(0,0),font=self.label_font,
                                            color=self.label_color)
@@ -598,6 +600,8 @@ class axis_window(wx.Window,axis_object):
 
     def format_popup(self,pos):
         menu = wx.Menu()
+        menu.Append(601, 'Change Axis Bounds', 'Change start and end point (and tick interval) of this axis')
+        wx.EVT_MENU(self, 601, self.OnAxisRange)
         menu.Append(600, 'Change Font', 'Change Text Font')
         wx.EVT_MENU(self, 600, self.OnFont)
         menu.UpdateUI()
@@ -615,6 +619,29 @@ class axis_window(wx.Window,axis_object):
             self.label_color = color.Red(),color.Green(),color.Blue()
             self.plot_canvas.update()
         dlg.Destroy()
+    def OnAxisRange(self, event):
+        oldBoundsTxt = "%s %s %s" % (self.bounds[0], self.bounds[1], self.tick_interval)
+        boundsTxt = wx.GetTextFromUser("Specify start and end of axis and (optionally) tick interval.\nUse <space> to separate those numbers or (for each) use `f` for tight fit and `a` for auto fit", 
+                                        "Axis Bounds and Tick Interval", oldBoundsTxt)
+        bounds = boundsTxt.split()
+        def fff(b):
+            if b.startswith('a'):
+                return 'auto'
+            elif b.startswith('f'):
+                return 'fit'
+            else:
+                return float(b)
+        bounds = [ fff(b) for b in bounds ]
+        self.bounds = list(self.bounds) # in case bounds was an ndarray before and user gave a non-float here
+        if len(bounds)>2:
+            self.tick_interval = bounds[2]
+        if len(bounds)>1:
+            self.bounds[1] = bounds[1]
+        if len(bounds)>0:
+            self.bounds[0] = bounds[0]
+
+        self.plot_canvas._saveZoomHist()
+        self.plot_canvas.update()            
 
 #-----------------------------------------------------------------------#
 #-------------------------- border_object ------------------------------#

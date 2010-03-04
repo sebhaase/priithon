@@ -2,6 +2,7 @@
 from Priithon.all import *
 to get access to all the modules like na,U,Y,...
 """
+from __future__ import absolute_import
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
@@ -13,8 +14,6 @@ __license__ = "BSD license - see LICENSE file"
 #  from lin.lin         import *
 #  from willy.willy     import *
 
-# aaa=45
-
 #  from sys import getrefcount as rc
 
 _broken=""
@@ -24,15 +23,8 @@ _broken=""
 #20060719 except:    _broken +=" P"
 try:
     import numpy as N
-except:    _broken +=" N"
-
-# try:
-#     import numarray as na
-# except:    _broken +=" na"
-#  try:
-#      from numarray import random_array as ra
-#  except:    _broken +=" ra"
-
+except:
+    _broken +=" N"
 
 #  try:
 #      import ArrayIO as A # needs Scientific.IO.TextFile
@@ -43,24 +35,32 @@ except:    _broken +=" N"
 #      from PIL import Image as I # PIL
 #  except:    _broken +="  I"
 
-import useful as U
-import fftfuncs as F
+from . import useful as U
+from . import fftfuncs as F
 try:
-    import Mrc
-except:    _broken +=" Mrc"
+    from . import Mrc
+except:
+    _broken +=" Mrc"
 
-
-#20060719 #try:
-#20060719 import seb     as S
-#20060719 #except:    _broken +=" seb"
 
 try:
-    import usefulX as Y
+    import sys
+    if hasattr(sys,'app'): # HACK: we use this as indicator for a graphic enabled environment
+        from . import usefulX as Y
+    else:
+        from . import usefulX_noX as Y
+
     FN = Y.FN
     DIR = Y.DIR
-except:    _broken +="  Y"
+except:    
+    _broken +="  Y"
+    raise
+finally:
+    del sys
 try:
-    import pylab as P
+    #20090612 import pylab as P
+    from matplotlib import pyplot as P
+    P.ion()
 except:    _broken +="  P"
 
 if _broken != "":

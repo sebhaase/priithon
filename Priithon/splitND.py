@@ -1,9 +1,18 @@
 """provides the parent frame of Priithon's ND 2d-section-viewer"""
+from __future__ import absolute_import
 
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
-from splitNDcommon import *
+#from .splitNDcommon import *
+#SyntaxError: 'import *' not allowed with 'from .'
+#<hack>
+from . import splitNDcommon
+for n in splitNDcommon.__dict__:
+    if not n.startswith('_'):
+        exec "%s = splitNDcommon.%s" % (n,n)
+del n, splitNDcommon
+#</hack>
 
 
 def viewImgFiles(filenames):
@@ -21,7 +30,7 @@ def viewImgFiles(filenames):
         run(fn, _scoopLevel=2)
     
 
-
+'''
 class MyFileDropTarget(wx.FileDropTarget):
     def __init__(self, parent):
         wx.FileDropTarget.__init__(self)
@@ -68,7 +77,7 @@ class MyFileDropTarget(wx.FileDropTarget):
 #               __main__.shell.prompt()
                 return
 
-        import usefulX2 as Y
+        from . import usefulX as Y
         if 1: ## ctrl not pressed -- new window
             viewImgFiles(filenames)
 
@@ -101,23 +110,31 @@ class MyFileDropTarget(wx.FileDropTarget):
                     title += "<%s>" % spv.data.Mrc.filename
                 title2 = "%d) %s" %(spv.id, title)
                 wx.GetTopLevelParent(spv.viewer).SetTitle(title2)
-
+'''
 
 
 def run(img, title=None, size=None, originLeftBottom=None, _scoopLevel=1): # just to not get a return value
     """img can be either an n-D image array (n >= 2)
           or a filename for a Fits or Mrc or jpg/gif/... file
-          or a sequence of the above
+          or a tuple of the above to open as mockNDarray
+          or a list  of the above to open multiple viewers
        """
-    if type(img) in (tuple, list):
+    import os
+    from .all import Y
+
+    if type(img) is list:
         for i in img:
             run(i, title, size, originLeftBottom, _scoopLevel=2)
         return
+    if type(img) is tuple:
+        from . import fftfuncs as F
+        imgs = tuple(( Y.load(i) if isinstance(i, basestring) else i for i in img ))
+        moa = F.mockNDarray(*imgs)
+        run(moa, title, size, originLeftBottom, _scoopLevel=2)
+        return
 
-    import os, usefulX2 as Y
     #"filename"
-    if type(img) in (str, unicode) \
-            and os.path.isfile(img):
+    if isinstance(img, basestring) and os.path.isfile(img):
         fn=img
         p,f = os.path.split(os.path.abspath(fn))
         #print fn, (fn[:6] == "_thmb_"), (fn[-4:] == ".jpg")
@@ -127,7 +144,7 @@ def run(img, title=None, size=None, originLeftBottom=None, _scoopLevel=1): # jus
                 fn = f
 
         elif f[-4:] == ".txt":
-            from mmviewer import mview
+            from .mmviewer import mview
             if size is None:
                 return mview(fn)
             else:
@@ -149,7 +166,7 @@ def run(img, title=None, size=None, originLeftBottom=None, _scoopLevel=1): # jus
             try:
                 import sys
                 fr = sys._getframe(_scoopLevel)
-                locs = fr.f_globals
+                locs = fr.f_locals
                 globs = fr.f_globals
                 a = eval(img, globs, locs)
                 img,title = a, img
@@ -174,18 +191,20 @@ def run(img, title=None, size=None, originLeftBottom=None, _scoopLevel=1): # jus
     spv(img, title, size, originLeftBottom)
     
 class spv(spvCommon):
-    ''' self.hist_arr != None ONLY IF NOT self.img.type() in (na.UInt8, na.Int16, na.UInt16)
-        then also   self.hist_max   and   self.hist_min  is set to min,max of number type !!
-        and:  self.hist_range = self.hist_max - self.hist_min
-        then  call:
-        S.histogram(self.img, self.hist_min, self.hist_max, self.hist_arr)
-        self.hist.setHist(self.hist_arr, self.hist_min, self.hist_max)
-
-        
-        otherwise call   self.recalcHist()
-        this _should_ be done from worker thread !?
-
-        '''
+    """ 
+    "split panel viewer"
+    self.hist_arr != None ONLY IF NOT self.img.type() in (na.UInt8, na.Int16, na.UInt16)
+    then also   self.hist_max   and   self.hist_min  is set to min,max of number type !!
+    and:  self.hist_range = self.hist_max - self.hist_min
+    then  call:
+    S.histogram(self.img, self.hist_min, self.hist_max, self.hist_arr)
+    self.hist.setHist(self.hist_arr, self.hist_min, self.hist_max)
+    
+    
+    otherwise call   self.recalcHist()
+    this _should_ be done from worker thread !?
+    
+    """
 
 
 
@@ -207,15 +226,16 @@ class spv(spvCommon):
 
         if parent is None: makes a new frame with "smart" title and given size
         """
-
+        spvCommon.__init__(self)
         # 20070715: what can we do with zeros in zshape - skip slider ?!
-        data = N.asanyarray(data) # 20060720 - numpy arrays don't have ndim attribute
+        if not isinstance(data, F.mockNDarray):
+            data = N.asanyarray(data) # 20060720 - numpy arrays don't have ndim attribute
         if min(data.shape) < 1:
             raise ValueError, "data shape contains zeros (%s)"% (data.shape,)
         
 
         if not 1 < data.ndim:
-            raise "cannot display %dD data"% data.ndim
+            raise ValueError("cannot display %dD data"% data.ndim)
 
 
         try:
@@ -244,6 +264,12 @@ class spv(spvCommon):
                                       N.asarray(self.img.real, N.float32))
 
         self.recalcHist_todo_Set = set()
+        from .usefulX import viewers
+        n = len( viewers )
+        #self.__class__.viewers[ title ] = self
+        viewers.append( self )
+        self.id = n
+
         if parent is None:
             parent=self.makeFrame(size, title)
             needShow=True
@@ -262,7 +288,7 @@ class spv(spvCommon):
         self.putZSlidersIntoTopBox(self.upperPanel, self.boxAtTop)
         sizer.AddSizer(self.boxAtTop, 0, wx.GROW|wx.ALL, 2)
         
-        import viewer
+        from . import viewer
         v = viewer.GLViewer(self.upperPanel, self.img, originLeftBottom=originLeftBottom)
         self.viewer = v
         
@@ -298,7 +324,7 @@ class spv(spvCommon):
 
         menuSub2 = wx.Menu()
         
-        from Priithon.all import Y
+        from .all import Y
         self.plot_avgBandSize=1
         self.plot_s='-+'
         def OnChProWi(ev):
@@ -308,21 +334,9 @@ class spv(spvCommon):
             self.plot_avgBandSize=i
             #Y.vLeftClickNone(self.id) # fixme: would be nice if
             #done!?
-            from Priithon import usefulX2
-            usefulX2._plotprofile_avgSize = self.plot_avgBandSize
+            Y._plotprofile_avgSize = self.plot_avgBandSize
         def OnSelectSubRegion(ev):
-            from viewerRubberbandMode import viewerRubberbandMode
-            rub = viewerRubberbandMode(id=self.id,
-                                       rubberWhat="box",
-                                       color=(0, 1, 0),
-                                       gfxWhenDone='hide')
-            
-            def doThisAlsoOnDone():
-                y0,x0 = rub.yx0
-                y1,x1 = rub.yx1
-                Y.view( self.data[..., y0:y1+1,x0:x1+1],
-                        title="%s [...,%d:%d,%d:%d]" % (self.title, y0,y1+1,x0,x1+1) )
-            rub.doThisAlsoOnDone = doThisAlsoOnDone
+            Y.vLeftViewSubRegion(self.id)
                 
         left_list = [('horizontal profile',
                       lambda ev: Y.vLeftClickHorizProfile(self.id, self.plot_avgBandSize, self.plot_s)),
@@ -342,7 +356,7 @@ class spv(spvCommon):
                       lambda ev: Y.vLeftClickTriangleMeasure(self.id)),
                      ('mark-cross',
                       lambda ev: Y.vLeftClickMarks(self.id, callFn=None)),
-                     ('<nothing>',
+                     ('<clear click-function>',
                       lambda ev: Y.vLeftClickNone(self.id)),
                      ('<clear graphics>',
                       lambda ev: Y.vClearGraphics(self.id)),
@@ -364,28 +378,43 @@ class spv(spvCommon):
         wx.EVT_MENU(parent, Menu_SaveND,      self.OnMenuSaveND)
         wx.EVT_MENU(parent, Menu_AssignND,      self.OnMenuAssignND)
         
-        dt = MyFileDropTarget(self)
-        v.SetDropTarget(dt)
-        
+        #dt = MyFileDropTarget(self)
+        #v.SetDropTarget(dt)
+        from . import fileDropPopup
+        v.SetDropTarget( fileDropPopup.FileDropTarget(v) )
 
-        def splitND_onMouse(x,y,xyEffVal):
-            if self.data.dtype.type in (N.uint8, N.int16, N.uint16, N.int32):
-                vs = "%6d"  %(xyEffVal,)
-            else:
-                if N.abs(xyEffVal) > .02:
-                    vs = "%7.2f"  %(xyEffVal,)
+
+        def splitND_onMouse(x,y, ev): #20080707 ,xyEffVal):
+            yy,xx = int(round(y)), int(round(x)) # NEW 20080701:  in new coord system, integer pixel coord go through the center of pixel
+            try:
+                pic_ny, pic_nx = self.img.shape
+            except AttributeError:
+                return             # can happend when window just got closed (windows)
+            if (0<=yy<pic_ny and
+                0<=xx<pic_nx):
+                xyEffVal = self.img[yy,xx] #20080707
+                if N.issubdtype(self.data.dtype, N.integer): #(N.uint8, N.int16, N.uint16, N.int32):
+                    vs = "%6d"  %(xyEffVal,)
+                elif self.data.dtype == bool:
+                    vs = "%4d"  %(xyEffVal,)
                 else:
-                    vs = "%7.2e"  %(xyEffVal,)
-                #self.label.SetLabel("xy: %3d %3d  val: %7.2f"%(x,y, xyEffVal))#self.img[y,x]))
-            if v.m_scale != 1:
-                self.label.SetLabel("(%.1fx yx: %3d %3d  val: %s"%(v.m_scale, y,x, vs))
+                    if N.abs(xyEffVal) > .02:
+                        vs = "%7.2f"  %(xyEffVal,)
+                    else:
+                        vs = "%7.2e"  %(xyEffVal,)
             else:
-                self.label.SetLabel("yx: %3d %3d  val: %s"%(y,x, vs))
-        v.doOnMouse = splitND_onMouse
-        del splitND_onMouse
+                vs = "---"
+                #self.label.SetLabel("xy: %3d %3d  val: %7.2f"%(x,y, xyEffVal))#self.img[y,x]))
+            if v.m_scale > 1 and self.showFloatCoordsWhenZoomingIn:
+                self.label.SetLabel("%.1fx yx: %5.1f %5.1f  val: %s"%(v.m_scale, y,x, vs))
+            elif v.m_scale !=1:
+                self.label.SetLabel("%.1fx yx: %3d %3d  val: %s"%(v.m_scale, yy,xx, vs))
+            else:
+                self.label.SetLabel("yx: %3d %3d  val: %s"%(yy,xx, vs))
+        v.doOnMouse.append(splitND_onMouse)
 
-        import histogram
-    
+        from . import histogram
+
         h = histogram.HistogramCanvas(splitter, size=(400,110))
         self.hist   = h
         #20070525-black_on_black h.SetCursor(wx.CROSS_CURSOR)
@@ -397,23 +426,24 @@ class spv(spvCommon):
         v.my_spv    = weakref.proxy( self ) # CHECK 20070823
         h.my_spv    = weakref.proxy( self ) # CHECK 20070823
 
-        def splitND_onBrace(l,r, gamma=None):
+        def splitND_onBrace(s, gamma=None):
+            l,r = s.leftBrace, s.rightBrace
             try:
                 if gamma is not None:
                     v.cmgray(gamma)
                 v.changeHistogramScaling(l,r)
             except:
                 pass
-        h.doOnBrace = splitND_onBrace
-        del splitND_onBrace
-        def splitND_onMouseHist(xEff, bin):
+        h.doOnBrace.append(splitND_onBrace)
+        #20080707 del splitND_onBrace
+        def splitND_onMouseHist(xEff, ev): #20080707 , bin):
             l,r = h.leftBrace, h.rightBrace
             if self.data.dtype.type in (N.uint8, N.int16, N.uint16, N.int32):
                 self.label.SetLabel("I: %6.0f  l/r: %6.0f %6.0f"  %(xEff,l,r))
             else:
                 self.label.SetLabel("I: %7.2g  l/r: %7.2g %7.2g"%(xEff,l,r))
-        h.doOnMouse = splitND_onMouseHist
-        del splitND_onMouseHist
+        h.doOnMouse.append(splitND_onMouseHist)
+        #20080707del splitND_onMouseHist
     
         #from Priithon import seb as S
     
@@ -441,6 +471,9 @@ class spv(spvCommon):
         #20070809 wx.Yield()
         if needShow:
             parent.Show()
+            self.installKeyCommands(parent)
+            # ACCEL_CMD:"Cmd" is a pseudo key which is the same as Control for PC and Unix platforms but the special "Apple" (a.k.a as "Command") key on Macs.
+            self.keyShortcutTable[ wx.MOD_CMD, ord('W') ] = parent.Close
 
         self.autoHistEachSect = 0
         self.scrollIncr = 1             
@@ -464,7 +497,8 @@ class spv(spvCommon):
         wx.Yield()
         v.center()
         wx.EVT_CLOSE(wx.GetTopLevelParent(parent), self.onClose)
-        self.setAccels(parent)
+        self.setDefaultKeyShortcuts()
+
         
 ##thrd           # Set up event handler for any worker thread results
 ##thrd           def EVT_RESULT(win, func):
@@ -508,7 +542,6 @@ class spv(spvCommon):
 ##thrd               self.aa = Worker()
 
         #still __init__
-        self.viewer.SetFocus() # 20070525 - accel problem on windows
 
     def onClose(self, ev=None):
         #print "debug: splitND::onClose"
@@ -516,14 +549,23 @@ class spv(spvCommon):
             del self.data
             del self.img
         except:
-            import sys
-            print >>sys.stderr, "  ### ### cought exception for debugging:  #### " 
-            import traceback
-            traceback.print_exc()
-            print >>sys.stderr, "  ### ### cought exception for debugging:  #### " 
+            if PriConfig.raiseEventHandlerExceptions:
+                raise
+            else:
+                print >>sys.stderr, "  ### ### cought exception for debugging:  #### " 
+                traceback.print_exc()
+                print >>sys.stderr, "  ### ### cought exception for debugging:  #### " 
             
-        from usefulX2 import viewers
-        viewers[ self.id ] = None
+        from .usefulX import viewers
+        try:
+            viewers[ self.id ] = None
+        except:
+            if PriConfig.raiseEventHandlerExceptions:
+                raise
+            else:
+                print >>sys.stderr, "  ### ### cought exception for debugging:  #### " 
+                traceback.print_exc()
+                print >>sys.stderr, "  ### ### cought exception for debugging:  #### " 
         if ev:
             ev.GetEventObject().Destroy()
         #20070808self.frame.Destroy()
@@ -534,13 +576,13 @@ class spv(spvCommon):
     def makeFrame(self, size, title):
         """
         create frame
-        if data has "Mrc" attribute, append "<filename> to given title
+        if data has "Mrc" attribute, append "<filename>" to given title
         """
         self.downSizeToFitWindow=False
         ### size = (400,400)
         if size is None:
             height,width = self.data.shape[-2:] #20051128 self.img.shape
-            if height/2 == (width-1):  ## real_fft2d
+            if height//2 == (width-1):  ## real_fft2d
                 width = (width-1)*2
             if width>600 or height>600:
                 width=height=600
@@ -555,134 +597,20 @@ class spv(spvCommon):
         if title is None:
             title=''
         if hasattr(self.data, 'Mrc'): # was a HACK: and (len(title)<1 or title[-1]!='>'):
-            if title !='':
-                title += " "
-            title += "<%s>" % self.data.Mrc.filename
+            ttt = "<%s>" % self.data.Mrc.filename  # HACK, this should be done without the 'not in' check 
+            if ttt not in title:
+                if title !='':
+                    title += " "
+                title += ttt
         
-        from usefulX2 import viewers, shellMessage
-        n = len( viewers )
-        #self.__class__.viewers[ title ] = self
-        viewers.append( self )
-        self.id = n
-
         title2 = "%d) %s" %(self.id, title)
         frame = wx.Frame(None, -1, title2, size=(width+20,height+50+100)) # 20070627 MSW: was height+120
+        from .usefulX import shellMessage
         shellMessage("# window: %s\n"% title2)
         self.title  = title
         self.title2 = title2
         return frame
 
-    def setAccels(self, parent):
-        wx.EVT_MENU(parent, 6013, self.On13)
-        wx.EVT_MENU(parent, 6081, self.On81)     # for wxAcceleratorTable
-        #wx.EVT_MENU(parent, 6088, self.On88)    # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6082, self.On82)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6083, self.On83)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6084, self.On84)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6085, self.On85)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6086, self.On86)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6087, self.On87)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6090, self.On90)     # for wxAcceleratorTable
-
-        wx.EVT_MENU(parent, 6061, self.On61)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6062, self.On62)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6063, self.On63)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6064, self.On64)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6069, self.On69)     # for wxAcceleratorTable
-        wx.EVT_MENU(parent, 6068, self.OnShowPopupTransient)     # for wxAcceleratorTable
-        
-        wx.EVT_MENU(parent, 1041, lambda evt: self.doScroll(axis=0, dir=-1))
-        wx.EVT_MENU(parent, 1042, lambda evt: self.doScroll(axis=0, dir=+1))
-        wx.EVT_MENU(parent, 1043, lambda evt: self.doScroll(axis=1, dir=+1))
-        wx.EVT_MENU(parent, 1044, lambda evt: self.doScroll(axis=1, dir=-1))
-        
-        wx.EVT_MENU(parent, wx.ID_CLOSE, lambda evt: parent.Close())
-        
-        self.frameAccelTableList = [
-            (wx.ACCEL_CMD, ord('w'), wx.ID_CLOSE), # ACCEL_CMD:"Cmd" is a pseudo key which is the same as Control for PC and Unix platforms but the special "Apple" (a.k.a as "Command") key on Macs.
-
-            (wx.ACCEL_NORMAL, wx.WXK_NUMPAD_MULTIPLY,      6013),
-            (wx.ACCEL_NORMAL, ord('l'), 6090),
-            (wx.ACCEL_NORMAL, ord('f'), 6081),
-            (wx.ACCEL_SHIFT,  ord('f'), 6082),#8),
-            #(wx.ACCEL_NORMAL, ord('i'), 6082),
-            (wx.ACCEL_NORMAL, ord('a'), 6083),
-            (wx.ACCEL_NORMAL, ord('p'), 6084),
-            (wx.ACCEL_NORMAL, ord('x'), 6085),
-            (wx.ACCEL_NORMAL, ord('y'), 6086),
-            (wx.ACCEL_NORMAL, ord('v'), 6087),
-
-            (wx.ACCEL_NORMAL, ord('c'), 6061),
-            (wx.ACCEL_NORMAL, ord('g'), 6062),
-            (wx.ACCEL_NORMAL, ord('o'), 6063),
-            (wx.ACCEL_NORMAL, ord('b'), 6064),#noGFX
-            (wx.ACCEL_NORMAL, ord('m'), 6069),
-            (wx.ACCEL_NORMAL, wx.WXK_F1, 6068),
-
-            (wx.ACCEL_NORMAL, wx.WXK_LEFT, 1041),
-            (wx.ACCEL_NORMAL, wx.WXK_RIGHT,1042),
-            (wx.ACCEL_NORMAL, wx.WXK_UP,   1043),
-            (wx.ACCEL_NORMAL, wx.WXK_DOWN, 1044),
-
-            (wx.ACCEL_ALT, wx.WXK_NUMPAD_MULTIPLY,      6013),
-            (wx.ACCEL_ALT, ord('l'), 6090),
-            (wx.ACCEL_ALT, ord('f'), 6081),
-            (wx.ACCEL_ALT | wx.ACCEL_SHIFT,  ord('f'), 6082),#8),
-            #(wx.ACCEL_ALT, ord('i'), 6082),
-            (wx.ACCEL_ALT, ord('a'), 6083),
-            (wx.ACCEL_ALT, ord('p'), 6084),
-            (wx.ACCEL_ALT, ord('x'), 6085),
-            (wx.ACCEL_ALT, ord('y'), 6086),
-            (wx.ACCEL_ALT, ord('v'), 6087),
-
-            (wx.ACCEL_ALT, ord('c'), 6061),
-            (wx.ACCEL_ALT, ord('g'), 6062),
-            (wx.ACCEL_ALT, ord('o'), 6063),
-            (wx.ACCEL_ALT, ord('b'), 6064), #noGFX
-            (wx.ACCEL_ALT, ord('m'), 6069),
-            (wx.ACCEL_ALT, wx.WXK_F1, 6068),
-
-            (wx.ACCEL_ALT, wx.WXK_LEFT, 1041),
-            (wx.ACCEL_ALT, wx.WXK_RIGHT,1042),
-            (wx.ACCEL_ALT, wx.WXK_UP,   1043),
-            (wx.ACCEL_ALT, wx.WXK_DOWN, 1044),
-
-            ]
-        _at = wx.AcceleratorTable(self.frameAccelTableList) # + self.viewer.accelTableList)
-
-        parent.SetAcceleratorTable(_at)
-         
-
-
-    def putZSlidersIntoTopBox(self, parent, boxSizer):
-        [si.GetWindow().Destroy() for si in boxSizer.GetChildren()] # needed with Y.viewInViewer
-
-        self.zzslider = [None]*self.zndim
-        for i in range(self.zndim-1,-1,-1):
-            self.zzslider[i] = wx.Slider(parent, 1001+i, self.zsec[i], 0, self.zshape[i]-1,
-                               wx.DefaultPosition, wx.DefaultSize,
-                               #wx.SL_VERTICAL
-                               wx.SL_HORIZONTAL
-                               | wx.SL_AUTOTICKS | wx.SL_LABELS )
-            if self.zshape[i] > 1:
-                self.zzslider[i].SetTickFreq(5, 1)
-                ##boxSizer.Add(vslider, 1, wx.EXPAND)
-                boxSizer.Insert(0, self.zzslider[i], 1, wx.EXPAND)
-                wx.EVT_SLIDER(parent, self.zzslider[i].GetId(), self.OnZZSlider)
-            else: # still good to create the slider - just to no have special handling
-                # self.zzslider[i].Show(0) # 
-                boxSizer.Insert(0, self.zzslider[i], 0, 0)
-        if self.zndim == 0:
-            label = wx.StaticText(parent, -1, "---------->")
-            #label.SetHelpText("This is the help text for the label")
-            boxSizer.Add(label, 0, wx.GROW|wx.ALL, 2)
-
-            
-        self.label = wx.StaticText(parent, -1, "----move mouse over image----xxxx") # HACK find better way to reserve space to have "val: 1234" always visible 
-    
-        boxSizer.Add(self.label, 0, wx.GROW|wx.ALL, 2)
-        boxSizer.Layout()
-        parent.Layout()
 
     '''
     def copyDataIfUnsupportedType(self, data):
@@ -714,12 +642,12 @@ class spv(spvCommon):
         self.data = data
     '''
         
-    def On13(self, event):
-        import useful as U
-        mi,ma,me,ss = U.mmms( self.img )
+    def OnAutoHistScale(self, event=77777):
+        from .useful import mmms
+        mi,ma,me,ss = mmms( self.img )
         self.hist.autoFit(amin=mi, amax=ma)
-    def On81(self, event):
-        import fftfuncs as F
+    def OnViewFFT(self, event=77777):
+        from . import fftfuncs as F
         if self.data.dtype.type in (N.complex64, N.complex128):
             f = F.fft2d(self.data)
             #f[ ... , 0,0] = 0. # force DC to zero to ease scaling ...
@@ -736,8 +664,8 @@ class spv(spvCommon):
 # #         else:
 #       f = F.irfft2d(self.data)
 #       run(f, title='irFFT2d of %d'%self.id, _scoopLevel=2)
-    def On82(self, event):
-        import fftfuncs as F
+    def OnViewFFTInv(self, event=77777):
+        from . import fftfuncs as F
         if self.data.dtype.type in (N.complex64, N.complex128):
             f = F.irfft2d(self.data)
         else:
@@ -745,7 +673,7 @@ class spv(spvCommon):
             return
         #    f = F.irfft2d(self.data)
         run(f, title='irFFT2d of %d'%self.id, _scoopLevel=2)
-    def On83(self, event):
+    def OnViewCplxAsAbs(self, event=77777):
         if not self.data.dtype.type in (N.complex64, N.complex128)\
                or self.viewer.m_viewComplexAsAbsNotPhase:
             wx.Bell()
@@ -754,7 +682,7 @@ class spv(spvCommon):
         ####self.data = N.absolute(self.dataCplx)
         self.helpNewData()
                 
-    def On84(self, event):
+    def OnViewCplxAsPhase(self, event=77777):
         if not self.data.dtype.type in (N.complex64, N.complex128)\
                or self.viewer.m_viewComplexAsAbsNotPhase == False:
             wx.Bell()
@@ -763,54 +691,38 @@ class spv(spvCommon):
         #import useful as U
         #self.data = U.phase(self.dataCplx)
         self.helpNewData()
-    def On85(self, event):
-        import fftfuncs as F
+    def OnViewFlipXZ(self, event=77777):
+        from . import fftfuncs as F
         if self.data.dtype.type in (N.complex64, N.complex128):
             print "TODO: cplx "
         run(F.getXZview(self.data, zaxis=0), title='X-Z of %d'%self.id, _scoopLevel=2)
-        from usefulX2 import vHistSettings
+        from .usefulX import vHistSettings
         vHistSettings(self.id,-1)
-    def On86(self, event):
-        import fftfuncs as F
+    def OnViewFlipYZ(self, event=77777):
+        from . import fftfuncs as F
         if self.data.dtype.type in (N.complex64, N.complex128):
             print "TODO: cplx "
         run(F.getYZview(self.data, zaxis=0), title='Y-Z of %d'%self.id, _scoopLevel=2)
-        from usefulX2 import vHistSettings
+        from .usefulX import vHistSettings
         vHistSettings(self.id,-1)
 
-    def On87(self, event):
-        import useful as U
+    def OnViewMaxProj(self, event=77777):
+        from . import useful as U
         if self.data.dtype.type in (N.complex64, N.complex128):
             print "TODO: cplx "
-        run(U.project(self.data), title='proj of %d'%self.id, _scoopLevel=2)
-        from usefulX2 import vHistSettings
+        run(U.project(self.data), title='maxProj of %d'%self.id, _scoopLevel=2)
+        from .usefulX import vHistSettings
+        vHistSettings(self.id,-1)
+    def OnViewMeanProj(self, event=77777):
+        if self.data.dtype.type in (N.complex64, N.complex128):
+            print "TODO: cplx "
+        run(N.mean(self.data, axis=0, dtype=N.float64), title='meanProj of %d'%self.id, _scoopLevel=2)
+        from .usefulX import vHistSettings
         vHistSettings(self.id,-1)
         
-    def OnMenuSaveND(self, ev=None):
-        if self.data.dtype.type in (N.complex64, N.complex128):
-            dat = self.dataCplx
-            datX = abs(self.data) #CHECK 
-        else:
-            dat = datX = self.data
 
-        from Priithon.all import Mrc, U, FN, Y
-        fn = FN(1,0)
-        if not fn:
-            return
-        if fn[-4:] in [ ".mrc",  ".dat" ]:
-            Mrc.save(dat, fn)
-        elif fn[-5:] in [ ".fits" ]:
-            U.saveFits(dat, fn)
-        else:
-            # save as sequence of image files
-            # if fn does contain something like '%0d' auto-insert '_%0NNd'
-            #      with NN to just fit the needed number of digits
-            datX = datX.view()
-            datX.shape = (-1,)+datX.shape[-2:]
-            U.saveImg8_seq(datX, fn)
-        Y.shellMessage("### Y.vd(%d) saved to '%s'\n"%(self.id, fn))
 
-    def OnShowPopupTransient(self, evt):
+    def OnShowPopupTransient(self, evt=77777):
         try:
             print self.win
         except:
@@ -833,8 +745,8 @@ class spv(spvCommon):
 
         
     def helpNewData(self, doAutoscale=True, setupHistArr=True):
-        '''doAutoscale gets ORed with self.autoHistEachSect == 2
-        '''
+        """doAutoscale gets ORed with self.autoHistEachSect == 2
+        """
         #self.zshape= data.shape[:-2]
         #self.zndim = len(self.zshape)
         ###self.img  = data[ (0,)*self.zndim ]
@@ -881,19 +793,11 @@ class spv(spvCommon):
             self.hist.setBraces(self.mmms[0], self.mmms[1])
         #print "debug2:", self.mmms
 
-    def On90(self, ev):
+    def OnHistLog(self, ev=77777):
         self.hist.OnLog(ev)
 
-    def On61(self, ev):
-        self.viewer.OnColor()
-    def On62(self, ev):
-        self.viewer.setPixelGrid()
-    def On63(self, ev):
-        self.viewer.OnChgOrig()
-    def On64(self, ev):
-        self.viewer.OnChgNoGfx()
-    def On69(self, ev):
-        import usefulX2 as Y
+    def OnViewVTK(self, ev=77777):
+        from . import usefulX as Y
         ####use tostring instead    self.m = Y.vtkMountain(self.img, "vtk of %d: %s" %  (self.id, self.title))
         #20060722 a = N.NumArray(shape=self.img.shape, type=self.img.type(), buffer=self.viewer.m_imgArrString)
         a = N.fromstring(self.viewer.m_imgArrString, self.img.dtype)
@@ -908,14 +812,14 @@ class spv(spvCommon):
         self.hist_arr = None
 
         if self.img.dtype.type == N.uint8:
-            self.hist_min, self.hist_max = 0, 1<<8
+            self.hist_min, self.hist_max = 0, (1<<8)-1
         elif self.img.dtype.type ==  N.uint16:
-            self.hist_min, self.hist_max = 0, 1<<16
+            self.hist_min, self.hist_max = 0, (1<<16)-1
         elif self.img.dtype.type == N.int16:
-            self.hist_min, self.hist_max = 1-(1<<15), (1<<15)
-             
+            self.hist_min, self.hist_max = 0-(1<<15), (1<<15)-1
+
         if self.img.dtype.type in (N.uint8, N.int16, N.uint16):
-            self.hist_range = self.hist_max - self.hist_min
+            self.hist_range = self.hist_max - self.hist_min + 1
             self.hist_arr = N.zeros(shape=self.hist_range, dtype=N.int32)
             
 
@@ -929,9 +833,10 @@ class spv(spvCommon):
         if not triggeredFromIdle:
             self.recalcHist_todo_Set.add(0)
             return
+
         #CHECK img = self.viewer.m_imgArr
         img = self.img
-        import useful as U
+        from . import useful as U
         mmms = U.mmms( img )
         self.mmms = mmms
             #time import time

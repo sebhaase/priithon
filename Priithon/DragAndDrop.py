@@ -1,3 +1,8 @@
+"""
+Priithon simple drag-and-drop window
+"""
+from __future__ import absolute_import
+
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
@@ -25,9 +30,9 @@ class ClipTextPanel(wx.Panel):
         sizer.Add(hsz, 0, wx.EXPAND)
         sizer.Add(wx.Button(self, 6052, " Copy Bitmap "), 0, wx.EXPAND|wx.ALL, 2)
 
-        EVT_BUTTON(self, 6050, self.OnCopy)
-        EVT_BUTTON(self, 6051, self.OnPaste)
-        EVT_BUTTON(self, 6052, self.OnCopyBitmap)
+        wx.EVT_BUTTON(self, 6050, self.OnCopy)
+        wx.EVT_BUTTON(self, 6051, self.OnPaste)
+        wx.EVT_BUTTON(self, 6052, self.OnCopyBitmap)
 
         self.SetAutoLayout(True)
         self.SetSizer(sizer)
@@ -85,12 +90,15 @@ class MyFileDropTarget(wx.FileDropTarget):
         self.redirStdOut = redirStdOut
 
     def OnDropFiles(self, x, y, filenames):
-        import __main__, sys
+        import sys
         locals = { "fns": filenames,
                    "fn": filenames[0],
-                   "dropTextCtrl": self.window.text,
                    }
-        
+        try:
+            locals["dropTextCtrl"] = self.window.text
+        except AttributeError:
+            pass
+
         if self.redirStdOut:
             stdout = sys.stdout
             sys.stdout = self.window.text
@@ -119,8 +127,8 @@ class MyFileDropTarget(wx.FileDropTarget):
             else:
                 fn = file
             self.window.WriteText("Open: "+ fn + '\n')
-            from Priithon import usefulX as Y
-            from Priithon import Mrc
+            from . import usefulX as Y
+            from . import Mrc
             global v, a
             originLeftBottom=None
             try:

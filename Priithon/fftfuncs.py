@@ -1,10 +1,13 @@
 """Priithon F module: F as in FFT (todo: cleanup) and
                         as in Fields (think, physics - or German)
 """
+from __future__ import absolute_import
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
 import numpy as N
+from .mockNDarray import mockNDarray
+from .mandel import mandel as mandelbrotArr
 
 defshape = (256,256)  #use this default shape to make testing easy
 
@@ -99,12 +102,30 @@ def copyPadded(a,b, pad=0):
     b[:] = a
 
 
+def rgb2gray(rgb, colorAxis=0, dtype=N.float32):
+    """
+    converts truecolor image `rgb` to grayscale intensity image.
+    Eliminating hue and saturation, luminance is calculated as
+    0.2989 * R + 0.5870 * G + 0.1140 * B 
+    """
+
+    if colorAxis < 0:
+        colorAxis += rgb.ndim
+    if colorAxis > 0:
+        rgb=rgb.transpose((colorAxis,)+tuple(range(colorAxis)) \
+                                                 + tuple(range(colorAxis+1, rgb.ndim)))
+    r,g,b = rgb
+    aLuminance = N.empty(r.shape, dtype)
+    aLuminance[:] = 0.2989 * r + 0.5870 * g + 0.1140 * b
+    return aLuminance
+
+
 def getByteSwapped(arr):
-    '''
+    """
     returns byteswapped version of arr
     all values should be the same as in arr
     only memory representation and byteorder-flag are changed
-    '''
+    """
     return arr.byteswap().view(arr.dtype.newbyteorder())
 def getWithoutBorder(arr, border=10):
     """
@@ -168,14 +189,14 @@ def getThresholded(arr, min=0, force0Base=False):
 
 
 def bin2d(inArr, outArr, binX=2, binY=2):
-    import useful as U
+    from . import useful as U
     U.checkGoodArrayF(outArr, 1, (inArr.shape[0]//binY, inArr.shape[1]//binX))
 
     if inArr.dtype.isnative:
         inArr = N.ascontiguousarray(inArr)
     else:
         inArr = N.ascontiguousarray(inArr, inArr.dtype.newbyteorder('='))
-    import seb as S
+    import Priithon_bin.seb as S
     S.bin2d(inArr, outArr, binX, binY)
 
 
@@ -189,6 +210,40 @@ def getYZview(arr, zaxis=-3):
     return N.transpose(arr, s)
     
 
+def getHistEqualizedF(arr, histYX=None, nBins=None):
+    """
+    calculate and return the histogram equalized copy of arr 
+        (dtype=float32, min..max = 0..1)
+
+    histYX, is the histogram of `a` -- a tuple(binCount, binPixelValue)
+    if histYX is None:
+       calculate histogram using nBins bins
+        if nBins is None:
+            nBins = int(amax-amin+1)
+            if arr is of float dtype   and nBins < 1000:
+                nBins = 1000
+    """
+    from .useful import histogramYX
+
+    if histYX is None:
+        if nBins is None:
+            amin, amax = arr.min(), arr.max()
+            nBins = int(amax-amin+1)
+            if N.issubdtype(float, arr.dtype) and nBins < 1000:
+                nBins = 1000
+        h,x = histogramYX(arr, nBins=nBins)
+    else:
+        h,x = histYX
+
+    hcs = N.cumsum(h, dtype=N.float32)
+    hcs /= hcs[-1]
+
+    xMin = float(x[0])
+    xRange = float(x[-1]) - xMin
+    nBins = len(h)
+    scale = (nBins-1)/xRange
+    aHistEq = hcs[ N.array(.5+scale*(arr-xMin), dtype=N.int) ]
+    return aHistEq
 
 ###################################################################
 ## generate some arrays
@@ -214,7 +269,7 @@ def radialPhiArr(shape, func, orig=None, dtype=N.float32):
             pass
     
     if len(shape) != len(orig):
-        raise "shape and orig not same dimension"
+        raise ValueError, "shape and orig not same dimension"
 
     if len(shape) == 2:
         y0,x0 = orig
@@ -228,7 +283,7 @@ def radialPhiArr(shape, func, orig=None, dtype=N.float32):
             (x-x0)**2 + (y-y0)**2 + (z-z0)**2 ), N.arctan2((y-y0), (x-x0)) ),
                               shape, dtype)
     else:
-        raise "only defined for 1< dim <= 3"
+        raise ValueError, "only defined for 1< dim <= 3"
 
 
 def radialArr(shape, func, orig=None, wrap=False, dtype=N.float32):
@@ -257,7 +312,7 @@ def radialArr(shape, func, orig=None, wrap=False, dtype=N.float32):
             pass
                 
     if len(shape) != len(orig):
-        raise "shape and orig not same dimension"
+        raise ValueError, "shape and orig not same dimension"
 
     try: 
         if len(wrap) != len(shape):
@@ -309,7 +364,7 @@ def radialArr(shape, func, orig=None, wrap=False, dtype=N.float32):
                                              N.sqrt( \
             (wrapIt(-1,x-x0))**2 + (wrapIt(-2,y-y0))**2 + (wrapIt(-3,z-z0))**2 ) ), shape, dtype)
     else:
-        raise "only defined for dim < 3 (TODO)"
+        raise ValueError, "only defined for dim < 3 (TODO)"
 
 def maxNormRadialArr(shape, func, orig=None, wrap=0, dtype=N.float32):
     """like radialArr but instead of using euclidian distance to determine r
@@ -328,7 +383,7 @@ def maxNormRadialArr(shape, func, orig=None, wrap=0, dtype=N.float32):
             pass
     
     if len(shape) != len(orig):
-        raise "shape and orig not same dimension"
+        raise ValueError, "shape and orig not same dimension"
 
     if wrap:
         def wrapIt(q, nq):
@@ -354,7 +409,7 @@ def maxNormRadialArr(shape, func, orig=None, wrap=0, dtype=N.float32):
              N.maximum.reduce(  \
             (N.absolute(wrapIt(x-x0,nx)) , N.absolute(wrapIt(y-y0,ny)) , N.absolute(wrapIt(z-z0,nz)) )) ), shape, dtype)
     else:
-        raise "only defined for dim < 3 (TODO)"
+        raise ValueError, "only defined for dim < 3 (TODO)"
 
 
 
@@ -371,7 +426,7 @@ def mexhat(r, dim=1):
 
 def LoG(r,sigma=None, dim=1, r0=None, peakVal=None):
     """note:
-         return *negative* Laplacian-of-Gaussian (aka. mexican hat)
+         returns *negative* Laplacian-of-Gaussian (aka. mexican hat)
          zero-point will be at sqrt(dim)*sigma
          integral is _always_ 0
          if peakVal is None:  uses "mathematical" "gaussian derived" norm
@@ -535,7 +590,7 @@ def lorentzian(r, dim=1, sigma=1., integralScale=None, peakVal=None):
     if both are None
          results defaults to integralScale==1
     """
-    import useful as U
+    from . import useful as U
 
     ff = 1.
     if integralScale is not None:
@@ -585,12 +640,13 @@ def poissonArr(shape=defshape, mean=1, dtype=N.uint16):
     if mean == 0:
         return zeroArrF(shape)
     elif mean < 0:
-        raise "poisson not defined for mean < 0"
+        raise ValueError, "poisson not defined for mean < 0"
     else:
         return N.random.poisson(mean, shape).astype(dtype)
 
 def poissonize(arr, dtype=N.uint16):
-    return N.where(arr<=0, 0, N.random.poisson(arr)).astype(dtype)
+    return N.where(arr<=0, 0, N.random.poisson(arr)).astype(dtype) # the 'where' is used because there was a bug in numarray's poisson at some point.
+
 
 
 # what was this for ????
@@ -621,7 +677,37 @@ def testImgR(shape=defshape, dtype=N.float32):
     
     return a
 
-    
+def rampArr(shape=defshape, axis=-1, start=0,stop=None, dtype=None):
+    """
+    return arr with values increasing along `axis`
+    starting with start
+
+    if stop is None: values will go from start..start+N-1 (N being the length of the given axis)
+    if start is None: values will be the reverse of when only stop is None 
+    if dtype is None:
+        dtype = N.int16 if start or stop is None
+        dtype = N.float32 otherwise
+    """
+    if dtype is None:
+        if stop is None or start is None:
+            dtype = N.int16
+        else:
+            dtype = N.float32
+    if start is None:
+        if stop is None:
+            stop = 0
+        start = stop+shape[axis]-1
+    elif stop is None:
+        stop = start+shape[axis]-1
+
+    num = shape[axis]
+    arr = N.empty(shape, dtype)
+    if axis <0:
+        axis += len(shape)
+    numNewAxes=len(shape)-1-axis
+    idxTup = (slice(None),)+(None,)*numNewAxes
+    arr[:] = N.linspace(start,stop, num, endpoint=True, retstep=False)[idxTup]
+    return arr
 
 def binaryStructure_Zero(rank, connectivity):
     """
@@ -658,7 +744,7 @@ def shuffle4irfft(arr):
     global ny,nx,nx2,nx21,ny2, a
     ny,nx = arr.shape[-2:]
     if nx % 2 or ny %2:
-        raise "TODO"
+        raise RuntimeError, "TODO"
     else:
         nx2 = nx // 2
         nx21 = nx2 + 1
@@ -676,39 +762,46 @@ def shuffle4irfft(arr):
 
     return a
 
-def shift(arr, delta=None, dtype=N.float32):
-    '''
+def shift(arr, delta=None): #20081113 , dtype=N.float32):
+    """
     returns new array: arr shifted by delta (tuple)
        it uses rfft, multiplying with "shift array", irfft
     delta defaults to half of arr.shape 
-    '''
-    from numpy import fft
+
+    #20081113 dtype option removed (FIXME TODO)
+    """
+    #20081113 from numpy import fft
     shape = arr.shape
     if delta is None:
         delta = N.array(shape) / 2.
-        
-    if len(shape) != len(delta):
-        raise "shape and delta not same dimension"
+    elif not hasattr(delta, '__len__'):
+        delta = (delta,)*len(shape)
+    elif len(shape) != len(delta):
+        raise ValueError, "shape and delta not same dimension"
 
-    if len(shape) == 1:
-        return fft.irfft(fourierRealShiftArr(shape, delta) *
-                                    fft.rfft(arr)).astype(dtype)
-    else:
-        ax = range(-len(shape),0)
-        return fft.irfftn(fourierRealShiftArr(shape, delta) *
-                          fft.rfftn(arr, axes=ax), axes=ax).astype(dtype)
+    return irfft(fourierRealShiftArr(shape, delta) *
+                                    rfft(arr))
+#     else:
+#         ax = range(-len(shape),0)
+#         return fft.irfftn(fourierRealShiftArr(shape, delta) *
+#                           fft.rfftn(arr, axes=ax), axes=ax).astype(dtype)
 
 
     
 def fourierRealShiftArr(shape=defshape, delta=None, dtype=N.float32):
     return fourierShiftArr(shape, delta, 1, dtype)
 
-def fourierShiftArr(shape=defshape, delta=None, meantForRealFFT=0, dtype=N.float32):
+def fourierShiftArr(shape=defshape, delta=None, meantForRealFFT=False, dtype=N.float32):
     if delta is None:
         delta = N.array(shape) / 2.
     
     if len(shape) != len(delta):
-        raise "shape and delta not same dimension"
+        raise ValueError, "shape and delta not same dimension"
+
+    if meantForRealFFT:
+        nx = shape[-1]
+        if nx % 2:
+            raise ValueError, "shape must be even sized in last dimension if meantForRealFFT"
 
     f = 2j*N.pi
 
@@ -717,7 +810,7 @@ def fourierShiftArr(shape=defshape, delta=None, meantForRealFFT=0, dtype=N.float
         dx = delta
         dx = - float(dx) / float(nX)
         if meantForRealFFT:
-            shape = shape[:-1] + ( shape[-1]/2 + 1 ,)
+            shape = shape[:-1] + ( shape[-1]//2 + 1 ,)
         return __fromfunction(lambda x: \
                                N.exp(f*x* dx), shape, dtype)
     elif len(shape) == 2:
@@ -726,7 +819,7 @@ def fourierShiftArr(shape=defshape, delta=None, meantForRealFFT=0, dtype=N.float
         dy = - float(dy) / float(nY)
         dx = - float(dx) / float(nX)
         if meantForRealFFT:
-            shape = shape[:-1] + ( shape[-1]/2 + 1 ,)
+            shape = shape[:-1] + ( shape[-1]//2 + 1 ,)
         return __fromfunction(lambda y,x: \
                                N.exp(f*(y* dy +
                                          x* dx )), shape, dtype)
@@ -737,7 +830,7 @@ def fourierShiftArr(shape=defshape, delta=None, meantForRealFFT=0, dtype=N.float
         dy = - float(dy) / float(nY)
         dx = - float(dx) / float(nX)
         if meantForRealFFT:
-            shape = shape[:-1] + ( shape[-1]/2 + 1 ,)
+            shape = shape[:-1] + ( shape[-1]//2 + 1 ,)
         return __fromfunction(lambda z,y,x: \
                                N.exp(f*(z* dz +
                                          y* dy +
@@ -776,18 +869,18 @@ def fourierShiftArr(shape=defshape, delta=None, meantForRealFFT=0, dtype=N.float
 
 
 def fft(a, minCdtype=N.complex64):
-    '''
+    """
     calculate nd fourier transform
     performs full, i.e. non-real, fft
 
     `a` should be a complex array,
       otherwise it gets converted to
       minCdtype
-    '''
+    """
     if a.dtype.type not in (N.complex64, N.complex128):
         a = N.asarray(a, minCdtype)
 
-    import fftw
+    from . import fftw
     return fftw.fft(a)
 def ifft(af, normalize=True, minCdtype=N.complex64):
     """
@@ -807,7 +900,7 @@ def ifft(af, normalize=True, minCdtype=N.complex64):
     if af.dtype.type not in (N.complex64, N.complex128):
         af = N.asarray(af, minCdtype)
 
-    import fftw
+    from . import fftw
     if normalize:
         vol = N.product(af.shape)
         return fftw.ifft(af) / vol
@@ -815,18 +908,18 @@ def ifft(af, normalize=True, minCdtype=N.complex64):
         return fftw.ifft(af)
         
 def rfft(a, minFdtype=N.float32):
-    '''
+    """
     calculate nd fourier transform
     performs real- fft, i.e. the return array has shape with last dim halfed+1
 
     `a` should be a real array,
       otherwise it gets converted to
       minFdtype
-    '''
+    """
     if a.dtype.type not in (N.float32, N.float64):
         a = N.asarray(a, minFdtype)
     
-    import fftw
+    from . import fftw
     return fftw.rfft(a)
 def irfft(af, normalize=True, minCdtype=N.complex64):
     """
@@ -846,7 +939,7 @@ def irfft(af, normalize=True, minCdtype=N.complex64):
     if af.dtype.type not in (N.complex64, N.complex128):
         af = N.asarray(af, minCdtype)
 
-    import fftw
+    from . import fftw
     if normalize:
         vol = N.product(af.shape[:-1])
         vol *= (af.shape[-1]-1)*2
@@ -855,21 +948,24 @@ def irfft(af, normalize=True, minCdtype=N.complex64):
         return fftw.irfft(af)            # 
 
 def rfft2d(a, minFdtype=N.float32):
-    '''
+    """
     calculate (section-wise) 2d fourier transform
     performs real- fft, i.e. the return array has shape with last dim halfed+1
 
     `a` should be a real array,
       otherwise it gets converted to
       minFdtype
-    '''
+    """
     if a.dtype.type not in (N.float32, N.float64):
         aDtype = minFdtype
     else:
         aDtype = a.dtype.type # ensures native byte-order ?
 
-    import fftw
-    s2 = a.shape[:-1]+(a.shape[-1]/2+1,)
+    from . import fftw
+    nx = a.shape[-1]
+    if nx % 2:
+        raise ValueError, "a must be even sized in last dimension"
+    s2 = a.shape[:-1]+(nx//2+1,)
 
     
     if aDtype == N.float32:
@@ -904,7 +1000,7 @@ def irfft2d(af, preserve=True, normalize=True, minCdtype=N.complex64):
     else:
         afDtype = af.dtype.type # ensures native byte-order ?
     
-    import fftw
+    from . import fftw
     shape = af.shape[:-1] + ((af.shape[-1]-1)*2,)
     vol2d = af.shape[-2] * (af.shape[-1]-1)*2
 
@@ -1120,7 +1216,7 @@ def irfft(a, s=None, axes=None):
 
 
 def convolve(a,b, conj=0, killDC=0, minFdtype=N.float32):
-    '''
+    """
     calculate convolution of `a` and `b`
        (using rfft, multiplication, then irfft)
     if  `conj` is true:
@@ -1132,7 +1228,7 @@ def convolve(a,b, conj=0, killDC=0, minFdtype=N.float32):
     if `a` or `b` are not dtype of float32 or float64
     they are converted to minFdtype
        unless one of `a` or `b` is float64, then float64 is used
-    '''
+    """
     if a.dtype.type == N.float64 or \
        b.dtype.type == N.float64:
         minFdtype = N.float64
@@ -1195,7 +1291,7 @@ def drawHexPattern2d(a, d=20, sizeYX=None, yx0=(0,0), val=1):
 
 
 def zzern_r(n,m,r):
-    from useful import fac
+    from .useful import fac
     if n==m==0:
         return 1
     rr = 0
@@ -1235,7 +1331,7 @@ def zzernikeNMSinArr(shape=defshape, n=3,m=3, crop=1, radius=None, orig=None, dt
 
 def zzernikeN0Arr(shape=defshape, n=3, crop=1, radius=None, orig=None, dtype=N.float32):
     if radius is None:
-        radius = reduce(min, shape) / 2.0
+        radius = reduce(min, shape) / 2.
     if crop:
         return radialArr(shape,
                          lambda r: N.where(r<=radius,
@@ -1262,9 +1358,14 @@ def zzernikeArr(shape=defshape, no=9, crop=1, radius=None, orig=None, dtype=N.fl
 
 
 def lowPassGaussFilter(a, sigma=5):
+    """
+    still something left for TODO:
+       nx = s[0] # FIXME HACK
+       sigma=1/(2.*N.pi*sigma)*nx    
+    """
     s = N.array(a.shape)
     if N.any(s % 2):
-        raise "only shape % 2 == 0 supported"
+        raise ValueError, "only shape % 2 == 0 supported"
     s2 = s/2
 
     nx = s[0] # FIXME HACK
@@ -1279,3 +1380,22 @@ def lowPassGaussFilter(a, sigma=5):
     #af[sy2:] *= g[:sy2]
 
     return irfft(af)
+
+
+def mexF2d(a, sigma2d):
+    """
+    calculate -nd.gaussian_laplace sectionwise, using
+    output=None, mode="reflect", cval=0.0
+
+    forcing float32 output
+    """
+    from scipy.ndimage import gaussian_laplace
+    out = zeroArrF(a.shape)
+
+    for tup in N.ndindex(a.shape[:-2]):
+        gaussian_laplace(a[tup], sigma2d, output=out[tup], mode="reflect", cval=0.0)
+        out[tup] *= -1
+
+    return out
+
+

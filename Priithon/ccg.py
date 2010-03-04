@@ -1,12 +1,7 @@
-__author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
-__license__ = "BSD license - see LICENSE file"
+"""
+Priithon "constrained conjugate gradient"-methode interface
 
-import CCG_d as _CCG_d
-import CCG_s as _CCG_s
-import numpy as _N
-
-
-''' ccg ChangeLog
+ccg ChangeLog
 * starting out with ccg essentially from GPL Eden version
    (2/24/95)
    Author:  Erik M. Johansson, translation of Dennis Goodman;s
@@ -52,7 +47,16 @@ import numpy as _N
 
      (fixed SWIG interface unclarity: we use Nclsrch only as output
                     - not cumulative between getsol calls !!)
-'''
+"""
+
+from __future__ import absolute_import
+__author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
+__license__ = "BSD license - see LICENSE file"
+
+import Priithon_bin.CCG_d as _CCG_d
+import Priithon_bin.CCG_s as _CCG_s
+import numpy as _N
+
 
 
 def _getsolMultiType(a, *args):
@@ -63,11 +67,11 @@ def _getsolMultiType(a, *args):
     else:
         raise TypeError, "dtype must be either float32 or float64"
 
-bufSize=0
+bufSize=-1
 
 def getsol(xo, xmin, xmax, _ivec, CG_iter, fmin, df0, CCG_tolerance,
           costGradFunc, dfdxpc=0, debug=0, debug2=0):
-    '''
+    """
     xo   vector of variables.  Set to initial estimate.
            On return, it holds the location of the minimum      
     xmin     lower bound ("scalar"? see N.B.) on the variables          
@@ -102,7 +106,7 @@ def getsol(xo, xmin, xmax, _ivec, CG_iter, fmin, df0, CCG_tolerance,
     iqflag ;     (returned) flag re success 
 
     note: doCCG caches buffers for subsequent calls
-    '''
+    """
     global bufSize, buf1, buf2, buf3, buf4
     global xn,grad,go,d
     global ivec
@@ -128,13 +132,13 @@ def getsol(xo, xmin, xmax, _ivec, CG_iter, fmin, df0, CCG_tolerance,
 
     xmin = _N.array(xmin, dtype, ndmin=1)
     xmax = _N.array(xmax, dtype, ndmin=1)
-    if len(xmin) == 1:
-        if len(xmax) != 1:
+    if xmin.size == 1:
+        if xmax.size != 1:
             raise ValueError, "xmin is a single value, but xmax is not"
     else:
-        if len(xmin) != len(xo):
+        if xmin.size != xo.size:
             raise ValueError, "xmin must be either single value or same size as xo"
-        elif len(xmax) != len(xo):
+        elif xmax.size != xo.size:
             raise ValueError, "xmax must same size as xmin"
 
     #no!! ivec gets changed in-place !!  ivec = na.asarray(ivec, na.UInt8)
@@ -152,7 +156,7 @@ def getsol(xo, xmin, xmax, _ivec, CG_iter, fmin, df0, CCG_tolerance,
 
 
 def makeCostGradFunction(cgf, *args, **kwargs):
-    '''
+    """
     use this if your costGradFunction wants
     additional arguments and/or keyword-arguments
     (constant thought optimization)
@@ -165,14 +169,14 @@ def makeCostGradFunction(cgf, *args, **kwargs):
 
     ccg.getsol( ... costGradFunc=ccg.makeCostGradFunction(myCGF, set=4) ...)
     
-    '''
+    """
     def wrapCostFunction(x,gg):
         return cgf(x,gg, *args, **kwargs)
 
     return wrapCostFunction
 
 def makeCostGradFunction2(cf, gf, *args, **kwargs):
-    '''
+    """
     use this if your have separate functions for
     cost and gradient calculation
     also
@@ -191,7 +195,7 @@ def makeCostGradFunction2(cf, gf, *args, **kwargs):
 
     ccg.getsol( ... costGradFunc=ccg.makeCostGradFunction2(myCost, myGrad, set=4) ...)
     
-    '''
+    """
     def wrapCostFunction(x,gg):
         gf(x, gg, *args, **kwargs)
         return cf(x, *args, **kwargs)

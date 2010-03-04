@@ -55,9 +55,10 @@ def loop():
 
 aspect_ratios = ['normal', 'equal']
 
+#seb 
 class plot_canvas(wx.Window,property_object):
     _attributes = {
-       'background_color': ['light grey',colors,"Window background color" \
+        'background_color': ['light grey',colors,"Window background color" \
                                            " Currently broken"],
        'aspect_ratio': ['normal',aspect_ratios,"Set the axis aspect ratio"],
        'hold': ['off',['on','off'],"Used externally for adding lines to plot"],
@@ -70,9 +71,13 @@ class plot_canvas(wx.Window,property_object):
                  size=wx.DefaultSize, **attr):
         wx.Window.__init__(self, parent, id, pos,size)
         wx.EVT_PAINT(self,self.on_paint)
+
         property_object.__init__(self, attr)
         background = wx.NamedColour(self.background_color)
+        self.backgroundBrush = wx.Brush(background)
+
         self.SetBackgroundColour(background) 
+        self.SetBackgroundStyle(wx.BG_STYLE_CUSTOM) # seb added: no flickering
         ##self.title = text_object('')
         ##self.x_title = text_object('')
         ##self.y_title = text_object('')
@@ -97,6 +102,12 @@ class plot_canvas(wx.Window,property_object):
         self._mouse_selection = 0
         self._mouse_selection_start = wx.Point(0,0)
         self._mouse_selection_stop = wx.Point(0,0)
+
+        #20090603: zoom history
+        self.zoom_hist = []
+        self.zoom_hist_i=0
+        self.on_zoom_forget()
+
         # mouse events
         wx.EVT_RIGHT_DOWN(self,self.on_right_down)
         wx.EVT_LEFT_DOWN(self, self.on_mouse_event)
@@ -123,21 +134,74 @@ class plot_canvas(wx.Window,property_object):
         else:
             pass
 
-    def auto_zoom(self):
-        # zoom to full scale
-        # cannot call autoscale(), since validate_active() apparently
-        # leads to a race condition:(
-        self.x_axis.bounds = ['auto','auto']
-        self.y_axis.bounds = ['auto','auto']
-        self.x_axis.tick_interval = 'auto'
-        self.y_axis.tick_interval = 'auto'
-        self.update()
-    
     def on_auto_zoom(self,event):
         self.auto_zoom()    
-        
+    def on_prev_zoom(self,event):
+        self.prev_zoom()    
+    def on_next_zoom(self,event):
+        self.next_zoom()    
+    def on_zoom_forget(self,event=None):
+        self.zoom_hist_i = -1 # force clearing of old hist
+        self._saveZoomHist()
+
+
+    def axis(self, setting):
+        #seb:     # copy pasted from   interface.py::.axis(setting)
+        #         except this is not just for "active" figure
+        x_ticks = self.x_axis.ticks
+        #CHECK print type(x_ticks), dir(x_ticks)    
+        x_interval = float(x_ticks[1]- x_ticks[0])
+        y_ticks = self.y_axis.ticks
+        y_interval = float(y_ticks[1]- y_ticks[0])
+        axes = array((x_ticks[0],x_ticks[-1],y_ticks[0],y_ticks[-1]),float64)
+        # had to use client below cause of __setattr__ troubles in plot_frame
+        if setting == 'normal':
+            self.aspect_ratio = setting
+            #plt.interface._auto_all()
+            self.x_axis.bounds = ['auto','auto']
+            self.y_axis.bounds = ['auto','auto']
+            self.x_axis.tick_interval = 'auto'
+            self.y_axis.tick_interval = 'auto'    
+        elif setting == 'equal':
+            self.aspect_ratio = setting    
+        elif setting == 'freeze':
+            self.x_axis.bounds = [axes[0],axes[1]]
+            self.y_axis.bounds = [axes[2],axes[3]]
+            self.x_axis.tick_interval = x_interval
+            self.x_axis.tick_interval = y_interval        
+        elif setting in ['tight','fit']:
+            self.x_axis.bounds = ['fit','fit']
+            self.y_axis.bounds = ['fit','fit']
+            self.x_axis.tick_interval = 'auto'
+            self.x_axis.tick_interval = 'auto'
+        else:
+            self.x_axis.bounds = [setting[0],setting[1]]
+            self.y_axis.bounds = [setting[2],setting[3]]
+        self._saveZoomHist()
+        self.update()    
+
+    def on_equal_aspect_ratio(self,event):
+        self.axis(setting='equal')
+    def on_any_aspect_ratio(self,event):
+        self.axis(setting='normal')
+    def on_axis_freeze(self,event):
+        self.axis(setting='freeze')
+    def on_axis_tight(self,event):
+        self.axis(setting='tight')
+
+    def on_bkg_color(self, event):
+        self.backgroundBrush = wx.Brush(wx.GetColourFromUser(colInit=self.backgroundBrush.Colour))
+        self.draw()
+
+    def on_hold(self, event):
+        self.GetParent().hold = event.IsChecked() and "yes" or "no"
+
+
+
+
     def on_paint(self, event):
-        self.draw(wx.PaintDC(self))
+        #self.draw(wx.PaintDC(self))
+        self.draw(wx.BufferedPaintDC(self))  # seb: no flickering
 
     def on_right_down(self,event):
         menu_found = 0
@@ -160,10 +224,36 @@ class plot_canvas(wx.Window,property_object):
 
     def format_popup(self,pos):
         menu = wx.Menu()
+        menu.Append(501, 'previous zoom', 'previous zoom')
+        menu.Enable(501, self.zoom_hist_i>0)
         menu.Append(500, 'Auto Zoom', 'Auto Zoom')
+        menu.Append(502, 'next zoom', 'next zoom')
+        menu.Enable(502, self.zoom_hist_i<len(self.zoom_hist)-1)
+        menu.Append(503, 'clear zoom history', 'clear zoom history')
+        menu.Enable(503, len(self.zoom_hist)>1)
+        menu.Append(504, 'X-Y equal aspect ratio', 'X-Y equal - set aspect ratio to 1')
+        menu.Append(505, 'X-Y any aspect ratio', 'X-Y equal - set aspect ratio to "normal"')
+        menu.Append(506, 'make X-Y axes a tight fit', 'fit X-Y axes to a fraction of the grid spacing"')
+        menu.Append(507, 'freeze X-Y axes bounds', 'freeze X-Y axes grid"')
+        menu.Append(508, 'change canvas background color', 'open dialog to choose new color framing graph"')
+        menu.AppendCheckItem(509, 'hold plot', "don't clear before next plot")
+
+        wx.EVT_MENU(self, 501, self.on_prev_zoom)
+        wx.EVT_MENU(self, 502, self.on_next_zoom)
+        wx.EVT_MENU(self, 503, self.on_zoom_forget)
         wx.EVT_MENU(self, 500, self.on_auto_zoom)
-        menu.UpdateUI()
-        self.PopupMenuXY(menu,pos[0],pos[1])        
+        wx.EVT_MENU(self, 504, self.on_equal_aspect_ratio)
+        wx.EVT_MENU(self, 505, self.on_any_aspect_ratio)
+        wx.EVT_MENU(self, 506, self.on_axis_tight)
+        wx.EVT_MENU(self, 507, self.on_axis_freeze)
+        wx.EVT_MENU(self, 508, self.on_bkg_color)
+        wx.EVT_MENU(self, 509, self.on_hold)
+        # CHECK if GetParent() is ok here ?!
+        menu.Check(509, self.GetParent().hold in ['on','yes'])
+        wx.EVT_MENU(self, 509, self.on_hold)
+
+        #20090603 (called by default) menu.UpdateUI()
+        self.PopupMenuXY(menu) #20090603 (default mouse cursor pos) ,pos[0],pos[1])        
     # workers
     
     def rubberband(self, new):
@@ -200,6 +290,34 @@ class plot_canvas(wx.Window,property_object):
         image = wx.ImageFromBitmap(bitmap)
         wx.InitAllImageHandlers()
         image.SaveFile(path,image_type_map[image_type])
+
+    def save_csv(self, path, csv_sep='\t', transpose=False):
+        #from priithon.all import U
+        #U.writeArray(vstack([
+        #ll = self.client.line_list
+        dataset_arrays = [ asanyarray(dataset.points) for dataset in self.line_list]
+        f = file(path, "w")
+        if not transpose:
+            for ps in dataset_arrays:
+                for x_y in ps.T:
+                    for el in x_y:
+                        f.write(str(el) + csv_sep)
+                    f.write('\n')
+        else:
+            dataset_lens = [len(ps) for ps in dataset_arrays]
+            iMax = max(dataset_lens)
+            jMax = len(dataset_arrays)
+            for i in range(iMax):
+                for j in range(jMax):
+                    if i<dataset_lens[j]:
+                        x_y = dataset_arrays[j][i]
+                        for el in x_y:
+                            f.write(str(el) + csv_sep)
+                    else:
+                        f.write(csv_sep * 2)
+                f.write('\n')
+        f.close()
+        
 
     def layout_all(self,dc=None):
         #settingbackgroundcolors
@@ -412,6 +530,9 @@ class plot_canvas(wx.Window,property_object):
         t1 = time.clock();self.reset_size(dc);t2 = time.clock()
         #print 'resize:',t2 - t1        
         if not dc: dc = wx.ClientDC(self)
+        dc.SetBackground( self.backgroundBrush ) #seb  added: no flickering
+        dc.Clear()                               #seb  added: no flickering
+
         # draw titles and axes labels
         t1 = time.clock()    
         for text in self.all_titles:
@@ -424,8 +545,56 @@ class plot_canvas(wx.Window,property_object):
             
     def update(self,event=None):
         self.client_size = (0,0) # forces the layout
-        self.Refresh()        
+        self.Refresh()
 
+    def _saveZoomHist(self):
+        """
+        append current zomm settings into history 
+        -- trucating tail of history, if we are currently not at its end
+        """
+        self.zoom_hist = self.zoom_hist[:self.zoom_hist_i+1] + [
+            (self.x_axis.bounds, self.y_axis.bounds, 
+             self.x_axis.tick_interval, self.y_axis.tick_interval, 
+             self.aspect_ratio)
+            ]
+        self.zoom_hist_i = len(self.zoom_hist)-1 # points to (current) hist index, where new zooms are appended
+    def _setFromZoomHist(self):
+        (self.x_axis.bounds, self.y_axis.bounds, 
+         self.x_axis.tick_interval, self.y_axis.tick_interval,
+         self.aspect_ratio) = self.zoom_hist[self.zoom_hist_i]
+        
+    def auto_zoom(self):
+        # zoom to full scale
+        # cannot call autoscale(), since validate_active() apparently
+        # leads to a race condition:(
+        self.x_axis.bounds = ['auto','auto']
+        self.y_axis.bounds = ['auto','auto']
+        self.x_axis.tick_interval = 'auto'
+        self.y_axis.tick_interval = 'auto'
+
+        self._saveZoomHist()
+        self.update()
+    def prev_zoom(self):
+        
+        self.zoom_hist_i -= 1
+        if self.zoom_hist_i < 0:
+            self.zoom_hist_i += len(self.zoom_hist)
+        
+        self._setFromZoomHist()
+        self.update()
+    def next_zoom(self):
+        
+        #self.x_axis.bounds = ['auto','auto']
+        #self.y_axis.bounds = ['auto','auto']
+        #self.x_axis.tick_interval = 'auto'
+        #self.y_axis.tick_interval = 'auto'
+        self.zoom_hist_i += 1
+        if self.zoom_hist_i >= len(self.zoom_hist):
+            self.zoom_hist_i = 0
+        
+        self._setFromZoomHist()
+        self.update()
+    
     def zoom(self, stop):
         """Delete selection band and zoom selection to full scale."""
         # delete rubberband
@@ -457,8 +626,11 @@ class plot_canvas(wx.Window,property_object):
         bottom = self.y_axis.ticks[-1] - bottom * height
         x_int = auto_interval([left, right])
         y_int = auto_interval([bottom,top])
+
         self.x_axis.bounds = auto_bounds([left, right],x_int)
         self.y_axis.bounds = auto_bounds([bottom, top],y_int)
+        self._saveZoomHist()
+
         self.update()
 
 
@@ -524,6 +696,8 @@ class graph_printout(wx.Printout):
         return True
 
 
+# 20090807 -- appears to be unused
+'''
 class plot_window(plot_canvas):
     """Plot canvas window.
 
@@ -609,7 +783,7 @@ class plot_window(plot_canvas):
             frame.SetPosition(self.GetPosition())
             frame.SetSize(self.GetSize())
             frame.Show(True)
-
+'''
 
 class plot_frame(wx.Frame):
     """wxFrame for interactive use of plot_canvas."""
@@ -631,11 +805,15 @@ class plot_frame(wx.Frame):
         menu = wx.Menu()
         menu.Append(200, '&Save As...', 'Save plot to image file')
         wx.EVT_MENU(self, 200, self.file_save_as)
+        menu.Append(202, '&Save As CSV (column order)...', 'Save plot to CSV (tab separated, datasets in columns) text file')
+        wx.EVT_MENU(self, 202, lambda ev: self.file_save_csv(ev, transpose=True))
+        menu.Append(201, '&Save As CSV (row order)...', 'Save plot to CSV (tab separated, datasets in rows) text file')
+        wx.EVT_MENU(self, 201, self.file_save_csv)
         menu.Append(203, '&Print...', 'Print the current plot')
         wx.EVT_MENU(self, 203, self.file_print)
         menu.Append(204, 'Print Pre&view', 'Preview the current plot')
         wx.EVT_MENU(self, 204, self.file_preview)
-        menu.Append(205, 'Close', 'Close plot')
+        menu.Append(205, 'Close\tCtrl-W', 'Close plot')
         wx.EVT_MENU(self, 205, self.file_close)
         self.mainmenu.Append(menu, '&File')
         menu = wx.Menu()
@@ -746,12 +924,23 @@ class plot_frame(wx.Frame):
                 d.Destroy()
         dlg.Destroy()
 
+    def file_save_csv(self, event, csv_sep='\t', transpose=False):
+        import os
+        wildcard = "CSV files (*.csv)|*.csv|" \
+                   "TSV files (*.tsv)|*.tsv|" \
+                   "TXT files (*.txt)|*.txt|" \
+                   "All Files |*"
+        dlg = wx.FileDialog(self, "Save CSV As", ".", "", wildcard, wx.SAVE|wx.FD_OVERWRITE_PROMPT)
+        if dlg.ShowModal() == wx.ID_OK and dlg.GetPath():
+            self.client.save_csv(dlg.GetPath(), csv_sep, transpose)
+        dlg.Destroy()
+
     def file_close(self, event):
         self.Close()
 
     # seb-20040824#added by BEC. I don't know if this is the correct action for closing the plot window...bu it works.
     # seb-20040824def OnCloseWindow(self, event):
-    # seb-20040824    self.Show(0)	    
+    # seb-20040824    self.Show(0)
         
     def format_font(self,event):
         font_attr,color_attr = 'font','color'

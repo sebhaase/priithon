@@ -7,7 +7,7 @@ __revision__ = "$Revision: 1.6 $"[11:-2]
 
 import wx
 #seb from wx import py
-import 
+#import 
 import os
 import sys
 

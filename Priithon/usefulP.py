@@ -1,5 +1,6 @@
 """plot functions in Y module: Y.plot...
 """
+from __future__ import absolute_import
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
@@ -15,15 +16,19 @@ def plotSetColorsDefault(colString="rgbkcm"):
     colors:
       r - red;   g - green;  b - blue
       k - black; c - cyan;   m - magenta
+
+    if colString False: return current colString (global `plot_colors`)
     """
     global plot_colors
 
+    if not colString:
+        return colString
     plot_colors = colString
 
 plotSetColorsDefault()
 
 def _col(c, overwriteHold=False):
-    import plt
+    from . import plt
     plt.validate_active()
     fig = plt.interface._active
     figwxid = fig.GetId()
@@ -53,76 +58,182 @@ def _col(c, overwriteHold=False):
         fig._sebCurrentColorIndex +=1
     return plot_colors[ i % len(plot_colors) ]+c
 
-
-def plotDatapoints(dataset=0, figureNo=None):
-    '''
-    returns array (x-vals, y-vals) --> shape=(2,n)
-
-    figureNo None means "current"
-    '''
-    import plt
+def _getFig(figureNo):
+    from . import plt
     if figureNo is None:
+        plt.validate_active()
         fig = plt.interface._active
     else:
         fig = plt.interface._figure[figureNo]
+
+    return fig
+
+def plotDatapoints(dataset=0, figureNo=None):
+    """
+    returns array (x-vals, y-vals) --> shape=(2,n)
+
+    figureNo None means "current"
+    """
+    fig = _getFig(figureNo)
 
     a = N.asarray( fig.client.line_list[dataset].points )
     return N.transpose(a)
 
-                      
-def plotSetFrameTitle(title, figureNo=None):
-    '''
-    figureNo None means "current"
-    '''
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+def plotDatasetRemove(dataset=-1, figureNo=None, refreshNow=True):
+    """
+    remove given dataset from plot
+    adjust current color index if dataset == -1
+    """
+    fig = _getFig(figureNo)
+    if dataset==-1 or dataset == len(fig.client.line_list)-1:
+        fig._sebCurrentColorIndex -= 1
+    del fig.client.line_list[dataset]
+    if refreshNow:
+        fig.client.Refresh()
 
+def plotGetXminmax(figureNo=None):
+    """
+    returns tuple (left, right) values on X-axis
+    figureNo None means "current"
+    """
+    fig = _getFig(figureNo)
+    pc = fig.client                   # canvas
+
+    return pc.x_axis.ticks[0], pc.x_axis.ticks[-1]
+
+def plotGetYminmax(figureNo=None):
+    """
+    returns tuple (bottom,top) values on Y-axis
+    figureNo None means "current"
+    """
+    fig = _getFig(figureNo)
+    pc = fig.client                   # canvas
+
+    return pc.y_axis.ticks[0], pc.y_axis.ticks[-1]
+
+def plotSetColor(color=(255,0,0), dataset=0, plotNofigureNo=None):
+    """
+    set color of a dataset in a figure
+
+    figureNo None means "current"
+    """
+    fig = _getFig(figureNo)
+
+    fig.client.line_list[dataset].set_color(color)
+    fir.Refresh()
+
+def plotRefresh(figureNo=None):
+    """
+    refresh / update graph in figure
+
+    figureNo None means "current"
+    """
+    fig = _getFig(figureNo)
+    fig.Refresh()
+
+def plotChangeDatapoints(xyPointArray, dataset=0, figureNo=None, refreshNow=True):
+    """
+    refresh / update graph in figure
+
+    figureNo None means "current"
+
+    HACK / FIXME only change line, ignore markers
+    """
+    import numpy
+    fig = _getFig(figureNo)      
+    lineObj = fig.client.line_list[dataset]
+    
+    lineObj.line.points = numpy.asarray( xyPointArray )
+
+    if refreshNow:
+        fig.Refresh()
+
+
+
+def plotSetFrameTitle(title, figureNo=None):
+    """
+    figureNo None means "current"
+    """
+    fig = _getFig(figureNo)
     fig.SetTitle(title)
 def plotSetTitle(title='', figureNo=None):
-    '''
+    """
     title = '' means <no title>
     figureNo None means "current"
-    '''
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    """
+    fig = _getFig(figureNo)
 
     fig.client.title.text=title
     fig.client.update()
 def plotSetXTitle(title='', figureNo=None):
-    '''
+    """
     title = '' means <no title>
     figureNo None means "current"
-    '''
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    """
+    fig = _getFig(figureNo)
 
     fig.client.x_title.text=title
     fig.client.update()
 def plotSetYTitle(title='', figureNo=None):
-    '''
+    """
     title = '' means <no title>
     figureNo None means "current"
-    '''
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    """
+    fig = _getFig(figureNo)
 
     fig.client.y_title.text=title
     fig.client.update()
 
+def plotSetAxis(setting='equal', figureNo=None):
+    """
+    set axis settings for both X and Y axes
+    settings can be one of:
+       'normal':
+       'equal':
+       'freeze':
+       or 'tight' or'fit':
+       or a 4-tuple (xMin,xMax,yMin,yMax)
+      
+    figureNo None means "current"
+    """
+    fig = _getFig(figureNo)
+    fig.axis(setting)
+
+def plotSetXAxisFormat(format="%s", figureNo=None):
+    """
+    sets format to be used to label axis
+    `format` can either be 
+       a callable - to be called for each tick value
+     or
+       a string, like "%s" or "%2d", ...
+    """
+    fig = _getFig(figureNo)
+
+    if isinstance(format, basestring):
+        formatter = lambda tickVal: format%(tickVal,)
+    elif callable(format):
+        formatter = format
+    else:
+        raise ValueError("format must be either a callable or a format-string")
+
+    fig.client.x_axis.tickFormatter = formatter
+    fig.client.update()
+def plotSetYAxisFormat(format="%s", figureNo=None):
+    fig = _getFig(figureNo)
+
+    if isinstance(format, basestring):
+        formatter = lambda tickVal: format%(tickVal,)
+    elif callable(format):
+        formatter = format
+    else:
+        raise ValueError("format must be either a callable or a format-string")
+
+    fig.client.y_axis.tickFormatter = formatter
+    fig.client.update()
+plotSetYAxisFormat.__doc__ = plotSetXAxisFormat.__doc__
+
 def plotSetXAxis(bounds=('fit','fit', 'auto'), figureNo=None):
-    '''
+    """
     bounds is a tuple: (leftBound,rightBound, interval)
     [the third is optional]
     leftBound, rightBound can be one of:
@@ -136,12 +247,8 @@ def plotSetXAxis(bounds=('fit','fit', 'auto'), figureNo=None):
     
 
     figureNo None means "current"
-    '''
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    """
+    fig = _getFig(figureNo)
 
     if bounds[0] is None or bounds[0]=='':    #fixme - broken ?
         bounds[0] = fig.client.x_axis.bounds[0]
@@ -151,10 +258,11 @@ def plotSetXAxis(bounds=('fit','fit', 'auto'), figureNo=None):
     fig.client.x_axis.bounds = bounds[:2]
     if len(bounds)>2:
             fig.client.x_axis.tick_interval = bounds[2]
+    fig.client._saveZoomHist()
     fig.client.update()
 
 def plotSetYAxis(bounds=('fit','fit', 'auto'), figureNo=None):
-    '''
+    """
     bounds is a tuple: (leftBound,rightBound, interval)
     [the third is optional]
     leftBound, rightBound can be one of:
@@ -168,12 +276,8 @@ def plotSetYAxis(bounds=('fit','fit', 'auto'), figureNo=None):
     
 
     figureNo None means "current"
-    '''
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    """
+    fig = _getFig(figureNo)
 
     if bounds[0] is None or bounds[0]=='':       #fixme - broken ?
         bounds[0] = fig.client.y_axis.bounds[0]
@@ -182,6 +286,7 @@ def plotSetYAxis(bounds=('fit','fit', 'auto'), figureNo=None):
     fig.client.y_axis.bounds = bounds[:2]
     if len(bounds)>2:
             fig.client.y_axis.tick_interval = bounds[2]
+    fig.client._saveZoomHist()
     fig.client.update()
                   
 
@@ -189,18 +294,13 @@ def plotSetYAxis(bounds=('fit','fit', 'auto'), figureNo=None):
 
 
 def plotSliderX(plotXWidth=None, xmax=None, figureNo=None):
-    '''
+    """
     xmax None means 'use "width" of dataset'
     
     plotXWidth None mean xmax/10
     figureNo None means "current"
-    '''
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
-
+    """
+    fig = _getFig(figureNo)
 
     if xmax is None:
         xmax = max([len(ll.points) for ll in fig.client.line_list])
@@ -226,14 +326,19 @@ def plotSliderX(plotXWidth=None, xmax=None, figureNo=None):
 
 
 
-def plotFigure(which_one = None):
+def plotFigure(which_one = None, parent=None):
     """if which_one = None       : start a new plot window
        if which_one is 'integer' : select that figure as active
+
+       if `parent` is not None:
+          set figure's frame's parent to `parent`
+          (calling Reparent() if figure already exists
+           this might not succeed !)
     """
     import wx
-    import plt
+    from . import plt
     try:
-        plt.figure(which_one)
+        plt.figure(which_one, parent)
         if which_one is None:
             plothold(on=0)
     except wx.PyDeadObjectError:
@@ -243,7 +348,7 @@ def plotFigureGetNo(createNewIfNeeded=False):
     """
     return figureNo of current figure
     """
-    import plt
+    from . import plt
     try:
         figNo = plt.interface._figure.index(plt.interface._active)
         if not plt.interface._figure[figNo]:
@@ -260,36 +365,32 @@ def plotFigureGetNo(createNewIfNeeded=False):
 
 def plotRaise(figureNo=None):
     """bring current plotframe to the top"""
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    fig = _getFig(figureNo)
     fig.Raise()
 
 def plotClear(figureNo=None):
     """clear all graphs and images from current plot
     """
     # see interface: if not _active.hold in ['on','yes']:
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    fig = _getFig(figureNo)
 
     fig.line_list.data = [] # clear it out
     fig.image_list.data = [] # clear it out
+    try:
+        del fig._sebCurrentColorIndex # reset colors 
+    except AttributeError:
+        pass
     fig.update()
     
 def plotClose(which_one = None):
     """
     close plot window
     """
-    import plt
+    from . import plt
     plt.close(which_one)
 
 def plotxy(arr1,arr2=None,c=plot_defaultStyle, logY=False, logX=False, hold=None, smartTranspose=True, logZeroOffset=.01, figureNo=None):
-    '''
+    """
     arr1 is a "table" of x,y1,...,yn values
     if arr2 is given than arr1 contains only the x values
             and arr2 is "table" y1,...,y2
@@ -308,7 +409,7 @@ def plotxy(arr1,arr2=None,c=plot_defaultStyle, logY=False, logX=False, hold=None
 
     if figureNo is not None:
        use that figure instead and switch back to current afterwards
-    '''
+    """
     arr1 = N.asarray( arr1 )
 
     if arr2 is not None:
@@ -341,7 +442,7 @@ def plotxy(arr1,arr2=None,c=plot_defaultStyle, logY=False, logX=False, hold=None
     if logY:
         arr = N.log10(abs(arr)+logZeroOffset)
 
-    import plt
+    from . import plt
     if figureNo is not None:
         _oldActive = plt.interface._active
         #plotFigure(figureNo)  # would Raise !!
@@ -365,7 +466,7 @@ def plotxy(arr1,arr2=None,c=plot_defaultStyle, logY=False, logX=False, hold=None
         plt.interface._active = _oldActive
 
 def ploty(arrY, c=plot_defaultStyle, logY=False, logX=False, hold=None, smartTranspose=True, logZeroOffset=.01, figureNo=None):
-    '''
+    """
     arrY is a "table" of y1,...,yn values
     x-values of 0,1,2,3,4 are used as needed
 
@@ -384,7 +485,7 @@ def ploty(arrY, c=plot_defaultStyle, logY=False, logX=False, hold=None, smartTra
 
     if figureNo is not None:
        use that figure instead and switch back to current afterwards
-    '''
+    """
     arrY = N.asarray( arrY )
 
     if hold is not None:
@@ -394,7 +495,7 @@ def ploty(arrY, c=plot_defaultStyle, logY=False, logX=False, hold=None, smartTra
         #if logX:
         #    raise ValueError, 'Cannot use logX=True to plot x="axis-index"'
         #plotxy(arrY) # CHECK
-        import plt
+        from . import plt
         if figureNo is not None:
             _oldActive = plt.interface._active
             #plotFigure(figureNo)  # would Raise !!
@@ -420,11 +521,7 @@ def ploty(arrY, c=plot_defaultStyle, logY=False, logX=False, hold=None, smartTra
         plotxy(x, arrY,c, logY, logX, smartTranspose=smartTranspose, logZeroOffset=logZeroOffset, figureNo=figureNo)
 
 def plothold(on=1, figureNo=None):
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    fig = _getFig(figureNo)
     
     fig.hold = on and "on" or "off"
 
@@ -435,23 +532,45 @@ def plothold(on=1, figureNo=None):
 
 def plotsave(fn=None, format='png', figureNo=None):
     """
-    save "screenshot"(?) of plot
+    save image of plot into a file
     if fn is None calls FN() for you
     """
     
     if fn is None:
-        from Priithon.usefulX2 import FN
+        from .usefulX import FN
         fn = FN(1)
         if not fn:
             return 
 
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
-    
+    fig = _getFig(figureNo)
     fig.save(fn, format)
+
+def plotsave_csv(fn=None, sep="\t", transpose=True, figureNo=None):
+    """
+    save comma separated value table into a text file
+    use sep (instead of comma) to separate values
+    if transpose:
+        values are written in columns for each dataset
+        x1 y1 ...other datasets to the right...
+        x2 y2 ...other datasets to the right...
+        x3 y3 ...other datasets to the right...
+        .........
+    else:
+        x1  x2  x3  ...
+        y1  y2  y3  ...
+        ... other datasets below...
+
+    if fn is None calls FN() for you    
+    """
+    
+    if fn is None:
+        from Priithon.usefulX import FN
+        fn = FN(1)
+        if not fn:
+            return 
+
+    fig = _getFig(figureNo)
+    fig.save_csv(fn, sep, transpose)
 
 # 20070927:  not used
 # def maparr(arr, fn, width, dtype=N.float64):
@@ -468,21 +587,13 @@ def plotsave(fn=None, format='png', figureNo=None):
 #     return out
 
 def plotMouse__graph2window(pts, figureNo=None):
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    fig = _getFig(figureNo)
 
     pc = fig.client                   # canvas
     return pc.graph_to_window(pts)
     
 def plotMouse__window2graph(p, figureNo=None):
-    import plt
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+    fig = _getFig(figureNo)
 
     pc = fig.client                   # canvas
     gb = pc.graph_box
@@ -499,20 +610,17 @@ def plotMouse__window2graph(p, figureNo=None):
     return left,top
 
 def plotMouseEventHandlerSet(handler=None, figureNo=None):
-    '''
-    if handler is None: reset to default (zoom) mouse handler
+    """
+    if handler is None: reset to default mouse handler (zooming)
 
     exampler `handler`:
       def h(evt):
          p = evt.GetPosition()
          if evt.LeftDown():
-            print posMouse2Coord(p)
-    '''
-    import plt, wx
-    if figureNo is None:
-        fig = plt.interface._active
-    else:
-        fig = plt.interface._figure[figureNo]
+            print plotMouse__window2graph(p)
+    """
+    fig = _getFig(figureNo)
+    import wx
 
     pc = fig.client                   # canvas
 
@@ -525,7 +633,7 @@ def plotMouseEventHandlerSet(handler=None, figureNo=None):
     wx.EVT_MOTION(pc, handler)
 
 def plotMouseEventHandlerSet_fct_XY_OnLeft(fct_XY, onlyOnClick=True, figureNo=None):
-    '''
+    """
     shortcut for handler functions as shown as example in
     mouseEventHandlerSet;
     if onlyOnClick is False, call fct when LeftIsDown,
@@ -534,17 +642,17 @@ def plotMouseEventHandlerSet_fct_XY_OnLeft(fct_XY, onlyOnClick=True, figureNo=No
     example `fct_XY`
       def fct_XY(x,y):
          print x,y
-    '''
+    """
     
     def h(evt):
         p = evt.GetPosition()
         if onlyOnClick:
             if evt.LeftDown():
-                x,y = plotMouse__window2graph(p)
+                x,y = plotMouse__window2graph(p, figureNo)
                 fct_XY(x,y)
         else:
             if evt.LeftIsDown():
-                x,y = plotMouse__window2graph(p)
+                x,y = plotMouse__window2graph(p, figureNo)
                 fct_XY(x,y)
                 
     plotMouseEventHandlerSet(h, figureNo)

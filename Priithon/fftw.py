@@ -1,9 +1,14 @@
-"access to double and single prec SWIG wrapped FFTW module"
+"""
+Priithon FFTW interface
+access to double and single prec SWIG wrapped FFTW module
+"""
+from __future__ import absolute_import
 
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
-import sfftw as _sfftw, dfftw as _dfftw
+import Priithon_bin.sfftw as _sfftw
+import Priithon_bin.dfftw as _dfftw
 import numpy as _N
 
 _splans = {}

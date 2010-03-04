@@ -1,12 +1,13 @@
 """PyShell is a python shell application."""
+from __future__ import absolute_import
 #seb: PriShell
 
 # The next two lines, and the other code below that makes use of
 # ``__main__`` and ``original``, serve the purpose of cleaning up the
 # main namespace to look as much as possible like the regular Python
 # shell environment.
-import __main__
-original = __main__.__dict__.keys()
+#20091208-PyFlakes import __main__
+#20090806 original = __main__.__dict__.keys()
 
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
@@ -14,10 +15,10 @@ __license__ = "BSD license - see LICENSE file"
 #seb __cvsid__ = "$Id: PyShell.py,v 1.7 2004/03/15 13:42:37 PKO Exp $"
 #seb __revision__ = "$Revision: 1.7 $"[11:-2]
 
-import wx
+#20091208-PyFlakes import wx
 
 
-'''
+"""
 The main() function needs to handle being imported, such as with the
 pyshell script that wxPython installs:
 
@@ -25,9 +26,9 @@ pyshell script that wxPython installs:
 
     from wx.py.PyShell import main
     main()
-'''
+"""
 
-def main():
+def main(startMainLoop=True):
     """The main function for the PyShell program."""
     import wx
 
@@ -36,11 +37,19 @@ def main():
         """PyShell standalone application."""
 
         def OnInit(self):
-            import wx,sys
+            import wx,sys,os
+            #from .py import shell
+            # absolute import
+            # ValueError: Attempted relative import in non-package
+            # NOTE: this is where Priithon is beeing started - i.e. we are not yet "inside" the Priithon module
             from Priithon.py import shell
+
             wx.InitAllImageHandlers()
+            title = "priithon on %s (pid: %s)" % (
+                wx.GetHostName(), os.getpid())
+            print title # to know which terminal window belongs to which Priithon
             self.frame = shell.ShellFrame(
-                title="priithon on %s" % wx.GetHostName(),
+                title=title,
                 introText=' !!! Welcome to Priithon !!! \n'+
                 '(Python %s on %s)' % (sys.version.replace('\n',' '), sys.platform),
                 introStatus='Priithon: %s' % sys.argv)
@@ -89,20 +98,39 @@ def main():
 
     # Create an application instance. (after adjusting sys.path!)
     sys.app = None # dummy to force Priithon.Y getting loaded
-    app = App(0)
+    #20090811 app = App(0)
+    #       default: wx.App(redirect=False, filename=None, useBestVisual=False,
+    #                       clearSigInt=True)
+    app = App(redirect=False, filename=None, useBestVisual=False, 
+              clearSigInt=False)
+
     #20070914 del md['App']
     # Add the application object to the sys module's namespace.
     # This allows a shell user to do:
     # >>> import sys
     # >>> sys.app.whatever
     sys.app = app
-    del sys
-
 
     #seb: load Priithon modules
     #exec "from Priithon.all import *" in __main__.__dict__
     #U._fixDisplayHook()
-    from Priithon import startupPriithon
+    try:
+        # non-GUI part
+        from Priithon import startupPriithon
+    except:
+        import traceback
+        wx.MessageBox(traceback.format_exc(), 
+                      "Exception while Priithon Startup", 
+                      wx.ICON_ERROR)
+    try:
+        # GUI part
+        __main__.Y._setAutosavePath()
+        __main__.Y._fixGuiExceptHook()
+    except:
+        import traceback
+        wx.MessageBox(traceback.format_exc(), 
+                      "Exception while Priithon Startup", 
+                      wx.ICON_ERROR)
     #import startupPriithon
 
     # macs tends to have this OpenGL float-texture bug
@@ -110,12 +138,30 @@ def main():
     # this does not catch the case when Priithon runs
     # remotely on Linux but uses a OSX X-display
     # 
-    if '__WXMAC__' in wx.PlatformInfo:
-        from Priithon import usefulX2
-        usefulX2._bugXiGraphics()
+    try:
+        if '__WXMAC__' in wx.PlatformInfo:
+            from Priithon import usefulX
+            usefulX._bugXiGraphics()
+    except:
+        import traceback
+        wx.MessageBox(traceback.format_exc(), 
+                      "Exception while Priithon Startup", 
+                      wx.ICON_ERROR)
+    try:
+        from Priithon import usefulX
+        usefulX._glutInit(argv=sys.argv)
+    except:
+        import traceback
+        wx.MessageBox(traceback.format_exc(), 
+                      "Exception while Priithon Startup", 
+                      wx.ICON_ERROR)
+
+    del sys
+
     # Start the wxPython event loop.
     #del wx
-    app.MainLoop()
-
+    if startMainLoop:
+        app.MainLoop()
+        print " * priithon ended. *" # to know when when the process has quit
 if __name__ == '__main__':
     main()

@@ -21,7 +21,7 @@ class App(wx.App):
         #seb from wx import py
         import crust #seb
         wx.InitAllImageHandlers()
-        seb self.frame = py.crust.CrustFrame()
+        #seb self.frame = py.crust.CrustFrame()
         self.frame = crust.CrustFrame()
         self.frame.SetSize((800, 600))
         self.frame.Show()

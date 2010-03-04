@@ -1,10 +1,18 @@
 """provides the bitmap OpenGL panel for Priithon's ND 2d-section-viewer
 """
-
+from __future__ import absolute_import
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
-from viewerCommon import *
+#from .viewerCommon import *
+#SyntaxError: 'import *' not allowed with 'from .'
+#<hack>
+from . import viewerCommon
+for n in viewerCommon.__dict__:
+    if not n.startswith('_'):
+        exec "%s = viewerCommon.%s" % (n,n)
+del n, viewerCommon
+#</hack>
 
 
 
@@ -96,7 +104,7 @@ class GLViewer(GLViewerCommon):
         self.m_imgChanged = True
         #20071114 self.m_histScaleChanged = True
         if originLeftBottom is None:
-            if imgArr.shape[1] == imgArr.shape[0]/2 + 1:
+            if imgArr.shape[1] == imgArr.shape[0]//2 + 1:
                 self.m_originLeftBottom = 8  # output from real_fft2d --- data nx is half-sized
             else:
                 self.m_originLeftBottom = 1
@@ -132,22 +140,11 @@ class GLViewer(GLViewerCommon):
         wx.EVT_PAINT(self, self.OnPaint)
         
         #EVT_MIDDLE_DOWN(self, self.OnMiddleDown)
-        wx.EVT_MOUSE_EVENTS(self, self.OnMouse)
         self.MakePopupMenu()
-        self.bindMenuEventsForShortcuts()
-        self.initAccels()
         ###          wx.Yield() # setImage has gl-calls - so lets make the window first...
         ###          self.setImage(imgArr)
 
 
-    #      def On13(self, event):
-    #          import seb as S
-    #          a = self.m_imgArr
-    #          if a is None:
-    #              return
-    #          mi,ma,me,ss = S.mmms( a )
-    #          self.changeHistogramScaling(mi, ma)
-    
 
         
         
@@ -177,10 +174,11 @@ class GLViewer(GLViewerCommon):
         self.m_menu = wx.Menu()
 
 
-        self.m_menu.Append(Menu_Zoom2x,    "&zoom 2x")
-        self.m_menu.Append(Menu_Zoom_5x,   "z&oom .5x")
+        self.m_menu.Append(Menu_Zoom2x,    "&zoom 2x\td")
+        self.m_menu.Append(Menu_Zoom_5x,   "z&oom .5x\th")
         self.m_menu.Append(Menu_ZoomReset, "zoom &reset\t0")
         self.m_menu.Append(Menu_ZoomCenter,"zoom &center\t9")
+        self.m_menu.Append(Menu_Zoom1,"zoom &1\t1")
         self.m_menu.Append(Menu_chgOrig, "c&hangeOrig\to")
         self.m_menu.Append(Menu_Reload, "reload\tr")
         #20051116 self.m_menu.Append(Menu_Color, "change ColorMap")
@@ -194,10 +192,14 @@ class GLViewer(GLViewerCommon):
         self.m_menu.Append(Menu_rotate, "display rotated...")
         self.m_menu.Append(Menu_noGfx, "hide all gfx\tb", '',wx.ITEM_CHECK)
 
+        wx.EVT_MENU(self, Menu_ZoomCenter, self.OnCenter)
+        wx.EVT_MENU(self, Menu_ZoomOut, self.OnZoomOut)
+        wx.EVT_MENU(self, Menu_ZoomIn, self.OnZoomIn)
         wx.EVT_MENU(self, Menu_Zoom2x,     self.OnMenu)
         #wx.EVT_MENU(self, Menu_ZoomCenter, self.OnMenu)
         wx.EVT_MENU(self, Menu_Zoom_5x,    self.OnMenu)
         wx.EVT_MENU(self, Menu_ZoomReset,  self.doReset) # OnMenu)
+        wx.EVT_MENU(self, Menu_Zoom1,  lambda ev: self.zoom(1)) # OnMenu)
         wx.EVT_MENU(self, Menu_Color,      self.OnColor)
         wx.EVT_MENU(self, Menu_Reload,      self.OnReload)
         wx.EVT_MENU(self, Menu_chgOrig,      self.OnChgOrig)
@@ -215,7 +217,8 @@ class GLViewer(GLViewerCommon):
         #        // Enable two-dimensional texturing.
     
         #glClearColor(1.0, 1.0, 1.0, 0.0)
-        glClearColor(0.2, 0.3, 0.1, 0.0)
+        from . import PriConfig
+        glClearColor(*PriConfig.viewerBkgColor)
 #20050520       glEnable(GL_TEXTURE_2D)
         
         #print "InitGL 2"
@@ -287,7 +290,7 @@ class GLViewer(GLViewerCommon):
                          GL_LUMINANCE,GL_UNSIGNED_SHORT, None)
 
         elif self.m_imgArr.dtype.type in (N.float64,
-                                          N.int32, N.uint32, N.int64, N.uint64,
+                                          N.int32, N.uint32, N.int64, N.uint64, N.int0,
                                           N.complex64, N.complex128):
             glTexImage2D(GL_TEXTURE_2D,0,  GL_RGB, self.tex_nx,self.tex_ny, 0, 
                          GL_LUMINANCE,GL_FLOAT, None)
@@ -296,8 +299,18 @@ class GLViewer(GLViewerCommon):
             self.error = "unsupported data mode"
             raise ValueError, self.error
 
-        glNewList( self.m_gllist, GL_COMPILE )
 
+        cornerOffsetX = -.5
+        cornerOffsetY = -.5
+        if self.m_originLeftBottom == 7:
+            cornerOffsetX -= self.pic_nx // 2
+            cornerOffsetY -= self.pic_ny // 2
+        if self.m_originLeftBottom == 8:
+            cornerOffsetX -= self.pic_nx-1
+            cornerOffsetY -= (self.pic_ny-1) // 2
+
+        glNewList( self.m_gllist, GL_COMPILE )
+        glTranslate(cornerOffsetX,cornerOffsetY ,0)  # 20080701:  in new coord system, integer pixel coord go through the center of pixel
         glEnable(GL_TEXTURE_2D)#20050520
         glColor3f(1.0, 1.0, 1.0) #//2004/04/09
         ##################################glColor3f(1.0, 0.0, 0.0);
@@ -331,12 +344,13 @@ class GLViewer(GLViewerCommon):
             ex = self.picTexRatio_x / sx
             ey = self.picTexRatio_y / sy
 
+
             # output from real_fft2d --- data nx is half-sized
             if self.m_originLeftBottom == 8:
                 sx = (self.pic_nx-1) * 2
                 ox = sx // 2
                 hx = self.picTexRatio_x
-                
+
                 # data: dc left bottom(q 1)     display: dc left-down from center !
                 # q 3                           q 1
                 
@@ -430,6 +444,8 @@ class GLViewer(GLViewerCommon):
         glEnd()
         
         glDisable(GL_TEXTURE_2D) #20050520
+
+        glTranslate(-cornerOffsetX,-cornerOffsetY ,0)  # 20080701:  in new coord system, integer pixel coord go through the center of pixel
         glEndList()
         
     def defGlList(self):
@@ -501,6 +517,7 @@ class GLViewer(GLViewerCommon):
             glMatrixMode (GL_PROJECTION)
             glLoadIdentity ()
             glOrtho (-.375, self.m_w-.375, -.375, self.m_h-.375, 1., -1.)
+            #20080828: put the .375 stuff back --- otherwise some images were shown with "bottom line shown somewhat at top of image" glOrtho (0, self.m_w, 0, self.m_h, 1., -1.)
             glMatrixMode (GL_MODELVIEW)
             self.m_doViewportChange = False
 
@@ -522,94 +539,6 @@ class GLViewer(GLViewerCommon):
                 print "ERROR:", self.error
             self.m_gllist_Changed = False
 
-        ''' 20071114
-        if self.m_imgToDo is not None:
-            self.m_imgArr = self.m_imgToDo
-
-            if bugXiGraphics:
-                itSize = 1
-                #20070625-why need for single byte?? glPixelStorei(GL_UNPACK_SWAP_BYTES, self.m_imgArr.dtype.byteorder != '=')
-            elif self.m_imgArr.dtype.type in (N.float64,
-                                              N.int32, N.uint32, N.int64, N.uint64,
-                                              N.complex64, N.complex128):
-                itSize = 4
-                glPixelStorei(GL_UNPACK_SWAP_BYTES, False) # create native float32 copy - see below
-            else:
-                itSize = self.m_imgArr.itemsize
-                glPixelStorei(GL_UNPACK_SWAP_BYTES, not self.m_imgArr.dtype.isnative)
-
-            glPixelStorei(GL_UNPACK_ALIGNMENT, itSize)
-
-            # maxUShort: value that represents "maximum color" - i.e. white
-            if self.m_imgArr.dtype.type == N.uint16:
-                self.maxUShort = (1<<16) -1.
-            elif self.m_imgArr.dtype.type == N.int16:
-                self.maxUShort = (1<<15) -1.
-            elif self.m_imgArr.dtype.type in (N.uint8,N.bool_):
-                self.maxUShort = (1<<8) -1.
-            else:
-                self.maxUShort = 1.
-            
-            if (self.pic_ny, self.pic_nx) != self.m_imgArr.shape:
-                (self.pic_ny, self.pic_nx) = self.m_imgArr.shape
-                ################### self.SetCurrent();            
-                self.InitTex()
-                # self.SetDimensions(-1,-1, self.pic_nx,self.pic_ny)
-            self.m_imgChanged=True
-            self.m_imgToDo = None
-        '''
-
-        #20071114 if not self.m_gllist:
-        #20071114     return ## CHECK
-
-        '''#20071114 
-        if self.m_histScaleChanged:
-            if self.transferf:
-                fBias = 0
-                f = 1
-                self.m_imgChanged = True
-            elif bugXiGraphics:
-                self.bugXiGraphicsmi = self.m_minHistScale # self.m_imgArr.min()
-                self.bugXiGraphicsma = self.m_maxHistScale # self.m_imgArr.max()
-                den = (self.bugXiGraphicsma - self.bugXiGraphicsmi)
-                if den == 0:
-                    den = 1
-                self.bugXiGraphicsfa = 255./den
-
-                fBias = 0
-                f = 1
-                self.m_imgChanged = True
-            else:
-                srange =  float(self.m_maxHistScale - self.m_minHistScale)
-                if srange == 0:
-                    fBias = 0
-                    f = 1
-                else:
-                    fBias =  -self.m_minHistScale / srange
-                    f     =  self.maxUShort / srange
-
-            glPixelTransferf(GL_RED_SCALE,   f) #; // TODO HACK
-            glPixelTransferf(GL_GREEN_SCALE, f)
-            glPixelTransferf(GL_BLUE_SCALE,  f)
-            
-            glPixelTransferf(GL_RED_BIAS,   fBias)
-            glPixelTransferf(GL_GREEN_BIAS, fBias)
-            glPixelTransferf(GL_BLUE_BIAS,  fBias)
-    
-            #self.fBias = fBias  #for debug
-            #self.f     = f
-            
-            if self.colMap is not None:
-                glPixelTransferi(GL_MAP_COLOR, True);
-                glPixelMapfv(GL_PIXEL_MAP_R_TO_R, self.colMap[0] )
-                glPixelMapfv(GL_PIXEL_MAP_G_TO_G, self.colMap[1] )
-                glPixelMapfv(GL_PIXEL_MAP_B_TO_B, self.colMap[2] )
-            else:
-                glPixelTransferi(GL_MAP_COLOR, False);
-                # //printf("%8d %9f \n", -min, f)
-
-            self.m_histScaleChanged = False
-        '''    
         if self.m_imgChanged:
             if self.transferf:
                 try:
@@ -689,7 +618,7 @@ class GLViewer(GLViewerCommon):
             elif not self.transferf:
                 # handle non gfx-card dtypes
                 if data.dtype.type in (N.float64,
-                                       N.int32, N.uint32,N.int64, N.uint64):
+                                       N.int32, N.uint32,N.int64, N.uint64, N.int0):
                     data = data.astype(N.float32)
                 
                 srange =  float(self.m_maxHistScale - self.m_minHistScale)
@@ -726,11 +655,11 @@ class GLViewer(GLViewerCommon):
             glPixelTransferf(GL_GREEN_BIAS, fBias)
             glPixelTransferf(GL_BLUE_BIAS,  fBias)
     
-            self.fBias = fBias  #for debugging
-            self.f     = f      #for debugging
-            self.data = data    #for debugging
-            self.imgType = imgType #for debugging
-            self.itSize  = itSize #for debugging
+            #self.fBias = fBias  #for debugging
+            #self.f     = f      #for debugging
+            #self.data = data    #for debugging
+            #self.imgType = imgType #for debugging
+            #self.itSize  = itSize #for debugging
             
             if self.colMap is not None:
                 glPixelTransferi(GL_MAP_COLOR, True);
@@ -827,138 +756,14 @@ class GLViewer(GLViewerCommon):
         self.InitTex()
         self.Refresh(0)
 
-    def doOnFrameChange(self):
-        pass
-#      def doOnLeftDClick(self, event):
-#          x,y = event.GetX(),  self.m_h-event.GetY()
-#          x0,y0, s = self.m_x0, self.m_y0,self.m_scale
+    #20080707 def doOnFrameChange(self):
+    #20080707     pass
 
-#          #08 xx,yy = event.m_x, self.m_h-event.m_y
-#          #08 wx,wy,wz = GLU.gluUnProject( xx,yy,winz=0)
-#          #08 print xx,yy  , ((x-x0)/s, (y-y0)/s)
-#          #08 print wx,wy,wz   # same with onSize now connected to self (not parent anymore)
-        
-#          self.doDClick((x-x0)/s, (y-y0)/s)
-#          #08 self.doDClick(wx,wy)
-
-    #      def doDClick(self, x,y, xyEffVal):
-    #          print "xy: --> %7.1f %7.1f" % (x,y)
-    #          pass
-    def doOnMouse(self, x,y, xyEffVal):
-        # print "xy: --> %7.1f %7.1f" % (x,y)
-        pass
+    #20080707 def doOnMouse(self, x,y, xyEffVal):
+    #20080707     # print "xy: --> %7.1f %7.1f" % (x,y)
+    #20080707     pass
     
       
-    def OnMouse(self, ev):
-        self._onMouseEvt = ev  # be careful - only use INSIDE a handler function that gets call from here
-        if self.m_x0 is None:
-            return # before first OnPaint call
-
-        x,y = ev.m_x,  self.m_h-ev.m_y
-        x0,y0, s,a = self.m_x0, self.m_y0,self.m_scale,self.m_aspectRatio
-        xEff,yEff = int( (x-x0)/s ) , int( (y-y0)/(s*a) )
-        xyEffInside = False
-        nx = self.pic_nx
-        ny = self.pic_ny
-        xyEffVal = 0
-
-        import sys
-        if sys.platform != 'win32' and ev.Entering():
-            self.SetFocus()
-
-        if x0<=x and y0<=y and yEff < ny:
-            if self.m_originLeftBottom == 8:
-                if xEff < 2*nx-2:
-                    xyEffInside = True
-                    ###nx2 = nx ### //2
-                    ny2 = ny//2
-                    
-                    xEff -= nx-2 # 2-1
-                    yEff -= ny2-1
-                    xx,yy = xEff, yEff
-                    if xx< 0:
-                        xx = -xx
-                        if yy>=1:
-                            yy = ny-yy
-                        elif yy<0:
-                            yy = -yy
-                        #else:#yy==0
-                        #    yy = 0
-                    elif yy< 0:
-                        yy += ny
-                    xyEffVal = self.m_imgArr[yy, xx]
-                    
-            else:
-                if xEff < nx:
-                    xyEffInside = True
-                    nx2 = nx//2
-                    ny2 = ny//2
-                    if self.m_originLeftBottom == 1:
-                        xyEffVal = self.m_imgArr[yEff, xEff]
-                    elif self.m_originLeftBottom == 0:
-                        yEff = ny-1 - yEff
-                        xyEffVal = self.m_imgArr[yEff, xEff]
-                    elif self.m_originLeftBottom == 7:
-                        xEff -= nx2-1
-                        yEff -= ny2-1
-                        xx,yy = xEff, yEff
-                        if xx< 0:
-                            xx += nx
-                        if yy< 0:
-                            yy += ny
-                        xyEffVal = self.m_imgArr[yy, xx]
-
-        midButt = ev.MiddleDown() or (ev.LeftDown() and ev.AltDown())
-        midIsButt = ev.MiddleIsDown() or (ev.LeftIsDown() and ev.AltDown())
-        rightButt = ev.RightDown() or (ev.LeftDown() and ev.ControlDown())
-        
-        if ev.Leaving():
-            ## leaving trigger  event - bug !!
-            return
-        if midButt:
-            self.mouse_last_x, self.mouse_last_y = x,y
-            self.dragging=1
-        elif midIsButt and self.dragging: #ev.Dragging()
-            if ev.ShiftDown() or ev.ControlDown():
-                #dx = x-self.mouse_last_x
-                dy = y-self.mouse_last_y
-
-                fac = 1.05 ** (dy)
-                self.m_scale *= fac
-                w2 = self.m_w/2
-                h2 = self.m_h/2
-                self.m_x0 = w2 - (w2-self.m_x0)*fac
-                self.m_y0 = h2 - (h2-self.m_y0)*fac
-                self.m_zoomChanged = True
-
-            else:
-                self.m_x0 += (x-self.mouse_last_x) #/ self.sx
-                self.m_y0 += (y-self.mouse_last_y) #/ self.sy
-            self.m_zoomChanged = 1
-            self.mouse_last_x, self.mouse_last_y = x,y
-            self.Refresh(0)
-
-        elif rightButt:
-            #20060726 self.mousePos_remembered_x, self.mousePos_remembered_y = ev.GetPositionTuple()
-            pt = ev.GetPosition()
-            self.PopupMenu(self.m_menu, pt)
-        elif ev.LeftDown():
-            xEff,yEff = (x-x0)/s ,  (y-y0)/s # float !
-            self.doLDown(xEff,yEff)
-        elif ev.LeftDClick():
-            xEff,yEff = (x-x0)/s ,  (y-y0)/s # float !          
-            self.doLDClick(xEff,yEff)
-            #print ":", x,y, "   ", x0,y0, s, "   ", xyEffInside, " : ", xEff, yEff
-            
-            #if xyEffInside:
-            #    self.doDClick(xEff, yEff)
-            #self.doOnLeftDClick(ev)
-
-        if xyEffInside:
-
-            self.doOnMouse(xEff, yEff, xyEffVal)
-        ev.Skip() # other things like EVT_MOUSEWHEEL are lost
-
     def OnReload(self, event=None):
         self.m_imgChanged = True
         self.Refresh(False)
@@ -1229,14 +1034,14 @@ class GLViewer(GLViewerCommon):
     def cmlog(self):
         n = self.cm_size = 256 # otherwise Erik's Mac chookes #  512
         self.colMap = N.empty(shape = (3,n), dtype = N.float32)
-        self.colMap[:] = 1. - N.log10(N.arange(1./n,1+.5/n, 1./n)) / N.log10(1./n)
+        self.colMap[:] = 1. - N.log10(N.linspace(1./n,1., num=n, endpoint=True)) / N.log10(1./n)
         self.changeHistogramScaling()
         self.updateHistColMap()
         
     
 def view(array, title=None, size=None, parent=None):
     if len(array.shape) != 2:
-        raise "array must be of dimension 2"
+        raise ValueError, "array must be of dimension 2"
 
     ### size = (400,400)
     if size is None:

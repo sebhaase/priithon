@@ -4,6 +4,7 @@
 # Last revision: 2000-11-17
 # 
 
+from __future__ import absolute_import
 import os, string, sys
 
 # Use the gzip module for Python version 1.5.2 or higher

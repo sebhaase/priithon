@@ -5,6 +5,8 @@ http://www.msg.ucsf.edu/IVE/IVE4_HTML/IM_ref2.html
 Mrc class uses memory mapping (file size limit about 1GB (more or less)
 Mrc2 class section wise file/array I/O
 """
+from __future__ import absolute_import
+
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
@@ -26,8 +28,9 @@ def bindFile(fn, writable=0):
 
 class Mrc:
     def __init__(self, path, mode='r', extHdrSize=0, extHdrNints=0, extHdrNfloats=0):
-        '''mode can be 'r' or 'r+'
-        '''
+        """
+        mode can be 'r' or 'r+'
+        """
         import os
         self.path     = os.path.abspath(path)
         self.filename = os.path.basename(path)
@@ -104,14 +107,14 @@ class Mrc:
 #           pass
 
     def insertExtHdr(self, numInts, numFloats, nz=-1):
-        '''20051201 - test failed - data did NOT get shifted my next bytes !!!'''
+        """20051201 - test failed - data did NOT get shifted my next bytes !!!"""
         
         if numInts == numFloats == 0:
-            raise "what ??"
+            raise ValueError, "what ??"
         if self.data_offset != 1024:
-            raise "what 2 ??"
+            raise ValueError, "what 2 ??"
         if self.hdr.next != 0:
-            raise "what 3 ??"
+            raise ValueError, "what 3 ??"
         if nz <= 0:
             nz = self.hdr.Num[-1]
 
@@ -169,12 +172,14 @@ class Mrc:
         self.data.dtype = dtype
         n0 = self.data.shape[0]
         if n0 != N.prod(shape):  # file contains INCOMPLETE sections
-            print "** WARNING **: file truncated - shape from header:", shape
-            n1 = N.prod(shape[1:])
-            s0 =  n0 // n1 # //-int-division (rounds down)
-            #if s0 == 1:
-            #    shape = shape[1:]
-            #else:
+            nPixPerSec = N.prod(shape[1:])
+            s0 =  n0 // nPixPerSec # //-int-division (rounds down)
+
+            if n0 > N.prod(shape):
+                print "** WARNING **: found extra sections in file: %d sections; while shape from header: %s"%(s0, shape)
+            else:
+                print "** WARNING **: file truncated to %d sections; while shape from header: %s"%(s0, shape)
+
             shape = (s0,) + shape[1:]
             self.data = self.data[:N.prod(shape)]
 
@@ -190,13 +195,13 @@ class Mrc:
         
     def axisOrderStr(self, onlyLetters=True):
         """return string indicating meaning of shape dimensions
-        ## 
-        ## ZTW   <- non-interleaved
-        ## WZT   <- OM1 ( easy on stage)
-        ## ZWT   <- added by API (used at all ??)
-        ## ^
-        ## |
-        ## +--- first letter 'fastest'
+           
+           ZTW   <- non-interleaved
+           WZT   <- OM1 ( easy on stage)
+           ZWT   <- added by API (used at all ??)
+           ^
+           |
+           +--- first letter 'fastest'
 
         fixme: possibly wrong when doDataMap found bad file-size
         """
@@ -270,79 +275,6 @@ class Mrc:
 
         return data
         
-
-    '''
-    def _newDataType(self, dtype ):
-        """ set size to zero !! flush !
-        self.data changes !!!!"""
-
-        shape = (0,0,0)
-        self.hdr.Num =shape[2], shape[1], shape[0]
-        self.hdr.PixelType = dtype2MrcMode( dtype )
-
-        #self.shape = self.hdr.Num[::-1]
-        #self.type = MrcMode2dtype( self.hdr.PixelType )
-        try:
-            self.data.resize( shape )
-        except:
-            self.flush()
-            self.data.resize( shape )
-        self.flush()
-        self.data = N.array(self.d, shape=shape, dtype=dtype, copy=False)
-        
-    def _newDataSizeType(self, shape, type=None ):
-        """if type!=None --> self.data changes !!!!"""
-        #2004/05/18 if len(shape) != 3:
-        #2004/05/18    raise "TODO: shape =! z,y,x -> just ny,nx, or (z2,z1,y,x)"
-        #2004/05/18
-        if len(shape) < 2:
-            raise ValueError, "don't know about data of ndime less than 2"
-        nz = N.prod( shape[:-2] )
-        
-        if type and type != self.data.dtype:
-            self._newDataType( type )
-        try:
-            self.data.resize( shape )
-        except:
-            self.flush()
-            try:
-                self.data.resize( shape )
-            except:
-                raise RuntimeError, "resize failed - tried even calling flush() ... ;-( "
-
-        #2004/05/18  hhh.setfield('Num', (shape[2], shape[1], shape[0]))
-        self.hdr.Num = shape[-1], shape[-2], nz
-        #2004/05/18  TODO:
-        #          set numtimes and numwaves for higher ndims
-
-        
-        #          hhh.setfield('PixelType', dtype2MrcMode( type ))
-
-        #self.shape = self.hdr.Num[::-1]
-        #          self.type = MrcMode2dtype( self.hdr.PixelType )
-
-
-        # self.m.flush()
-    def newDataSize(self, shape):
-        #2004/05/18
-        if len(shape) < 2:
-            raise ValueError, "don't know about data of ndime less than 2"
-        #2004/05/18 if len(shape) != 3:
-        #2004/05/18     raise "TODO: shape =! z,y,x -> just ny,nx, or (z2,z1,y,x)"
-        nz = N.prod( shape[:-2] )
-
-        try:
-            self.data.resize( shape )
-        except:
-            raise RuntimeError, "resize failed - try calling flush()"
-
-        #2004/05/18  hhh.setfield('Num', (shape[2], shape[1], shape[0]))
-        self.hdr.Num =shape[-1], shape[-2], nz
-        #2004/05/18  TODO:
-        #          set numtimes and numwaves for higher ndims
-
-        #self.shape = self.hdr.Num[::-1]
-    '''
     def close(self):
         #if self.mode == 'w+':
         #    self.calcMMM()
@@ -363,9 +295,9 @@ def open(path, mode='r'):
     return Mrc2(path, mode)
 
 def load(fn):
-    '''return 3D array filled with the data
+    """return 3D array filled with the data
     (non memmap)
-    '''
+    """
     m = open(fn)
     a = m.readStack(m.hdr.Num[2])
     return a
@@ -374,7 +306,7 @@ def save(a, fn, ifExists='ask', zAxisOrder=None,
          hdr=None, hdrEval='',
          calcMMM=True,
          extInts=None, extFloats=None):
-    '''
+    """
     ifExists shoud be one of
        ask
        raise
@@ -400,19 +332,19 @@ def save(a, fn, ifExists='ask', zAxisOrder=None,
     if hdrEval:  exec this string ("hdr" refers to the 'new' header)
 
     TODO: not implemented yet, extInts=None, extFloats=None
-    '''
+    """
     import os
     if os.path.exists(fn):
         if ifExists[0] == 'o':
             pass
         elif ifExists[0] == 'a':
-            yes = raw_input("overwrite?").lower() == 'y'
+            yes = raw_input("overwrite?")[0].lower() == 'y'
             if not yes:
-                raise "not overwriting existing file '%s'"%fn
+                raise RuntimeError, "not overwriting existing file '%s'"%fn
         elif ifExists[0] == 's':
             return
         else:
-            raise "not overwriting existing file '%s'"%fn
+            raise RuntimeError, "not overwriting existing file '%s'"%fn
             
     m = Mrc2(fn, mode='w')
 
@@ -421,7 +353,7 @@ def save(a, fn, ifExists='ask', zAxisOrder=None,
         initHdrArrayFrom(m.hdr, hdr)
 
     if calcMMM:
-        import useful as U
+        from . import useful as U
         wAxis = axisOrderStr(m.hdr).find('w')
         if wAxis < 0:
             m.hdr.mmm1 = U.mmm(a)
@@ -459,7 +391,7 @@ def save(a, fn, ifExists='ask', zAxisOrder=None,
 ###########################################################################
 
 class Mrc2:
-    '''
+    """
     this class is for NON-memmapped access of Mrc files
     sections can be read and written on a by-need basis
     the Mrc2 object itself only handles
@@ -475,16 +407,16 @@ class Mrc2:
         ['a' does not really make sense here]
         Modes 'r+', 'w+' [and 'a+'] open the file for updating (note that 'w+' truncates the file). 
      ('b' for binary mode, is implicitely appended)
-    '''
+    """
     def __init__(self, path, mode='r'):
-        '''
+        """
         path is filename
         mode: same as for Python's open function
             ('b' is implicitely appended !)
             'r'   read-only
             'r+'  read-write
             'w'   write - erases old file !!
-        '''
+        """
         import os, __builtin__
         self._f = __builtin__.open(path, mode+'b')
         self._path = path
@@ -514,7 +446,7 @@ class Mrc2:
 
 
     def initHdrForArr(self, arr, zAxisOrder=None):
-        '''
+        """
         use zAxisOrder if arr.ndim > 3:
           zAxisOrder is given in order conform to python(last is fastest)
              (spaces,commas,dots,minuses  are ignored)
@@ -526,7 +458,7 @@ class Mrc2:
              3D: 'z'
              4D: 'tz'
              5D: 'tzw'
-        '''
+        """
         if zAxisOrder is None:
             if   arr.ndim ==3:
                 zAxisOrder = 'z'
@@ -545,35 +477,50 @@ class Mrc2:
         if arr.ndim == 2:
             pass
         elif arr.ndim == 3:
-            if   zAxisOrder[-1] == 'z':
+            if   zAxisOrder[0] == 'z':
                 self.hdr.ImgSequence = 0
-            elif zAxisOrder[-1] == 'w':
+            elif zAxisOrder[0] == 'w':
                 self.hdr.ImgSequence = 1
                 self.hdr.NumWaves = arr.shape[-3]
-            elif zAxisOrder[-1] == 't':
-                self.hdr.ImgSequence = 2
+            elif zAxisOrder[0] == 't':
+                self.hdr.ImgSequence = 0
                 self.hdr.NumTimes = arr.shape[-3]
             else:
-                raise ValueError, "unsupported axis order"
+                raise ValueError, "unsupported axis order (%s)"%(zAxisOrder,)
         elif arr.ndim == 4:
-            if   zAxisOrder[-2:] == 'zt':
-                self.hdr.ImgSequence = 2
-                self.hdr.NumTimes = arr.shape[-3]
-            elif zAxisOrder[-2:] == 'tz':
+            #if   zAxisOrder[:2] == 'zt':
+            #    #WRONG !self.hdr.ImgSequence = 2
+            #    raise ValueError, "zAxisOrder z slower than t is not supported my Mrc format"
+            #    self.hdr.NumTimes = arr.shape[-3]
+            if   zAxisOrder[:2] == 'tz':
                 self.hdr.ImgSequence = 0
                 self.hdr.NumTimes = arr.shape[-4]
-            elif zAxisOrder[-2:] == 'wz':
+            elif zAxisOrder[:2] == 'wz':
                 self.hdr.ImgSequence = 0
                 self.hdr.NumWaves = arr.shape[-4]
-            elif zAxisOrder[-2:] == 'zw':
+            elif zAxisOrder[:2] == 'zw':
                 self.hdr.ImgSequence = 1
                 self.hdr.NumWaves = arr.shape[-3]
             else:
-                raise ValueError, "unsupported axis order"
+                raise ValueError, "unsupported axis order (%s)"%(zAxisOrder,)
         elif arr.ndim == 5:
-                raise ValueError, "FIXME TODO: 5D"
+            if   zAxisOrder[:3] == 'wtz':
+                self.hdr.ImgSequence = 0
+                self.hdr.NumTimes = arr.shape[-4]
+                self.hdr.NumWaves = arr.shape[-5]
+            elif zAxisOrder[:3] == 'tzw':
+                self.hdr.ImgSequence = 1
+                self.hdr.NumTimes = arr.shape[-5]
+                self.hdr.NumWaves = arr.shape[-3]
+            elif zAxisOrder[:3] == 'twz':
+                self.hdr.ImgSequence = 2
+                self.hdr.NumTimes = arr.shape[-5]
+                self.hdr.NumWaves = arr.shape[-4]
+            else:
+                raise ValueError, "unsupported axis order (%s)"%(zAxisOrder,)
+
         else:  
-             raise ValueError, "unsupported array ndim"
+             raise ValueError, "unsupported array ndim (%s)"%(arr.ndim,)
          
 
         self._initWhenHdrArraySet()
@@ -598,16 +545,17 @@ class Mrc2:
 
         if self._extHdrSize>0 and (self._extHdrNumInts>0 or self._extHdrNumFloats>0):
             nSecs = int( self._extHdrSize / self._extHdrBytesPerSec )
+            byteorder = '=' ## self._fileIsByteSwapped and '>' or '<'
+            type_descr = [("int",   "%s%di4"%(byteorder, self._extHdrNumInts)),
+                          ("float", "%s%df4"%(byteorder, self._extHdrNumFloats))]
+
             self._extHdrArray = N.rec.fromfile(self._f,
-                                             formats="%di4,%df4"%(self._extHdrNumInts,
-                                                                  self._extHdrNumFloats),
-                                             names='int,float',
-                                             shape=nSecs  )#,
-                                             #byteorder=byteorder)
+                                             dtype=type_descr,
+                                             shape=nSecs  )
 
             if self._fileIsByteSwapped:
-                self._extHdrArray.newbyteorder()
-            
+                self._extHdrArray = self._extHdrArray.newbyteorder()
+
             self.extInts   = self._extHdrArray.field('int')
             self.extFloats = self._extHdrArray.field('float')
 
@@ -739,8 +687,8 @@ class Mrc2:
 
 
 def minExtHdrSize(nSecs, bytesPerSec):
-    '''return smallest multiple of 1024 to fit extHdr data
-    '''
+    """return smallest multiple of 1024 to fit extHdr data
+    """
     import math
     return int( math.ceil(nSecs * bytesPerSec / 1024.)*1024 )
 
@@ -755,7 +703,7 @@ def MrcMode2dtype(mode):
                   )
 
     if mode<0 or mode>7:
-        raise "Priism file supports pixeltype 0 to 7 - %d given" % mode
+        raise ValueError, "Priism file supports pixeltype 0 to 7 (%d given)" % mode
     
     return PixelTypes[ int(mode) ]
 
@@ -796,7 +744,7 @@ def shapeFromHdr(hdr, verbose=0):
     if nw == 0:
         #20051213(ref."other's" MRC) print " ** NumWaves is zero - I assume 1."
         nw=1
-    nz = nsecs / nt / nw
+    nz = nsecs // nt // nw
 
     if nt == nw == 1:
         shape = (nz, ny, nx)
@@ -868,7 +816,14 @@ def makeHdrArray(buffer=None):
         #20070131  h = buffer.view()
         #20060131  h.__class__ = N.recarray
         h=buffer
-        h.dtype = mrcHdr_dtype
+        try:
+            h.dtype = mrcHdr_dtype
+        except:
+            if len(h) != N.dtype(mrcHdr_dtype).itemsize: #1024
+                raise ValueError, "header buffer should be of size %d, but %d bytes given" %(
+                    N.dtype(mrcHdr_dtype).itemsize, len(h))
+            else:
+                raise
         import weakref         #20070131   CHECK if this works
         h = weakref.proxy( h ) #20070131   CHECK if this works
     else:
@@ -908,7 +863,7 @@ def hdrInfo(hdr):
                                                            nz/nw/nt)
             
     if nt != 1  or  nw != 1:
-        print "# slice order:        %d (0,1,2 = (ZTW or WZT or ZWT)"% hdr.ImgSequence
+        print "# slice order:        %d (0,1,2 = (wtz, tzw or twz)"% hdr.ImgSequence
 
     print "pixel width x    (um):      ", hdr.d[0]
     print "pixel width y    (um):      ", hdr.d[1]
@@ -992,9 +947,9 @@ def hdrInfo(hdr):
 def axisOrderStr(hdr, onlyLetters=True):
     """return string indicating meaning of shape dimensions
     ## 
-    ## ZTW   <- non-interleaved
-    ## WZT   <- OM1 ( easy on stage)
-    ## ZWT   <- added by API (used at all ??)
+    ## wtz   <- non-interleaved
+    ## tzw   <- OM1 ( easy on stage)
+    ## twz   <- added by API (used at all ??)
     ## ^
     ## |
     ## +--- first letter 'fastest'
@@ -1021,8 +976,8 @@ def axisOrderStr(hdr, onlyLetters=True):
 
 
 def init_simple(hdr, mode, nxOrShape, ny=None, nz=None):
-    '''note: if  nxOrShape is tuple it is nz,ny,nx (note the order!!)
-    '''
+    """note: if  nxOrShape is tuple it is nz,ny,nx (note the order!!)
+    """
     if ny is nz is None:
         if len(nxOrShape) == 2:
             nz,(ny,nx)  = 1, nxOrShape
@@ -1049,7 +1004,10 @@ def init_simple(hdr, mode, nxOrShape, ny=None, nz=None):
     hdr.nspg= 0
     hdr.next= 0
     hdr.dvid= 0xc0a0  # CHECK - should "priithon" get it own ID !?
-    hdr.blank= 0 #CHECK Hans: add ntst to record time domain offset
+    #20090402 hdr.blank= 0 #CHECK Hans: add ntst to record time domain offset
+    hdr.nblank=0   #20090402
+    hdr.ntst=0     #20090402
+    hdr.extra=0    #20090402
     hdr.NumIntegers= 0
     hdr.NumFloats= 0
     hdr.sub= 0
@@ -1071,7 +1029,7 @@ def init_simple(hdr, mode, nxOrShape, ny=None, nz=None):
     #//                           // then z, then time.
     hdr.tilt= (0,0,0)
     hdr.NumWaves= 1
-    hdr.wave= (999,0,0,0,0)
+    hdr.wave= (0,0,0,0,0)
     hdr.zxy0= (0,0,0)
     hdr.NumTitles= 0
     hdr.title= '\0' * 80
@@ -1079,9 +1037,9 @@ def init_simple(hdr, mode, nxOrShape, ny=None, nz=None):
 
 
 def initHdrArrayFrom(hdrDest, hdrSrc): #, mode, nxOrShape, ny=None, nz=None):
-    '''copy all field of the header
+    """copy all field of the header
        EXCEPT  shape AND PixelType AND all fields related to extended hdr
-    '''
+    """
     
     '''
     if ny is nz is None:
@@ -1110,7 +1068,10 @@ def initHdrArrayFrom(hdrDest, hdrSrc): #, mode, nxOrShape, ny=None, nz=None):
     #   hdrDest.next =  hdrSrc.next
     hdrDest.next =          0
     hdrDest.dvid =  hdrSrc.dvid
-    hdrDest.blank = hdrSrc.blank
+    #20090402 hdrDest.blank = hdrSrc.blank
+    hdrDest.nblank = hdrSrc.nblank   #20090402
+    hdrDest.ntst = hdrSrc.ntst       #20090402
+    hdrDest.extra = hdrSrc.extra      #20090402
     hdrDest.NumIntegers = 0 #hdrSrc.NumIntegers
     hdrDest.NumFloats =   0 #hdrSrc.NumFloats
     hdrDest.sub =         hdrSrc.sub
@@ -1168,7 +1129,10 @@ mrcHdrFields = [
     ('1i2', 'nspg'),
     ('1i4', 'next'),
     ('1i2', 'dvid'),
-    ('30i1', 'blank'),
+#20090402    ('30i1', 'blank'),
+    ('1i2', 'nblank'),
+    ('1i4', 'ntst'),    
+    ('24u1', 'extra'),
     ('1i2', 'NumIntegers', 'Number of 4 byte integers stored in the extended header per section. '),
     ('1i2', 'NumFloats', 'Number of 4 byte floating-point numbers stored in the extended header per section. '),
     ('1i2', 'sub', 'Number of sub-resolution data sets stored within the image. Typically, this equals 1. '),

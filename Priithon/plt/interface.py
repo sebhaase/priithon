@@ -14,28 +14,34 @@ _figure = []
 _active = None
 
 
-def figure(which_one = None):
+def figure(which_one = None, parent=None): # 20091112: seb added parent option
     global _figure; global _active
     if which_one is None:
         title ='Figure %d' % len(_figure)
-        _figure.append(plot_class(title=title))
+        _figure.append(plot_class(title=title, parent=parent))
         _active = _figure[-1]
     elif (type(which_one) == type(1)) or (type(which_one) == type(1.)):
         try:    
             _active = _figure[int(which_one)]
             _active.Raise()
+            if parent is not None:
+                _active.Reparent( parent )
         except IndexError:
             msg = "There are currently only %d active figures" % len(_figure)
             raise IndexError, msg
     elif which_one in _figure:
         _active = which_one
         _active.Raise()
+        if parent is not None:
+            _active.Reparent( parent )
     else:
         try:
             if which_one.__type_hack__ == "plot_canvas":
                 _active = which_one
                 _figure.append(_active)
                 _active.Raise()
+                if parent is not None:
+                    _active.Reparent( parent )
             else:
                 raise ValueError, "The specified figure or index is not not known"
         except (AttributeError):
@@ -60,9 +66,12 @@ def validate_active():
 def current():
     return _active
 
-def redraw():
-    validate_active()
-    _active.redraw()
+#seb   20080901 - this ( redraw() )appears to be broken: 
+#      ..../plt/wxplt.py", line 806, in __getattr__
+#      AttributeError: 'plot_canvas' object has no attribute 'redraw'
+#def redraw():
+#    validate_active()
+#    _active.redraw()
 
 def close(which_one = None):
     global _figure; global _active
@@ -182,14 +191,19 @@ def axis(setting):
     validate_active()
     x_ticks = _active.x_axis.ticks
     #CHECK print type(x_ticks), dir(x_ticks)    
-    x_interval = x_ticks[1]- x_ticks[0]
+    x_interval = float(x_ticks[1]- x_ticks[0])
     y_ticks = _active.y_axis.ticks
-    x_interval = x_ticks[1]- y_ticks[0]
+    y_interval = float(y_ticks[1]- y_ticks[0])
     axes = array((x_ticks[0],x_ticks[-1],y_ticks[0],y_ticks[-1]),float64)
     # had to use client below cause of __setattr__ troubles in plot_frame
     if setting == 'normal':
         _active.client.aspect_ratio = setting
         _auto_all()
+        self.x_axis.bounds = ['auto','auto']
+        self.y_axis.bounds = ['auto','auto']
+        self.x_axis.tick_interval = 'auto'
+        self.y_axis.tick_interval = 'auto'    
+
     elif setting == 'equal':
         _active.client.aspect_ratio = setting    
     elif setting == 'freeze':
@@ -218,10 +232,10 @@ def save(file_name,format='png'):
 #---- array utilities ------------
 
 def is1D(a):
-    as = shape(a)
-    if(len(as) == 1):
+    ashape = shape(a)
+    if(len(ashape) == 1):
         return 1
-    if(as[0] == 1 or as[1]==1):
+    if(ashape[0] == 1 or ashape[1]==1):
         return 1
     return 0
     

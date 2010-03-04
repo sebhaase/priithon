@@ -1,3 +1,7 @@
+"""
+Priithon easy-to-use slider-only frame
+"""
+from __future__ import absolute_import
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
@@ -10,9 +14,13 @@ class ZSlider( wx.Frame):
         
         self.sizer = wx.BoxSizer(wx.VERTICAL)
 
-        self.zmax = nz-1
+        #20080707 doOnXXXX event handler are now lists of functions
+        self.doOnZchange       = [] # (zSec, ev)
+        
+
+        zmax = nz-1
         self.lastZ = -1
-        self.zslider = wx.Slider(self, 1001, 0, 0, self.zmax,
+        self.zslider = wx.Slider(self, 1001, 0, 0, zmax,
                           wx.DefaultPosition, wx.DefaultSize,
                              #wx.SL_VERTICAL
                              wx.SL_HORIZONTAL
@@ -52,8 +60,20 @@ class ZSlider( wx.Frame):
         zz = event.GetInt()
         if zz != self.lastZ:
             self.lastZ = zz
-            self.doOnZchange( zz )
-    def doOnZchange(self, newZ):
-        print newZ
-        ###self.v.setImage(self.data[zz])
+            for f in self.doOnZchange:
+                try:
+                    f( zz, event )
+                except:
+                    from . import PriConfig
+                    if PriConfig.raiseEventHandlerExceptions:
+                        raise
+                    else:
+                        import sys, traceback
+                        print >>sys.stderr, " *** error in doOnZchange **"
+                        traceback.print_exc()
+                        print >>sys.stderr, " *** error in doOnZchange **"
+
+    #20080707 def doOnZchange(self, newZ):
+    #20080707     print newZ
+    #20080707     ###self.v.setImage(self.data[zz])
      

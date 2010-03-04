@@ -67,7 +67,7 @@ import time, string
 
 # Needs Numeric
 try:
-    raise "seb like numarray better"
+    raise # "seb like numarray better"
     import Numeric
 except:
     try:

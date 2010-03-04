@@ -434,7 +434,7 @@ def auto_ticks(data_bounds, bounds_info = default_bounds):
         pass   
     else:
         #print 'interval: ', interval
-        raise ValueError, interval + " is an unknown value for interval: " \
+        raise ValueError, str(interval) + " is an unknown value for interval: " \
                           "  expects 'auto' or 'linear', or a number"
     
     # If the lower or upper bound are set to 'auto', 
@@ -475,11 +475,12 @@ def auto_ticks(data_bounds, bounds_info = default_bounds):
     return ticks
 
 
-def format_tick_labels(ticks):
+def format_tick_labels(ticks, cnvFcn=str):
     """ Convert tick values to formatted strings.
         Definitely needs some work
+        #seb 20100302 `cnvFcn` introduced (instead of hard wired `str`)
     """
-    return map(str,ticks)        
+    return map(cnvFcn,ticks)        
     #print ticks
     #if equal(ticks,ticks.astype('l')):
     #    return map(str,ticks.astype('l'))

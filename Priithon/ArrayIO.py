@@ -27,9 +27,9 @@ Numbers in files to be read must conform to Python/C syntax.  For
 reading files containing Fortran-style double-precision numbers
 (exponent prefixed by D), use the module Scientific.IO.FortranFormat.
 """
-
+from __future__ import absolute_import
 #from Scientific.IO.TextFile import TextFile
-from Scientific_IO_TextFile import TextFile
+from .Scientific_IO_TextFile import TextFile
 import string, numpy
 
 
@@ -41,7 +41,8 @@ def readArray(filename, comment='#', sep=None):
     slow. For large arrays, use readFloatArray or readIntegerArray
     if possible.
 
-    ignore all lines that start with any character contained in comment"""
+    ignore all lines that start with any character contained in comment
+    """
     data = []
     for line in TextFile(filename):
         if not line[0] in comment:

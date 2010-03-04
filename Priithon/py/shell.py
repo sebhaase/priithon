@@ -30,6 +30,7 @@ sys.ps3 = '<-- '  # Input prompt.
 NAVKEYS = (wx.WXK_END, wx.WXK_LEFT, wx.WXK_RIGHT,
            wx.WXK_UP, wx.WXK_DOWN, wx.WXK_PRIOR, wx.WXK_NEXT)
 
+NO_SPECIAL_GUI_EXCEPT = True # instead rely on Priithon's guiExceptionFrame (Y._fixGuiExceptHook())
 
 class ShellFrame(frame.Frame):
     """Frame containing the shell component."""
@@ -64,15 +65,18 @@ class ShellFrame(frame.Frame):
 
         #20070712 sebVeto
         sebVeto = False
+        self.IwantToClose_hack = True # 20080730: otherwise we get into a circle if multiple shell windows are open
         if len(wx.GetTopLevelWindows())>1:
             r= wx.MessageBox("close all other windows ?", 
                              "other open windows !", 
                              style=wx.CENTER|wx.YES_NO|wx.CANCEL|wx.ICON_EXCLAMATION)
             if r == wx.YES:
                 for f in wx.GetTopLevelWindows():
-                    if f is not self:
+                    if (f is not self and (not hasattr(f, "IwantToClose_hack")
+                            or not f.IwantToClose_hack)):
                         f.Close()
             elif r == wx.CANCEL:
+                self.IwantToClose_hack = False # 20080730 
                 sebVeto = True
 
         if self.shell.waiting or sebVeto:
@@ -84,6 +88,7 @@ class ShellFrame(frame.Frame):
 
     def OnAbout(self, event):
         """Display an About window."""
+        '''#20091113 seb
         title = 'About PyShell'
         text = 'PyShell %s\n\n' % VERSION + \
                'Yet another Python shell, only flakier.\n\n' + \
@@ -91,14 +96,66 @@ class ShellFrame(frame.Frame):
                'the other half is still in the oven.\n\n' + \
                'Shell Revision: %s\n' % self.shell.revision + \
                'Interpreter Revision: %s\n\n' % self.shell.interp.revision + \
+
                'Platform: %s\n' % sys.platform + \
                'Python Version: %s\n' % sys.version.split()[0] + \
                'wxPython Version: %s\n' % wx.VERSION_STRING #sebwx24+ \
                 #sebwx24 ('\t(%s)\n' % ", ".join(wx.PlatformInfo[1:]))
+
         try:#sebwx24
             text += ('\t(%s)\n' % ", ".join(wx.PlatformInfo[1:]))
         except:
             pass
+            '''
+        
+        try:
+            import os, glob, stat, operator, time
+            from Priithon import useful as U
+            d = os.path.dirname(U.__file__)
+            ff = glob.glob(os.path.join(d, '*.py'))
+            ffdates  = [(f,os.stat(os.path.join(d, f))[stat.ST_MTIME]) for f in ff]
+            ffdates.sort(key=operator.itemgetter(1), reverse=True)
+            pyfn   = [os.path.basename(f[0]) for f in ffdates[:3]]
+            pydate = [time.ctime(f[1]) for f in ffdates[:3]]
+        except:  # in case files are not found 
+            pyfn = ['???']*3
+            pydate = ['???']*3
+        try:
+            import os # , glob, stat, operator, time
+            from Priithon import useful as U
+            d = os.path.dirname(U.__file__)
+            priDir = d
+        except:
+            priDir = '???'
+
+        title = "About Priithon"
+        text = """
+Priithon is a open source platform 
+for multi dimensional image analysis 
+and algorithm development. 
+
+Priithon is a collection of many other open source projects.
+Most Priithon-specific code has been 
+written by Sebastian Haase.
+
+Priithon is hosted at
+http://code.google.com/p/priithon
+
+The wx python py-shell was originally written by Patrick K. O\'Brien
+
+"""+ (      'Priithon version: the 3 newest py files are\n' +
+            '\t\'%s\' dated %s\n'%(pyfn[0],pydate[0]) +
+            '\t\'%s\' dated %s\n'%(pyfn[1],pydate[1]) +
+            '\t\'%s\' dated %s\n'%(pyfn[2],pydate[2]) +
+            'Priithon package base dir:\n\t\'%s\'\n'%(priDir,) +
+            '\n' +
+            'Platform: %s\n' % sys.platform +
+            'Python Version: %s\n' % sys.version.split()[0] +
+            'wxPython Version: %s\n' % wx.VERSION_STRING + 
+            '\t(%s)\n' % ", ".join(wx.PlatformInfo[1:])
+            )
+        
+
         dialog = wx.MessageDialog(self, text, title,
                                   wx.OK | wx.ICON_INFORMATION)
         dialog.ShowModal()
@@ -269,14 +326,17 @@ class Shell(editwindow.EditWindow):
         #seb 20070126  # Assign some pseudo keywords to the interpreter's namespace.
         #seb 20070126  self.setBuiltinKeywords()
         # Add 'shell' to the interpreter's local namespace.
-        self.setLocalShell()
+        if not self.interp.locals.has_key('shell'): # 20080729: added "if"
+            self.setLocalShell()
+
         # Do this last so the user has complete control over their
         # environment.  They can override anything they want.
         self.execStartupScript(self.interp.startupScript)
         wx.CallAfter(self.ScrollToLine, 0)
 
         ##seb: File drag and drop
-        self.SetDropTarget( FileDropTarget(self) )
+        from Priithon import fileDropPopup
+        self.SetDropTarget( fileDropPopup.FileDropTarget(self, self) )
 
 
     def destroy(self):
@@ -532,38 +592,66 @@ Platform: %s""" % \
             else:
                 import introspect, __main__, __builtin__
                 root = introspect.getRoot(command)
-
-
                 if self.more and root=='': # pressing TAB to indent multi-line commands
                     event.Skip()
                     return                           
 
-                hasDot = root.rfind('.')
-                if hasDot>=0:
-                    self.autoCompleteShow(command, offset=len(root)-hasDot-1)
-                else:
-                    rootLower = root.lower()
-                    _list = [s for s in __main__.__dict__ if s.lower().startswith(rootLower)]
-                    _list.sort()
 
-                    _list2 = [s for s in __builtin__.__dict__ if s.lower().startswith(rootLower)]
-                    _list2.sort()
+                #print >> __main__.shell.stderr, "DEBUG root:", root
+                #print >> __main__.shell.stderr, "DEBUG command:", command
+                #print >> __main__.shell.stderr, "DEBUG command tokens:", '\n'.join(map(str,introspect.getTokens(command)))
+                # 20080908:  experiment with argument name completion
+                if root=='' and command:
+                    beforeParenthesis = command.rpartition('(')[0]
+                    if beforeParenthesis:
+                        #print >> __main__.shell.stderr, "DEBUG beforeParenthesis:", beforeParenthesis
+                        try:
+                            object = eval(beforeParenthesis, __main__.__dict__)
+                        except:
+                            #for debugging
+                            pass
+                            #import traceback
+                            #traceback.print_exc(file=__main__.shell.stderr)
+                        else:
+                            import inspect
+                            (args, varargs, varkw, defaults)=inspect.getargspec(object)
+                            if  varargs is not None:
+                                args.append( varargs )
+                            if  varkw is not None:
+                                args.append( varkw )
+                            #print >> __main__.shell.stderr, ' '.join(args)
+                            options = ' '.join([(s+'=') for s in args])
+                            offset=0
+                            self.AutoCompShow(offset, options)
+                else: # 20080908
 
-                    # first matches from __main__ then from __builtin__
-                    #   TODO: add separator between the two
-                    #if len(_list):
-                    #    _list3 = _list + [] + _list2
-                    #else:
-                    #    _list3 = _list2
-                    if len(_list) or len(_list2):
-                        _list3 = _list + ['=====__builtins__:'] + _list2
 
-                        options = ' '.join(_list3)
-                        offset = len(root)
-                        self.AutoCompShow(offset, options)
-                        #if self.GetCurrentPos()<self.promptPosEnd:
-                        #    #self.SetCurrentPos(self.promptPosEnd+1)
-                        #    self.AppendText(' ')
+                    hasDot = root.rfind('.')
+                    if hasDot>=0:
+                        self.autoCompleteShow(command, offset=len(root)-hasDot-1)
+                    else:
+                        rootLower = root.lower()
+                        _list = [s for s in __main__.__dict__ if s.lower().startswith(rootLower)]
+                        _list.sort()
+
+                        _list2 = [s for s in __builtin__.__dict__ if s.lower().startswith(rootLower)]
+                        _list2.sort()
+
+                        # first matches from __main__ then from __builtin__
+                        #   TODO: add separator between the two
+                        #if len(_list):
+                        #    _list3 = _list + [] + _list2
+                        #else:
+                        #    _list3 = _list2
+                        if len(_list) or len(_list2):
+                            _list3 = _list + ['=====__builtins__:'] + _list2
+
+                            options = ' '.join(_list3)
+                            offset = len(root)
+                            self.AutoCompShow(offset, options)
+                            #if self.GetCurrentPos()<self.promptPosEnd:
+                            #    #self.SetCurrentPos(self.promptPosEnd+1)
+                            #    self.AppendText(' ')
 
         # Increase font size.
         elif controlDown and key in (ord(']'),):
@@ -781,6 +869,30 @@ Platform: %s""" % \
             lines = command.split(os.linesep + ps2)
             lines = [line.rstrip() for line in lines]
             command = '\n'.join(lines)
+
+            # seb: 20100121 - first attempt to make a os.system *magic* - just start line with a 'space'
+            if len(command)>1 and command[0] == ' ':
+                from Priithon import useful as U
+                #self.SetCurrentPos(thepos)
+                #self.SetAnchor(thepos)
+                self.write(os.linesep)
+                try:
+                    command_1 = command.strip()
+                    suppress_output = command_1[-1] in ("#",";")
+                    if suppress_output:
+                        command_1 = command_1[:-1]
+                        
+                    ret = U.exe( command_1 )
+                except OSError, e:
+                    self.write("# " + repr(e) + os.linesep)
+                else:
+                    if ret and not suppress_output:
+                        self.write(os.linesep.join(ret) + os.linesep)
+                    import __main__
+                    __main__._ = ret
+                self.addHistory(command)
+                self.prompt()
+                return
             if self.reader.isreading:
                 if not command:
                     # Match the behavior of the standard Python shell
@@ -1256,212 +1368,3 @@ Platform: %s""" % \
         may be positive to magnify or negative to reduce."""
         self.SetZoom(points)
 
-#seb : File drag and drop
-class FileDropTarget(wx.FileDropTarget):
-    def __init__(self, obj):
-        wx.FileDropTarget.__init__(self)
-        self.obj = obj
-    def OnDropFiles(self, x, y, filenames):
-        if len(filenames) == 1:
-            txt = 'r\"%s\"' % filenames[0]
-        else:
-            txt = '( '
-            for f in filenames:
-                txt += 'r\"%s\" , ' % f
-            txt += ')'
-
-            #         #wx26 n = len(txt)
-            #         #wx26 self.obj.AppendText(n, txt)
-            #         self.obj.AppendText(txt)
-            #         pos = self.obj.GetCurrentPos() + len(txt)
-            #         self.obj.SetCurrentPos( pos )
-            #         self.obj.SetSelection( pos, pos )
-
-        def onPaste(ev):
-            try: #seb wx24
-                self.obj.AppendText(txt)
-            except:
-                n = len(txt)
-                self.obj.AppendText(n, txt)
-                
-            pos = self.obj.GetCurrentPos() + len(txt)
-            self.obj.SetCurrentPos( pos )
-            self.obj.SetSelection( pos, pos )
-        def onView(ev):
-            from Priithon.all import Y
-            Y.view(filenames)
-            self.obj.addHistory("Y.view(r\"%s\")"%(filenames,)) # FIXME for list of filenames
-        def onView2(ev):
-            from Priithon.all import Y
-            Y.view2(filenames, colorAxis='smart')
-            self.obj.addHistory("Y.view2(r\"%s\", colorAxis='smart')"%(filenames,)) # FIXME for list of filenames
-        def onDir(ev):
-            from Priithon.all import Y
-            Y.listFilesViewer(filenames)
-            self.obj.addHistory("Y.listFilesViewer(r\"%s\")"%(filenames,))
-        def onCd(ev):
-            import os
-            os.chdir( filenames )
-            self.obj.addHistory("os.chdir(r\"%s\")"%(filenames,))
-        def onAppSysPath(ev):
-            import sys
-            from Priithon.all import Y
-            sys.path.append( filenames )
-            s = "sys.path.append(r\"%s\")"% (filenames,)
-            Y.shellMessage("###  %s\n"% s)
-            self.obj.addHistory(s)
-
-        def onAssign(ev):
-            fn = filenames
-            from Priithon.all import Y
-            a = Y.load(fn)
-            if a is not None:
-                Y.assignNdArrToVarname(a, "<file:%s>"%fn)
-
-        def onAssignList(ev):
-            v = wx.GetTextFromUser("assign list to varname:", 'new variable')
-            if not v:
-                return
-            import __main__
-            try:
-                exec '%s = %s' % (v,filenames) in __main__.__dict__
-            except:
-                import sys
-                e = sys.exc_info()
-                wx.MessageBox("Error when assigning list to __main__.%s: %s - %s" %\
-                              (v, str(e[0]), str(e[1]) ),
-                              "Bad Varname  !?",
-                              style=wx.ICON_ERROR)
-            else:
-                from Priithon.all import Y
-                Y.shellMessage("### %s = <list of files>\n"% (v,))
-
-        def onExe(ev):
-            import sys,os,__main__
-            p   = os.path.dirname( filenames )
-            sys.path.insert(0, p)
-            try:
-                try:
-                    self.obj.addHistory("execfile(r\"%s\")"%filenames)
-                    execfile(filenames, __main__.__dict__)
-                except:
-                    e = sys.exc_info()
-                    wx.MessageBox("Error on execfile: %s - %s" %\
-                                  (str(e[0]), str(e[1]) ),
-                                  "Bad Varname  !?",
-                                  style=wx.ICON_ERROR)
-                else:
-                    from Priithon.all import Y
-                    Y.shellMessage("### execfile('%s')\n"%filenames)
-            finally:
-                del sys.path[0]
-                
-        def onImport(ev):
-            import sys,os, __main__
-            p   = os.path.dirname( filenames )
-            sys.path.insert(0, p)
-            try:
-                try:
-                    mod = os.path.basename( filenames )
-                    mod = os.path.splitext( mod )[0]
-                    exec ('import %s' % mod) in __main__.__dict__
-                    self.obj.addHistory("import %s"%mod)
-                except:
-                    import sys
-                    e = sys.exc_info()
-                    wx.MessageBox("Error on import: %s - %s" %\
-                                  (str(e[0]), str(e[1]) ),
-                                  "Bad Varname  !?",
-                                  style=wx.ICON_ERROR)
-                else:
-                    from Priithon.all import Y
-                    Y.shellMessage("### import %s\n"% (mod,))
-            finally:
-                if wx.MessageBox("leave '%s' in front of sys.path ?" % (p,), 
-                                 "Python import search path:", style=wx.YES_NO) != wx.YES:
-                    del sys.path[0]
-                
-        def onImportAs(ev):
-            v = wx.GetTextFromUser("import module as :", 'new mod name')
-            if not v:
-                return
-            import sys,os, __main__
-            p   = os.path.dirname( filenames )
-            sys.path.insert(0, p)
-            try:
-                try:
-                    mod = os.path.basename( filenames )
-                    mod = os.path.splitext( mod )[0]
-                    s = 'import %s as %s' % (mod, v)
-                    exec (s) in __main__.__dict__
-                    self.obj.addHistory(s)
-                except:
-                    import sys
-                    e = sys.exc_info()
-                    wx.MessageBox("Error on 'import %s as %s': %s - %s" %\
-                                  (mod, v, str(e[0]), str(e[1]) ),
-                                  "Bad Varname  !?",
-                                  style=wx.ICON_ERROR)
-                else:
-                    from Priithon.all import Y
-                    Y.shellMessage("### import %s as %s\n"% (mod,v))
-            finally:
-                if wx.MessageBox("leave '%s' in front of sys.path ?" % (p,), 
-                                 "Python import search path:", style=wx.YES_NO) != wx.YES:
-                    del sys.path[0]
-                
-                
-        Menu_paste = wx.NewId()
-        Menu_view = wx.NewId()
-        Menu_view2 = wx.NewId()
-        Menu_assign = wx.NewId()
-        Menu_assignList= wx.NewId()
-        Menu_dir = wx.NewId()
-        Menu_cd = wx.NewId()
-        Menu_appSysPath = wx.NewId()
-        Menu_exec = wx.NewId()
-        Menu_import = wx.NewId()
-        Menu_importAs = wx.NewId()
-
-        m = wx.Menu()
-
-        import os
-        if len(filenames) == 1:
-            filenames = filenames[0] # danger : misleading name (plural used for a single filename)
-            fUPPER = filenames.upper()
-            if os.path.isdir(filenames):
-                m.Append(Menu_dir,  "open directory-list-viewer")
-                m.Append(Menu_cd,   "change working directory")
-                m.Append(Menu_appSysPath,   "append to sys.path")
-            elif fUPPER.endswith('.PY') or \
-                 fUPPER.endswith('.PYW') or \
-                 fUPPER.endswith('.PYC'):
-                m.Append(Menu_exec,   "execute py-file")
-                m.Append(Menu_import,   "import")
-                m.Append(Menu_importAs,   "import as ...")
-            else:
-                m.Append(Menu_assign,  "load and assign to var")
-                m.Append(Menu_view,   "view")
-                m.Append(Menu_view2,    "view multi-color")
-        else:
-            m.Append(Menu_view,    "view separately")
-            m.Append(Menu_view2,    "view multi-color")
-            m.Append(Menu_assignList,  "assign list of names to var")
-            
-        m.Append(Menu_paste,   "paste")
-        wx.EVT_MENU(self.obj, Menu_assign, onAssign)
-        wx.EVT_MENU(self.obj, Menu_assignList,onAssignList)
-        wx.EVT_MENU(self.obj, Menu_paste, onPaste)
-        wx.EVT_MENU(self.obj, Menu_view,  onView)
-        wx.EVT_MENU(self.obj, Menu_view2,  onView2)
-        wx.EVT_MENU(self.obj, Menu_dir,  onDir)
-        wx.EVT_MENU(self.obj, Menu_cd,  onCd)
-        wx.EVT_MENU(self.obj, Menu_appSysPath,  onAppSysPath)
-
-        wx.EVT_MENU(self.obj, Menu_exec,  onExe)
-        wx.EVT_MENU(self.obj, Menu_import,  onImport)
-        wx.EVT_MENU(self.obj, Menu_importAs,  onImportAs)
-        
-        self.obj.PopupMenuXY(m, x,y)
-
-            

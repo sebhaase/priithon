@@ -1,4 +1,5 @@
 """Priithon's MOSAIC viewer"""
+from __future__ import absolute_import
 
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
@@ -78,7 +79,7 @@ class GLViewer(wxgl.GLCanvas):
         self.m_texture_list = []
         self.m_moreGlLists = []
         self.m_moreGlLists_enabled = []
-        self.m_moreMaster_enabled = 1
+        self.m_moreMaster_enabled = True
 
         self.m_gllist_Changed = False # call defGlList() from OnPaint
 
@@ -301,10 +302,11 @@ class GLViewer(wxgl.GLCanvas):
 
 
     def clearIdx(self, idx, n=1, refresh=1):
-        '''remove images with index idx
+        """
+        remove images with index idx
            -1 means last
            clean also the n-1 following images idx+1,idx+2,...
-           '''
+        """
         if idx<0:
             idx += self.m_nImgs
         self.m_imgArrL    =  self.m_imgArrL   [:idx] + self.m_imgArrL   [idx+n:]
@@ -323,12 +325,13 @@ class GLViewer(wxgl.GLCanvas):
 
 
     def readGLviewport(self, copy=1):
-        '''returns array with r,g,b values from "what-you-see"
+        """
+        returns array with r,g,b values from "what-you-see"
             shape(3, height, width)
             type=UInt8
             if copy == 0 returns non-contiguous array!!!
 
-        '''
+        """
         self.SetCurrent()
         glPixelStorei(GL_PACK_ALIGNMENT, 1)
         
@@ -378,10 +381,10 @@ class GLViewer(wxgl.GLCanvas):
         """save Mosaic size/pos/scale info in baseFn.txt
            save all images into baseFn_xx.mrc
         """
-        from Priithon.all import Mrc, U
+        from .all import Mrc, U
 
         if baseFn is None:
-            from usefulX import FN
+            from .usefulX import FN
             baseFn = FN(1)
             if not baseFn:
                 return
@@ -418,10 +421,10 @@ class GLViewer(wxgl.GLCanvas):
 
            if baseFn end on '.txt' - that suffix gets ignored
         """
-        from Priithon.all import Mrc, U
+        from .all import Mrc, U
 
         if baseFn is None:
-            from usefulX import FN
+            from .usefulX import FN
             baseFn = FN()
             if not baseFn:
                 return
@@ -529,9 +532,9 @@ class GLViewer(wxgl.GLCanvas):
 
 
     def appendNewImg(self, img, pos, size, scaleMinMax=(0,0), holdBackUpdate=0, rot=0):
-        '''
+        """
         calls insertNewImg  with idx=-1
-        '''
+        """
         self.insertNewImg(img, pos, size, scaleMinMax, -1, holdBackUpdate, rot)
     '''
     def appendNewImg(self, img, pos, size, scaleMinMax=(0,0), holdBackUpdate=0, rot=0):
@@ -602,8 +605,8 @@ class GLViewer(wxgl.GLCanvas):
 
 
     def insertNewImg(self, img, pos, size, scaleMinMax=(0,0), idx=-1, holdBackUpdate=0, rot=0):
-        '''idx defaults to -1 == "append"
-        '''
+        """idx defaults to -1 == "append"
+        """
         
         if idx<0:
             idx += self.m_nImgs + 1
@@ -680,11 +683,12 @@ class GLViewer(wxgl.GLCanvas):
         self.Refresh(0)     
 
     def newGLListNow(self) : # , i):
-        '''call this immediately before you call a bunch of gl-calls
+        """
+        call this immediately before you call a bunch of gl-calls
            issue newGLListDone() when done
            OR newGLListAbort() when there is problem and
                the glist should get cleared 
-           '''
+        """
         self.SetCurrent()
         self.curGLLIST = glGenLists( 1 )
         glNewList( self.curGLLIST, GL_COMPILE )
@@ -715,9 +719,10 @@ class GLViewer(wxgl.GLCanvas):
 
 
     def histScale(self, hmin=None, hmax=None, startIdx=0):
-        '''use hmin, hmax to do autoscale each tile
+        """
+        use hmin, hmax to do autoscale each tile
         None mean img.min(), max() respectively
-        '''
+        """
         #   if lastNimg == None:
         #       i = X.MOnLMXmaps
         #   elif lastNimg < 0:
@@ -776,7 +781,7 @@ class GLViewer(wxgl.GLCanvas):
         a=N.array([N.minimum.reduce(posA),
                    N.maximum.reduce(posA+sizA),
                    ])
-        from Priithon.all import U
+        from .all import U
 
         MC = N.array([0.5, 0.5]) # mosaic viewer's center (0.5, 0.5)
         a -= MC
@@ -814,9 +819,10 @@ class GLViewer(wxgl.GLCanvas):
         self.Refresh(0)
         
     def setAspectRatio(self, y_over_x=-1, refreshNow=1):
-        '''strech images in y direction
+        """
+        strech images in y direction
         use negative value to mirror
-        '''
+        """
         
         self.m_aspectRatio=y_over_x
         
@@ -825,8 +831,8 @@ class GLViewer(wxgl.GLCanvas):
             self.Refresh()
 
     def setRotation(self, angle=90, refreshNow=1):
-        '''rotate everything by angle in degrees
-        '''
+        """rotate everything by angle in degrees
+        """
         
         self.m_rot = angle
         
@@ -1088,9 +1094,10 @@ class GLViewer(wxgl.GLCanvas):
         #    slider.SetValue()
         
     def decideZoom_not_drag(self, ev):
-        '''return true if middle mouse does zoom
-           return false if middle mouse does drag
-           '''
+        """
+        return true if middle mouse does zoom
+        return false if middle mouse does drag
+        """
         return ev.ShiftDown() or ev.ControlDown()
 
     def doLDClick(self, x,y):
@@ -1118,8 +1125,7 @@ class GLViewer(wxgl.GLCanvas):
         if midButt:
             #########wx,wy,wz = GLU.gluUnProject( x,y,winz=0)
             self.mouse_last_x, self.mouse_last_y = x,y
-            self.dragging=1
-        elif midIsButt and self.dragging: #ev.Dragging()
+        elif midIsButt: #ev.Dragging()
             #########wx,wy,wz = GLU.gluUnProject( x,y,winz=0)
             if self.decideZoom_not_drag(ev):
                 #dx = x-self.mouse_last_x
@@ -1352,10 +1358,11 @@ class GLViewer(wxgl.GLCanvas):
 def mview(arrayL=None, imgPosArr=None, imgSizeArr=None,
           size=(600,600), title="2d mosaic viewer", keyTargetWin=None, parent=None,
           zoomToAll=True, histScale=True, sparse=1):
-    '''if arrayL is a string
+    """
+    if arrayL is a string
     this gets interpeted as the basefilename for load()
     sparse is used for load() if arrayL is 'basefilename'
-    '''
+    """
     #     if len(array.shape) != 2:
     #         raise "array must be of dimension 2"
 

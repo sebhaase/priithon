@@ -11,6 +11,14 @@ import sys
 import tokenize
 import wx
 
+try:
+    #from pywinauto import application
+    import pywinauto 
+    handle_pywinauto = True
+except ImportError:
+    handle_pywinauto = False
+
+
 def getAutoCompleteList(command='', locals=None, includeMagic=1, 
                         includeSingle=1, includeDouble=1):
     """Return list of auto-completion options for command.
@@ -33,11 +41,20 @@ def getAutoCompleteList(command='', locals=None, includeMagic=1,
     
 def getAttributeNames(object, includeMagic=1, includeSingle=1,
                       includeDouble=1):
-    """Return list of unique attributes, including inherited, for object."""
+  """Return list of unique attributes, including inherited, for object."""
+  try:
+    if handle_pywinauto:
+        _win_find_timeout_bak = pywinauto.timings.Timings.window_find_timeout
+        pywinauto.timings.Timings.window_find_timeout = 0
     #import pdb
     #pdb.set_trace()
     attributes = []
     dict = {}
+
+    # if handle_pywinauto:
+    #     if isinstance(object, application.Application):
+    #         return []
+
     if not hasattrAlwaysReturnsTrue(object):
         # Add some attributes that don't always get picked up.
         special_attrs = ['__bases__', '__class__', '__dict__', '__name__',
@@ -81,6 +98,10 @@ def getAttributeNames(object, includeMagic=1, includeSingle=1,
     if not includeDouble:
         attributes = filter(lambda item: item[:2]!='__', attributes)
     return attributes
+  finally:
+    if handle_pywinauto:
+        pywinauto.timings.Timings.window_find_timeout = _win_find_timeout_bak
+
 
 def hasattrAlwaysReturnsTrue(object):
     return hasattr(object, 'bogu5_123_aTTri8ute')

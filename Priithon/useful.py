@@ -1,5 +1,7 @@
 """Priithon U modules: lot's of simple 'useful' (shortcut) functions
 """
+from __future__ import absolute_import
+
 __author__  = "Sebastian Haase <haase@msg.ucsf.edu>"
 __license__ = "BSD license - see LICENSE file"
 
@@ -17,15 +19,48 @@ except ImportError:
 
 import pdb # useful for U.pdb.pm()  # no time to first import: exception would get lost
 
-import seb as S
-from usefulGeo import *
+from Priithon_bin import seb as S
+
+#SyntaxError: 'import *' not allowed with 'from .' #from .usefulGeo import *
+#<hack>
+from . import usefulGeo
+for n in usefulGeo.__dict__:
+    if not n.startswith('_'):
+        exec "%s = usefulGeo.%s" % (n,n)
+del n, usefulGeo
+#</hack>
 
 #  >>> dir(A)
 #  ['TextFile', '__builtins__', '__doc__', '__file__', '__name__', 'numarray', 'readArray', 'readFloatArray', 'readIntegerArray', 'string', 'writeArray', 'writeDataSets']
 
-from ArrayIO import readArray_conv, readArray, readFloatArray, readIntegerArray, writeArray, writeDataSets
+from .ArrayIO import readArray_conv, readArray, readFloatArray, readIntegerArray, writeArray, writeDataSets
 
-from sifreader import readSIF as loadSIF # uses memmap
+from .readerSIF import readSIF as loadSIF # uses memmap
+
+def myStr(a):
+    """
+    like str()  but calls str() recursively for lists and tuples
+    """
+    import types, string #, __builtin__
+    if type(a) is types.UnicodeType:
+        return "u'"+a+"'"
+    if type(a) is types.StringType:
+        return "'"+a+"'"
+    if type(a) is types.TupleType:
+        return '(' + string.join(map(myStr,a), ', ') +')'
+    if type(a) is types.ListType:
+        return '[' + string.join(map(myStr,a), ', ') +']'
+    if type(a) is N.dtype and a.isbuiltin:
+        return a.name  # 20060720 
+
+    try:
+        s = str(a)
+    except:
+        return repr(a)
+    if s =='':
+        return repr(a)
+    else:
+        return s
 
 def _fixDisplayHook():
     """
@@ -33,27 +68,6 @@ def _fixDisplayHook():
     """
 
     import sys, __main__
-    def myStr(a):
-        import types, string #, __builtin__
-        if type(a) is types.UnicodeType:
-            return "u'"+a+"'"
-        if type(a) is types.StringType:
-            return "'"+a+"'"
-        if type(a) is types.TupleType:
-            return '(' + string.join(map(myStr,a), ', ') +')'
-        if type(a) is types.ListType:
-            return '[' + string.join(map(myStr,a), ', ') +']'
-        if type(a) is N.dtype and a.isbuiltin:
-            return a.name  # 20060720 
-
-        try:
-            s = str(a)
-        except:
-            return repr(a)
-        if s =='':
-            return repr(a)
-        else:
-            return s
     def _sebsDisplHook(v):
         if not v is None: # != None:
             import __main__ #global _
@@ -88,8 +102,12 @@ def _execPriithonRunCommands():
         try:
             execfile(rcFN,__main__.__dict__)
         except:
-            import traceback
-            traceback.print_exc()
+            from . import PriConfig
+            if PriConfig.raiseEventHandlerExceptions:
+                raise
+            else:
+                import traceback
+                traceback.print_exc()
         #finally:
         #    sys.stdout = stdout
 
@@ -98,19 +116,26 @@ def _getRCfile():
     rcFN = os.path.join( os.getcwd(), '.priithonrc.py')
     if os.path.exists(rcFN):
         return rcFN
+    rcFN = os.path.join( os.getcwd(), '_priithonrc.py')
+    if os.path.exists(rcFN):
+        return rcFN
 
     try:
-        path =  os.environ['PRIITHONRCRC']
+        #old path =  os.environ['PRIITHONRC']
+        rcFN =  os.environ['PRIITHONRC']
     except KeyError:
         pass
     else:
-        rcFN = os.path.join( path, '.priithonrc.py')
-        if os.path.exists(rcFN):
-            return rcFN
+        #  rcFN = os.path.join( path, '.priithonrc.py')
+        #  if os.path.exists(rcFN):
+        return rcFN
 
     path = getHomeDir(defaultToCwd=False)
     if path:
         rcFN = os.path.join( path, '.priithonrc.py')
+        if os.path.exists(rcFN):
+            return rcFN
+        rcFN = os.path.join( path, '_priithonrc.py')
         if os.path.exists(rcFN):
             return rcFN
 
@@ -152,12 +177,70 @@ def getHomeDir(defaultToCwd=False):
     else: return path1
 
 
+
+def _getSourceCodeLine(depth=0):
+    """
+    return "current" line number of source code  inside py-file 
+    """
+    import inspect
+    return inspect.currentframe(depth).f_back.f_lineno
+
+def _getSourceCodeFilename(numPathTails=None, depth=0):
+    """
+    return "current" filename of py-file 
+    if numPathTails:
+        split off all leading folder before the last numPathTails parts,
+        and return only those remaining parts;
+        e.g. for numPathTails=2: for "/a/b/c/d/e.py" return "d/e.py"
+    """
+    import inspect
+    fn= inspect.currentframe(depth).f_back.f_code.co_filename
+    if numPathTails:
+        return '/'.join(fn.split('/')[-numPathTails:])
+    else:
+        return fn
+
+def _getSourceCodeFuncName(depth=0):
+    """
+    return "current" function name 
+    """
+    import inspect
+    return inspect.currentframe(depth).f_back.f_code.co_name
+
+def _getSourceCodeLocation(numPathTails=None, depth=0):
+    """
+    return <filename>:<lineNo
+    concatenating the results of
+    _getSourceCodeFilename  and _getSourceCodeLine
+    """
+    return "%s:%d"%(_getSourceCodeFilename(numPathTails, depth+1),
+                    _getSourceCodeLine(depth+1))
+
+def _raiseRuntimeError(msg, appendSourceCodeLocation=True, numPathTails=None):
+    """
+    use this only inside an except clause
+    """
+    #import traceback
+    import sys
+    exc_info = sys.exc_info()
+    exc_info = (RuntimeError, 
+                RuntimeError(msg + "\n" + #"Cannot open file as image\n"+
+                             _getSourceCodeLocation(numPathTails, depth=1)
+                             #"   (%s line:%s)\n"%(currentfile(2),currentline())
+                             ),#"prior error: "+''.join(traceback.format_exception_only(exc_info[0], exc_info[1]),)),
+                exc_info[2])
+    raise exc_info[0], exc_info[1], exc_info[2]
+    
+
+
+
+
 def _getGoodifiedArray(arr):
     """
     return "well behaved" version of a numpy array
     1) convert lists or tuple to numpy-array
     2) make copy of numpy arrays if non-contigous or non-native
-
+    3) convert(relabel) dtype=bool to dtype=uint8 (arr.view(N.uint8))
     (used in conjunction with SWIGed functions)
     """
     try:
@@ -201,11 +284,19 @@ def DEBUG_HERE():
     pdb.set_trace()
 
 
-def timeIt(execStr, nReps=1):
-    """calls exec(execStr)  nReps times
+def timeIt(execStr, nReps=1, useTime=False):
+    """
+    calls exec(execStr)  nReps times
     returns "cpu-time-after"-"cpu-time-before"
     if nReps > 1  the it calls it nReps times
                   and return mmms over all (each separately timed!)
+
+    if useTime is False: use time.clock() as timer
+    if useTime is a callable: use this as time
+    otherwise: use time.time()
+    NOTE: on Unix time.clock() gives CPU time, time.time() wall time
+          on Windows both are wall time (time.time() ONLY at 1ms resolution)
+          http://stackoverflow.com/questions/85451/python-time-clock-vs-time-time-accuracy
     """
     import sys, time
     global fr,fc, argsn, args
@@ -213,38 +304,45 @@ def timeIt(execStr, nReps=1):
     # fc = fr.f_code
     #gs = fr.f_locals   #gs = fr.f_globals
     
+    if not callable(useTime):
+        if useTime:
+            useTime = time.time
+        else:
+            useTime = time.clock
 
     if nReps==1:
-        t0 = time.clock()
+        t0 = useTime()
         exec execStr in fr.f_locals, fr.f_globals
-        return time.clock() - t0
+        return useTime() - t0
     else:
         _ttt = N.empty(shape=nReps, dtype=N.float64)
         for _i in range(nReps):
-            t0 = time.clock()
+            t0 = useTime()
             exec execStr  in fr.f_locals, fr.f_globals
-            _ttt[_i] = time.clock() - t0
+            _ttt[_i] = useTime() - t0
         return mmms(_ttt)
 
 def reloadAll(verbose=False, repeat=1, hiddenPriithon=True):
-    '''
+    """
     reload all modules known in __main__
 
     repeat 'repeat' times - in case of dependencies
 
     if hiddenPriithon is True:
     also reload
+       viewerCommon.py
        viewer.py
        viewer2.py
-       viewerCommon.py
+       histogram.py
+       splitNDCommon.py
        splitND.py
        splitND2.py
-       splitNDCommon.py
-    '''
-    import __main__, types, __builtin__
+       mockNDarray.py
+    """
+    import __main__, types, __builtin__, sys
     for i in range(1+repeat):
         for m,mm in __main__.__dict__.iteritems():
-            if type(mm) == types.ModuleType and not mm in (__builtin__, __main__):
+            if type(mm) == types.ModuleType and not mm in (__builtin__, __main__, sys):
                 if verbose:
                     print m,
                 reload(mm)
@@ -252,14 +350,14 @@ def reloadAll(verbose=False, repeat=1, hiddenPriithon=True):
             mods = ['viewerCommon',
                     'viewer',
                     'viewer2',
+                    'histogram',
                     'splitNDcommon',
                     'splitND',
                     'splitND2', 
-                    'usefulX2', 
-                    'usefulX', 
+                    'mockNDarray',
                     ]
             for m in mods:
-                exec "import %s; reload(%s)" %(m,m)
+                exec "from . import %s; reload(%s)" %(m,m)
 
 def localsAsOneObject(*args):
     """
@@ -296,7 +394,7 @@ def localsAsOneObject(*args):
 import string
 # http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/303342
 def strTranslate(s, frm='', to='', delete='', keep=None):
-    '''
+    """
     translate chars in string `s`
     each `c` in `frm` is translated into the respective `c` in `to`
       (`to` can be length 1)
@@ -325,7 +423,7 @@ def strTranslate(s, frm='', to='', delete='', keep=None):
     >>> strTranslate('abcdef', delete='abcd', keep='cdef')
     'ef'
     This is an arbitrary design choice - makes as much sense as anything, I suppose.
-    '''
+    """
     allchars = string.maketrans('','')
     if len(to) == 1:
         to = to * len(frm)
@@ -338,6 +436,92 @@ def strTranslate(s, frm='', to='', delete='', keep=None):
         s = str(s)
     return s.translate(trans, delete)
     #return callable
+
+def exe(cmd, special_cd=True):
+    """
+    execute cmd in (Unix or Windows) shell
+    raise OSError on error
+    return stdout/stderr output lines as list of strings
+    
+    if `special_cd` is True:
+        if `cmd` starts with "cd "
+          `os.chcwd` is called, i.e. to 
+          *really* change the current working directory
+          (not just is (later disappearing)  sub-process)
+        if `cmd` == "cd" (no further arguments)
+          os.chdir(U.getHomeDir()) is called
+    """
+    if special_cd:
+        if cmd == "cd":
+            import os
+            os.chdir(getHomeDir())
+            return
+        elif cmd[:3] == "cd ":
+            import os
+            os.chdir(cmd[3:])
+            return
+    import commands
+    stat, ret = commands.getstatusoutput(cmd)
+    if stat:
+        raise OSError(stat, ret)
+    else:
+        return ret.splitlines()
+
+
+
+
+def email(message, to, subject="email from Priithon", From=None, 
+          SMTP_USER=None, SMTP_PASSWORD=None, SMTP=None, SMTP_PORT=None,):
+    """
+    send an email message via SMTP server to recipient(s)
+
+    `to` can be a string or a list of strings
+
+    if `From` and `SMPT` are not given, values from 
+      PriConfig.email_From
+    and
+      PriConfig.email_SMTP, email_SMTP_PORT, email_SMTP_USER, email_SMTP_PASSWORD
+    are used
+    """
+    from . import PriConfig
+    import smtplib
+    body = message
+
+    if From is None:
+        From = PriConfig.email_From
+    if SMTP is None:
+        SMTP = PriConfig.email_SMTP
+    if SMTP_PORT is None:
+        SMTP_PORT = PriConfig.email_SMTP_PORT
+    if SMTP_USER is None:
+        SMTP_USER = PriConfig.email_SMTP_USER
+    if SMTP_PASSWORD is None:
+        SMTP_PASSWORD = PriConfig.email_SMTP_PASSWORD
+
+    if not SMTP:
+        raise ValueError, ("You have to specify the SMTP server, "+
+                           "either by using the `SMTP` argument or by adjusting the `PriConfig.email_SMTP` preferences setting (in '.priithonrc.py')")
+    if not isinstance(to, basestring):
+        to = ", ".join(to)
+
+
+    message="""\
+From: %(From)s
+To: %(to)s
+Subject: %(subject)s
+
+%(body)s
+""" % locals()
+
+    server = smtplib.SMTP(SMTP, SMTP_PORT)
+    if SMTP_USER: # try to login - e.g. gmail
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        server.login(SMTP_USER, SMTP_PASSWORD)
+
+    server.sendmail(From, to, message)
+    server.quit()
 
 def memNAprofile(dicts=[],
                  addHere=3,
@@ -640,10 +824,10 @@ U.timeIt("abs(a)", 100000)
     return N.sqrt(N.sum(arr**2, axis))
 
 def clip(arr,min,max):
-    """clips arr *inplace*
+    """
+    clips arr *inplace*
     returns arr
     """
-    import seb as S
     arr = _getGoodifiedArray(arr)
     S.clip( arr, min, max )
     return arr
@@ -653,7 +837,6 @@ def findMax(arr):
     assumes 3D array, so returned is a 4-tuple: [val,z,y,x]
     for 2D or 1D z,y would be respectively 0
     """
-    import seb as S
     arr = _getGoodifiedArray(arr)
     return S.findMax( arr )
 def findMin(arr):
@@ -661,7 +844,6 @@ def findMin(arr):
     assumes 3D array, so returned is a 4-tuple: [val,z,y,x]
     for 2D or 1D z,y would be respectively 0
     """
-    import seb as S
     arr = _getGoodifiedArray(arr)
     return S.findMin( arr )
 
@@ -674,20 +856,17 @@ def max(arr):
     return arr.max()
 
 def median(arr):
-    import seb as S
     arr = _getGoodifiedArray(arr)
     return S.median( arr )
 def median2(arr):
     """returns both median and "median deviation" (tuple)
     (broken on windows !!! returns always -999, see 'seb1.cpp')
     """
-    import seb as S
     arr = _getGoodifiedArray(arr)
     return S.median2( arr )
 
 
 def mean(arr):
-    import seb as S
     arr = _getGoodifiedArray(arr)
     return S.mean( arr )  # CHECK if should use ns.mean
 
@@ -716,18 +895,26 @@ def rad2deg(angle):
 
 
 def mm(arr):
+    """
+    returns min,max of arr
+    """
+
     arr = N.asarray(arr)
     return (N.minimum.reduce(arr.flat), N.maximum.reduce(arr.flat))
 
 def mmm(arr):
-    import seb as S
+    """
+    returns min,max,mean of arr
+    """
     arr = _getGoodifiedArray(arr)
     #TODO: make nice for memmap
     m = S.mean(arr)
     return (N.minimum.reduce(arr.flat), N.maximum.reduce(arr.flat), m)
 
 def mmms(arr):
-    import seb as S
+    """
+    returns min,max,mean,stddev of arr
+    """
     arr = _getGoodifiedArray(arr)
     #TODO: make nice for memmap
     mi,ma,me,st = S.mmms( arr )
@@ -743,7 +930,6 @@ def mean2d(arr, outtype=N.float32):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     for i in range( bb.shape[0] ):
         #bb[i] = S.mean( aarr[i] )
         bb[i] = aarr[i].mean()
@@ -763,7 +949,6 @@ def max2d(arr, outtype=None):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     for i in range( bb.shape[0] ):
         bb[i] = aarr[i].max()
 
@@ -781,7 +966,6 @@ def min2d(arr, outtype=None):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     for i in range( bb.shape[0] ):
         bb[i] = aarr[i].min()
 
@@ -800,7 +984,6 @@ def mmm2d(arr, outtype=None):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     for i in range( bb.shape[1] ):
         arr = _getGoodifiedArray(aarr[i])
 
@@ -821,7 +1004,6 @@ def mmms2d(arr, outtype=N.float32):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     for i in range( bb.shape[1] ):
         arr = _getGoodifiedArray(aarr[i])
         bb[:, i] = S.mmms( arr )
@@ -861,7 +1043,6 @@ def median2d(arr, outtype=None):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     for i in range( bb.shape[0] ):
         arr = _getGoodifiedArray(aarr[i])
         bb[i] = S.median( arr )
@@ -882,7 +1063,6 @@ def median22d(arr, outtype=None):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     for i in range( bb.shape[1] ):
         arr = _getGoodifiedArray(aarr[i])
         bb[:, i] = S.median2( arr )
@@ -907,14 +1087,16 @@ def topPercentile2d(arr, percentile=1, outtype=None):
     aarr = arr.view()
     aarr.shape = (-1,) + arr.shape[-2:]
 
-    import seb as S
     hist = N.empty( shape=(1<<16), dtype=N.int32 )
     nPix = N.prod( aarr[0].shape )
     for i in range( bb.shape[0] ):
         arr = _getGoodifiedArray(aarr[i])
 
         (mi,ma,mean,stddev) = S.histogram2(arr, 0, (1<<16), hist)
-        tp = S.toppercentile(hist, nPix, int(ma), percentile)
+        ma = int(ma)
+        if ma >= len(hist):
+            raise ValueError, "U.topPercentile() works only for img values < 65536"
+        tp = S.toppercentile(hist, nPix, ma, percentile)
         bb[i] = tp
 
     return b
@@ -941,147 +1123,6 @@ def fitLine(yy,xx=None):
     return (a, b, deltaSumPerVal)
 
 '''
-def _line(a,b, t):
-    """model function to test fitLine
-    a,b  are the first to values return from fitLine (as is y= at+b)
-    t could be e.g. N.arange(0,100,.1)
-    """
-    return b+a*t
-
-def fitAny(f, parmTuple0, data, max_iterations=1000):
-    """
-    data should be list of (x,y) or (x,y,deltaY) tuples
-    (instead of 'list' you can of course have an array w/
-    shape=(n,2) or shape=(n,3), n beeing the number of data points
-
-    if data.ndim == 1 or data.shape = (n,1) it fits w/ x=1,2,3,...n
-
-    f is your 'model' function that takes two arguments:
-    a tuple of parameters and x
-    
-    The function returns a list containing the optimal parameter values
-    and the chi-squared value describing the quality of the fit.
-    """
-
-    from Scientific.Functions.LeastSquares import leastSquaresFit
-
-    data = Num.asarray(data)
-
-    if len(data.shape) == 1:
-        #BUG in Numeric24.2 
-        #        TypeError: Array can not be safely cast to required dtype
-        #     data = Num.transpose(Num.array([Num.arange(len(data)), data]))
-        data = Num.transpose(Num.array([list(Num.arange(len(data))), data]))
-    elif data.shape[1] == 1:
-        #BUG in Numeric24.2 
-        #        TypeError: Array can not be safely cast to required dtype
-        #     data = Num.transpose(Num.array([Num.arange(len(data)), data][0]))
-        data = Num.transpose(Num.array([list(Num.arange(len(data))), data[0]]))
-
-    return leastSquaresFit(f,parmTuple0,data, max_iterations)
-
-# def polynomialModel
-def _poly(params, t):
-    r = 0.0
-    for i in range(len(params)):
-        r = r + params[i]*Num.power(t, i)
-    return r
-
-def fitPoly(parmTuple0, data, max_iterations=1000):
-    """
-    data should be list of y or (x,y)- or (x,y,deltaY)-tuples
-    (instead of 'list' you can of course have an array w/
-    shape=(n,2) or shape=(n,3), n beeing the number of data points
-
-    uses polynomial 'model' ( U._poly )
-    
-    The function returns a list containing the optimal parameter values
-    and the chi-squared value describing the quality of the fit.
-    """
-
-
-    return fitAny(_poly, parmTuple0, data, max_iterations)
-
-#   def decayModel(params, t):
-def _decay(params, t):
-    if len(params) % 2==0:
-        raise "number of parms must be odd: one offset and 2 more for each exponential"
-    try:
-        r = Num.array(len(t)*(params[0],))
-    except: # t has no len
-        r = params[0]
-
-    halfTimeScaler = N.log(2.)
-    n = int( (len(params)-1) / 2 )
-    for i in range(n):
-        r = r + params[1+2*i] * Num.exp(-t *halfTimeScaler/ params[2+2*i])
-#       r = r + params[1+2*i] * Num.exp(-t *halfTimeScaler/ float(params[2+2*i]))
-    return r
-
-
-def fitDecay(parmTuple0, data, max_iterations=1000):
-    """
-    data should be list of y or (x,y)- or (x,y,deltaY)-tuples
-    (instead of 'list' you can of course have an array w/
-    shape=(n,2) or shape=(n,3), n beeing the number of data points
-
-    uses model: p[0] + p[i]*exp(-t / p[i+1])  w/ i=1..(len(p)+1)/2
-     ( U._decay )
-    
-    The function returns a list containing the optimal parameter values
-    and the chi-squared value describing the quality of the fit.
-    """
-
-    return fitAny(_decay, parmTuple0, data, max_iterations)
-
-def _gaussian1D_2(p, x):
-    """p tuple is [sigma, peakVal]
-    """
-    from fftfuncs import gaussian_N 
-    return gaussian_N(x, dim=1, sigma=p[0], integralScale=None, peakVal=p[1])
-    
-def _gaussian1D_3(p, x):
-    """p tuple is [x0, sigma, peakVal]
-    """
-    from fftfuncs import gaussian_N 
-    return gaussian_N(x-p[0], dim=1, sigma=p[1], integralScale=None, peakVal=p[2])
-    
-def _gaussian1D_4(p, x):
-    """p tuple is [y0, x0, sigma, peakVal]
-    """
-    from fftfuncs import gaussian_N 
-    return p[0]+gaussian_N(x-p[1], dim=1, sigma=p[2], integralScale=None, peakVal=p[3]-p[0])
-    
-def fitGaussian1D(parmTuple0, data, max_iterations=None):
-    """
-    data should be list of (x,y) or (x,y,deltaY) tuples
-    (instead of 'list' you can of course have an array w/
-    shape=(n,2) or shape=(n,3), n beeing the number of data points
-
-    uses model:  ... (U._gaussian)
-    
-    The function returns a list containing the optimal parameter values
-    and the chi-squared value describing the quality of the fit.
-
-    parmTuple0 is either
-    [sigma, peakVal]
-    [x0, sigma, peakVal]
-    [y0, x0, sigma, peakVal]
-
-    x0 is center of gaussian (default 0)
-    y0 is baseline offset gaussian (default 0)
-    sigma is sigma (stddev) of gaussian
-    peakval is  "center height" above baseline
-    """
-
-    if len(parmTuple0) == 2:
-        return fitAny(_gaussian1D_2, parmTuple0, data, max_iterations)
-    if len(parmTuple0) == 3:
-        return fitAny(_gaussian1D_3, parmTuple0, data, max_iterations)
-    if len(parmTuple0) == 4:
-        return fitAny(_gaussian1D_4, parmTuple0, data, max_iterations)
-
-
 def fitAnyND(f, parmTuple0, arr, max_iterations=None):
     """
     arr is an nd-array
@@ -1158,11 +1199,11 @@ def fitGaussian3D(parmTuple0, arr, max_iterations=None):
 
 
 def yGaussian(parms=(10,100), t=0):
-    '''
+    """
     t can be a scalar or a vector
     returns y value(s) of a 1D-gaussian model
 
-    parms can be tuple of ltength 2,3 or 4, with
+    parms can be tuple of length 2,3 or 4, with
     2: tuple is [sigma, peakVal]
     3: tuple is [x0, sigma, peakVal]
     4: tuple is [y0, x0, sigma, peakVal]
@@ -1171,8 +1212,8 @@ def yGaussian(parms=(10,100), t=0):
     y0 is baseline offset gaussian (default 0)
     sigma is sigma (stddev) of gaussian
     peakval is  "center height" above baseline
-    '''
-    import fftfuncs as F
+    """
+    from . import fftfuncs as F
 
     if len(parms) == 4:
         y0,x0 = parms[:2]
@@ -1185,20 +1226,20 @@ def yGaussian(parms=(10,100), t=0):
     return y0+F.gaussian(t-x0, dim=1, sigma=sigma, peakVal=peakVal)
 
 def yDecay(parms=(1000,10000,10), t=0):
-    '''
+    """
     t can be a scalar or a vector
     returns y value(s) of a decay model
     parms:
         tuple of 1 or 3 or 5 or .. values
         first baseline = asymtote =y for t-> inf
         then pairs:
-          first:  intercept of an exponetial decay
-          second: half-time of an exponetial decay
+          first:  intercept of an exponential decay
+          second: half-time of an exponential decay
 
         for more than 3 parameters: sum multiple such decay terms
-     '''
+    """
     if len(parms) % 2==0:
-        raise "number of parms must be odd: one offset and 2 more for each exponential"
+        raise ValueError, "number of parms must be odd: one offset and 2 more for each exponential"
     try:
         r = N.array(len(t)*(parms[0],))
     except: # t has no len
@@ -1210,24 +1251,28 @@ def yDecay(parms=(1000,10000,10), t=0):
         r = r + parms[1+2*i] * N.exp(-t *halfTimeScaler/ parms[2+2*i])
 #       r = r + parms[1+2*i] * N.exp(-t *halfTimeScaler/ float(parms[2+2*i]))
     return r
-def yPoly(parms=(1,1,0), t=0):
-    '''
+def yPoly(parms=(1,1,1), t=0):
+    """
     t can be a scalar or a vector
     returns y value(s) of a polygon model
     parms:
       baseline, first-order coeff, 2nd, ...
-    '''
+    """
     r = 0.0
+    tPow = 1.
     for i in range(len(parms)):
-        r = r + parms[i]*N.power(t, i)
+        if i:
+            tPow *= t
+        r = r + parms[i]*tPow # N.power(t, i)
     return r
+
 def yLine(abTuple=(1,1), t=0):
-    '''
+    """
     t can be a scalar or a vector
     returns y value(s) of a line model
     parms:
       abTuple: a,b  - as in y= ax + b
-    '''
+    """
     a,b = abTuple
     return b+a*t
 
@@ -1235,21 +1280,35 @@ def yLine(abTuple=(1,1), t=0):
 
 
 
-def fitAny(f, parmTuple0, data):
-    '''
+def fitAny(f, parmTuple0, data, fixed_mask=None, **leastsq_kwargs):
+    """
     data should be list of (x,y)  tuples
     TODO: or (x,y,deltaY)
     (instead of 'list' you can of course have an array w/
     shape=(n,2) or shape=(n,3), n beeing the number of data points
 
-    if data.ndim == 1 or data.shape = (n,1) it fits w/ x=1,2,3,...n
+    if data.ndim == 1 or data.shape = (n,1) it fits assuming x=0,1,2,3,...n-1
 
     f is your 'model' function that takes two arguments:
-    a tuple of parameters and x
+       a tuple of parameters and x
     
     The function returns a list containing the optimal parameter values
-    and the chi-squared value describing the quality of the fit.
-    '''
+    and the chi-squared value describing the quality of the fit. (CHECK if this is true)
+
+    fixed_mask: if not None: 
+       this sequence of bool values determinces if the respective parameter
+       shall be fixed or free to be adjusted
+
+    leastsq_kwargs: optional arguments feed to scipy.optimize.leastsq:
+       useful might be e.g.: 
+        * maxfev -- The maximum number of calls to the function. If zero,
+           then 100*(N+1) is the maximum where N is the number
+           of elements in x0.
+        * full_output -- non-zero to return all optional outputs.
+        * warning -- True to print a warning message when the call is
+             unsuccessful; False to suppress the warning message.
+        for more see scipy.optimize.leastsq
+    """
     from scipy.optimize import leastsq
 
     data = N.asarray(data, dtype=N.float64)
@@ -1260,29 +1319,81 @@ def fitAny(f, parmTuple0, data):
         data = N.transpose(N.array([N.arange(len(data)), data][0]))
 
     x,y = data.T
-    def func(p):
-        return f(p, x)-y
     
-    x0 = parmTuple0
-    return leastsq(func, x0)#, args=(), Dfun=None,
+    if fixed_mask is not None:
+        # just in case fixed_mask is too long for parmTuple
+        fixed_mask = fixed_mask[:len(parmTuple0)]
+
+    if fixed_mask is None or not any(fixed_mask):
+        def func(p):
+            return f(p, x)-y
+
+        x0 = parmTuple0
+        return leastsq(func, x0, **leastsq_kwargs)
+    elif all(fixed_mask):
+        # all parameters are fixed -- we don't need to fit anything here.
+        return parmTuple0, 999
+    else:
+        def func(p):
+            par_iHere=0
+            pp=[None]*len(parmTuple0)
+            for par_i,par_fixed in enumerate(fixed_mask):
+                if par_fixed:
+                    pp[par_i] = parmTuple0[par_i]
+                else:
+                    pp[par_i] = p[par_iHere]
+                    par_iHere+=1
+            return f(pp, x)-y
+    
+        x0=[]
+        for par_i,par_fixed in enumerate(fixed_mask):
+            if not par_fixed:
+                x0.append(parmTuple0[par_i])
+        x0=tuple(x0)
+
+        p, r = leastsq(func, x0, **leastsq_kwargs)
+        try:
+            p[0]
+        except IndexError:
+            p=(p,)         # put single value (scalar) back into a tuple ...
+
+        par_iHere=0
+        pp=N.empty(len(parmTuple0), float)
+        for par_i,par_fixed in enumerate(fixed_mask):
+            if par_fixed:
+                pp[par_i] = parmTuple0[par_i]
+            else:
+                pp[par_i] = p[par_iHere]
+                par_iHere+=1
+        return pp,r  # pp is N.array, like what  leastsq seems to return
+            
+    #return leastsq(func, x0)#, args=(), Dfun=None,
                    #full_output=0, col_deriv=0,
                    #ftol=1.49012e-08, xtol=1.49012e-08, gtol=0.0, maxfev=0, epsfcn=0.0, factor=100, diag=None)
     
-def fitDecay(y, p=(1000,10000,10)):
-    '''
+def fitDecay(data, p=(1000,10000,10), fixed_mask=None, **leastsq_kwargs):
+    """
     see yDecay.
-    p initial guess
-    y vector of data points to be fit
-    '''
-    return fitAny(yDecay, p, y)
+    p: initial guess
+    data: vector of data points to be fit
 
-def fitGaussian(y, p=(0,10,100)):
-    '''
+    if fixed_mask is not None: 
+       this sequence of bool values determinces if the respective parameter
+       shall be fixed or free to be adjusted
+    """
+    return fitAny(yDecay, p, data, fixed_mask=fixed_mask, **leastsq_kwargs)
+
+def fitGaussian(data, p=(0,10,100), fixed_mask=None, **leastsq_kwargs):
+    """
     see yGaussian.
-    p initial guess
-    y vector of data points to be fit
-    '''
-    return fitAny(yGaussian, p, y)
+    p: initial guess
+    data: vector of data points to be fit
+
+    if fixed_mask is not None: 
+       this sequence of bool values determinces if the respective parameter
+       shall be fixed or free to be adjusted
+    """
+    return fitAny(yGaussian, p, data, fixed_mask=fixed_mask, **leastsq_kwargs)
 #     from scipy.optimize import leastsq
     
 #     n = len(y)
@@ -1297,7 +1408,7 @@ def fitGaussian(y, p=(0,10,100)):
 #                    #ftol=1.49012e-08, xtol=1.49012e-08, gtol=0.0, maxfev=0, epsfcn=0.0, factor=100, diag=None)
 
 
-def fitPoly(y, p=(1,1,1)):
+def fitPoly(data, p=(1,1,1), fixed_mask=None, **leastsq_kwargs):
     """
     see yPoly
 
@@ -1309,11 +1420,13 @@ def fitPoly(y, p=(1,1,1)):
     
     The function returns a list containing the optimal parameter values
     and the chi-squared value describing the quality of the fit.
+
+    if fixed_mask is not None: 
+       this sequence of bool values determinces if the respective parameter
+       shall be fixed or free to be adjusted
     """
 
-
-    return fitAny(yPoly, p, y)
-
+    return fitAny(yPoly, p, data, fixed_mask=fixed_mask, **leastsq_kwargs)
 
 
 
@@ -1336,6 +1449,110 @@ def fitPoly(y, p=(1,1,1)):
 
 
 
+
+
+
+def nd__center_of_mass(input, labels = None, index = None):
+    """Calculate the center of mass of of the array.
+
+    The index parameter is a single label number or a sequence of
+    label numbers of the objects to be measured. If index is None, all
+    values are used where labels is larger than zero.
+
+    Seb: this is from scipy.ndimage, but returns ndarray and
+    fixes return value type & shape
+    for the cases  len(index) == 1 and len(index) == 0
+    """
+    ll = hasattr(index, "__len__")
+    if ll and len(index) == 0:
+        r = N.array([])
+        r.shape=0,input.ndim
+        return r
+    r = N.array( nd.center_of_mass(input, labels, index) )
+    if ll and len(index) == 1:
+        r.shape = (1, -1)
+    return r
+#         r = [ r ]
+#     return N.array( r )
+def nd__maximum_position(input, labels = None, index = None):
+    """Find the position of the maximum of the values of the array.
+
+    The index parameter is a single label number or a sequence of
+    label numbers of the objects to be measured. If index is None, all
+    values are used where labels is larger than zero.
+
+    Seb: this is from scipy.ndimage, but returns ndarray and
+    fixes return value type & shape
+    for the cases  len(index) == 1 and len(index) == 0
+    """
+    ll = hasattr(index, "__len__")
+    if ll and len(index) == 0:
+        r = N.array([])
+        r.shape=0,input.ndim
+        return r
+    r = N.array( nd.maximum_position(input, labels, index) )
+    if ll and len(index) == 1:
+        r.shape = (1, -1)
+    return r
+#         r = [ r ]
+#     return N.array( r )
+def nd__minimum_position(input, labels = None, index = None):
+    """Find the position of the minimum of the values of the array.
+
+    The index parameter is a single label number or a sequence of
+    label numbers of the objects to be measured. If index is None, all
+    values are used where labels is larger than zero.
+
+    Seb: this is from scipy.ndimage, but returns ndarray and
+    fixes return value type & shape
+    for the cases  len(index) == 1 and len(index) == 0
+    """
+    ll = hasattr(index, "__len__")
+    if ll and len(index) == 0:
+        r = N.array([])
+        r.shape=0,input.ndim
+        return r
+    r = N.array( nd.minimum_position(input, labels, index) )
+    if ll and len(index) == 1:
+        r.shape = (1, -1)
+    return r
+#         r = [ r ]
+#     return N.array( r )
+def nd__sum(input, labels=None, index=None):
+    """Calculate the sum of the values of the array.
+
+    :Parameters:
+        labels : array of integers, same shape as input
+            Assign labels to the values of the array.
+
+        index : scalar or array
+            A single label number or a sequence of label numbers of
+            the objects to be measured. If index is None, all
+            values are used where 'labels' is larger than zero.
+
+    Examples
+    --------
+
+    >>> input =  [0,1,2,3]
+    >>> labels = [1,1,2,2]
+    >>> sum(input, labels, index=[1,2])
+    [1.0, 5.0]
+
+    Seb: this is from scipy.ndimage, but returns ndarray and
+    fixes return value type & shape
+    for the cases  len(index) == 1 and len(index) == 0
+    """
+    ll = hasattr(index, "__len__")
+    if ll and len(index) == 0:
+        r = N.array([])
+        r.shape=0,input.ndim
+        return r
+    r = N.array( nd.sum(input, labels, index) )
+    if ll and len(index) == 1:
+        r.shape = (-1)
+    return r
+#         r = [ r ]
+#     return N.array( r )
 
 
 
@@ -1343,7 +1560,7 @@ def fitPoly(y, p=(1,1,1)):
 
 def noiseSigma(arr, backgroundMean=None):
     """ask Erik"""
-    from numarray import nd_image as nd
+    # from numpy import nd_image as nd
     if backgroundMean is None:
         m = arr.mean() #20040707 nd.mean(arr)
         #       s = nd.standard_deviation(arr)
@@ -1356,7 +1573,7 @@ def noiseSigma(arr, backgroundMean=None):
     return N.sqrt( (mm**2) * N.pi * .5 )
 
 def signal2noise(arr):
-    from numarray import nd_image as nd
+    # from numarray import nd_image as nd
     ma = nd.maximum(arr)
 
     m = nd.mean(arr)
@@ -1411,22 +1628,28 @@ def interpolate1d(x0, y, x=None):
 
 
 
-def histogram(a, nBins=None, amin=None,amax=None, histArr=None, norm=False, returnTuple=False):
+def histogram(a, nBins=None, amin=None,amax=None, histArr=None, norm=False, cumsum=False, returnTuple=False, exclude_amax=False):
     """
     creates/returns  array with nBins int32 entries
        fills it with histogram of 'a'
     if amin and/or amax is None it calculates the min/max of a and uses that
     if nBins is None:
         nBins = int(amax-amin+1)
-        if nBins < 10:
+        if narr is of float dtype  Bins < 100:
             nBins = 100
     if histArr is given it is used to fill in the histogram values
         then nBins must be None and histArr of dtype N.int32
 
     if norm:
        divide bins (=histArr) by sum of bins and convert to float64
+    if cumsum:
+       calculate cumulative histogram (apply N.cumsum)
+       if norm: normalize so that rightmost bin will be 1
     if returnTuple:
         return (histArr, nBins, amin, amax)
+    if exclude_amax:
+        last bin starts at amax
+    else:  last bin ends at amax, values equal amax are NOT counted
     """
     a = N.asarray(a)
     
@@ -1440,16 +1663,16 @@ def histogram(a, nBins=None, amin=None,amax=None, histArr=None, norm=False, retu
 
     if histArr is not None:
         if nBins is not None:
-            raise "only one of histArr and nBins can be given"
+            raise ValueError("only one of histArr and nBins can be given")
         if histArr.dtype != N.int32:
-            raise "histArr must of dtype N.int32"
+            raise ValueError("histArr must of dtype N.int32")
         if not histArr.flags.carray or  not histArr.dtype.isnative:
-            raise RuntimeError, 'histArr must be a "native c(ordered)-array"'
+            raise ValueError("histArr must be a 'native c(ordered)-array'")
         nBins = len(histArr)
     else:
         if nBins is None:
             nBins = int(amax-amin+1)
-            if nBins < 10:
+            if N.issubdtype(float, a.dtype) and nBins < 100:
                 nBins = 100
 
         histArr = N.empty( shape=(nBins,), dtype=N.int32 )
@@ -1458,42 +1681,61 @@ def histogram(a, nBins=None, amin=None,amax=None, histArr=None, norm=False, retu
 
     # NOTE: S.histogram *ignores* all values outside range (it does not count amax !!)
     #       it only count amin<= val < amax
-    
-    amaxTweaked = amin+nBins*(amax-amin)/(nBins-1)
+
+    if exclude_amax:
+        amaxTweaked = amax
+    else:
+        amaxTweaked = amin+nBins*(amax-amin)/(nBins-1.)
     # CHECK numpy - why type(a.min())=numpy.float32 not SWIG compatible to float!
     S.histogram(a, float(amin),float(amaxTweaked), histArr)
 
     if norm:
         histArrNormed = N.empty( shape=(nBins,), dtype=N.float64 )
         histArrNormed[:] = histArr
-        histArrNormed /= histArr.sum()
+        # if cumsum:
+        #     binWidth = (float(amaxTweaked)-float(amin))/nBins
+        #    normFac = binWidth / histArr.sum()
+        #else:
+        #    normFac = 1./ histArr.sum()
+        #histArrNormed *= normFac
+        histArrNormed /= histArrNormed.sum()
         histArr = histArrNormed
+
+    if cumsum:
+        histArr.cumsum(out=histArr)
+
 
     if returnTuple:
         return (histArr, nBins, amin, amax)
     else:
         return histArr
 
-def histogramXY(a, nBins=None, amin=None,amax=None, histArr=None, norm=False):
-    '''returns flipped version of histogramYX
+def histogramXY(a, nBins=None, amin=None,amax=None, histArr=None, norm=False, cumsum=False, exclude_amax=False):
+    """
+    returns flipped version of histogramYX
     use this e.g. in
      Y.plotxy( U.histogramXY( a ) )
-    '''
-    b,x = histogramYX(a, nBins, amin,amax, histArr, norm)
+    """ 
+    b,x = histogramYX(a, nBins, amin,amax, histArr, norm, cumsum, exclude_amax)
     return x,b
+histogramXY.__doc__ += '\n' + histogram.__doc__
+def histogramYX(a, nBins=None, amin=None,amax=None, histArr=None, norm=False, cumsum=False, exclude_amax=False):
+    """
+    returns same as U.histogram
+    but also a "range array" amin,...amax with nBins entries
+    """
 
-def histogramYX(a, nBins=None, amin=None,amax=None, histArr=None, norm=False):
-    """returns same as U.histogram
-       but also a "range array" amin,...amax with nBins entries
-       """
-    b,nBins,amin,amax = histogram(a,nBins,amin,amax, histArr, norm=norm, returnTuple=True)
+    b,nBins,amin,amax = histogram(a,nBins,amin,amax, histArr, norm=norm, cumsum=cumsum, returnTuple=True, exclude_amax=exclude_amax)
     if norm:
-        x,step = N.linspace(amin,amax, nBins, endpoint=True, retstep=True)
-        b /= step
+        x,step = N.linspace(amin,amax, nBins, endpoint=not exclude_amax, retstep=True)
+        if not cumsum:
+            b /= step
+
     else:
-        x = N.linspace(amin,amax, nBins, endpoint=True)
+        x = N.linspace(amin,amax, nBins, endpoint=not exclude_amax)
 
     return b, x
+histogramYX.__doc__ += '\n' + histogram.__doc__
 
 def generalhistogram(a, weightImg, nBins=None, amin=None,amax=None):
     """
@@ -1506,8 +1748,8 @@ def generalhistogram(a, weightImg, nBins=None, amin=None,amax=None):
     if amin and/or amax is None it calculates the min/max of a and uses that
     if nBins is None:
         nBins = int(amax-amin+1)
-        if nBins < 10:
-            nBins = 100
+        if a is of float dtype   and nBins < 100:
+             nBins = 100
     """
     if amin is None and amax is None:
         amin = a.min()
@@ -1519,7 +1761,7 @@ def generalhistogram(a, weightImg, nBins=None, amin=None,amax=None):
 
     if nBins is None:
         nBins = int(amax-amin+1)
-        if nBins < 10:
+        if N.issubdtype(float, a.dtype) and nBins < 100:
             nBins = 100
     b = N.empty( shape=(nBins,), dtype=weightImg.dtype )
 
@@ -1536,20 +1778,78 @@ def generalhistogram(a, weightImg, nBins=None, amin=None,amax=None):
     return b
     
 
-def topPercentile(img, percentile=1):
-    """find Intens. for highest percentile
 
-        slow!! ****** might only work for uint16 arr *********
+def radialHistogram(a, orig=0, wrap=0, nBins=None, amax=None):
     """
-    import seb as S
+    returns 1D histogram of values sorted by euclidian distance
+    from `orig`
+    """
+    global distance_array, frequency, hist # for debugging
+    from . import fftfuncs as F
+
+    distance_array = F.radialArr(a.shape, lambda r:r, orig=orig, wrap=wrap)
+    
+    if nBins is None:
+        diagLength = N.sum(N.asarray(a.shape, dtype=float)**2)**.5
+        nBins = diagLength
+    if amax is None:
+        diagLength = N.sum(N.asarray(a.shape, dtype=float)**2)**.5
+        amax = diagLength
+        # nBins = N.array(array.shape).max()
+    #20090107  histogram = N.empty(shape=nbins, dtype=array.dtype)
+    ## uses Sebastian Haase's general histogram functions
+    frequency = histogram(distance_array, nBins=nBins, amin=0, amax=nBins)
+
+    ## to prevent division by zero
+    frequency[frequency==0]=1 # `hist` should be 0 here, too
+        
+#   if array.dtype in (N.complex64, N.complex128):
+#
+#       imag_histogram = N.empty(shape=nbins, dtype=N.float32)
+#       ## uses Sebastian Haase's general histogram functions
+#       ## doesn't work for complex numbers yet or Float64!
+#       S.generalhist(distance_array, array.real.astype(N.float32), 0, nbins,
+#               histogram)
+#       S.generalhist(distance_array, array.imag.astype(N.float32), 0, nbins, 
+#               imag_histogram)
+#
+#       return ((histogram + 1j*imag_histogram) / frequency)
+#   else:
+#
+#       ## uses Sebastian Haase's general histogram functions
+#       S.generalhist(distance_array, array.astype(N.float32), 0, nbins,
+#               histogram)
+#
+#       return (histogram / frequency)
+    hist = generalhistogram(distance_array, a, nBins=nBins, amin=0,
+            amax=amax)
+
+    return (hist / frequency)
+
+
+
+
+
+
+def topPercentile(img, percentile=1):
+    """
+    find intensity for highest percentile
+    e.g. U.topPercentile(N.arange(10), 10) => 8
+       (10% of the array is larger then 8 -- roughly)
+    
+    slow!! ****** might only work for uint16 arr *********
+    """
     a = N.empty( shape=(1<<16), dtype=N.int32 ) # bins
     (mi,ma,mean,stddev) = S.histogram2(img, 0, (1<<16), a)
     nPix = N.prod( img.shape )
 
 
-    a = _getGoodifiedArray(a)
-
-    tp = S.toppercentile(a, nPix, int(ma), percentile)
+    #non-sense 20090714: a = _getGoodifiedArray(a)
+    ma = int(ma)
+    if ma >= len(a):
+        raise ValueError, "U.topPercentile() works only for img values < 65536"
+    
+    tp = S.toppercentile(a, nPix, ma, percentile)
     return tp
 
 '''
@@ -1622,8 +1922,14 @@ def l1norm(a):
     a = N.asarray(a)
     return N.sum(abs(a))
 
-
-
+def rms(a):
+    """
+    returns root mean square (aka. the quadratic mean):
+        (a**2).mean()**.5
+    http://en.wikipedia.org/wiki/Root_mean_square
+    """
+    a = N.asanyarray(a)  # CHECK asanyarray or asarray
+    return (a**2).mean()**.5
 
 
 def phase(a):
@@ -1666,7 +1972,7 @@ def rot90(a, n):
             return b[::-1]
         elif n==3 or n==-1:
             return b[:,::-1]
-    raise "cannot rotated with n == %s"%n
+    raise ValueError, "cannot rotated with n == %s"%n
     
 
 def project(a, axis=0):
@@ -1778,7 +2084,6 @@ def rot3d(a,b, angle, rot_axis=0):
     checkGoodArrayF(b, 1, a.shape)
     a = _getGoodifiedArray(a)
     
-    import Priithon.seb as S
     cdr = N.arctan(1)/ 45
     c = N.cos(angle*cdr)
     s = N.sin(angle*cdr)
@@ -1841,10 +2146,7 @@ def _getImgMode(im):
     elif im.mode == "RGB":
         t = N.uint8
         cols = 3
-    elif im.mode == "RGBA":
-        t = N.uint8
-        cols = 4
-    elif im.mode == "CMYK":
+    elif im.mode in ("RGBA", "CMYK", "RGBX"):
         t = N.uint8
         cols = 4
     elif im.mode == "I;16B":  ## big endian
@@ -1864,6 +2166,9 @@ def image2array(im, i0=0, iDelta=1, squeezeGreyRGB=True):
     """
     Convert image to numpy array
 
+    if i0 is None:
+           just read next section (no im.seek !) and 
+           convert and return 2d array 
     if squeezeGreyRGB:
        test if an RGB (RGBA) image really just grey - 
          then return only one channel (others are identical)
@@ -1871,22 +2176,21 @@ def image2array(im, i0=0, iDelta=1, squeezeGreyRGB=True):
     
     import Image
 
-    #HACK for multipage images
-    nn = 0
-    for i in range(i0, 100000, iDelta):
-        try:
-            im.seek(i)
-            nn+=1
-        except EOFError:
-            break
-    #def getLayerlayerToArray
+    if i0 is not None:
+        #HACK for multipage images
+        nn = 0
+        for i in xrange(i0, 100000, iDelta):
+            try:
+                im.seek(i)
+                nn+=1
+            except EOFError:
+                break
+        #def getLayerlayerToArray
 
-    im.seek(i0)
+        im.seek(i0) # CHECK: PIL docs say, only forward seeks are supported - (but seems to work anyway 200808)
     t,cols,ny,nx,isSwapped = _getImgMode(im)
 
-
-
-    if nn == 1:
+    if i0 is None or nn == 1:
         #global a
         a = N.fromstring(im.tostring(), t)
         if cols == -1:
@@ -1939,33 +2243,53 @@ def image2array(im, i0=0, iDelta=1, squeezeGreyRGB=True):
     return a
 
 
-def array2image(a):
+def array2image(a, rgbOrder="rgba"):
     """Convert numpy array to image
        a must be of ndim 2 and dtype UInt8,Float32 or UInt16
-       if a is of ndim 3: !!!
-          a.shape[0] must be 3
-            (3 sections: one for red, one for green and one for blue)
-            dtype must be Uint8
+       if a.ndim ==3:
+          a.dtype must be uint8
+          the first axis is interpreted as RGB color axis -- for fewer "sections" in a, remaining are assumed to be zero
+          rgbOrder: order in which axes are mapped to RGB(A) channels
     """
-    
     import Image
 
+    # translate string to "inverse map" aAxis->rgbaIndex
+    # e.g. "br" -> [1, 2, 0, 3]
+    rgbOrder = rgbOrder.lower()
+    rgbOrder = [rgbOrder.find(col) for col in "rgba"]
+    fillAx=max(rgbOrder)+1
+    for i,ax in enumerate(rgbOrder):
+        if ax<0:
+            rgbOrder[i] = fillAx
+            fillAx+=1
+
     if a.ndim == 3:
-        if a.shape[0] == 3:
+        if   a.shape[0] == 1:
             assert a.dtype==N.uint8
             a22 = N.transpose(a,(1,2,0)) # .copy()
+            from . import fftfuncs as F
+            a22 = N.append(a22,F.zeroArr(a22.dtype,a22.shape[:2]+(2,)), -1)
+            a22 = a22[:,:,rgbOrder[:3]]
             ii = Image.fromstring("RGB", (a.shape[-1],a.shape[-2]), a22.tostring())
             return ii
-        elif a.shape[0] == 2:
+        elif   a.shape[0] == 2:
             assert a.dtype==N.uint8
             a22 = N.transpose(a,(1,2,0)) # .copy()
-            import fftfuncs as F
+            from . import fftfuncs as F
             a22 = N.append(a22,F.zeroArr(a22.dtype,a22.shape[:2]+(1,)), -1)
+            a22 = a22[:,:,rgbOrder[:3]]
+            ii = Image.fromstring("RGB", (a.shape[-1],a.shape[-2]), a22.tostring())
+            return ii
+        elif a.shape[0] == 3:
+            assert a.dtype==N.uint8
+            a22 = N.transpose(a,(1,2,0)) # .copy()
+            a22 = a22[:,:,rgbOrder[:3]]
             ii = Image.fromstring("RGB", (a.shape[-1],a.shape[-2]), a22.tostring())
             return ii
         elif a.shape[0] == 4:
             assert a.dtype==N.uint8
             a22 = N.transpose(a,(1,2,0)) # .copy()
+            a22 = a22[:,:,rgbOrder[:4]]
             ii = Image.fromstring("RGBA", (a.shape[-1],a.shape[-2]), a22.tostring())
             return ii
         else:
@@ -1985,6 +2309,46 @@ def array2image(a):
     return Image.fromstring(mode, (a.shape[1], a.shape[0]), a.tostring())
     #20040929 todo: try this:   return Image.frombuffer(mode, (a.shape[1], a.shape[0]), a._data)
 
+
+def load(fn):
+    """open any image file:
+          '.fits'  - FITS files
+          '.sif'   - Andor SIF files
+          '.his'   - Hamamatsu HIS files
+          '.spe'   - Princeton Instruments CCD image format (SPE) files
+          '.lsm'   - Zeiss LSM images are read like TIFF; skipping every other slice (thumbnail)
+          any image file: jpg/bmp/png/... (all PIL formats)
+               #20060824 CHECK  in this case the returned arr gets attr: arr._originLeftBottom=0
+          'Mrc' (use Mrc.bindFile)
+          TODO: "_thmb_<fn.jpg>" files are taken to mean <fn.jpg>
+       returns image array
+               None on error
+
+       if imgFN is None  call Y.FN()  for you
+    """
+    if fn[-5:].lower() == ".fits":
+        a = loadFits( fn )
+    elif fn[-4:].lower() == ".sif":
+        a = loadSIF( fn )
+    elif fn[-4:].lower() == ".his":
+        a = loadHIS( fn )
+    elif fn[-4:].lower() == ".spe":
+        a = loadSPE( fn )
+    else:
+        try:
+            iDelta = 1
+            if fn[-4:].lower() == ".lsm":
+                iDelta=2 # LSM-Zeiss every 2nd img is a thumbnail
+            from . import useful as U
+            a = loadImg(fn, iDelta=iDelta)
+            #20060824 CHECK  a._originLeftBottom=0
+        except (IOError, SystemError):
+            from . import Mrc
+            a = Mrc.bindFile(fn)
+
+    return a
+    
+
 def loadImg(fn, i0=0, iDelta=1, squeezeGreyRGB=True):
     """Loads image file (tiff,jpg,...) and return it as array
 
@@ -2000,6 +2364,22 @@ def loadImg(fn, i0=0, iDelta=1, squeezeGreyRGB=True):
     im = Image.open(fn)
     return image2array(im, i0, iDelta, squeezeGreyRGB)
 
+def loadImg_iterSec(fn, i0=0, iDelta=1, squeezeGreyRGB=True):
+    """
+    iterator:
+    Loads image file (tiff,jpg,...) and 
+    iterate section-wise yielding a 2d array
+    """
+    import Image
+    im = Image.open(fn)
+    for i in xrange(i0, 100000, iDelta):
+        try:
+            im.seek(i)
+
+            yield image2array(im, None, iDelta, squeezeGreyRGB)
+        except EOFError:
+            return
+
 def loadImg_seq(fns, channels=None, verbose=0): #### #, i0=0, iDelta=1, squeezeGreyRGB=True):
     """
     Open multiple TIFF-files into a 3-(or 4-)D numpy stack.
@@ -2007,10 +2387,13 @@ def loadImg_seq(fns, channels=None, verbose=0): #### #, i0=0, iDelta=1, squeezeG
     fns is a list of filenames or a glob-expression
     channels:
       specify 0 for R
-              1 for B
-              2 for G
+              1 for G
+              2 for B
               list of above for mnore than one
               None for all
+      returned shape is (nz, nChannels,ny,nx) if a list/tuple was given
+      returned shape is (nz, ny,nx) if a scalar was given
+      if channels is None: one of the above is choosen depending on nChannels==1
     """
     import glob, Image
     if type(fns) is not type([]):
@@ -2023,10 +2406,25 @@ def loadImg_seq(fns, channels=None, verbose=0): #### #, i0=0, iDelta=1, squeezeG
 
     fn = fns[0]
     im = Image.open(fn)
-    dtype,cols, ny,nx = _getImgMode(im)
+    dtype,cols, ny,nx,isSwapped = _getImgMode(im)
     del im
 
     if cols > 1:
+        if hasattr(channels, "__len__"):
+            # ensure list-type so that it can be used for fancy indixing
+            channels = list(channels)
+            shape = (n,len(channels),ny,nx)
+        else:
+            if channels is None:
+                channels = range(cols)
+            else:
+                channels = [channels]
+            if len(channels) == 1:
+                shape = (n,ny,nx)
+            else:
+                shape = (n,len(channels),ny,nx)
+
+
         if channels is None:
             channels = range(cols)
         elif not hasattr(channels, "__len__"):
@@ -2034,8 +2432,9 @@ def loadImg_seq(fns, channels=None, verbose=0): #### #, i0=0, iDelta=1, squeezeG
         else:
             channels = list(channels)
 
-        shape = (n,len(channels),ny,nx)
     else:
+        if channels is not None:
+            raise ValueError, "`channels` can not be specified for one color images"
         shape = (n,ny,nx)
         
     a = N.zeros(dtype=dtype, shape=shape)
@@ -2044,6 +2443,7 @@ def loadImg_seq(fns, channels=None, verbose=0): #### #, i0=0, iDelta=1, squeezeG
     for i,fn in enumerate(fns):
         if verbose:
             print i,
+            from .all import Y
             Y.refresh()
 
         im = Image.open(fn)
@@ -2062,27 +2462,35 @@ def loadImg_seq(fns, channels=None, verbose=0): #### #, i0=0, iDelta=1, squeezeG
     if verbose:
         print 
         Y.refresh()
+
+    if isSwapped:
+        a.byteswap(True)
+
     return a
 
 
-def saveImg(arr, fn, forceMultipage=False):
+def saveImg(arr, fn, forceMultipage=False, rgbOrder="rgba", format=None):
     """
     Saves data array as image file (format from    extension !! .tif,.jpg,...)
     tries to use number format of 'arr'
     also supports multipage TIFF:
-        3D arrays: grey (if more than 4 z-secs or forceMultipage==True)
-        4D arrays: color (second dims must be of len 2..4 (RG[B[A]])"
-       
+        3D arrays: grey (if more than 4 z-secs or `forceMultipage`==True)
+        4D arrays: color (second dim must be of len 2..4 (RG[B[A]])"
+
+    for multi-color images:
+         `rgbOrder`: order in which axes are mapped to RGB(A) channels
+      
+    use `format` to spefy format (e.g. "tiff") when fn is really as stream
     !!be careful about up-down orientation !!
     """
 
     arr = N.asarray(arr)
     if (arr.ndim == 3 and (len(arr)>4 or forceMultipage)) or \
             arr.ndim == 4:
-        return saveTiffMultipage(arr, fn)
+        return saveTiffMultipage(arr, fn, rescaleTo8bit=False, rgbOrder=rgbOrder)
 
-    im = array2image(arr)
-    im.save(fn)
+    im = array2image(arr, rgbOrder)
+    im.save(fn, format)
 
 def _saveSeq_getFixedFN(fn, n):
     """
@@ -2098,39 +2506,51 @@ def _saveSeq_getFixedFN(fn, n):
         fn = fnf[0] + fns + fnf[1]
     return fn
 
-def saveImg_seq(arr, fn):
-    """Saves 3D data array as 8-bit gray image file sequence (format from  extension !! .tif,.jpg,...)
+def saveImg_seq(arr, fn, rgbOrder="rgba"):
+    """
+    Saves 3D data array as 8-bit gray image file sequence (format from  extension !! .tif,.jpg,...)
     filename should contain a "template" like %02d - use '%%' otherwise inplace of single '%'
     template gets replaced with 00,01,02,03,...
+
+    for multi-color images:
+         rgbOrder: order in which axes are mapped to RGB(A) channels
+      
     !!be careful about up-down orientation !!
     """
     arr = N.asarray(arr)
     #if arr.ndim != 3:
     #    raise "can only save 3d arrays"
-    if not (arr.ndim == 3 or (arr.ndim == 4 and arr.shape[1] in (2,3,4))):
-        raise ValueError, "can only save 3d arrays or 4d with second dim of len 2..4 (RG[B[A]])"
+    if not (arr.ndim == 3 or (arr.ndim == 4 and arr.shape[1] in (1,2,3,4))):
+        raise ValueError, "can only save 3d arrays or 4d with second dim of len 1..4 (RG[B[A]])"
 
     fn = _saveSeq_getFixedFN(fn, len(arr))
 
     for i in range(arr.shape[0]):
-        saveImg(arr[i], fn % i)
+        saveImg(arr[i], fn % i, rgbOrder=rgbOrder)
 
-def saveImg8(arr, fn, forceMultipage=False):
-    """Saves data array as 8-bit gray image file (format from  extension !! .tif,.jpg,...)
+def saveImg8(arr, fn, forceMultipage=False, rgbOrder="rgba", format=None):
+    """
+    Saves data array as 8-bit gray image file (format from  extension !! .tif,.jpg,...)
     be careful about up-down orientation !!
     if arr.dtype is not N.uint8  arr gets rescaled to 0..255
     also supports multipage TIFF:
         arr gets rescaled to 0..255 to match min..max of entire stack
         3D arrays: grey (if more than 4 z-secs or forceMultipage==True)
-        4D arrays: color (second dims must be of len 2..4 (RG[B[A]])"
+        4D arrays: color (second dim must be of len 2..4 (RG[B[A]])"
+
+    for multi-color images:
+         rgbOrder: order in which axes are mapped to RGB(A) channels
+      
+    use `format` to spefy format (e.g. "tiff") when fn is really as stream
+    !!be careful about up-down orientation !!
     """
 
     arr = N.asarray(arr)
     if (arr.ndim == 3 and (len(arr)>4 or forceMultipage)) or \
             arr.ndim == 4:
-        return saveTiffMultipage(arr, fn, rescaleTo8bit=True)
+        return saveTiffMultipage(arr, fn, rescaleTo8bit=True, rgbOrder=rgbOrder)
 
-    if not (arr.ndim == 2 or (arr.ndim == 3 and arr.shape[0] in (2,3,4))):
+    if not (arr.ndim == 2 or (arr.ndim == 3 and arr.shape[0] in (1,2,3,4))):
         raise ValueError, "can only save 2d greyscale or 3d (RGB[A]) arrays"
     
     if arr.dtype.type != N.uint8:
@@ -2139,20 +2559,26 @@ def saveImg8(arr, fn, forceMultipage=False):
         arr = ((arr-mi)*255./ra).astype(N.uint8)
 
     import Image
-    im8 = array2image(arr)
+    im8 = array2image(arr, rgbOrder)
     #20050711 im8= im.convert("L")
-    im8.save(fn)
+    im8.save(fn ,format)
 
-def saveImg8_seq(arr, fn):
-    """Saves 3D data array as 8-bit gray image file sequence (format from  extension !! .tif,.jpg,...)
+def saveImg8_seq(arr, fn, rgbOrder="rgba"):
+    """
+    Saves 3D data array as 8-bit gray image file sequence (format from  extension !! .tif,.jpg,...)
     filename must contain a "template" like %02d - use '%%' otherwise inplace of single '%'
     template gets replaced with 00,01,02,03,...
-    !!be careful about up-down orientation !!
+
     arr gets rescaled to 0..255 to match min..max of entire stack
+
+    for multi-color images:
+         rgbOrder: order in which axes are mapped to RGB(A) channels
+      
+    !!be careful about up-down orientation !!
     """
     arr = N.asarray(arr)
     if arr.ndim != 3:
-        raise "can only save 3d arrays"
+        raise ValueError, "can only save 3d arrays"
 
     fn = _saveSeq_getFixedFN(fn, len(arr))
 
@@ -2160,16 +2586,53 @@ def saveImg8_seq(arr, fn):
     ra = ma-mi
     for i in range(arr.shape[0]):
         a=(arr[i]-mi)*255./ra
-        saveImg(a.astype(N.uint8), fn % i)
+        saveImg(a.astype(N.uint8), fn % i, rgbOrder=rgbOrder)
 
 def loadFits(fn, slot=0):
-    """Loads FITC file and return it as array
+    """
+    Loads FITC file and return it as array
     """
     import pyfits
     ff = pyfits.open(fn)
     return ff[ slot ].data
 
-def saveFits(arr, fn, overwrite=1):
+def loadHIS(fn, secStart=0, secEnd=None, stride=1, mode='r'):
+    """
+    load Hamamatsu Image Sequence file format
+
+    if secStart=0, and secEnd=None, and stride=1:
+       use memmap to map entire file:
+       there are two cases:
+          1) multiple sections have comments:
+             -> return mockNDarray of (memmaped) sections
+          2) only the first section (may) have comments
+             -> map the whole file into one recarray
+             NOTE(!): a.HIS.hdr[0] will be corrupt !! use a.HIS.hdr0 instead !!
+    otherwise OR if mode is None: 
+       load given range of sections into memory 
+       (using N.fromfile) and
+       return mockNDarray of (in memory) sections
+
+    if secEnd is None: load section until end of file
+    mode: only used for case 1; 'r' open file readonly, 'r+' read-and-write
+    ref.: readerHIS.py
+    """
+    #from readerHIS import openHIS as loadHIS 
+    if secStart==0 and secEnd is None and stride==1 and mode is not None:
+        from .readerHIS import openHIS # uses memmap
+        return openHIS(fn, mode)
+    else:
+        from .readerHIS import loadHISsects # uses fromfile
+        return loadHISsects(fn, secStart, secEnd, stride)
+
+def loadSPE(fn):
+    """
+    load Princeton Instruments CCD image format (.SPE)
+    """
+    from . import readerSPE
+    return readerSPE.load(fn)
+
+def saveFits(arr, fn, overwrite=True):
     import pyfits
 
     if overwrite:
@@ -2186,10 +2649,17 @@ def saveFits(arr, fn, overwrite=1):
     fits_file.append(shapehdu)
     fits_file.writeto(fn)
 
-def saveTiffMultipage(arr, fn, rescaleTo8bit=False, **params):
+def saveTiffMultipage(arr, fn, rescaleTo8bit=False, rgbOrder="rgba", **params):
+    """
+    extension to PIL save TIFF
+    if rescaleTo8bit: scale sections (using global(!) min & max intesity) to 0..255
+        (ratios between colors are unchanged)
+
+    **params is directly forwarded to PIL save function
+    """
     if arr.ndim == 4:
-        if arr.shape[1] not in (2,3,4):
-            raise ValueError, "can save 4d arrays (color) only with second dim of len 2..4 (RG[B[A]])"
+        if arr.shape[1] not in (1,2,3,4):
+            raise ValueError, "can save 4d arrays (color) only with second dim of len 1..4 (RG[B[A]])"
     elif arr.ndim != 3:
         raise ValueError, "can only save 3d (grey) or 4d (color) arrays"
 
@@ -2199,15 +2669,69 @@ def saveTiffMultipage(arr, fn, rescaleTo8bit=False, **params):
 
     if rescaleTo8bit:
         mi,ma = float(arr.min()), float(arr.max())
-        ra = ma-mi        
+        ra = ma-mi
 
     params["_debug_multipage"] = True
     for z in range(arr.shape[0]):
         if rescaleTo8bit:
             a=(arr[z]-mi)*255./ra
-            ii = array2image(a.astype(N.uint8))
+            ii = array2image(a.astype(N.uint8), rgbOrder=rgbOrder)
         else:
-            ii = array2image(arr[z])
+            ii = array2image(arr[z], rgbOrder=rgbOrder)
+
+        fp.seek(0,2) # go to end of file
+        if z==0:
+            # ref. PIL  TiffImagePlugin
+            # PIL always starts the first IFD at offset 8
+            ifdOffset = 8
+        else:
+            ifdOffset = fp.tell()
+
+        ii.save(fp, format="TIFF", **params)
+        
+        if z>0: # correct "next" entry of previous ifd -- connect !
+            ifdo = ifd_offsets[-1]
+            fp.seek(ifdo)
+            ifdLength = ii._debug_multipage.i16(fp.read(2))
+            fp.seek(ifdLength*12,1) # go to "next" field near end of ifd
+            fp.write(ii._debug_multipage.o32( ifdOffset ))
+
+        ifd_offsets.append(ifdOffset)
+    fp.close()
+
+def saveTiffMultipageFromSeq(arrseq, fn, rescaleSeqTo8bit=False, rgbOrder="rgba", **params):
+    """
+    arrseq can be an iterator that yield 2D(grey) or 3D(color) image
+
+    extension to PIL save TIFF
+
+    if rescaleSeqTo8bit: scale each section (separately!) to 0..255
+        (ratios between colors are unchanged)
+    **params is directly forwarded to PIL save function
+    """
+#     if arr.ndim == 4:
+#         if arr.shape[1] not in (1,2,3,4):
+#             raise ValueError, "can save 4d arrays (color) only with second dim of len 1..4 (RG[B[A]])"
+#     elif arr.ndim != 3:
+#         raise ValueError, "can only save 3d (grey) or 4d (color) arrays"
+
+    fp = open(fn, 'w+b')
+
+    ifd_offsets=[]
+
+#     if rescaleTo8bit:
+#         mi,ma = float(arr.min()), float(arr.max())
+#         ra = ma-mi
+
+    params["_debug_multipage"] = True
+    for z,a in enumerate(arrseq):
+        if rescaleSeqTo8bit:
+            mi,ma = float(a.min()), float(a.max())
+            ra = ma-mi
+            a=(a-mi)*255./ra
+            ii = array2image(a.astype(N.uint8), rgbOrder=rgbOrder)
+        else:
+            ii = array2image(a, rgbOrder=rgbOrder)
 
         fp.seek(0,2) # go to end of file
         if z==0:
@@ -2258,18 +2782,21 @@ def loadImageFromURL(url):
 ###############################################################
 ###############################################################
 
-def calc_threshold_basic(a, histYX=None, dt=.5, nMax=100):
+def calc_threshold_basic(a, histYX=None, dt=.5, nMax=100, retImg = False):
     """
     calculate a threshold value
     using the "Basic Global Thresholding" method
     described in Ch. 10.3.2 in "Digital Image Processing"
 
-    returns threshold T
+    returns threshold T (1 for a>T; not >=T)
 
     stop iteration when T doesn't change more than dt
     or after nMax iterations
 
     histYX, is the histogram of a -- a tuple(binCount, binPixelValue)
+
+    if retImg:
+        returns thresholded image as uint8 
     """
 
     if histYX is None:
@@ -2288,83 +2815,176 @@ def calc_threshold_basic(a, histYX=None, dt=.5, nMax=100):
         Tnew = .5*(m1+m2)
 
         if abs(T-Tnew) < dt:
-            return Tnew
+            break
         T=Tnew
 
+    if retImg:
+        qq = N.ones(a.shape, dtype=N.uint8)#N.select([a>x2,a>x1], [N.ones(a.shape, dtype=N.uint8)])
+        qq[a<=Tnew] = 0
+        return qq
+    else:
+        return Tnew
 
 
-def calc_threshold_otsu(a, histYX=None):
+def calc_threshold_otsu(a, histYX=None, retEM=False, retImg=False):
     """
     calculate a threshold value
     using "Otsu's Method"
     described in Ch. 10.3.3 in "Digital Image Processing"
 
-    returns threshold T
+    returns threshold T (1 for a>T; not >=T)
 
-    histYX, is the histogram of a -- a tuple(binCount, binPixelValue)
+    histYX, is the histogram of `a` -- a tuple(binCount, binPixelValue)
+
+    if retImg:
+        returns thresholded image as uint8 
+    elif retEM: 
+        returns (T, eta), where eta is the "segmentation measure" 
+                           (which might be Matlab's "effectiveness metric")
+
+    TODO FIXME: this assumes a unique maximum for s2_B; 
+                 otherwise an average of the corresponding T values *should* be returned
     """
-    import fftfuncs as F
+    from . import fftfuncs as F
 
     if histYX is None:
         h,x = histogramYX(a)
     else:
         h,x = histYX
-
-    p = F.zeroArrF(len(h))
-    p[:] = h/h.sum()
-    P = p.cumsum()
-    m = (x*p).cumsum()
-    m_G = m[-1]
-    s2_B = (m_G*P - m)**2 / (P*(1-P))
-
-    T = x[N.argmax(s2_B)] # findMax(
-
-    #s2_G = ((x-m_G)**2*p).sum()
-    #separability measure:
-    #eta  =  s2_B/s2_G
-    #eta[T]
-
-    return T
-
-def calc_threshold_otsu2(a, histYX=None):
-    """
-    calculate multiple (nT = 2 !!) threshold values
-    using "Otsu's Method"
-    described in Ch. 10.3.6 in "Digital Image Processing"
-
-    returns array of nT(=2) thresholds (T1,T2,...)
-
-    histYX, is the histogram of a -- a tuple(binCount, binPixelValue)
-    """
-    import fftfuncs as F
-
-    if histYX is None:
-        h,x = histogramYX(a)
-    else:
-        h,x = histYX
-
-    m_G = (h*x).sum()/h.sum()  # global mean
-
-    K = nT + 1 # number of classes
-    T=N.arange(0,K+1)
-    T[0]  = x[0] -1 # lower bound is fixed to min-1
-    T[K]  = x[-1]+1 # upper bound is fixed to max+1
 
     p = F.zeroArrD(len(h))
     p[:] = h
     p/=h.sum()
 
+    P = p.cumsum()       [:-1]# exclude last value; cumsum will be approx. 1 - causing division by zero
+    m = (x*p).cumsum() 
+    m_G = m[-1]
+    s2_B = (m_G*P - m[:-1])**2 / (P*(1-P))
+
+    k = N.argmax(s2_B)
+    T = x[ k ]
+
+    if retImg:
+        x1 = x[ k ]
+        qq = N.ones(a.shape, dtype=N.uint8)#N.select([a>x2,a>x1], [N.ones(a.shape, dtype=N.uint8)])
+        qq[a<=T] = 0
+        return qq
+    if retEM:
+        s2_G = ((x-m_G)**2*p).sum()
+        #separability measure:
+        eta  =  s2_B/s2_G
+
+        return T,eta[k]
+    else:
+        return T
+
+
+def calc_threshold_otsu2(a, histYX=None, retEM=False, retImg=False):
+    """
+    calculate multiple (i.e. 2; nT = 2 !!) threshold values
+    using "Otsu's Method"
+    described in Ch. 10.3.6 in "Digital Image Processing"
+    Also ref.: "A Fast Algorithm for Multilevel Thrsholding", Liao, Chen, Chung, 2001
+
+    ################## old:returns array of nT(=2) thresholds (T1,T2)
+    returns tuple of T1, T2   (1 for a>T; not >=T)
+
+    histYX, is the histogram of a -- a tuple(binCount, binPixelValue)
+
+    if retImg:
+        returns thresholded image as uint8 
+    elif retEM: 
+        returns ((T1,T2), eta), where eta is the "segmentation measure" 
+                                 (which might be Matlab's "effectiveness metric")
+
+    TODO FIXME: this assumes a unique maximum for s2_B; 
+                 otherwise an average of the corresponding T values *should* be returned
+    """
+    from . import fftfuncs as F
+    nT=2 # max-search is too slow for nT>= 3
+
+    if histYX is None:
+        h,x = histogramYX(a)
+    else:
+        h,x = histYX
+
+    nk = len(h) # number of bins
+
+    p = F.zeroArrD(len(h))
+    p[:] = h
+    p/=h.sum()
+
+    P = p.cumsum()       
+    m = (x*p).cumsum() 
+    m_G = m[-1]
+    #m_G = (h*x).sum()/h.sum()  # global mean
+
+    
+    otsu2Img = F.zeroArrF(nk, nk)
+
+    M = nT + 1 # number of classes
+    for Tk1 in range(1,nk-2): # leave room for 2 values, i.e  another threshold, at the top
+        omeg_1 = P[Tk1]
+        mu_1   = m[Tk1] / omeg_1
+        for Tk2 in range(Tk1+1, nk-1):
+            omeg_2 = P[Tk2] - omeg_1
+            omeg_3 = 1. -  P[Tk2]
+
+            mu_2   = (m[Tk2] - m[Tk1]) / omeg_2
+            mu_3   = (m[-1]-m[Tk2]) / omeg_3
+
+            otsu2Img[Tk1,Tk2] = \
+                 omeg_1*mu_1*mu_1 +\
+                 omeg_2*mu_2*mu_2 +\
+                 omeg_3*mu_3*mu_3
+            
+    #return otsu2Img
+    s2_B__prime, _, Tk1, Tk2 = findMax(otsu2Img)
+
+    if retImg:
+        x1,x2 = x[Tk1], x[Tk2]
+        qq = N.select([a>x2,a>x1], [2,N.ones(a.shape, dtype=N.uint8)])
+        return qq
+    if retEM:
+        omeg_1 = P[Tk1]
+        mu_1   = m[Tk1] / omeg_1
+        omeg_2 = P[Tk2] - omeg_1
+        omeg_3 = 1. -  P[Tk2]
+        mu_2   = (m[Tk2] - m[Tk1]) / omeg_2
+        mu_3   = (m[-1]-m[Tk2]) / omeg_3
+
+        mu_T = (omeg_1*mu_1 + omeg_2*mu_2 + omeg_3*mu_3)
+        s2_B = s2_B__prime - mu_T * mu_T
+
+        s2_G = ((x-m_G)**2*p).sum()
+        eta = s2_B / s2_G
+        return (x[Tk1], x[Tk2]), eta
+    else:
+        return (x[Tk1], x[Tk2])
+
+    '''
+    K = nT + 1 # number of classes
+    #T=N.arange(0,K+1, dtype=N.float64)
+    #T[0]  = x[0] -1 # lower bound is fixed to min-1
+    #T[K]  = x[-1]+1 # upper bound is fixed to max+1
+    Tk=N.arange(0,K+1, dtype=N.int) # theshold in units of "bin number"
+    Tk[0]  = -1 # lower bound is fixed to min-1
+    Tk[K]  = nk # upper bound is fixed to max+1
+    
+
+
     P  = F.zeroArrD(K)
     m  = F.zeroArrD(K)
 
     otsu2Img = F.zeroArrF(len(h), len(h))
-    for T1 in x[1:]:
-        for T2 in x[N.where((x>T1) & (x<x[-1]))]:
-
-            T[1] = T1
-            T[2] = T2
+    for Tk1 in range(1,nk-2): # leave room for 2 values, i.e  another threshold, at the top
+        for Tk2 in range(Tk1+1, nk-1):
+            # . x[N.where((x>T1) & (x<x[-1]))]:
+            Tk[1] = Tk1
+            Tk[2] = Tk2
     
-            ix =  [ N.where((x>T[i]) & (x<=T[i+1]))             for i in range(K) ]
+ #             N.where((x>T[i]) & (x<=T[i+1]))
+            ix =  [  N.arange(Tk[i]+1, Tk[i+1])            for i in range(K) ]
 
 
             for i in range(K):
@@ -2373,7 +2993,7 @@ def calc_threshold_otsu2(a, histYX=None):
 
             s2_B = (P[i]*(m[i]-m_G)**2).sum()
 
-            otsu2Img[T1,T2] = s2_B
+            otsu2Img[Tk1,Tk2] = s2_B
 
     #s2_G = ((x-m_G)**2*p).sum()
     #separability measure:
@@ -2381,6 +3001,371 @@ def calc_threshold_otsu2(a, histYX=None):
     #eta[T]
 
     return otsu2Img
+    '''
+    
+    
+
+def calc_threshold_otsu3(a, histYX=None, retEM=False, retImg=False):
+    """
+    calculate 3 threshold values using "Otsu's Method"
+    described in Ch. 10.3.6 in "Digital Image Processing"
+    Also ref.: "A Fast Algorithm for Multilevel Thrsholding", Liao, Chen, Chung, 2001
+
+    returns tuple of T1, T2, T3 (1 for a>T; not >=T)
+
+    histYX, is the histogram of a -- a tuple(binCount, binPixelValue)
+
+    if retImg:
+        returns thresholded image as uint8 
+    elif retEM: 
+        returns ((T1,T2,T3), eta), where eta is the "segmentation measure" 
+                           (which might be Matlab's "effectiveness metric")
+
+    TODO FIXME: this assumes a unique maximum for s2_B; 
+                 otherwise an average of the corresponding T values *should* be returned
+    """
+    from . import fftfuncs as F
+    nT=3
+
+    if histYX is None:
+        h,x = histogramYX(a)
+    else:
+        h,x = histYX
+
+    nk = len(h) # number of bins
+
+    p = F.zeroArrD(len(h))
+    p[:] = h
+    p/=h.sum()
+
+    P = p.cumsum()       
+    m = (x*p).cumsum() 
+    m_G = m[-1]
+    #m_G = (h*x).sum()/h.sum()  # global mean
+
+    
+    otsu2Img = F.zeroArrF(nk, nk, nk)
+    
+    M = nT + 1 # number of classes
+    for Tk1 in range(1,nk-nT-1): # leave room for nT values, i.e  another threshold, at the top
+        omeg_1 = P[Tk1]
+        mu_1   = m[Tk1] / omeg_1
+        for Tk2 in range(Tk1+1, nk-3):
+            omeg_2 = P[Tk2] - omeg_1
+            mu_2   = (m[Tk2] - m[Tk1]) / omeg_2
+
+            for Tk3 in range(Tk2+1, nk-2):
+                omeg_3 = P[Tk3] - P[Tk2]
+                mu_3   = (m[Tk3] - m[Tk2]) / omeg_3
+
+                omeg_4 = 1. -  P[Tk3]
+                mu_4   = (m[-1]-m[Tk3]) / omeg_4
+
+                otsu2Img[Tk1,Tk2,Tk3] = \
+                     omeg_1*mu_1*mu_1 +\
+                     omeg_2*mu_2*mu_2 +\
+                     omeg_3*mu_3*mu_3 +\
+                     omeg_4*mu_4*mu_4
+            
+    #return otsu2Img
+    s2_B__prime, Tk1, Tk2, Tk3 = findMax(otsu2Img)
+    x1,x2,x3 = x[Tk1], x[Tk2], x[Tk3]
+
+    if retImg:
+        qq = N.select([a>x3,a>x2,a>x1], [3,2,N.ones(a.shape, dtype=N.uint8)])
+        return qq
+    if retEM:
+        omeg_1 = P[Tk1]
+        mu_1   = m[Tk1] / omeg_1
+
+        omeg_2 = P[Tk2] - omeg_1
+        mu_2   = (m[Tk2] - m[Tk1]) / omeg_2
+
+        omeg_3 = P[Tk3] - P[Tk2]
+        mu_3   = (m[Tk3] - m[Tk2]) / omeg_3
+
+        omeg_4 = 1. -  P[Tk3]
+        mu_4   = (m[-1]-m[Tk3]) / omeg_4
+
+        mu_T = (omeg_1*mu_1 + omeg_2*mu_2 + omeg_3*mu_3 + omeg_4*mu_4)
+        s2_B = s2_B__prime - mu_T * mu_T
+
+        s2_G = ((x-m_G)**2*p).sum()
+        eta = s2_B / s2_G
+        return (x1,x2,x3), eta
+    else:
+        return (x1,x2,x3)
+
+
+###############################################################
+###############################################################
+
+#adapted from numpy's numeric.py
+
+def _getconv(dtype):
+    typ = dtype.type
+    if issubclass(typ, N.bool_):
+        return lambda x: bool(int(x))
+    if issubclass(typ, N.integer):
+        return int
+    elif issubclass(typ, N.floating):
+        return float
+    elif issubclass(typ, complex):
+        return complex
+    else:
+        return str
+
+def _string_like(obj):
+    try: obj + ''
+    except (TypeError, ValueError): return False
+    return True
+
+def saveTxt(arrND, fname, fmt='%8.3f', delimiter=' ', intro='',  transpose=False):
+    """
+    write 2D arrays as rows(-2 axis) of columns (last axis)
+    for each additional dimension, prepend a column for the axis index 
+      (total of arrNDndim-2 additional columns)
+    1D arrays are written as one value per line
+
+    list of arrays are converted into mockNDarrays
+
+    fname can be one of an open file, a filename or a filename ending on ".gz"
+
+    start by writing intro into the file
+      if intro does not end with "\\n", auto-append a newline
+
+    delimiter is used to separate the fields, eg delimiter ',' for
+    comma-separated values
+
+    if transpose: transpose last 2 dimensions of arrND before saving
+    """
+
+    if _string_like(fname):
+        if fname.endswith('.gz'):
+            import gzip
+            fh = gzip.open(fname,'wb')
+        else:
+            fh = file(fname,'w')
+    elif hasattr(fname, 'readline'):
+        fh = fname
+    else:
+        raise ValueError('fname must be a string or file handle')
+
+    if len(intro)>0:
+        fh.write(intro)
+        if intro[-1] != '\n':
+            fh.write('\n')
+
+    if not hasattr(arrND, "ndim"):
+        from .fftfuncs import mockNDarray
+        arrND = mockNDarray(*arrND)
+
+
+    if arrND.ndim == 1:
+        arrND = arrND.view()
+        arrND.shape = len(arrND), 1
+
+    if transpose:
+        nd = arrND.ndim
+        arrND = arrND.transpose( range(nd-2)+[nd-1, nd-2] )
+
+    if arrND.ndim > 2:
+        for i in N.ndindex(arrND.shape[:-2] ):
+            for row in arrND[i]:
+                fh.write( delimiter.join(map(str,i))+delimiter +
+                          delimiter.join([fmt%val for val in row]) + '\n')
+    else:
+        for row in arrND:
+            fh.write( delimiter.join([fmt%val for val in row]) + '\n')
+        
+def loadTxt(fname, ndim=3, dtype=None, delimiter=None, skipNlines=0, 
+            comments='#', converters=None, usecols=None):
+    """
+    load a text file into a ndimensional array (mockNDarray)
+
+    fname can be an open file or a filename or a filename ending on ".gz" or ".bz2"
+    if dtype is not None, force data to be dtype
+
+    delimiter is a string-like character used to seperate values in the
+    file. If delimiter is unspecified or none, any whitespace string is
+    a separator.
+
+    lines or trailing line parts starting with a character in comments are ignored
+
+    converters, if not None, is a dictionary mapping column number to
+    a function that will convert that column to a float.  Eg, if
+    column 0 is a date string: converters={0:datestr2num}
+    
+    usecols, if not None, is a sequence of integer column indexes to
+    extract where 0 is the first column, eg usecols=(1,4,5) to extract
+    just the 2nd, 5th and 6th columns
+
+    after applying converters (at first) and usecols (after that),
+    the first ndim-2 columns are interpreted as the nd-index
+    """
+    if _string_like(fname):
+        if fname.endswith('.gz'):
+            import gzip
+            fh = gzip.open(fname)
+        # zip is an archive - should we just read the first file !?
+        #elif fname.endswith('.zip'):
+        #    import zip
+        #    fh = zip.ZipFile(fname)
+        elif fname.endswith('.bz2'):
+            import bz2
+            fh = bz2.BZ2File(fname)
+        else:
+            fh = file(fname)
+    elif hasattr(fname, 'readline'):
+        fh = fname
+    else:
+        raise ValueError('fname must be a string or file handle')
+
+    from numpy.core import multiarray
+    dtype = multiarray.dtype(dtype)
+    defconv = _getconv(dtype)
+    converterseq = None    
+    if converters is None:
+        converters = {}
+        if dtype.names is not None:
+            converterseq = [_getconv(dtype.fields[name][0]) \
+                            for name in dtype.names]
+            
+    
+    ndim2 = ndim-2
+
+    # read file line by line into a dictionary of lists of rows
+    iiMax = [0] * ndim2
+    Xii = {}
+
+    _converterseq_beforeLoop = converterseq
+    for i,line in enumerate(fh):
+        if i<skipNlines: continue
+        line = line[:line.find(comments)].strip()
+        if not len(line): continue
+        vals = line.split(delimiter)
+
+        converterseq = _converterseq_beforeLoop
+        if converterseq is None:
+           converterseq = [converters.get(j,defconv) \
+                           for j in xrange(len(vals))]
+        if usecols is not None:
+            row = [converterseq[j](vals[j]) for j in usecols]
+        else:
+            row = [converterseq[j](val) for j,val in enumerate(vals)]
+        if dtype.names is not None:
+            row = tuple(row)
+
+        ii = tuple(map(int, row[:ndim2])) # nd-index
+        # line part AFTER nd-indices
+        row = row[ndim2:]
+
+
+        try:
+            X = Xii[ ii ]
+        except KeyError:
+            X = Xii[ ii ] = []
+
+        from __builtin__ import max
+        iiMax = [max(j,k) for j,k in zip(iiMax,ii)]
+        X.append(row)
+
+    # convert list of rows into (real) ndarrays; for each >2 dimensional index separately
+
+    for ii,X in Xii.iteritems():
+        Xii[ii] = X = N.array(X, dtype)
+        r,c = X.shape
+        if r==1 or c==1:
+            X.shape = max([r,c]),
+
+
+    if ndim2 == 0:
+        return Xii[()]
+
+    shape2 = tuple([im+1 for im in iiMax])
+
+    # convert dictionary of >2 dimensional indeces into nested lists of (real) arrays
+    nestedListsOfArrays = [None] * (shape2[-1])
+    for len_i in shape2[::-1][1:]: # same as [-2::-1]
+        nestedListsOfArrays= [nestedListsOfArrays[:] for  j in range(len_i)]
+
+    #print nestedListsOfArrays
+
+    #  # replace the Nones by the arrays
+    for ii,X in Xii.iteritems():
+        nLAi = nestedListsOfArrays
+        for iii in ii[:-1]:
+            nLAi = nLAi[iii]
+        nLAi[ii[-1]] = X
+
+    #print nestedListsOfArrays
+    #return nestedListsOfArrays
+
+    # turn list of lists into mockNDarrays (of mockNDarrays ... of real arrays)
+
+    #print ndim2, shape2
+    from .fftfuncs import mockNDarray
+    if ndim2 == 1:
+        nLAi = mockNDarray(*nestedListsOfArrays)
+    else: # 20090305: CHECK if this "else" section could now be handled (like the ndim2==1 case) by extended mockNDarray handling of nested lists
+        for order in range(ndim2,1 -1,-1):
+            for ii in N.ndindex( shape2[:order] ):
+                #print order, ii
+                nLAi = nestedListsOfArrays
+                for iii in ii[:-1]:
+                    nLAi = nLAi[iii]
+                nLAi[ii[-1]] = mockNDarray(*nLAi[ii[-1]])
+        nLAi = mockNDarray(*nLAi)
+    return nLAi
+
+def text2array(txt, transpose=False, comment='#', sep=None, convFcn = None, skipNlines=0, convertDecimalKomma=False):
+    """
+    Return an array containing the data contained as text in txt. This
+    function works for arbitrary data types (every array element can be
+    given by an arbitrary Python expression), but at the price of being
+    slow. 
+   
+    if convFcn is not None:
+        convFcn is called for each "cell" value - a string !.
+        useful here: "N.float32"  # WRONG !! THIS DOES NOT WORK FIXME !
+    else:
+        "eval" is called for each cell
+
+    if sep is None, any white space is seen as field separator
+    ignore all lines that start with any character contained in comment
+
+    if convertDecimalKomma:
+       convert e.g. "10,2" to "10.2"
+    """
+ 
+    if convertDecimalKomma:
+        #from .useful import strTranslate
+        if convFcn is not None:
+            def fn(numTxt):
+                return convFcn( strTranslate(numTxt, ',', '.') )
+        else:
+            def fn(numTxt):
+                return eval(strTranslate(numTxt, ',', '.'))
+    else:
+        if convFcn is not None:
+            def fn(x):
+                return convFcn(x)
+        else:
+            def fn(x):
+                return eval(x)
+
+
+    data = []
+    for line in txt.splitlines()[skipNlines:]:
+        if not line[0] in comment:
+            data.append(map(fn, line.split(sep)))
+    a = N.array(data)
+    if a.shape[0] == 1 or a.ndim>1 and a.shape[1] == 1:
+        a = N.ravel(a)
+
+    if transpose:
+        a = a.T
+    return a
 
 
 
@@ -2433,6 +3418,41 @@ def grep(pattern, *files):# , retList=False):
             fns = '_%0' + '%d'%(int(N.log10(n))+1) +'d'
     return ret
 
+
+def pathPrependToFilename(path, prefix):
+    """
+    given filename path containing multiple parent folders
+    change only the last "file name" part by prepending `prefix`;
+    keep all parent folder names unchanced
+    """
+    import os
+    f = os.path.split(path)
+    return os.path.join( *(f[:-1] + (prefix+f[-1],)) )
+
+def path_mkdir(newdir):
+    """
+    works the way a good mkdir should :)
+    - already exists, silently complete
+    - regular file in the way, raise an exception
+    - parent directory(ies) does not exist, make them as well
+
+    Recipe 82465: a friendly mkdir() 
+    http://code.activestate.com/recipes/82465/
+    """
+    import os
+    if os.path.isdir(newdir):
+        return
+    elif os.path.isfile(newdir):
+        raise OSError("a file with the same name as the desired " \
+                      "dir, '%s', already exists." % newdir)
+    else:
+        head, tail = os.path.split(newdir)
+        if head and not os.path.isdir(head):
+            path_mkdir(head)
+        #print "_mkdir %s" % repr(newdir)
+        if tail:
+            os.mkdir(newdir)
+
 def sgn(a):
     return N.sign(a)
 
@@ -2447,6 +3467,86 @@ def binaryRepr(x, count=8):
     """
     return "".join(map(lambda i:str((x>>i)&1), range(count-1, -1, -1)))
     
+
+
+
+
+##some fundtions from
+## http://wiki.python.org/moin/PythonDecoratorLibrary
+##
+def deco_simple_decorator(decorator):
+    """This decorator can be used to turn simple functions
+    into well-behaved decorators, so long as the decorators
+    are fairly simple. If a decorator expects a function and
+    returns a function (no descriptors), and if it doesn't
+    modify function attributes or docstring, then it is
+    eligible to use this. Simply apply @simple_decorator to
+    your decorator and it will automatically preserve the
+    docstring and function attributes of functions to which
+    it is applied.
+
+    from  http://wiki.python.org/moin/PythonDecoratorLibrary
+    """
+    def new_decorator(f):
+        g = decorator(f)
+        g.__name__ = f.__name__
+        g.__doc__ = f.__doc__
+        g.__dict__.update(f.__dict__)
+        return g
+    # Now a few lines needed to make simple_decorator itself
+    # be a well-behaved decorator.
+    new_decorator.__name__ = decorator.__name__
+    new_decorator.__doc__ = decorator.__doc__
+    new_decorator.__dict__.update(decorator.__dict__)
+    return new_decorator
+
+class deco_memoized(object):
+   """Decorator that caches a function's return value each time it is called.
+   If called later with the same arguments, the cached value is returned, and
+   not re-evaluated.
+
+   from  http://wiki.python.org/moin/PythonDecoratorLibrary
+   """
+   def __init__(self, func):
+      self.func = func
+      self.memoized_cache = {}
+
+      self.__call__.im_func.func_doc = func.__doc__
+      self.__call__.im_func.func_name = func.__name__
+      self.__call__.im_func.func_defaults = func.func_defaults
+
+   def __call__(self, *args):
+      try:
+         return self.memoized_cache[args]
+      except KeyError:
+         self.memoized_cache[args] = value = self.func(*args)
+         return value
+      except TypeError:
+         # uncachable -- for instance, passing a list as an argument.
+         # Better to not cache than to blow up entirely.
+         return self.func(*args)
+   def __repr__(self):
+   #   """Return the function's docstring."""
+   #   return self.func.__doc__
+       return "<memoized version of %r>" %(self.func,)
+   def __str__(self):
+       return "<memoized version of %s>" %(self.func,)
+
+def deco_addInstanceMethodTo(instance):
+    """
+    Easy adding methods to a class instance
+
+    from  http://wiki.python.org/moin/PythonDecoratorLibrary    
+    """
+    def decorator(f):
+        import new
+        f = new.instancemethod(f, instance, instance.__class__)
+        setattr(instance, f.func_name, f)
+        return f
+    return decorator
+
+## end http://wiki.python.org/moin/PythonDecoratorLibrary
+
 def fib(max=100, startWith0=True):
     """uses generator to iterate over sequence of Fibonacci numbers
     """
@@ -2542,3 +3642,426 @@ def iterIndices(shape):
         for i in range(shape[0]):
             for ii in iterIndices(shape[1:]):
                 yield (i,) + ii
+def iterPermutations(iterable, r=None):
+    """
+    # permutations('ABCD', 2) --> AB AC AD BA BC BD CA CB CD DA DB DC
+    # permutations(range(3)) --> 012 021 102 120 201 210
+    in Python 2.6 this is itertools.permutations
+    """
+    pool = tuple(iterable)
+    n = len(pool)
+    r = n if r is None else r
+    if r > n:
+        return
+    indices = range(n)
+    cycles = range(n, n-r, -1)
+    yield tuple(pool[i] for i in indices[:r])
+    while n:
+        for i in reversed(range(r)):
+            cycles[i] -= 1
+            if cycles[i] == 0:
+                indices[i:] = indices[i+1:] + indices[i:i+1]
+                cycles[i] = n - i
+            else:
+                j = cycles[i]
+                indices[i], indices[-j] = indices[-j], indices[i]
+                yield tuple(pool[i] for i in indices[:r])
+                break
+        else:
+            return
+def iterProduct(*args, **kwds):
+    """
+    iterProduct(*iterables[, repeat])  ## note: keyword-only argument !
+    # product('ABCD', 'xy') --> Ax Ay Bx By Cx Cy Dx Dy
+    # product(range(2), repeat=3) --> 000 001 010 011 100 101 110 111
+    in Python 2.6 this is itertools.product
+    """
+    pools = map(tuple, args) * kwds.get('repeat', 1)
+    result = [[]]
+    for pool in pools:
+        result = [x+[y] for x in result for y in pool]
+    for prod in result:
+        yield tuple(prod)
+
+
+
+def smooth1d(x,window_len=10,window='hanning'):
+    """smooth the data using a window with requested size.
+    
+    This method is based on the convolution of a scaled window with the signal.
+    The signal is prepared by introducing reflected copies of the signal 
+    (with the window size) in both ends so that transient parts are minimized
+    in the begining and end part of the output signal.
+    
+    input:
+        x: the input signal 
+        window_len: the dimension of the smoothing window
+        window: the type of window from 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'
+            flat window will produce a moving average smoothing.
+
+    output:
+        the smoothed signal
+        
+    (ref.: copy paste from http://www.scipy.org/Cookbook/SignalSmooth)
+    example:
+
+    t=linspace(-2,2,0.1)
+    x=sin(t)+randn(len(t))*0.1
+    y=smooth(x)
+    
+    see also: 
+    
+    numpy.hanning, numpy.hamming, numpy.bartlett, numpy.blackman, numpy.convolve
+    scipy.signal.lfilter
+ 
+    TODO: the window parameter could be the window itself if an array instead of a string   
+    """
+
+    x = N.asarray(x)
+
+    if x.ndim != 1:
+        raise ValueError, "smooth only accepts 1 dimension arrays."
+
+    if x.size < window_len:
+        raise ValueError, "Input vector needs to be bigger than window size."
+
+
+    if window_len<3:
+        return x
+
+
+    if not window in ['flat', 'hanning', 'hamming', 'bartlett', 'blackman']:
+        raise ValueError, "Window is on of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'"
+
+
+    s=N.r_[2*x[0]-x[window_len:1:-1],x,2*x[-1]-x[-1:-window_len:-1]]
+    #print(len(s))
+    if window == 'flat': #moving average
+        w=ones(window_len,'d')
+    else:
+        w=eval('N.'+window+'(window_len)')
+
+    y=N.convolve(w/w.sum(),s,mode='same')
+    return y[window_len-1:-window_len+1]
+
+
+
+def unique(s):
+    """Return a list of the elements in s, but without duplicates.
+
+    For example, unique([1,2,3,1,2,3]) is some permutation of [1,2,3],
+    unique("abcabc") some permutation of ["a", "b", "c"], and
+    unique(([1, 2], [2, 3], [1, 2])) some permutation of
+    [[2, 3], [1, 2]].
+
+    For best speed, all sequence elements should be hashable.  Then
+    unique() will usually work in linear time.
+
+    If not possible, the sequence elements should enjoy a total
+    ordering, and if list(s).sort() doesn't raise TypeError it's
+    assumed that they do enjoy a total ordering.  Then unique() will
+    usually work in O(N*log2(N)) time.
+
+    If that's not possible either, the sequence elements must support
+    equality-testing.  Then unique() will usually work in quadratic
+    time.
+
+    http://code.activestate.com/recipes/52560 by Tim Peters
+    """
+
+    n = len(s)
+    if n == 0:
+        return []
+
+    # Try using a dict first, as that's the fastest and will usually
+    # work.  If it doesn't work, it will usually fail quickly, so it
+    # usually doesn't cost much to *try* it.  It requires that all the
+    # sequence elements be hashable, and support equality comparison.
+    u = {}
+    try:
+        for x in s:
+            u[x] = 1
+    except TypeError:
+        del u  # move on to the next method
+    else:
+        return u.keys()
+
+    # We can't hash all the elements.  Second fastest is to sort,
+    # which brings the equal elements together; then duplicates are
+    # easy to weed out in a single pass.
+    # NOTE:  Python's list.sort() was designed to be efficient in the
+    # presence of many duplicate elements.  This isn't true of all
+    # sort functions in all languages or libraries, so this approach
+    # is more effective in Python than it may be elsewhere.
+    try:
+        t = list(s)
+        t.sort()
+    except TypeError:
+        del t  # move on to the next method
+    else:
+        assert n > 0
+        last = t[0]
+        lasti = i = 1
+        while i < n:
+            if t[i] != last:
+                t[lasti] = last = t[i]
+                lasti += 1
+            i += 1
+        return t[:lasti]
+
+    # Brute force is all that's left.
+    u = []
+    for x in s:
+        if x not in u:
+            u.append(x)
+    return u
+
+
+def flatten(x, mode="listsOnly"):
+    """flatten(sequence) -> list
+
+    Returns a single, flat list which contains all elements retrieved
+    from the sequence and all recursively contained sub-sequences
+    (iterables).
+
+    there are three different modes (semantic variations):
+       "listsOnly": flatten lists only, leave sub-tuples and other sub-seqs in tact
+       "tuplesAlso": flatten lists and tuples, leave other sub-seqs (like arrays) in tact
+       "all": flatten all interables into one flat lists
+    (only the first letters, "lis", "tup", "all" are significant !)
+
+    Examples:
+    >>> [1, 2, [3,4], (5,6)]
+    [1, 2, [3, 4], (5, 6)]
+    >>> U.flatten(_)
+    [1, 2, 3, 4, (5, 6)]
+    >>> flatten([[[1,2,3], (42,None)], [4,5], [6], 7, U.arrI(8,9,10)], mode='all')
+    [1, 2, 3, 42, None, 4, 5, 6, 7, 8, 9, 10]
+
+    (inspired by http://kogs-www.informatik.uni-hamburg.de/~meine/python_tricks)
+    """
+
+    result = []
+    if mode[:3] == "all":
+        for el in x:
+            #if isinstance(el, (list, tuple)):
+            if hasattr(el, "__iter__") and not isinstance(el, basestring):
+                result.extend(flatten(el, mode))
+            else:
+                result.append(el)
+    elif mode[:3] == "tup":
+        for el in x:
+            if isinstance(el, (list, tuple)):
+                result.extend(flatten(el, mode))
+            else:
+                result.append(el)
+    elif mode[:3] == "lis":
+        for el in x:
+            if isinstance(el, list):
+                result.extend(flatten(el, mode))
+            else:
+                result.append(el)
+
+    return result
+
+def hexdump(s, numsPerLine=16, ret=False):
+    """
+    dump any kind of string, ascii, encoded, or unicode, 
+    using the standard hex dump output format.
+    This is similar to the unix `hexdump` command.
+    
+    print `numsPerLine` characters (numbers!) per line.
+    (for unicode each char counts as 2)
+
+    if `ret` is False: print dump to stddout
+    else return it as string
+
+    (inspired by http://code.activestate.com/recipes/572181/)
+    """
+    FILTER = ''.join([(len(repr(chr(x))) == 3) and chr(x) or '.' 
+                      for x in range(256)])
+
+    """ dump any string, ascii or encoded, to formatted hex output """
+    def dumpString(src, length=16):
+        result = []
+        for i in xrange(0, len(src), length):
+           chars = src[i:i+length]
+           hex = ' '.join(["%02x" % ord(x) for x in chars])
+           printable = ''.join(["%s" % ((ord(x) <= 127 and FILTER[ord(x)]) or '.') for x in chars])
+           result.append("%04x  %-*s  %s" % (i, length*3, hex, printable))
+        return '\n'.join(result)
+
+    """ dump unicode string to formatted hex output """
+    def dumpUnicodeString(src, length=8):
+        result = []
+        for i in xrange(0, len(src), length):
+           unichars = src[i:i+length]
+           hex = ' '.join(["%04x" % ord(x) for x in unichars])
+           printable = ''.join(["%s" % ((ord(x) <= 127 and FILTER[ord(x)]) or '.') for x in unichars])
+           result.append("%04x  %-*s  %s" % (i*2, length*5, hex, printable))
+        return '\n'.join(result)
+
+
+
+    if isinstance(s, str):
+        res = dumpString(s, numsPerLine)
+    elif isinstance(s, unicode):
+        res = dumpUnicodeString(s, numsPerLine //2)
+    else:
+        raise ValueError, "s must be of type unicode or str"
+
+    if ret:
+        return res
+    else:
+        print res
+
+def zip_extractall(fn, outDir="", percent=0, verbose=False):
+    """
+    extract zip file into a directory (default to current working dir)
+
+    if verbose: print line for each file extracted
+    else(!) if percent>0: print note every `percent` increments
+            (measured by total number of files to be extracted)
+
+    (inspired by http://code.activestate.com/recipes/252508 By Doug Tolton)
+    (in Python 2.6 this will be zipfile.extractall())
+    """
+    import zipfile, os
+
+    '''seb
+    def _listdirs(zf):
+        """ Grabs all the directories in the zip structure
+        This is necessary to create the structure before trying
+        to extract the file to it. """
+        dirs = []
+
+        for name in zf.namelist():
+            if name.endswith('/'):
+                dirs.append(name)
+
+        dirs.sort()
+        return dirs
+    def _makedirs(directories, basedir):
+        """ Create any directories that don't currently exist """
+        for dir in directories:
+            curdir = os.path.join(basedir, dir)
+            if not os.path.exists(curdir):
+                os.mkdir(curdir)
+
+    def _createstructure(zf, outDir):
+        _makedirs(_listdirs(zf), outDir)
+    '''
+    if outDir:
+        path_mkdir(outDir) # silent noop if already exists
+
+    zf = zipfile.ZipFile(fn)
+
+    #seb # create directory structure to house files
+    #seb _createstructure(zf, outDir)
+
+    if percent:
+        num_files = len(zf.namelist())
+        divisions = 100 / percent
+        perc = int(num_files / divisions)
+    else:
+        perc=0
+
+    # extract files to directory structure
+    for i, name in enumerate(zf.namelist()):
+
+        if verbose == True:
+            print "Extracting %s" % name
+        elif perc > 0 and (i % perc) == 0 and i > 0:
+            complete = int (i / perc) * percent
+            print "%s%% complete" % complete
+
+        if not name.endswith('/'):
+            fn1 = os.path.join(outDir, name)
+            path_mkdir(os.path.dirname(fn1)) # silent noop if already exists
+            outfile = open(fn1, 'wb')
+            outfile.write(zf.read(name))
+            outfile.flush()
+            outfile.close()
+
+
+def zip_zipDir(fn, dir):
+    """
+    create new zip archive with filename `fn` and
+    put everything inside directory `dir` into it
+    
+    (inspired by http://coreygoldberg.blogspot.com/2009/07/python-zip-directories-recursively.html)
+    """
+    # check: 
+    # CHECK how about unicode names (encode in ASCII needed ??)
+    # http://coreygoldberg.blogspot.com/2009/07/python-zip-directories-recursively.html
+    # http://bytes.com/topic/python/answers/851018-how-zip-directory-python-using-zipfile
+    # http://bytes.com/topic/python/answers/845051-backup-zips
+    
+    #def zipper(dir, zip_file):
+    import zipfile, os
+    zip = zipfile.ZipFile(fn, 'w', compression=zipfile.ZIP_DEFLATED)
+    root_len = len(os.path.abspath(dir))
+    for root, dirs, files in os.walk(dir):
+        archive_root = os.path.abspath(root)[root_len:]
+        for f in files:
+            fullpath = os.path.join(root, f)
+            archive_name = os.path.join(archive_root, f)
+            #seb print f
+            zip.write(fullpath, archive_name, zipfile.ZIP_DEFLATED)
+    zip.close()
+    #seb return zip_file
+
+
+
+    
+
+
+
+def hasDuplicates(s):
+    """
+    returns True or False depending on `s` having duplicate entries
+    Items in `s` have to be hashable.
+    """
+
+    u = {}
+    for x in s:
+        if u.has_key(x):
+            return True
+        u[x] = 1
+    return False
+
+
+def normAngle(angle, abs=False, useDegree = True):
+    """
+    return equivalent of `angle` in -180<=..<180 range
+    if `abs` is True return absolute of that
+    """
+    # http://mail.scipy.org/pipermail/scipy-user/2009-November/023375.html
+    # http://thread.gmane.org/gmane.comp.python.scientific.user/22929
+    if useDegree:
+        r= N.fmod(a + 540, 360) - 180
+    else:
+        r= N.fmod(a + 3*N.pi, 2*N.pi) - N.pi
+    if abs:
+        return N.abs(r)
+    else:
+        return r
+
+def diffAngle(a1,a0, abs=False, useDegree = True):
+    """
+    returns a1-a0
+    handle wrap-around for -180 and +180
+    returned angle lies in -180<=..<180 range
+    if `abs` is True return absolute of that
+    """
+    # http://mail.scipy.org/pipermail/scipy-user/2009-November/023375.html
+    # http://thread.gmane.org/gmane.comp.python.scientific.user/22929
+    d = a1-a0
+    if useDegree:
+        r= N.fmod(d + 540, 360) - 180
+    else:
+        r= N.fmod(d + 3*N.pi, 2*N.pi) - N.pi
+    if abs:
+        return N.abs(r)
+    else:
+        return r

@@ -63,3 +63,25 @@
 2010-03-04 14:41:54 #25607> find .cmdprotocol | hg remove
 2010-03-04 14:42:10 #25607> hg remove `find .cmdprotocol`
 2010-03-04 14:42:58 #25607> hp commit -m 'small PIL changes'
+2010-03-04 14:43:01 #25607> hg commit -m 'small PIL changes'
+2010-03-04 14:43:26 #25607> hg push
+2010-03-04 14:43:30 #25607> hg help push
+2010-03-04 14:43:46 #25607> hg -v help push
+2010-03-04 14:45:07 #25607> hg -v
+2010-03-04 14:45:13 #25607> hg --version
+2010-03-04 14:47:38 #25607> hg push
+2010-03-04 14:48:08 #25607> hg push
+2010-03-04 14:51:56 #25607> hg push
+2010-03-04 14:52:04 #25607> hg -v push
+2010-03-04 14:52:31 #25607> hg -v push
+2010-03-04 14:54:52 #25607> hg -v push
+2010-03-04 14:59:26 #25607> sudo apt-get instal hgtk
+2010-03-04 14:59:31 #25607> sudo apt-get install hgtk
+2010-03-04 15:00:46 #25607> sudo apt-get install hgtk
+2010-03-04 15:02:04 #25607> hg push
+2010-03-04 15:02:16 #25607> hg push
+2010-03-04 15:03:41 #25607> cp -a ~/Priithon_25_lin/Priithon
+2010-03-04 15:03:44 #25607> cp -a ~/Priithon_25_lin/Priithon .
+2010-03-04 15:04:05 #25607> cp -a ~/Priithon_25_lin/Priithon/ .
+2010-03-04 15:04:06 #25607> ls -l
+2010-03-04 15:04:09 #25607> ls -lrt Priithon/
