@@ -13,3 +13,6 @@
 2010-03-04 14:20:14 #25607> emacs -nw .hg/hgrc
 2010-03-04 14:20:16 #25607> hg commit -m "Initial import of source as of April 2008."
 2010-03-04 14:21:08 #25607> emacs -nw .hg/hgrc
+2010-03-04 14:21:12 #25607> hg commit -m "Initial import of source as of April 2008."
+2010-03-04 14:23:24 #25607> hg push
+2010-03-04 14:24:39 #25607> emacs -nw .hgignore
