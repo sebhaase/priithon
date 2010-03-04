@@ -7,3 +7,4 @@ syntax: glob
 *.so
 *~
 .cmdprotocol
+.DS_Store
