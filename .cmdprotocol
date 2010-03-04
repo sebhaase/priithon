@@ -16,3 +16,14 @@
 2010-03-04 14:21:12 #25607> hg commit -m "Initial import of source as of April 2008."
 2010-03-04 14:23:24 #25607> hg push
 2010-03-04 14:24:39 #25607> emacs -nw .hgignore
+2010-03-04 14:25:00 #25607> hg commit
+2010-03-04 14:26:20 #25607> hg push
+2010-03-04 14:29:35 #25607> emacs -nw .hg/hgrc
+2010-03-04 14:29:47 #25607> emacs -nw .hg/hgrc
+2010-03-04 14:31:19 #25607> fg
+2010-03-04 14:31:26 #25607> hg commit
+2010-03-04 14:31:40 #25607> hg status
+2010-03-04 14:31:52 #25607> hg remove .cmdprotocol
+2010-03-04 14:32:06 #25607> hg help remove
+2010-03-04 14:32:26 #25607> find .cmdprotocol
+2010-03-04 14:32:31 #25607> hg status
