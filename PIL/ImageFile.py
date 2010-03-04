@@ -188,7 +188,7 @@ class ImageFile(Image.Image):
                 while 1:
                     s = read(self.decodermaxblock)
                     if not s:
-                        self.tile = []
+                        #20080528 - seb HACK - CHECK -- why is this set to [] -- prevents debugging !?  -- self.tile = []
                         raise IOError("image file is truncated (%d bytes not processed)" % len(b))
                     b = b + s
                     n, e = d.decode(b)

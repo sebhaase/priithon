@@ -141,6 +141,7 @@ OPEN_INFO = {
     ('l', 2, 1, 1, (8,8,0), ()): ("RGB", "RGB"),#seb -- found in LSM(Zeiss) files
     #('l', 2, 1, 1, (16,16,16), ()): ("RGB", "RGB"),#seb -- found in LSM(Zeiss) files
     ('l', 2, 1, 2, (8,8,8), ()): ("RGB", "RGB;R"),
+    #seb jeff's ('l', 2, 1, 1, (8,8,8,8), ()): ("RGBX", "RGBX"),#seb -- found in LSM(Zeiss) files
     ('l', 2, 1, 1, (8,8,8,8), (0,)): ("RGBX", "RGBX"),
     ('l', 2, 1, 1, (8,8,8,8), (1,)): ("RGBA", "RGBa"),
     ('l', 2, 1, 1, (8,8,8,8), (2,)): ("RGBA", "RGBA"),
@@ -395,7 +396,6 @@ class ImageFileDirectory:
         o16 = self.o16
         o32 = self.o32
 
-        #seb debug print "DEBUG: ifh saveA:", fp.tell(), "+ 12x", len(self.tags)
         fp.write(o16(len(self.tags)))
 
         # always write in ascending tag order
@@ -468,8 +468,6 @@ class ImageFileDirectory:
                 print tag, typ, count, repr(value), repr(data)
             fp.write(o16(tag) + o16(typ) + o32(count) + value)
 
-        #seb debug  print "DEBUG: ifh saveZ:", fp.tell()
-        #seb -- multi-page -- 
         fp.write("\0\0\0\0") # end of directory
 
         # pass 3: write auxiliary data to file
@@ -675,7 +673,6 @@ class TiffImageFile(ImageFile.ImageFile):
             raise SyntaxError("unknown data organization")
 
         # fixup palette descriptor
-        
         if self.mode == "P":
             #seb
             try:
@@ -741,7 +738,6 @@ def _save(im, fp, filename):
         # tiff header (write via IFD to get everything right)
         # PIL always starts the first IFD at offset 8
         fp.write(ifd.prefix + ifd.o16(42) + ifd.o32(8))
-        #seb debug  print "DEBUG: 000", fp.tell()
 
     ifd[IMAGEWIDTH] = im.size[0]
     ifd[IMAGELENGTH] = im.size[1]

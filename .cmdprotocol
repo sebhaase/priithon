@@ -32,3 +32,34 @@
 2010-03-04 14:33:21 #25607> ls ../priithon/
 2010-03-04 14:33:55 #25607> cd hg-client/
 2010-03-04 14:33:56 #25607> ls -l
+2010-03-04 14:34:13 #25607> hg commit
+2010-03-04 14:34:56 #25607> ls -l
+2010-03-04 14:35:26 #25607> diff -rq PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:35:59 #25607> diff -x '*.pyc' -rq PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:13 #25607> diff -x '*.pyc' -x '*~' -rq PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:15 #25607> diff -x '*.pyc' -x '*~' -rq PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:25 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:30 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:36:31 #25607> diff -x '*.pyc' -x '*~' -r PIL ~/Priithon_25_lin/PIL
+2010-03-04 14:38:37 #25607> cp -ia ~/Priithon_25_lin/PIL .
+2010-03-04 14:38:41 #25607> cp -ia ~/Priithon_25_lin/PIL .
+2010-03-04 14:39:47 #25607> mc
+2010-03-04 14:39:53 #25607> rm PIL/*.pyc
+2010-03-04 14:39:59 #25607> ls-lrt PIL/
+2010-03-04 14:40:03 #25607> ls -l PIL/
+2010-03-04 14:40:11 #25607> rm PIL/*.so
+2010-03-04 14:40:12 #25607> ls -l PIL/
+2010-03-04 14:40:26 #25607> hg status
+2010-03-04 14:41:44 #25607> find .cmdprotocol
+2010-03-04 14:41:54 #25607> find .cmdprotocol | hg remove
+2010-03-04 14:42:10 #25607> hg remove `find .cmdprotocol`
+2010-03-04 14:42:58 #25607> hp commit -m 'small PIL changes'
