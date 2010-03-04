@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.PriConfig</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;PriConfig
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.PriConfig-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.PriConfig-module.html">Module Priithon.PriConfig</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">here a list of "parameters" that control some of Priithon features are defined</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">They are loaded into the Y module</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">per "from ... import *" to prevent overwriting via reload(Y)</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">#old / obsolete  all parameters should start with a (single) leadig underscore</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-name">__author__</tt>  <tt class="py-op">=</tt> <tt class="py-string">"Sebastian Haase &lt;haase@msg.ucsf.edu&gt;"</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Priithon.PriShell.__license__=Priithon.PriShell-module.html#__license__,Variable Priithon.__license__=Priithon-module.html#__license__"><a title="Priithon.PriShell.__license__
+Priithon.__license__" class="py-name" href="#" onclick="return doclink('link-0', '__license__', 'link-0');">__license__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"BSD license - see LICENSE file"</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable Priithon.PriConfig.autoSaveSessionDir=Priithon.PriConfig-module.html#autoSaveSessionDir"><a title="Priithon.PriConfig.autoSaveSessionDir" class="py-name" href="#" onclick="return doclink('link-1', 'autoSaveSessionDir', 'link-1');">autoSaveSessionDir</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"_py"</tt> <tt class="py-comment"># relative to homedir if not starting with "/"</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable Priithon.PriConfig.autoSaveSessionFn=Priithon.PriConfig-module.html#autoSaveSessionFn"><a title="Priithon.PriConfig.autoSaveSessionFn" class="py-name" href="#" onclick="return doclink('link-2', 'autoSaveSessionFn', 'link-2');">autoSaveSessionFn</a></tt>  <tt class="py-op">=</tt> <tt class="py-string">"_pySession-%Y%m%d-autosave_%H%M%S.py"</tt> <tt class="py-comment"># pattern for time.strftime</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"># to save the list of commands into a separete file set the following != ""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># the given string will be appended to the autoSaveSessionFn (after removing the last 3 chars of that (".py")</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-3" class="py-name" targets="Variable Priithon.PriConfig.autoSaveSessionCommands=Priithon.PriConfig-module.html#autoSaveSessionCommands"><a title="Priithon.PriConfig.autoSaveSessionCommands" class="py-name" href="#" onclick="return doclink('link-3', 'autoSaveSessionCommands', 'link-3');">autoSaveSessionCommands</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"_commands.py"</tt>  </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable Priithon.PriConfig.saveSessionDefaultPrefix=Priithon.PriConfig-module.html#saveSessionDefaultPrefix"><a title="Priithon.PriConfig.saveSessionDefaultPrefix" class="py-name" href="#" onclick="return doclink('link-4', 'saveSessionDefaultPrefix', 'link-4');">saveSessionDefaultPrefix</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"_pySession-"</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable Priithon.PriConfig.viewerShowFloatCoordsWhenZoomingIn=Priithon.PriConfig-module.html#viewerShowFloatCoordsWhenZoomingIn"><a title="Priithon.PriConfig.viewerShowFloatCoordsWhenZoomingIn" class="py-name" href="#" onclick="return doclink('link-5', 'viewerShowFloatCoordsWhenZoomingIn', 'link-5');">viewerShowFloatCoordsWhenZoomingIn</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name" targets="Variable Priithon.wxPyPlot.True=Priithon.wxPyPlot-module.html#True"><a title="Priithon.wxPyPlot.True" class="py-name" href="#" onclick="return doclink('link-6', 'True', 'link-6');">True</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable Priithon.PriConfig.defaultGfxColor=Priithon.PriConfig-module.html#defaultGfxColor"><a title="Priithon.PriConfig.defaultGfxColor" class="py-name" href="#" onclick="return doclink('link-7', 'defaultGfxColor', 'link-7');">defaultGfxColor</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">)</tt>             <tt class="py-comment"># red</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable Priithon.PriConfig.viewerBkgColor=Priithon.PriConfig-module.html#viewerBkgColor"><a title="Priithon.PriConfig.viewerBkgColor" class="py-name" href="#" onclick="return doclink('link-8', 'viewerBkgColor', 'link-8');">viewerBkgColor</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">0.2</tt><tt class="py-op">,</tt> <tt class="py-number">0.3</tt><tt class="py-op">,</tt> <tt class="py-number">0.1</tt><tt class="py-op">,</tt> <tt class="py-number">0.0</tt><tt class="py-op">)</tt> <tt class="py-comment"># dark greenish</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable Priithon.PriConfig.viewer2maxNumColors=Priithon.PriConfig-module.html#viewer2maxNumColors"><a title="Priithon.PriConfig.viewer2maxNumColors" class="py-name" href="#" onclick="return doclink('link-9', 'viewer2maxNumColors', 'link-9');">viewer2maxNumColors</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable Priithon.PriConfig.viewerArrowKeysShiftBy=Priithon.PriConfig-module.html#viewerArrowKeysShiftBy"><a title="Priithon.PriConfig.viewerArrowKeysShiftBy" class="py-name" href="#" onclick="return doclink('link-10', 'viewerArrowKeysShiftBy', 'link-10');">viewerArrowKeysShiftBy</a></tt> <tt class="py-op">=</tt> <tt class="py-number">.3</tt>  <tt class="py-comment"># float for fraction of visible area</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt id="link-11" class="py-name" targets="Variable Priithon.PriConfig.maxOpenExceptionsWindows=Priithon.PriConfig-module.html#maxOpenExceptionsWindows"><a title="Priithon.PriConfig.maxOpenExceptionsWindows" class="py-name" href="#" onclick="return doclink('link-11', 'maxOpenExceptionsWindows', 'link-11');">maxOpenExceptionsWindows</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt id="link-12" class="py-name" targets="Variable Priithon.PriConfig.raiseEventHandlerExceptions=Priithon.PriConfig-module.html#raiseEventHandlerExceptions"><a title="Priithon.PriConfig.raiseEventHandlerExceptions" class="py-name" href="#" onclick="return doclink('link-12', 'raiseEventHandlerExceptions', 'link-12');">raiseEventHandlerExceptions</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="Priithon.wxPyPlot.True" class="py-name" href="#" onclick="return doclink('link-13', 'True', 'link-6');">True</a></tt> <tt class="py-comment"># if False, use traceback.print_exc() instead</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt id="link-14" class="py-name" targets="Variable Priithon.PriConfig.email_SMTP=Priithon.PriConfig-module.html#email_SMTP"><a title="Priithon.PriConfig.email_SMTP" class="py-name" href="#" onclick="return doclink('link-14', 'email_SMTP', 'link-14');">email_SMTP</a></tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> <tt class="py-comment">#"smtp.gmail.com" -- only works with TLS login ... </tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt id="link-15" class="py-name" targets="Variable Priithon.PriConfig.email_SMTP_PORT=Priithon.PriConfig-module.html#email_SMTP_PORT"><a title="Priithon.PriConfig.email_SMTP_PORT" class="py-name" href="#" onclick="return doclink('link-15', 'email_SMTP_PORT', 'link-15');">email_SMTP_PORT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> <tt class="py-comment"># gmail uses port 465 or 587 -- 0 really means default of 25</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt id="link-16" class="py-name" targets="Variable Priithon.PriConfig.email_SMTP_USER=Priithon.PriConfig-module.html#email_SMTP_USER"><a title="Priithon.PriConfig.email_SMTP_USER" class="py-name" href="#" onclick="return doclink('link-16', 'email_SMTP_USER', 'link-16');">email_SMTP_USER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> <tt class="py-comment"># user account - if your SMTP server requires login</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt id="link-17" class="py-name" targets="Variable Priithon.PriConfig.email_SMTP_PASSWORD=Priithon.PriConfig-module.html#email_SMTP_PASSWORD"><a title="Priithon.PriConfig.email_SMTP_PASSWORD" class="py-name" href="#" onclick="return doclink('link-17', 'email_SMTP_PASSWORD', 'link-17');">email_SMTP_PASSWORD</a></tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> <tt class="py-comment"># not here please ... only if your really want to.</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt id="link-18" class="py-name" targets="Variable Priithon.PriConfig.email_From=Priithon.PriConfig-module.html#email_From"><a title="Priithon.PriConfig.email_From" class="py-name" href="#" onclick="return doclink('link-18', 'email_From', 'link-18');">email_From</a></tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> <tt class="py-comment">#"yourgooglemailname@gmail.com" http://lifehacker.com/111166/how-to-use-gmail-as-your-smtp-server</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:34 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

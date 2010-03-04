@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.plt.plot_objects.text_object</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.plt-module.html">Package&nbsp;plt</a> ::
+        <a href="Priithon.plt.plot_objects-module.html">Module&nbsp;plot_objects</a> ::
+        Class&nbsp;text_object
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.plt.plot_objects.text_object-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class text_object</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_26" name="uml_class_diagram_for_priithon_26">
+<area shape="rect" href="Priithon.plt.plot_objects.text_object-class.html#__init__" title="Priithon.plt.plot_objects.text_object.__init__" alt="" coords="49,372,313,391"/>
+<area shape="rect" href="Priithon.plt.plot_objects.text_object-class.html#set_dc" title="Set the device context of the text_object for size calculations." alt="" coords="49,391,313,409"/>
+<area shape="rect" href="Priithon.plt.plot_objects.text_object-class.html#clear_dc" title="Get rid of the device context." alt="" coords="49,409,313,428"/>
+<area shape="rect" href="Priithon.plt.plot_objects.text_object-class.html#size" title="Calculate the width and length of the text in pixels." alt="" coords="49,428,313,447"/>
+<area shape="rect" href="Priithon.plt.plot_objects.text_object-class.html#set_size" title="Set the size of the box." alt="" coords="49,447,313,465"/>
+<area shape="rect" href="Priithon.plt.plot_objects.text_object-class.html#draw" title="Draw the text on the screen." alt="" coords="49,465,313,484"/>
+<area shape="rect" href="Priithon.plt.plot_objects.text_object-class.html" title="Text objects can be placed anywhere in the plot window." alt="" coords="48,347,315,485"/>
+<area shape="rect" href="Priithon.plt.plot_objects.text_window-class.html" title="Window is currently size=0,0 window for event handling." alt="" coords="139,515,224,541"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#left" title="Return the x&#45;coordinate of the left edge." alt="" coords="17,36,145,55"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#right" title="Return the x&#45;coordinate of the right edge." alt="" coords="17,55,145,73"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#top" title="Return the y&#45;coordinate of the top edge." alt="" coords="17,73,145,92"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#bottom" title="Return the y&#45;coordinate of the bottom edge." alt="" coords="17,92,145,111"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#center_x" title="Return the x&#45;coordinate of the boxes center." alt="" coords="17,111,145,129"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#center_y" title="Return the y&#45;coordinate of the left edge." alt="" coords="17,129,145,148"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#width" title="Return the width of the box (length along x&#45;axis)" alt="" coords="17,148,145,167"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#height" title="Return the width of the box (length along y&#45;axis)" alt="" coords="17,167,145,185"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#center" title="Return the coordinates of the boxes center as an array" alt="" coords="17,185,145,204"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#radial" title="Length of a ray extending from the center of the box at the specified polar angle (in radians) to the edge of the box" alt="" coords="17,204,145,223"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#move" title="Move box so that its top left corner is located at the specified location." alt="" coords="17,223,145,241"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#translate" title="Shift the box&#39;s location by the amount specifed in offset." alt="" coords="17,241,145,260"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#set_width" title="Set the width of the box." alt="" coords="17,260,145,279"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#contains" title="Priithon.plt.plot_utility.box_object.contains" alt="" coords="17,297,145,316"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html" title="Helpful for laying out rectangles." alt="" coords="16,11,147,317"/>
+<area shape="rect" href="Priithon.plt.plot_utility.property_object-class.html#clone_properties" title="Reset the objects attributes to their default values." alt="" coords="199,157,364,176"/>
+<area shape="rect" href="Priithon.plt.plot_utility.property_object-class.html#reset_default" title="Reset the objects attributes to their default values." alt="" coords="199,176,364,195"/>
+<area shape="rect" href="Priithon.plt.plot_utility.property_object-class.html" title="Base class for graph object with properties like &#39;color&#39;, &#39;font&#39;, etc." alt="" coords="197,132,365,196"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_26.gif" alt='' usemap="#uml_class_diagram_for_priithon_26" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<pre class="literalblock">
+Text objects can be placed anywhere in the plot window.  They have 
+&quot;font&quot;, &quot;color&quot;, and &quot;rotate&quot; attributes as well as &quot;visible&quot; 
+attribute that specifies whether the text is displayed.  The font
+attribute is a wxWindows font.  &quot;color&quot; can either be a named
+color (string such as 'black') or a 3-element sequence specifiy
+rgb values (0 to 255).  Rotatation is specified in degrees.  
+Currently only 0 and 90 degree rotation are supported.
+
+Issues:
+  -- The font attribute seems to be ignored when drawing
+     rotated text. (wxPython)
+  -- Need to think about origin when drawing rotated text.
+     The current approach assumes the box_object does not
+     rotate as the text rotates, so the insertion point changes
+     from the topleft to bottomleft corner.  This inconsistency
+     may be problematic in the future, but it was convienient
+     for laying out axis titles.
+  -- There is some ugliness with calculating the size of 
+     the object because text needs to know the dc it is drawing
+     in to know its size.  As a result, you must call set_dc(dc)
+     before calling size.  To keep from having a dc reference
+     hanging around, I added a clear_dc() method.  Necessary??   
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_objects.text_object-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">topleft</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">**attr</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_dc"></a><span class="summary-sig-name">set_dc</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span><br />
+      Set the device context of the text_object for size calculations.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.set_dc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clear_dc"></a><span class="summary-sig-name">clear_dc</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get rid of the device context.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.clear_dc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_objects.text_object-class.html#size" class="summary-sig-name">size</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculate the width and length of the text in pixels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.size">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_objects.text_object-class.html#set_size" class="summary-sig-name">set_size</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Set the size of the box.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.set_size">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_objects.text_object-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span><br />
+      Draw the text on the screen.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.draw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.plt.plot_utility.box_object-class.html">plot_utility.box_object</a></code></b>:
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#above">above</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#below">below</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#bottom">bottom</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center">center</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_on">center_on</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_on_x_of">center_on_x_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_on_y_of">center_on_y_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_x">center_x</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_y">center_y</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#contains">contains</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#height">height</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#inflate">inflate</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#left">left</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#left_of">left_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#move">move</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#radial">radial</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#radial_offset_from">radial_offset_from</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#right">right</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#right_of">right_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#same_as">same_as</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#set_height">set_height</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#set_width">set_width</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#top">top</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#translate">translate</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_all">trim_all</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_bottom">trim_bottom</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_left">trim_left</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_right">trim_right</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_top">trim_top</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#width">width</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.plt.plot_utility.property_object-class.html">plot_utility.property_object</a></code></b>:
+      <code><a href="Priithon.plt.plot_utility.property_object-class.html#clone_properties">clone_properties</a></code>,
+      <code><a href="Priithon.plt.plot_utility.property_object-class.html#reset_default">reset_default</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.plt.plot_objects.text_object-class.html#_attributes" class="summary-name" onclick="show_private();">_attributes</a> = <code title="{'color': ['black',
+           ['black',
+            'blue',
+            'green',
+            'red',
+            'yellow',
+            'cyan',
+            'brown',
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">color</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">topleft</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">**attr</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.plt.plot_utility.property_object-class.html#__init__">plot_utility.property_object.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="size"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">size</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.size">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Calculate the width and length of the text in pixels.
+
+If &quot;visible&quot; == 'no', size() always returns (0,0) regardless
+of the text size.  If the rotation angle is 90 degrees,
+the width of the text is actually its height on the screen
+and visa-versa.
+
+Issues:
+   -- haven't really thought about how to handle non-orthogonal
+      text rotations.
+
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.plt.plot_utility.box_object-class.html#size">plot_utility.box_object.size</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_size"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_size</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.set_size">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set the size of the box. sz is an (x,y) pair.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.plt.plot_utility.box_object-class.html#set_size">plot_utility.box_object.set_size</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="draw"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">draw</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dc</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#text_object.draw">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draw the text on the screen.</p>
+  <p>If the text is rotated by 90 degrees, the &quot;insertion point&quot; 
+  is the bottom-left corner.  Otherwise the stanard top-left corner is 
+  used.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_attributes"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_attributes</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">color</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+           <code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+            <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+            <code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+            <code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+            <code class="variable-quote">'</code><code class="variable-string">yellow</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+            <code class="variable-quote">'</code><code class="variable-string">cyan</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+            <code class="variable-quote">'</code><code class="variable-string">brown</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:17 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

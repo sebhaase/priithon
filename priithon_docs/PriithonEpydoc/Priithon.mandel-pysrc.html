@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.mandel</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;mandel
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.mandel-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.mandel-module.html">Module Priithon.mandel</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Priithon: "we need some nice images" ...</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"># author of original version:  Dan Goodman</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"># FAST FRACTALS WITH PYTHON AND NUMPY </tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"># March 22, 2009, 4:06 pm </tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring"># http://thesamovar.wordpress.com/2009/03/22/fast-fractals-with-python-and-numpy/</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"># modified for Priithon</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">absolute_import</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="mandel"></a><div id="mandel-def"><a name="L13"></a><tt class="py-lineno"> 13</tt> <a class="py-toggle" href="#" id="mandel-toggle" onclick="return toggle('mandel');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.mandel-module.html#mandel">mandel</a><tt class="py-op">(</tt><tt class="py-param">ny</tt><tt class="py-op">=</tt><tt class="py-number">512</tt><tt class="py-op">,</tt> <tt class="py-param">nx</tt><tt class="py-op">=</tt><tt class="py-number">512</tt><tt class="py-op">,</tt> <tt class="py-param">itermax</tt><tt class="py-op">=</tt><tt class="py-number">30</tt><tt class="py-op">,</tt> <tt class="py-param">ymin</tt><tt class="py-op">=</tt><tt class="py-op">-</tt><tt class="py-number">1.25</tt><tt class="py-op">,</tt> <tt class="py-param">ymax</tt><tt class="py-op">=</tt><tt class="py-number">1.25</tt><tt class="py-op">,</tt> <tt class="py-param">xmin</tt><tt class="py-op">=</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-param">xmax</tt><tt class="py-op">=</tt><tt class="py-number">.6</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="mandel-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="mandel-expanded"><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">    Fast mandelbrot computation using numpy.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">    (nx, ny) are the output image dimensions</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">    x: real axis</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">    y: imaginary axis</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">    itermax is the maximum number of iterations to do</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">    ymin, ymax, xmin, xmax specify the region of the</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">    set to compute.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-comment"># The point of iy and ix is that they are 2D arrays</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># giving the y-coord and x-coord at each point in</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># the array. The reason for doing this will become</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># clear below...</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">iy</tt><tt class="py-op">,</tt> <tt class="py-name">ix</tt> <tt class="py-op">=</tt> <tt id="link-0" class="py-name" targets="Variable Priithon.mandel.mgrid=Priithon.mandel-module.html#mgrid,Variable Priithon.plt.interface.mgrid=Priithon.plt.interface-module.html#mgrid,Variable Priithon.plt.mgrid=Priithon.plt-module.html#mgrid,Variable Priithon.plt.plot_objects.mgrid=Priithon.plt.plot_objects-module.html#mgrid,Variable Priithon.plt.plot_utility.mgrid=Priithon.plt.plot_utility-module.html#mgrid,Variable Priithon.plt.wxplt.mgrid=Priithon.plt.wxplt-module.html#mgrid"><a title="Priithon.mandel.mgrid
+Priithon.plt.interface.mgrid
+Priithon.plt.mgrid
+Priithon.plt.plot_objects.mgrid
+Priithon.plt.plot_utility.mgrid
+Priithon.plt.wxplt.mgrid" class="py-name" href="#" onclick="return doclink('link-0', 'mgrid', 'link-0');">mgrid</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">:</tt><tt class="py-name">ny</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt><tt class="py-name">nx</tt><tt class="py-op">]</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-comment"># Now y and x are the y-values and x-values at each</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># point in the array, linspace(start, end, n)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># is an array of n linearly spaced points between</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># start and end, and we then index this array using</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># numpy fancy indexing. If A is an array and I is</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># an array of indices, then A[I] has the same shape</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># as I and at each place i in I has the value A[i].</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">y</tt> <tt class="py-op">=</tt> <tt class="py-name">linspace</tt><tt class="py-op">(</tt><tt class="py-name">ymin</tt><tt class="py-op">,</tt> <tt class="py-name">ymax</tt><tt class="py-op">,</tt> <tt class="py-name">ny</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-name">iy</tt><tt class="py-op">]</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-name">x</tt> <tt class="py-op">=</tt> <tt class="py-name">linspace</tt><tt class="py-op">(</tt><tt class="py-name">xmin</tt><tt class="py-op">,</tt> <tt class="py-name">xmax</tt><tt class="py-op">,</tt> <tt class="py-name">nx</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-name">ix</tt><tt class="py-op">]</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-comment"># c is the complex number with the given y, x coords</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt><tt class="py-op">+</tt><tt class="py-name">complex</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-name">y</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-keyword">del</tt> <tt class="py-name">y</tt><tt class="py-op">,</tt> <tt class="py-name">x</tt> <tt class="py-comment"># save a bit of memory, we only need z</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-comment"># the output image coloured according to the number</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># of iterations it takes to get to the boundary</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># abs(z)&gt;2</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">img</tt> <tt class="py-op">=</tt> <tt class="py-name">zeros</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable Priithon.mockNDarray.mockNDarray.shape=Priithon.mockNDarray.mockNDarray-class.html#shape"><a title="Priithon.mockNDarray.mockNDarray.shape" class="py-name" href="#" onclick="return doclink('link-1', 'shape', 'link-1');">shape</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Variable Priithon.mockNDarray.mockNDarray.dtype=Priithon.mockNDarray.mockNDarray-class.html#dtype"><a title="Priithon.mockNDarray.mockNDarray.dtype" class="py-name" href="#" onclick="return doclink('link-2', 'dtype', 'link-2');">dtype</a></tt><tt class="py-op">=</tt><tt class="py-name">int</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-comment"># Here is where the improvement over the standard</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># algorithm for drawing fractals in numpy comes in.</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># We flatten all the arrays iy, ix and c. This</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># flattening doesn't use any more memory because</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># we are just changing the shape of the array, the</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># data in memory stays the same. It also affects</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># each array in the same way, so that index i in</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># array c has y, x coords iy[i], ix[i]. The way the</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># algorithm works is that whenever abs(z)&gt;2 we</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># remove the corresponding index from each of the</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># arrays iy, ix and c. Since we do the same thing</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># to each array, the correspondence between c and</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># the y, x coords stored in iy and ix is kept.</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">iy</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.shape" class="py-name" href="#" onclick="return doclink('link-3', 'shape', 'link-1');">shape</a></tt> <tt class="py-op">=</tt> \ </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">ix</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.shape" class="py-name" href="#" onclick="return doclink('link-4', 'shape', 'link-1');">shape</a></tt> <tt class="py-op">=</tt> \ </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.shape" class="py-name" href="#" onclick="return doclink('link-5', 'shape', 'link-1');">shape</a></tt> <tt class="py-op">=</tt> <tt class="py-name">ny</tt><tt class="py-op">*</tt><tt class="py-name">nx</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-comment"># we iterate z-&gt;z^2+c with z starting at 0, but the</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># first iteration makes z=c so we just start there.</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># We need to copy c because otherwise the operation</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># z-&gt;z^2 will send c-&gt;c^2.</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">z</tt> <tt class="py-op">=</tt> <tt class="py-name">copy</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-6" class="py-name" targets="Variable Priithon.viewer.i=Priithon.viewer-module.html#i,Variable Priithon.viewer2.i=Priithon.viewer2-module.html#i,Variable Priithon.viewerCommon.i=Priithon.viewerCommon-module.html#i"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-6', 'i', 'link-6');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">itermax</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">z</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">break</tt> <tt class="py-comment"># all points have escaped</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-comment"># equivalent to z = z*z+c but quicker and uses</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># less memory</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-7" class="py-name" targets="Variable Priithon.mandel.multiply=Priithon.mandel-module.html#multiply,Variable Priithon.plt.interface.multiply=Priithon.plt.interface-module.html#multiply,Variable Priithon.plt.multiply=Priithon.plt-module.html#multiply,Variable Priithon.plt.plot_objects.multiply=Priithon.plt.plot_objects-module.html#multiply,Variable Priithon.plt.plot_utility.multiply=Priithon.plt.plot_utility-module.html#multiply,Variable Priithon.plt.wxplt.multiply=Priithon.plt.wxplt-module.html#multiply"><a title="Priithon.mandel.multiply
+Priithon.plt.interface.multiply
+Priithon.plt.multiply
+Priithon.plt.plot_objects.multiply
+Priithon.plt.plot_utility.multiply
+Priithon.plt.wxplt.multiply" class="py-name" href="#" onclick="return doclink('link-7', 'multiply', 'link-7');">multiply</a></tt><tt class="py-op">(</tt><tt class="py-name">z</tt><tt class="py-op">,</tt> <tt class="py-name">z</tt><tt class="py-op">,</tt> <tt class="py-name">z</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Variable Priithon.mandel.add=Priithon.mandel-module.html#add,Variable Priithon.plt.add=Priithon.plt-module.html#add,Variable Priithon.plt.interface.add=Priithon.plt.interface-module.html#add,Variable Priithon.plt.plot_objects.add=Priithon.plt.plot_objects-module.html#add,Variable Priithon.plt.plot_utility.add=Priithon.plt.plot_utility-module.html#add,Variable Priithon.plt.wxplt.add=Priithon.plt.wxplt-module.html#add"><a title="Priithon.mandel.add
+Priithon.plt.add
+Priithon.plt.interface.add
+Priithon.plt.plot_objects.add
+Priithon.plt.plot_utility.add
+Priithon.plt.wxplt.add" class="py-name" href="#" onclick="return doclink('link-8', 'add', 'link-8');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">z</tt><tt class="py-op">,</tt> <tt class="py-name">c</tt><tt class="py-op">,</tt> <tt class="py-name">z</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-comment"># these are the points that have escaped</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">rem</tt> <tt class="py-op">=</tt> <tt class="py-name">abs</tt><tt class="py-op">(</tt><tt class="py-name">z</tt><tt class="py-op">)</tt><tt class="py-op">&gt;</tt><tt class="py-number">2.0</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-comment"># colour them with the iteration number, we</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># add one so that points which haven't</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># escaped have 0 as their iteration number,</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># this is why we keep the arrays iy and ix</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># because we need to know which point in img</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># to colour</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">img</tt><tt class="py-op">[</tt><tt class="py-name">iy</tt><tt class="py-op">[</tt><tt class="py-name">rem</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">ix</tt><tt class="py-op">[</tt><tt class="py-name">rem</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-9', 'i', 'link-6');">i</a></tt><tt class="py-op">+</tt><tt class="py-number">1</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-comment"># -rem is the array of points which haven't</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># escaped, in numpy -A for a boolean array A</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># is the NOT operation.</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">rem</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-name">rem</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-comment"># So we select out the points in</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># z, iy, ix and c which are still to be</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># iterated on in the next step</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">z</tt> <tt class="py-op">=</tt> <tt class="py-name">z</tt><tt class="py-op">[</tt><tt class="py-name">rem</tt><tt class="py-op">]</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">iy</tt><tt class="py-op">,</tt> <tt class="py-name">ix</tt> <tt class="py-op">=</tt> <tt class="py-name">iy</tt><tt class="py-op">[</tt><tt class="py-name">rem</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">ix</tt><tt class="py-op">[</tt><tt class="py-name">rem</tt><tt class="py-op">]</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt class="py-name">c</tt><tt class="py-op">[</tt><tt class="py-name">rem</tt><tt class="py-op">]</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">img</tt> </tt>
+</div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt><tt class="py-op">==</tt><tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">pylab</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">time</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-name">start</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-name">I</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Module Priithon.mandel=Priithon.mandel-module.html,Function Priithon.mandel.mandel()=Priithon.mandel-module.html#mandel"><a title="Priithon.mandel
+Priithon.mandel.mandel" class="py-name" href="#" onclick="return doclink('link-10', 'mandel', 'link-10');">mandel</a></tt><tt class="py-op">(</tt><tt class="py-number">400</tt><tt class="py-op">,</tt> <tt class="py-number">400</tt><tt class="py-op">,</tt> <tt class="py-number">100</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">1.25</tt><tt class="py-op">,</tt> <tt class="py-number">1.25</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-number">.5</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">'Time taken:'</tt><tt class="py-op">,</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-name">start</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-name">I</tt><tt class="py-op">[</tt><tt class="py-name">I</tt><tt class="py-op">==</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">101</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-name">img</tt> <tt class="py-op">=</tt> <tt class="py-name">imshow</tt><tt class="py-op">(</tt><tt class="py-name">I</tt><tt class="py-op">,</tt> <tt class="py-name">origin</tt><tt class="py-op">=</tt><tt class="py-string">'lower left'</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-name">img</tt><tt class="py-op">.</tt><tt class="py-name">write_png</tt><tt class="py-op">(</tt><tt class="py-string">'mandel.png'</tt><tt class="py-op">,</tt> <tt class="py-name">noscale</tt><tt class="py-op">=</tt><tt id="link-11" class="py-name" targets="Variable Priithon.wxPyPlot.True=Priithon.wxPyPlot-module.html#True"><a title="Priithon.wxPyPlot.True" class="py-name" href="#" onclick="return doclink('link-11', 'True', 'link-11');">True</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">"saved image to 'mandel.png'"</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:28 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

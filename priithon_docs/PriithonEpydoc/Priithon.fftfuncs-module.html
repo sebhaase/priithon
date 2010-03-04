@@ -1,0 +1,2499 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.fftfuncs</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;fftfuncs
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.fftfuncs-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module fftfuncs</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html">source&nbsp;code</a></span></p>
+<p>Priithon F module: F as in FFT (todo: cleanup) and as in Fields 
+  (think, physics - or German)</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Sebastian Haase &lt;haase@msg.ucsf.edu&gt;
+      </p>
+      <p><strong>License:</strong>
+        BSD license - see LICENSE file
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__fromfunction"></a><span class="summary-sig-name">__fromfunction</span>(<span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">s</span>,
+        <span class="summary-sig-arg">t</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#__fromfunction">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_normalize_shape"></a><span class="summary-sig-name">_normalize_shape</span>(<span class="summary-sig-arg">shape</span>)</span><br />
+      return shape in case a scalar was given: return (shape,)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#_normalize_shape">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_normailze_ndparm"></a><span class="summary-sig-name">_normailze_ndparm</span>(<span class="summary-sig-arg">ndparm</span>,
+        <span class="summary-sig-arg">rank</span>)</span><br />
+      check that nd parm is either scalar or of length rank if scalar 
+      return (ndparm,)*rank</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#_normailze_ndparm">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zeroArr"></a><span class="summary-sig-name">zeroArr</span>(<span class="summary-sig-arg">dtype</span>,
+        <span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns array of given dtype and shape</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#zeroArrF" class="summary-sig-name">zeroArrF</a>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns 'single prec.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrF">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#zeroArrD" class="summary-sig-name">zeroArrD</a>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns 'double prec.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrD">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#zeroArrC" class="summary-sig-name">zeroArrC</a>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns 'single prec.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrC">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#zeroArrCC" class="summary-sig-name">zeroArrCC</a>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns 'double prec.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrCC">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zeroArrU"></a><span class="summary-sig-name">zeroArrU</span>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns '16bit unsigned int' array of given shape</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrU">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zeroArrI"></a><span class="summary-sig-name">zeroArrI</span>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns '32bit signed int' array of given shape</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrI">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zeroArrS"></a><span class="summary-sig-name">zeroArrS</span>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns '16bit signed int' array of given shape</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrS">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zeroArrB"></a><span class="summary-sig-name">zeroArrB</span>(<span class="summary-sig-arg">*shape</span>)</span><br />
+      allocates and returns '8 bit unsigned int' array of given shape</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrB">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="copyPadded"></a><span class="summary-sig-name">copyPadded</span>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>,
+        <span class="summary-sig-arg">pad</span>=<span class="summary-sig-default">0</span>)</span><br />
+      copy (smaller) array a into center of (larger) array b set border 
+      values in b to 'pad' if a is really larger than b than it is the 
+      inverse operation (and 'pad' is ignored)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#copyPadded">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#rgb2gray" class="summary-sig-name">rgb2gray</a>(<span class="summary-sig-arg">rgb</span>,
+        <span class="summary-sig-arg">colorAxis</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      converts truecolor image `rgb` to grayscale intensity image.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rgb2gray">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getByteSwapped"></a><span class="summary-sig-name">getByteSwapped</span>(<span class="summary-sig-arg">arr</span>)</span><br />
+      returns byteswapped version of arr all values should be the same as 
+      in arr only memory representation and byteorder-flag are changed</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getByteSwapped">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#getWithoutBorder" class="summary-sig-name">getWithoutBorder</a>(<span class="summary-sig-arg">arr</span>,
+        <span class="summary-sig-arg">border</span>=<span class="summary-sig-default">10</span>)</span><br />
+      returns 'view' of arr excluding border</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getWithoutBorder">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#getPadded" class="summary-sig-name">getPadded</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">shape</span>,
+        <span class="summary-sig-arg">pad</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">None</span>)</span><br />
+      create and return array b of given shape and dtype(default: use a.dtype)...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getPadded">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#getThresholded" class="summary-sig-name">getThresholded</a>(<span class="summary-sig-arg">arr</span>,
+        <span class="summary-sig-arg">min</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">force0Base</span>=<span class="summary-sig-default">False</span>)</span><br />
+      creates new array with same values as 
+arr except where arr is less than min.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getThresholded">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="bin2d"></a><span class="summary-sig-name">bin2d</span>(<span class="summary-sig-arg">inArr</span>,
+        <span class="summary-sig-arg">outArr</span>,
+        <span class="summary-sig-arg">binX</span>=<span class="summary-sig-default">2</span>,
+        <span class="summary-sig-arg">binY</span>=<span class="summary-sig-default">2</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#bin2d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getXZview"></a><span class="summary-sig-name">getXZview</span>(<span class="summary-sig-arg">arr</span>,
+        <span class="summary-sig-arg">zaxis</span>=<span class="summary-sig-default">-3</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getXZview">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getYZview"></a><span class="summary-sig-name">getYZview</span>(<span class="summary-sig-arg">arr</span>,
+        <span class="summary-sig-arg">zaxis</span>=<span class="summary-sig-default">-3</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getYZview">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#getHistEqualizedF" class="summary-sig-name">getHistEqualizedF</a>(<span class="summary-sig-arg">arr</span>,
+        <span class="summary-sig-arg">histYX</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">nBins</span>=<span class="summary-sig-default">None</span>)</span><br />
+      calculate and return the histogram equalized copy of arr 
+    (dtype=float32, min..max = 0..1)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getHistEqualizedF">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#radialPhiArr" class="summary-sig-name">radialPhiArr</a>(<span class="summary-sig-arg">shape</span>,
+        <span class="summary-sig-arg">func</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      generates and returns radially symmetric function sampled in 
+      volume(image) of shape shape if orig is None the origin defaults to 
+      the center func is a 1D function with 2 paramaters: r,phi</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#radialPhiArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#radialArr" class="summary-sig-name">radialArr</a>(<span class="summary-sig-arg">shape</span>,
+        <span class="summary-sig-arg">func</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      generates and returns radially symmetric function sampled in volume(image) of shape shape
+if orig is None the origin defaults to the center
+func is a 1D function with 1 paramater: r</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#radialArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#maxNormRadialArr" class="summary-sig-name">maxNormRadialArr</a>(<span class="summary-sig-arg">shape</span>,
+        <span class="summary-sig-arg">func</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      like radialArr but instead of using euclidian distance to determine r...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#maxNormRadialArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="mexhat"></a><span class="summary-sig-name">mexhat</span>(<span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">dim</span>=<span class="summary-sig-default">1</span>)</span><br />
+      use LoG instead for proper scaling and normalization in dim&gt;1</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#mexhat">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#LoG" class="summary-sig-name">LoG</a>(<span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">sigma</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dim</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">r0</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">peakVal</span>=<span class="summary-sig-default">None</span>)</span><br />
+      note: returns *negative* Laplacian-of-Gaussian (aka.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#LoG">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#LoGArr" class="summary-sig-name">LoGArr</a>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">r0</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">sigma</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">peakVal</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      returns n-dim Laplacian-of-Gaussian (aka.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#LoGArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cone"></a><span class="summary-sig-name">cone</span>(<span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">dim</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">Yscale</span>=<span class="summary-sig-default">1.0</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#cone">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="coneArr"></a><span class="summary-sig-name">coneArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">integralScale</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#coneArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="discArr"></a><span class="summary-sig-name">discArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">valIn</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">valOut</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#discArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ringArr"></a><span class="summary-sig-name">ringArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">radius1</span>=<span class="summary-sig-default">20</span>,
+        <span class="summary-sig-arg">radius2</span>=<span class="summary-sig-default">40</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#ringArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="squareArr"></a><span class="summary-sig-name">squareArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">valIn</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">valOut</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#squareArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="mexhatArr"></a><span class="summary-sig-name">mexhatArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">scaleHalfMax</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#mexhatArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cosSqDiscArr"></a><span class="summary-sig-name">cosSqDiscArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">crop</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      radius is r-distance where functions == 0 if crop is True forces all 
+      values at r &gt; radius to 0</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#cosSqDiscArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="sinc"></a><span class="summary-sig-name">sinc</span>(<span class="summary-sig-arg">r</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#sinc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="sincArr"></a><span class="summary-sig-name">sincArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">crop</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      radius is r-distance where functions == 0 if crop is True forces all 
+      values at r &gt; radius to 0</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#sincArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#gaussian" class="summary-sig-name">gaussian</a>(<span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">dim</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">sigma</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">integralScale</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">peakVal</span>=<span class="summary-sig-default">None</span>)</span><br />
+      returns n-dim Gaussian centered at 0...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#gaussian">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#gaussianArr" class="summary-sig-name">gaussianArr</a>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">sigma</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">integralScale</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">peakVal</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      returns n-dim Gaussian...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#gaussianArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#lorentzian" class="summary-sig-name">lorentzian</a>(<span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">dim</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">sigma</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">integralScale</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">peakVal</span>=<span class="summary-sig-default">None</span>)</span><br />
+      returns n-dim Lorentzian (Cauchy) function centered at 0...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#lorentzian">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#lorentzianArr" class="summary-sig-name">lorentzianArr</a>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">sigma</span>=<span class="summary-sig-default">30</span>,
+        <span class="summary-sig-arg">integralScale</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">peakVal</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      returns n-dim Lorentzian (Cauchy) function...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#lorentzianArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#sigmoid" class="summary-sig-name">sigmoid</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">x0</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">b</span>=<span class="summary-sig-default">1</span>)</span><br />
+      returns the sigmoid function at x.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#sigmoid">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="noiseArr"></a><span class="summary-sig-name">noiseArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">stddev</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">mean</span>=<span class="summary-sig-default">0.0</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#noiseArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="poissonArr"></a><span class="summary-sig-name">poissonArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">mean</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.uint16'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#poissonArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="poissonize"></a><span class="summary-sig-name">poissonize</span>(<span class="summary-sig-arg">arr</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.uint16'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#poissonize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="testImgR"></a><span class="summary-sig-name">testImgR</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      some  non symmetric test image (weird &quot;R shape&quot;)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#testImgR">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#rampArr" class="summary-sig-name">rampArr</a>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">axis</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">start</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">stop</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">None</span>)</span><br />
+      return arr with values increasing along `axis`
+starting with start</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rampArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#binaryStructure_Zero" class="summary-sig-name">binaryStructure_Zero</a>(<span class="summary-sig-arg">rank</span>,
+        <span class="summary-sig-arg">connectivity</span>)</span><br />
+      returns  nd.generate_binary_structure</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#binaryStructure_Zero">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#binaryStructure_2dDisc_in3d" class="summary-sig-name">binaryStructure_2dDisc_in3d</a>(<span class="summary-sig-arg">shape2d</span>=<span class="summary-sig-default"><code class="variable-group">(</code>5<code class="variable-op">, </code>5<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">r</span>=<span class="summary-sig-default">2.5</span>)</span><br />
+      returns bool array shape=(3,&lt;shape2d&gt;)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#binaryStructure_2dDisc_in3d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="shuffle4irfft"></a><span class="summary-sig-name">shuffle4irfft</span>(<span class="summary-sig-arg">arr</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#shuffle4irfft">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#shift" class="summary-sig-name">shift</a>(<span class="summary-sig-arg">arr</span>,
+        <span class="summary-sig-arg">delta</span>=<span class="summary-sig-default">None</span>)</span><br />
+      returns new array: arr shifted by delta (tuple)
+   it uses rfft, multiplying with &quot;shift array&quot;, irfft
+delta defaults to half of arr.shape</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#shift">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="fourierRealShiftArr"></a><span class="summary-sig-name">fourierRealShiftArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">delta</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#fourierRealShiftArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="fourierShiftArr"></a><span class="summary-sig-name">fourierShiftArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">delta</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">meantForRealFFT</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#fourierShiftArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#fft" class="summary-sig-name">fft</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">minCdtype</span>=<span class="summary-sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span><br />
+      calculate nd fourier transform
+performs full, i.e.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#fft">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#ifft" class="summary-sig-name">ifft</a>(<span class="summary-sig-arg">af</span>,
+        <span class="summary-sig-arg">normalize</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">minCdtype</span>=<span class="summary-sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span><br />
+      calculate nd inverse fourier transform
+performs full, i.e.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#ifft">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#rfft" class="summary-sig-name">rfft</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">minFdtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      calculate nd fourier transform
+performs real- fft, i.e.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rfft">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#irfft" class="summary-sig-name">irfft</a>(<span class="summary-sig-arg">af</span>,
+        <span class="summary-sig-arg">normalize</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">minCdtype</span>=<span class="summary-sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span><br />
+      calculate nd inverse fourier transform
+performs real- ifft, i.e.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#irfft">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#rfft2d" class="summary-sig-name">rfft2d</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">minFdtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      calculate (section-wise) 2d fourier transform
+performs real- fft, i.e.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rfft2d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#irfft2d" class="summary-sig-name">irfft2d</a>(<span class="summary-sig-arg">af</span>,
+        <span class="summary-sig-arg">preserve</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">normalize</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">minCdtype</span>=<span class="summary-sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span><br />
+      calculate (section-wise) 2d inverse fourier transform
+performs real- ifft, i.e.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#irfft2d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#convolve" class="summary-sig-name">convolve</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>,
+        <span class="summary-sig-arg">conj</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">killDC</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">minFdtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span><br />
+      calculate convolution of `a` and `b`
+   (using rfft, multiplication, then irfft)
+if  `conj` is true:
+   calculate correlation instead ! 
+   (after the fft the `bf` is conjucated)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#convolve">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="drawLine"></a><span class="summary-sig-name">drawLine</span>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">p0</span>,
+        <span class="summary-sig-arg">p1</span>,
+        <span class="summary-sig-arg">val</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">includeLast</span>=<span class="summary-sig-default">True</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#drawLine">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="drawHexPattern2d"></a><span class="summary-sig-name">drawHexPattern2d</span>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">d</span>=<span class="summary-sig-default">20</span>,
+        <span class="summary-sig-arg">sizeYX</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">yx0</span>=<span class="summary-sig-default"><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">val</span>=<span class="summary-sig-default">1</span>)</span><br />
+      fill (each section 2d of) a with pixel value 'val' at the (rounded) 
+      pixel-position of a hexagonal grid grid size is d grid strats at 
+      corner pixel yx0</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#drawHexPattern2d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zzern_r"></a><span class="summary-sig-name">zzern_r</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">m</span>,
+        <span class="summary-sig-arg">r</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zzern_r">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zzern_rcos"></a><span class="summary-sig-name">zzern_rcos</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">m</span>,
+        <span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">phi</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zzern_rcos">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zzern_rsin"></a><span class="summary-sig-name">zzern_rsin</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">m</span>,
+        <span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">phi</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zzern_rsin">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zzernikeNMCosArr"></a><span class="summary-sig-name">zzernikeNMCosArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">n</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">m</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">crop</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zzernikeNMCosArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zzernikeNMSinArr"></a><span class="summary-sig-name">zzernikeNMSinArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">n</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">m</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">crop</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zzernikeNMSinArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zzernikeN0Arr"></a><span class="summary-sig-name">zzernikeN0Arr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">n</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">crop</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zzernikeN0Arr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zzernikeArr"></a><span class="summary-sig-name">zzernikeArr</span>(<span class="summary-sig-arg">shape</span>=<span class="summary-sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">no</span>=<span class="summary-sig-default">9</span>,
+        <span class="summary-sig-arg">crop</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">orig</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">&lt;type 'numpy.float32'&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zzernikeArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#lowPassGaussFilter" class="summary-sig-name">lowPassGaussFilter</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">sigma</span>=<span class="summary-sig-default">5</span>)</span><br />
+      still something left for TODO:...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#lowPassGaussFilter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.fftfuncs-module.html#mexF2d" class="summary-sig-name">mexF2d</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">sigma2d</span>)</span><br />
+      calculate -nd.gaussian_laplace sectionwise, using output=None, 
+      mode=&quot;reflect&quot;, cval=0.0</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#mexF2d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="defshape"></a><span class="summary-name">defshape</span> = <code title="(256, 256)"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_mexhatNorm"></a><span class="summary-name">_mexhatNorm</span> = <code title="0.86732507058407771">0.86732507058407771</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="zeroArrF"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zeroArrF</span>(<span class="sig-arg">*shape</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrF">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>allocates and returns 'single prec. float' array of given shape</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="zeroArrD"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zeroArrD</span>(<span class="sig-arg">*shape</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrD">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>allocates and returns 'double prec. float' array of given shape</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="zeroArrC"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zeroArrC</span>(<span class="sig-arg">*shape</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrC">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>allocates and returns 'single prec. complex' array of given shape</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="zeroArrCC"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zeroArrCC</span>(<span class="sig-arg">*shape</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#zeroArrCC">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>allocates and returns 'double prec. complex' array of given shape</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="rgb2gray"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">rgb2gray</span>(<span class="sig-arg">rgb</span>,
+        <span class="sig-arg">colorAxis</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rgb2gray">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>converts truecolor image `rgb` to grayscale intensity image. 
+  Eliminating hue and saturation, luminance is calculated as 0.2989 * R + 
+  0.5870 * G + 0.1140 * B</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getWithoutBorder"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getWithoutBorder</span>(<span class="sig-arg">arr</span>,
+        <span class="sig-arg">border</span>=<span class="sig-default">10</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getWithoutBorder">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+returns 'view' of arr excluding border
+
+if border is a scalar:
+   border elements get cut out on both ends in each axis
+if border is an array 
+   the number of cut out elements in axis a in taken from border[a]
+   if border length is to short, border gets extended with its &quot;last&quot; entry
+      -&gt; e.g. arr.ndim=3, border=(0,10) --&gt; border gets changed to (0,10,10)
+
+array will not be contiguous
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getPadded"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPadded</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">shape</span>,
+        <span class="sig-arg">pad</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getPadded">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+create and return array b of given shape and dtype(default: use a.dtype)
+copy (smaller) array a into center of (larger) array b
+set border values in b to 'pad'
+in case that 'a' is larger than 'b' then it the inverse operation is done
+  (and 'pad' is ignored)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getThresholded"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getThresholded</span>(<span class="sig-arg">arr</span>,
+        <span class="sig-arg">min</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">force0Base</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getThresholded">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+creates new array with same values as 
+arr except where arr is less than min.
+Those are set to min, unless 
+
+if force0Base is true:
+  new min is set to 0; all other pixels are subtracted by min
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getHistEqualizedF"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getHistEqualizedF</span>(<span class="sig-arg">arr</span>,
+        <span class="sig-arg">histYX</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">nBins</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#getHistEqualizedF">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate and return the histogram equalized copy of arr 
+    (dtype=float32, min..max = 0..1)
+
+histYX, is the histogram of `a` -- a tuple(binCount, binPixelValue)
+if histYX is None:
+   calculate histogram using nBins bins
+    if nBins is None:
+        nBins = int(amax-amin+1)
+        if arr is of float dtype   and nBins &lt; 1000:
+            nBins = 1000
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="radialPhiArr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">radialPhiArr</span>(<span class="sig-arg">shape</span>,
+        <span class="sig-arg">func</span>,
+        <span class="sig-arg">orig</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#radialPhiArr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>generates and returns radially symmetric function sampled in 
+  volume(image) of shape shape if orig is None the origin defaults to the 
+  center func is a 1D function with 2 paramaters: r,phi</p>
+  <p>dtype is Float32</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="radialArr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">radialArr</span>(<span class="sig-arg">shape</span>,
+        <span class="sig-arg">func</span>,
+        <span class="sig-arg">orig</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">wrap</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#radialArr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+generates and returns radially symmetric function sampled in volume(image) of shape shape
+if orig is None the origin defaults to the center
+func is a 1D function with 1 paramater: r
+
+if shape is a scalar uses implicitely `(shape,)`
+wrap tells if functions is continued wrapping around image boundaries
+wrap can be True or False or a tuple same length as shape:
+   then wrap is given for each axis sperately
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="maxNormRadialArr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">maxNormRadialArr</span>(<span class="sig-arg">shape</span>,
+        <span class="sig-arg">func</span>,
+        <span class="sig-arg">orig</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">wrap</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#maxNormRadialArr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+like radialArr but instead of using euclidian distance to determine r
+ (r = (dx**2 + dy**2) **.5)
+ this using the a maximum funtion:
+r = max(dx,dy)
+ 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="LoG"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LoG</span>(<span class="sig-arg">r</span>,
+        <span class="sig-arg">sigma</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dim</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">r0</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">peakVal</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#LoG">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>note: returns *negative* Laplacian-of-Gaussian (aka. mexican hat) 
+  zero-point will be at sqrt(dim)*sigma integral is _always_ 0 if peakVal 
+  is None:  uses &quot;mathematical&quot; &quot;gaussian derived&quot; norm
+  if r0 is not None: specify radius of zero-point (IGNORE sigma !!)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="LoGArr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LoGArr</span>(<span class="sig-arg">shape</span>=<span class="sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="sig-arg">r0</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">sigma</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">peakVal</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">orig</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">wrap</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#LoGArr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+returns n-dim Laplacian-of-Gaussian (aka. mexican hat)
+if peakVal   is not None
+     result max is peakVal
+if r0 is not None: specify radius of zero-point (IGNORE sigma !!)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="gaussian"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">gaussian</span>(<span class="sig-arg">r</span>,
+        <span class="sig-arg">dim</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">sigma</span>=<span class="sig-default">1.0</span>,
+        <span class="sig-arg">integralScale</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">peakVal</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#gaussian">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+returns n-dim Gaussian centered at 0
+if integralScale is not None
+     result.sum() == integralScale
+if peakVal       is not None
+     result max is peakVal
+if both are None
+     results defaults to integralScale==1
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="gaussianArr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">gaussianArr</span>(<span class="sig-arg">shape</span>=<span class="sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="sig-arg">sigma</span>=<span class="sig-default">30</span>,
+        <span class="sig-arg">integralScale</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">peakVal</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">orig</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">wrap</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#gaussianArr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+returns n-dim Gaussian
+if integralScale is not None
+     result.sum() == integralScale
+if peakVal       is not None
+     result max is peakVal
+if both are None
+     results defaults to integralScale==1
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="lorentzian"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">lorentzian</span>(<span class="sig-arg">r</span>,
+        <span class="sig-arg">dim</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">sigma</span>=<span class="sig-default">1.0</span>,
+        <span class="sig-arg">integralScale</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">peakVal</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#lorentzian">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+returns n-dim Lorentzian (Cauchy) function centered at 0
+if integralScale is not None
+     result.sum() == integralScale
+if peakVal       is not None
+     result max is peakVal
+if both are None
+     results defaults to integralScale==1
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="lorentzianArr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">lorentzianArr</span>(<span class="sig-arg">shape</span>=<span class="sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="sig-arg">sigma</span>=<span class="sig-default">30</span>,
+        <span class="sig-arg">integralScale</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">peakVal</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">orig</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">wrap</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#lorentzianArr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+returns n-dim Lorentzian (Cauchy) function
+if integralScale is not None
+     result.sum() == integralScale
+if peakVal       is not None
+     result max is peakVal
+if both are None
+     results defaults to integralScale==1
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="sigmoid"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sigmoid</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">x0</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">b</span>=<span class="sig-default">1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#sigmoid">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+returns the sigmoid function at x.
+parameters:
+   x0: center of &quot;input intensity&quot;
+   b: range or width of &quot;input intensity&quot; (will map into 27-73% range of output)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="rampArr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">rampArr</span>(<span class="sig-arg">shape</span>=<span class="sig-default"><code class="variable-group">(</code>256<code class="variable-op">, </code>256<code class="variable-group">)</code></span>,
+        <span class="sig-arg">axis</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">start</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">stop</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rampArr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+return arr with values increasing along `axis`
+starting with start
+
+if stop is None: values will go from start..start+N-1 (N being the length of the given axis)
+if start is None: values will be the reverse of when only stop is None 
+if dtype is None:
+    dtype = N.int16 if start or stop is None
+    dtype = N.float32 otherwise
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="binaryStructure_Zero"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">binaryStructure_Zero</span>(<span class="sig-arg">rank</span>,
+        <span class="sig-arg">connectivity</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#binaryStructure_Zero">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>returns  nd.generate_binary_structure</p>
+  <p>but also sets structure[0] =  structure[-1] = False #old  if 
+  zeroBothEndsAxis is not None: #old  overide</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="binaryStructure_2dDisc_in3d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">binaryStructure_2dDisc_in3d</span>(<span class="sig-arg">shape2d</span>=<span class="sig-default"><code class="variable-group">(</code>5<code class="variable-op">, </code>5<code class="variable-group">)</code></span>,
+        <span class="sig-arg">r</span>=<span class="sig-default">2.5</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#binaryStructure_2dDisc_in3d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>returns bool array shape=(3,&lt;shape2d&gt;)</p>
+  <p>first and last z section all False middle z section is a F.discArr 
+  with given r</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="shift"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">shift</span>(<span class="sig-arg">arr</span>,
+        <span class="sig-arg">delta</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#shift">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+returns new array: arr shifted by delta (tuple)
+   it uses rfft, multiplying with &quot;shift array&quot;, irfft
+delta defaults to half of arr.shape 
+
+#20081113 dtype option removed (FIXME TODO)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="fft"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fft</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">minCdtype</span>=<span class="sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#fft">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate nd fourier transform
+performs full, i.e. non-real, fft
+
+`a` should be a complex array,
+  otherwise it gets converted to
+  minCdtype
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ifft"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ifft</span>(<span class="sig-arg">af</span>,
+        <span class="sig-arg">normalize</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">minCdtype</span>=<span class="sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#ifft">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate nd inverse fourier transform
+performs full, i.e. non-real, ifft
+
+fftw does NOT normalize (divide by product of shape)
+they argue that the normalization can often be combined with other
+operation and thus save a loop through the data
+
+if normalize is True: the division is done -- and normilized data is returned
+
+`af` should be a complex array,
+  otherwise it gets converted to
+  minCdtype
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="rfft"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">rfft</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">minFdtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rfft">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate nd fourier transform
+performs real- fft, i.e. the return array has shape with last dim halfed+1
+
+`a` should be a real array,
+  otherwise it gets converted to
+  minFdtype
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="irfft"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">irfft</span>(<span class="sig-arg">af</span>,
+        <span class="sig-arg">normalize</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">minCdtype</span>=<span class="sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#irfft">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate nd inverse fourier transform
+performs real- ifft, i.e. the input array has shape with last dim halfed+1
+
+fftw does NOT normalize (divide by product of shape)
+they argue that the normalization can often be combined with other
+operation and thus save a loop through the data
+
+if normalize is True: the division is done -- and normilized data is returned
+
+`af` should be a complex array,
+  otherwise it gets converted to
+  minCdtype
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="rfft2d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">rfft2d</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">minFdtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#rfft2d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate (section-wise) 2d fourier transform
+performs real- fft, i.e. the return array has shape with last dim halfed+1
+
+`a` should be a real array,
+  otherwise it gets converted to
+  minFdtype
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="irfft2d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">irfft2d</span>(<span class="sig-arg">af</span>,
+        <span class="sig-arg">preserve</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">normalize</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">minCdtype</span>=<span class="sig-default">&lt;type 'numpy.complex64'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#irfft2d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate (section-wise) 2d inverse fourier transform
+performs real- ifft, i.e. the input array has shape with last dim halfed+1
+
+the (fftw) implementation of irfft would overwrite the original af array
+to preserve af  when preserve is True - a copy is made first
+
+fftw does NOT normalize (divide by product of shape)
+they argue that the normalization can often be combined with other
+operation and thus save a loop through the data
+if normalize is True: the division is done -- and normilized data is returned
+
+`af` should be a complex array,
+  otherwise it gets converted to
+  minCdtype
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="convolve"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">convolve</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">b</span>,
+        <span class="sig-arg">conj</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">killDC</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">minFdtype</span>=<span class="sig-default">&lt;type 'numpy.float32'&gt;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#convolve">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calculate convolution of `a` and `b`
+   (using rfft, multiplication, then irfft)
+if  `conj` is true:
+   calculate correlation instead ! 
+   (after the fft the `bf` is conjucated)
+
+a and b  have to be same shape
+
+if `a` or `b` are not dtype of float32 or float64
+they are converted to minFdtype
+   unless one of `a` or `b` is float64, then float64 is used
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="lowPassGaussFilter"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">lowPassGaussFilter</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">sigma</span>=<span class="sig-default">5</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#lowPassGaussFilter">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+still something left for TODO:
+   nx = s[0] # FIXME HACK
+   sigma=1/(2.*N.pi*sigma)*nx    
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="mexF2d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">mexF2d</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">sigma2d</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.fftfuncs-pysrc.html#mexF2d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>calculate -nd.gaussian_laplace sectionwise, using output=None, 
+  mode=&quot;reflect&quot;, cval=0.0</p>
+  <p>forcing float32 output</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:12 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

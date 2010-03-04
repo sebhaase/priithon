@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.wxPyPlot.PlotCanvas</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.wxPyPlot-module.html">Module&nbsp;wxPyPlot</a> ::
+        Class&nbsp;PlotCanvas
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.wxPyPlot.PlotCanvas-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class PlotCanvas</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_85" name="uml_class_diagram_for_priithon_85">
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#__init__" title="Constucts a window, which can be a child of a frame, dialog or any other &#160;non&#45;control window" alt="" coords="17,1103,585,1121"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#SaveFile" title="Saves the file to the type specified in the extension." alt="" coords="17,1121,585,1140"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#PageSetup" title="Brings up the page setup dialog" alt="" coords="17,1140,585,1159"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#Printout" title="Print current plot." alt="" coords="17,1159,585,1177"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#PrintPreview" title="Print&#45;preview current plot." alt="" coords="17,1177,585,1196"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#SetFontSizeAxis" title="Set the tick and axis label font size (default is 10 point)" alt="" coords="17,1196,585,1215"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#GetFontSizeAxis" title="Get current tick and axis label font size in points" alt="" coords="17,1215,585,1233"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#SetFontSizeTitle" title="Set Title font size (default is 15 point)" alt="" coords="17,1233,585,1252"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#GetFontSizeTitle" title="Get current Title font size in points" alt="" coords="17,1252,585,1271"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#SetFontSizeLegend" title="Set Legend font size (default is 7 point)" alt="" coords="17,1271,585,1289"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#GetFontSizeLegend" title="Get current Legend font size in points" alt="" coords="17,1289,585,1308"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#SetEnableZoom" title="Set True to enable zooming." alt="" coords="17,1308,585,1327"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#GetEnableZoom" title="True if zooming enabled." alt="" coords="17,1327,585,1345"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html#OnSize" title="Priithon.wxPyPlot.PlotCanvas.OnSize" alt="" coords="17,1364,585,1383"/>
+<area shape="rect" href="Priithon.wxPyPlot.PlotCanvas-class.html" title="Subclass of a wxWindow to allow simple general plotting of data with zoom, labels, and automatic axis scaling." alt="" coords="16,1077,587,1384"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAcceleratorTable` and `SetAcceleratorTable`" alt="" coords="177,484,425,503"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAutoLayout` and `SetAutoLayout`" alt="" coords="177,503,425,521"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundColour` and `SetBackgroundColour`" alt="" coords="177,521,425,540"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundStyle` and `SetBackgroundStyle`" alt="" coords="177,540,425,559"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestSize`" alt="" coords="177,559,425,577"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestVirtualSize`" alt="" coords="177,577,425,596"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBorder`" alt="" coords="177,596,425,615"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaret` and `SetCaret`" alt="" coords="177,615,425,633"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharHeight`" alt="" coords="177,633,425,652"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharWidth`" alt="" coords="177,652,425,671"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetChildren`" alt="" coords="177,671,425,689"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientAreaOrigin`" alt="" coords="177,689,425,708"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientRect` and `SetClientRect`" alt="" coords="177,708,425,727"/>
+<area shape="rect" href="javascript:void(0);" title="The membership flag" alt="" coords="177,745,425,764"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window have focus?" alt="" coords="177,767,425,785"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window be given focus by keyboard navigation? if not, the only way to give it focus (provided it accepts it at all) is to click it." alt="" coords="177,785,425,804"/>
+<area shape="rect" href="javascript:void(0);" title="AddChild(self, Window child)" alt="" coords="177,804,425,823"/>
+<area shape="rect" href="javascript:void(0);" title="AdjustForLayoutDirection(self, int x, int width, int widthTotal) &#45;&gt; int" alt="" coords="177,823,425,841"/>
+<area shape="rect" href="javascript:void(0);" title="AssociateHandle(self, long handle)" alt="" coords="177,841,425,860"/>
+<area shape="rect" href="javascript:void(0);" title="CacheBestSize(self, Size size)" alt="" coords="177,860,425,879"/>
+<area shape="rect" href="javascript:void(0);" title="Returns ``True`` if the platform supports setting the transparency for this window." alt="" coords="177,879,425,897"/>
+<area shape="rect" href="javascript:void(0);" title="Directs all mouse input to this window." alt="" coords="177,897,425,916"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="177,916,425,935"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="177,935,425,953"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="177,953,425,972"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="177,972,425,991"/>
+<area shape="rect" href="javascript:void(0);" title="Clears the window by filling it with the current background colour." alt="" coords="177,991,425,1009"/>
+<area shape="rect" href="javascript:void(0);" title="repr(x)" alt="" coords="177,1028,425,1047"/>
+<area shape="rect" href="javascript:void(0);" title="wx.Window is the base class for all windows and represents any visible object on the screen." alt="" coords="176,467,427,1048"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="220,28,383,47"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="220,49,383,68"/>
+<area shape="rect" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="220,68,383,87"/>
+<area shape="rect" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="219,11,384,88"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`" alt="" coords="119,135,484,153"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetNextHandler` and `SetNextHandler`" alt="" coords="119,153,484,172"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPreviousHandler` and `SetPreviousHandler`" alt="" coords="119,172,484,191"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetNextHandler" alt="" coords="119,193,484,212"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetPreviousHandler" alt="" coords="119,212,484,231"/>
+<area shape="rect" href="javascript:void(0);" title="SetNextHandler(self, EvtHandler handler)" alt="" coords="119,231,484,249"/>
+<area shape="rect" href="javascript:void(0);" title="SetPreviousHandler(self, EvtHandler handler)" alt="" coords="119,249,484,268"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetEvtHandlerEnabled" alt="" coords="119,268,484,287"/>
+<area shape="rect" href="javascript:void(0);" title="SetEvtHandlerEnabled(self, bool enabled)" alt="" coords="119,287,484,305"/>
+<area shape="rect" href="javascript:void(0);" title="ProcessEvent(self, Event event) &#45;&gt; bool" alt="" coords="119,305,484,324"/>
+<area shape="rect" href="javascript:void(0);" title="AddPendingEvent(self, Event event)" alt="" coords="119,324,484,343"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.ProcessPendingEvents" alt="" coords="119,343,484,361"/>
+<area shape="rect" href="javascript:void(0);" title="Connect(self, int id, int lastId, int eventType, PyObject func)" alt="" coords="119,361,484,380"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnect(self, int id, int lastId=&#45;1, EventType eventType=wxEVT_NULL, ..." alt="" coords="119,380,484,399"/>
+<area shape="rect" href="javascript:void(0);" title="Bind an event to an event handler." alt="" coords="119,399,484,417"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnects the event handler binding for event from self." alt="" coords="119,417,484,436"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ EvtHandler class" alt="" coords="117,117,485,437"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_85.gif" alt='' usemap="#uml_class_diagram_for_priithon_85" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Subclass of a wxWindow to allow simple general plotting of data with 
+  zoom, labels, and automatic axis scaling.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">EvtHandler</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.PlotCanvas-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.Point(-1, -1)</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.Size(-1, -1)</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">541072960</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Constucts a window, which can be a child of a frame, dialog or any 
+      other non-control window</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.PlotCanvas-class.html#SaveFile" class="summary-sig-name">SaveFile</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">fileName</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Saves the file to the type specified in the extension.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SaveFile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="PageSetup"></a><span class="summary-sig-name">PageSetup</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Brings up the page setup dialog</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.PageSetup">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Printout"></a><span class="summary-sig-name">Printout</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">paper</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Print current plot.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.Printout">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="PrintPreview"></a><span class="summary-sig-name">PrintPreview</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Print-preview current plot.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.PrintPreview">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SetFontSizeAxis"></a><span class="summary-sig-name">SetFontSizeAxis</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">point</span>=<span class="summary-sig-default">10</span>)</span><br />
+      Set the tick and axis label font size (default is 10 point)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetFontSizeAxis">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetFontSizeAxis"></a><span class="summary-sig-name">GetFontSizeAxis</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get current tick and axis label font size in points</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetFontSizeAxis">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SetFontSizeTitle"></a><span class="summary-sig-name">SetFontSizeTitle</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">point</span>=<span class="summary-sig-default">15</span>)</span><br />
+      Set Title font size (default is 15 point)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetFontSizeTitle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetFontSizeTitle"></a><span class="summary-sig-name">GetFontSizeTitle</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get current Title font size in points</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetFontSizeTitle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SetFontSizeLegend"></a><span class="summary-sig-name">SetFontSizeLegend</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">point</span>=<span class="summary-sig-default">7</span>)</span><br />
+      Set Legend font size (default is 7 point)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetFontSizeLegend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetFontSizeLegend"></a><span class="summary-sig-name">GetFontSizeLegend</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get current Legend font size in points</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetFontSizeLegend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SetEnableZoom"></a><span class="summary-sig-name">SetEnableZoom</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Set True to enable zooming.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetEnableZoom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetEnableZoom"></a><span class="summary-sig-name">GetEnableZoom</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      True if zooming enabled.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetEnableZoom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.PlotCanvas-class.html#SetEnableGrid" class="summary-sig-name">SetEnableGrid</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Set True to enable grid.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetEnableGrid">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetEnableGrid"></a><span class="summary-sig-name">GetEnableGrid</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      True if grid enabled.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetEnableGrid">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SetEnableLegend"></a><span class="summary-sig-name">SetEnableLegend</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Set True to enable legend.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetEnableLegend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetEnableLegend"></a><span class="summary-sig-name">GetEnableLegend</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      True if Legend enabled.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetEnableLegend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Reset"></a><span class="summary-sig-name">Reset</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Unzoom the plot.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.Reset">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ScrollRight"></a><span class="summary-sig-name">ScrollRight</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">units</span>)</span><br />
+      Move view right number of axis units.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.ScrollRight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ScrollUp"></a><span class="summary-sig-name">ScrollUp</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">units</span>)</span><br />
+      Move view up number of axis units.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.ScrollUp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetXY"></a><span class="summary-sig-name">GetXY</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Takes a mouse event and returns the XY user axis values.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetXY">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.PlotCanvas-class.html#SetXSpec" class="summary-sig-name">SetXSpec</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">type</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code></span>)</span><br />
+      xSpec- defines x axis type.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetXSpec">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.PlotCanvas-class.html#SetYSpec" class="summary-sig-name">SetYSpec</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">type</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code></span>)</span><br />
+      ySpec- defines x axis type.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetYSpec">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetXSpec"></a><span class="summary-sig-name">GetXSpec</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns current XSpec for axis</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetXSpec">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetYSpec"></a><span class="summary-sig-name">GetYSpec</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns current YSpec for axis</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetYSpec">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetXMaxRange"></a><span class="summary-sig-name">GetXMaxRange</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns (minX, maxX) x-axis range for displayed graph</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetXMaxRange">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetYMaxRange"></a><span class="summary-sig-name">GetYMaxRange</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns (minY, maxY) y-axis range for displayed graph</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetYMaxRange">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetXCurrentRange"></a><span class="summary-sig-name">GetXCurrentRange</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns (minX, maxX) x-axis for currently displayed portion of graph</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetXCurrentRange">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetYCurrentRange"></a><span class="summary-sig-name">GetYCurrentRange</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns (minY, maxY) y-axis for currently displayed portion of graph</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.GetYCurrentRange">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.PlotCanvas-class.html#Draw" class="summary-sig-name">Draw</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">graphics</span>,
+        <span class="summary-sig-arg">xAxis</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">yAxis</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dc</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Draw objects in graphics with specified x and y axis.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.Draw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Redraw"></a><span class="summary-sig-name">Redraw</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Redraw the existing plot.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.Redraw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Clear"></a><span class="summary-sig-name">Clear</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Erase the window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.Clear">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Zoom"></a><span class="summary-sig-name">Zoom</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">Center</span>,
+        <span class="summary-sig-arg">Ratio</span>)</span><br />
+      Zoom on the plot Centers on the X,Y coords given in Center Zooms by 
+      the Ratio = (Xratio, Yratio) given</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.Zoom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnMotion"></a><span class="summary-sig-name">OnMotion</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.OnMotion">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnMouseLeftDown"></a><span class="summary-sig-name">OnMouseLeftDown</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.OnMouseLeftDown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnMouseLeftUp"></a><span class="summary-sig-name">OnMouseLeftUp</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.OnMouseLeftUp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnMouseDoubleClick"></a><span class="summary-sig-name">OnMouseDoubleClick</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.OnMouseDoubleClick">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnMouseRightDown"></a><span class="summary-sig-name">OnMouseRightDown</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.OnMouseRightDown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnPaint"></a><span class="summary-sig-name">OnPaint</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.OnPaint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnSize"></a><span class="summary-sig-name">OnSize</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.OnSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_setSize"></a><span class="summary-sig-name">_setSize</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">height</span>=<span class="summary-sig-default">None</span>)</span><br />
+      DC width and height.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._setSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_setPrinterScale"></a><span class="summary-sig-name">_setPrinterScale</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">scale</span>)</span><br />
+      Used to thicken lines and increase marker size for print out.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._setPrinterScale">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_printDraw"></a><span class="summary-sig-name">_printDraw</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">printDC</span>)</span><br />
+      Used for printing.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._printDraw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_drawLegend"></a><span class="summary-sig-name">_drawLegend</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">graphics</span>,
+        <span class="summary-sig-arg">rhsW</span>,
+        <span class="summary-sig-arg">topH</span>,
+        <span class="summary-sig-arg">legendBoxWH</span>,
+        <span class="summary-sig-arg">legendSymExt</span>,
+        <span class="summary-sig-arg">legendTextExt</span>)</span><br />
+      Draws legend symbols and text</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._drawLegend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_titleLablesWH"></a><span class="summary-sig-name">_titleLablesWH</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">graphics</span>)</span><br />
+      Draws Title and labels and returns width and height for each</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._titleLablesWH">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_legendWH"></a><span class="summary-sig-name">_legendWH</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">graphics</span>)</span><br />
+      Returns the size in screen units for legend box</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._legendWH">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_drawRubberBand"></a><span class="summary-sig-name">_drawRubberBand</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">corner1</span>,
+        <span class="summary-sig-arg">corner2</span>)</span><br />
+      Draws/erases rect box from corner1 to corner2</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._drawRubberBand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_getFont"></a><span class="summary-sig-name">_getFont</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>)</span><br />
+      Take font size, adjusts if printing and returns wxFont</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._getFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_point2ClientCoord"></a><span class="summary-sig-name">_point2ClientCoord</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">corner1</span>,
+        <span class="summary-sig-arg">corner2</span>)</span><br />
+      Converts user point coords to client screen int coords 
+      x,y,width,height</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._point2ClientCoord">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_axisInterval"></a><span class="summary-sig-name">_axisInterval</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">spec</span>,
+        <span class="summary-sig-arg">lower</span>,
+        <span class="summary-sig-arg">upper</span>)</span><br />
+      Returns sensible axis range for given spec</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._axisInterval">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_drawAxes"></a><span class="summary-sig-name">_drawAxes</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">p1</span>,
+        <span class="summary-sig-arg">p2</span>,
+        <span class="summary-sig-arg">scale</span>,
+        <span class="summary-sig-arg">shift</span>,
+        <span class="summary-sig-arg">xticks</span>,
+        <span class="summary-sig-arg">yticks</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._drawAxes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_ticks"></a><span class="summary-sig-name">_ticks</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">lower</span>,
+        <span class="summary-sig-arg">upper</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas._ticks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>ClientToWindowSize</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>Create</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByLabel</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetGtkWidget</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>LineDown</code>,
+      <code>LineUp</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>PageDown</code>,
+      <code>PageUp</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>,
+      <code>WindowToClientSize</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>GetClassDefaultAttributes</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.wxPyPlot.PlotCanvas-class.html#_multiples" class="summary-name" onclick="show_private();">_multiples</a> = <code title="[(2.0, 0.3010299956639812), (5.0, 0.69897000433601886)]"><code class="variable-group">[</code><code class="variable-group">(</code>2.0<code class="variable-op">, </code>0.3010299956639812<code class="variable-group">)</code><code class="variable-op">, </code><code class="variable-group">(</code>5.0<code class="variable-op">, </code>0.6989700043360<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>GtkWidget</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">id</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">wx.Point(-1, -1)</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.Size(-1, -1)</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">541072960</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Constucts a window, which can be a child of a frame, dialog or any 
+  other non-control window</p>
+  <dl class="fields">
+    <dt>Returns: EvtHandler</dt>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SaveFile"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SaveFile</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">fileName</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SaveFile">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Saves the file to the type specified in the extension. If no file name
+  is specified a dialog box is provided.  Returns True if sucessful, 
+  otherwise False.</p>
+  <p>.bmp  Save a Windows bitmap file. .xbm  Save an X bitmap file. .xpm  
+  Save an XPM bitmap file. .png  Save a Portable Network Graphics file. 
+  .jpg  Save a Joint Photographic Experts Group file.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetEnableGrid"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetEnableGrid</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetEnableGrid">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set True to enable grid. seb: use value as string to specify color</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetXSpec"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetXSpec</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">type</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetXSpec">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+xSpec- defines x axis type. Can be 'none', 'min' or 'auto'
+where:
+    'none' - shows no axis or tick mark values
+    'min' - shows min bounding box values
+    'auto' - rounds axis range to sensible values
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetYSpec"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetYSpec</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">type</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.SetYSpec">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+ySpec- defines x axis type. Can be 'none', 'min' or 'auto'
+where:
+    'none' - shows no axis or tick mark values
+    'min' - shows min bounding box values
+    'auto' - rounds axis range to sensible values
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="Draw"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Draw</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">graphics</span>,
+        <span class="sig-arg">xAxis</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">yAxis</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dc</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#PlotCanvas.Draw">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draw objects in graphics with specified x and y axis. graphics- 
+  instance of PlotGraphics with list of PolyXXX objects xAxis - tuple with 
+  (min, max) axis range to view yAxis - same as xAxis dc - drawing context 
+  - doesn't have to be specified. If it's not, the offscreen buffer is 
+  used</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_multiples"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_multiples</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-group">(</code>2.0<code class="variable-op">, </code>0.3010299956639812<code class="variable-group">)</code><code class="variable-op">, </code><code class="variable-group">(</code>5.0<code class="variable-op">, </code>0.69897000433601886<code class="variable-group">)</code><code class="variable-group">]</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:27 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

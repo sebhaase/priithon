@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.plt.plot_objects.axis_object</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.plt-module.html">Package&nbsp;plt</a> ::
+        <a href="Priithon.plt.plot_objects-module.html">Module&nbsp;plot_objects</a> ::
+        Class&nbsp;axis_object
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.plt.plot_objects.axis_object-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class axis_object</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_16" name="uml_class_diagram_for_priithon_16">
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#__init__" title="Priithon.plt.plot_objects.axis_object.__init__" alt="" coords="17,129,327,148"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#calculate_ticks" title="data bounds is (lower bound, upper bound) axis_settings is a 3&#45;tuple (lower bound, upper bound, interval) Each of its settings can be &#39;auto&#39;, or a numerical value." alt="" coords="17,148,327,167"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#create_labels" title="Priithon.plt.plot_objects.axis_object.create_labels" alt="" coords="17,167,327,185"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#max_label_size" title="Priithon.plt.plot_objects.axis_object.max_label_size" alt="" coords="17,185,327,204"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#max_label_width" title="Priithon.plt.plot_objects.axis_object.max_label_width" alt="" coords="17,204,327,223"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#max_label_height" title="Priithon.plt.plot_objects.axis_object.max_label_height" alt="" coords="17,223,327,241"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#range" title="Priithon.plt.plot_objects.axis_object.range" alt="" coords="17,241,327,260"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#layout" title="Priithon.plt.plot_objects.axis_object.layout" alt="" coords="17,260,327,279"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#move" title="Priithon.plt.plot_objects.axis_object.move" alt="" coords="17,279,327,297"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#contains" title="Priithon.plt.plot_objects.axis_object.contains" alt="" coords="17,297,327,316"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#draw_ticks" title="Priithon.plt.plot_objects.axis_object.draw_ticks" alt="" coords="17,316,327,335"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#draw_grid_lines" title="Priithon.plt.plot_objects.axis_object.draw_grid_lines" alt="" coords="17,335,327,353"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#draw_labels" title="Priithon.plt.plot_objects.axis_object.draw_labels" alt="" coords="17,353,327,372"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#draw_lines" title="Priithon.plt.plot_objects.axis_object.draw_lines" alt="" coords="17,372,327,391"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html#draw" title="Priithon.plt.plot_objects.axis_object.draw" alt="" coords="17,391,327,409"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_object-class.html" title="Class for drawing an axis on a graph." alt="" coords="16,104,328,411"/>
+<area shape="rect" href="Priithon.plt.plot_objects.axis_window-class.html" title="Window is currently size=0,0 window for event handling." alt="" coords="128,440,216,467"/>
+<area shape="rect" href="Priithon.plt.plot_utility.property_object-class.html#clone_properties" title="Reset the objects attributes to their default values." alt="" coords="89,36,255,55"/>
+<area shape="rect" href="Priithon.plt.plot_utility.property_object-class.html#reset_default" title="Reset the objects attributes to their default values." alt="" coords="89,55,255,73"/>
+<area shape="rect" href="Priithon.plt.plot_utility.property_object-class.html" title="Base class for graph object with properties like &#39;color&#39;, &#39;font&#39;, etc." alt="" coords="88,11,256,75"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_16.gif" alt='' usemap="#uml_class_diagram_for_priithon_16" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Class for drawing an axis on a graph.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_objects.axis_object-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">rotate</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">graph_location</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">above</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">**attr</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_objects.axis_object-class.html#calculate_ticks" class="summary-sig-name">calculate_ticks</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data_bounds</span>)</span><br />
+      data bounds is (lower bound, upper bound)
+axis_settings is a 3-tuple (lower bound, upper bound, interval)
+Each of its settings can be 'auto', or a numerical value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.calculate_ticks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create_labels"></a><span class="summary-sig-name">create_labels</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.create_labels">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="max_label_size"></a><span class="summary-sig-name">max_label_size</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">idx</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.max_label_size">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="max_label_width"></a><span class="summary-sig-name">max_label_width</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.max_label_width">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="max_label_height"></a><span class="summary-sig-name">max_label_height</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.max_label_height">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="range"></a><span class="summary-sig-name">range</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.range">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="layout"></a><span class="summary-sig-name">layout</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">graph_area</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.layout">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="move"></a><span class="summary-sig-name">move</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">offset</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.move">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="contains"></a><span class="summary-sig-name">contains</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pt</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.contains">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="draw_ticks"></a><span class="summary-sig-name">draw_ticks</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.draw_ticks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="draw_grid_lines"></a><span class="summary-sig-name">draw_grid_lines</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.draw_grid_lines">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="draw_labels"></a><span class="summary-sig-name">draw_labels</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.draw_labels">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="draw_lines"></a><span class="summary-sig-name">draw_lines</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.draw_lines">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="draw"></a><span class="summary-sig-name">draw</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.draw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.plt.plot_utility.property_object-class.html">plot_utility.property_object</a></code></b>:
+      <code><a href="Priithon.plt.plot_utility.property_object-class.html#clone_properties">clone_properties</a></code>,
+      <code><a href="Priithon.plt.plot_utility.property_object-class.html#reset_default">reset_default</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.plt.plot_objects.axis_object-class.html#_attributes" class="summary-name" onclick="show_private();">_attributes</a> = <code title="{'bounds': [['auto', 'auto'],
+            [],
+            'Axis boundary: \'auto\', \'fit\', or value'],
+ 'grid_color': ['light grey',
+                ['black',
+                 'blue',
+                 'green',
+                 'red',
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">bounds</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">[</code><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code><code class="variable-group">]</code><code class="variable-op">, </code><code class="variable-group">[</code><code class="variable-group">]</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">Axis boundary</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">rotate</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">graph_location</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">above</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">**attr</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.plt.plot_utility.property_object-class.html#__init__">plot_utility.property_object.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="calculate_ticks"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">calculate_ticks</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data_bounds</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_objects-pysrc.html#axis_object.calculate_ticks">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+data bounds is (lower bound, upper bound)
+axis_settings is a 3-tuple (lower bound, upper bound, interval)
+Each of its settings can be 'auto', or a numerical value.
+In addition, the bounds can be 'fit' and interval can be 
+'linear' or 'log' (well, not yet).
+'auto' -- bound or interval is calculated for you based on the 
+          data bounds.
+'fit'  -- bound is set to be slightly beyond than data_bounds
+ value  -- bound is exactly to specified value.
+Typical settings are the following:
+ ['auto','auto','auto'
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_attributes"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_attributes</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">bounds</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">[</code><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">auto</code><code class="variable-quote">'</code><code class="variable-group">]</code><code class="variable-op">,</code>
+            <code class="variable-group">[</code><code class="variable-group">]</code><code class="variable-op">,</code>
+            <code class="variable-quote">'</code><code class="variable-string">Axis boundary: \'auto\', \'fit\', or value</code><code class="variable-quote">'</code><code class="variable-group">]</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">grid_color</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">light grey</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+                <code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+                 <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+                 <code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+                 <code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:17 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

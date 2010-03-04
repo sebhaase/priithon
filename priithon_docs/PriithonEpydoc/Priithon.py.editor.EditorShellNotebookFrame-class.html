@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.py.editor.EditorShellNotebookFrame</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.py-module.html">Package&nbsp;py</a> ::
+        <a href="Priithon.py.editor-module.html">Module&nbsp;editor</a> ::
+        Class&nbsp;EditorShellNotebookFrame
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.py.editor.EditorShellNotebookFrame-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class EditorShellNotebookFrame</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_52" name="uml_class_diagram_for_priithon_52">
+<area shape="rect" href="Priithon.py.editor.EditorNotebookFrame-class.html" title="Frame containing one or more editors in a notebook." alt="" coords="379,2499,509,2531"/>
+<area shape="rect" href="Priithon.py.editor.EditorShellNotebookFrame-class.html#__init__" title="Create EditorShellNotebookFrame instance." alt="" coords="17,2585,871,2604"/>
+<area shape="rect" href="Priithon.py.editor.EditorShellNotebookFrame-class.html#OnAbout" title="Display an About window." alt="" coords="17,2604,871,2623"/>
+<area shape="rect" href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferCreate" title="Create new buffer." alt="" coords="17,2623,871,2641"/>
+<area shape="rect" href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferDestroy" title="Destroy the current buffer." alt="" coords="17,2641,871,2660"/>
+<area shape="rect" href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferNew" title="Create new buffer." alt="" coords="17,2660,871,2679"/>
+<area shape="rect" href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferOpen" title="Open file in buffer." alt="" coords="17,2679,871,2697"/>
+<area shape="rect" href="Priithon.py.editor.EditorShellNotebookFrame-class.html" title="Frame containing a notebook containing EditorShellNotebooks." alt="" coords="16,2560,872,2699"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#revision" title="Priithon.py.frame.Frame.revision" alt="" coords="336,1924,552,1943"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnEditor" title="Priithon.py.frame.Frame.OnEditor" alt="" coords="336,1945,552,1964"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnInspect" title="Priithon.py.frame.Frame.OnInspect" alt="" coords="336,1964,552,1983"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnListDir" title="Priithon.py.frame.Frame.OnListDir" alt="" coords="336,1983,552,2001"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnSaveSession" title="Priithon.py.frame.Frame.OnSaveSession" alt="" coords="336,2001,552,2020"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnAutoSaveSession" title="Priithon.py.frame.Frame.OnAutoSaveSession" alt="" coords="336,2020,552,2039"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnListVars" title="Priithon.py.frame.Frame.OnListVars" alt="" coords="336,2039,552,2057"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnExecPy" title="Priithon.py.frame.Frame.OnExecPy" alt="" coords="336,2057,552,2076"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnCloneShell" title="Priithon.py.frame.Frame.OnCloneShell" alt="" coords="336,2076,552,2095"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnVanimate" title="Priithon.py.frame.Frame.OnVanimate" alt="" coords="336,2095,552,2113"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnVplotslider" title="Priithon.py.frame.Frame.OnVplotslider" alt="" coords="336,2113,552,2132"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnOSXBug" title="Priithon.py.frame.Frame.OnOSXBug" alt="" coords="336,2132,552,2151"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnExit" title="Priithon.py.frame.Frame.OnExit" alt="" coords="336,2151,552,2169"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnUndo" title="Priithon.py.frame.Frame.OnUndo" alt="" coords="336,2169,552,2188"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html#OnUpdateMenu" title="Update menu items based on current status and context." alt="" coords="336,2207,552,2225"/>
+<area shape="rect" href="Priithon.py.frame.Frame-class.html" title="Frame with standard menu items." alt="" coords="335,1907,553,2227"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#setEditor" title="Priithon.py.editor.EditorFrame.setEditor" alt="" coords="373,2281,515,2300"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#OnClose" title="Event handler for closing." alt="" coords="373,2300,515,2319"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#OnIdle" title="Event handler for idle time." alt="" coords="373,2319,515,2337"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#hasBuffer" title="Return True if there is a current buffer." alt="" coords="373,2337,515,2356"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#bufferClose" title="Close buffer." alt="" coords="373,2356,515,2375"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#bufferHasChanged" title="Return True if buffer has changed since last save." alt="" coords="373,2375,515,2393"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#bufferSave" title="Save buffer to its file." alt="" coords="373,2393,515,2412"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#bufferSaveAs" title="Save buffer to a new filename." alt="" coords="373,2412,515,2431"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#bufferSuggestSave" title="Suggest saving changes." alt="" coords="373,2431,515,2449"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html#updateNamespace" title="Update the buffer namespace for autocompletion and calltips." alt="" coords="373,2449,515,2468"/>
+<area shape="rect" href="Priithon.py.editor.EditorFrame-class.html" title="Frame containing one editor." alt="" coords="372,2256,516,2469"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`" alt="" coords="261,135,627,153"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetNextHandler` and `SetNextHandler`" alt="" coords="261,153,627,172"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPreviousHandler` and `SetPreviousHandler`" alt="" coords="261,172,627,191"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetNextHandler" alt="" coords="261,193,627,212"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetPreviousHandler" alt="" coords="261,212,627,231"/>
+<area shape="rect" href="javascript:void(0);" title="SetNextHandler(self, EvtHandler handler)" alt="" coords="261,231,627,249"/>
+<area shape="rect" href="javascript:void(0);" title="SetPreviousHandler(self, EvtHandler handler)" alt="" coords="261,249,627,268"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetEvtHandlerEnabled" alt="" coords="261,268,627,287"/>
+<area shape="rect" href="javascript:void(0);" title="SetEvtHandlerEnabled(self, bool enabled)" alt="" coords="261,287,627,305"/>
+<area shape="rect" href="javascript:void(0);" title="ProcessEvent(self, Event event) &#45;&gt; bool" alt="" coords="261,305,627,324"/>
+<area shape="rect" href="javascript:void(0);" title="AddPendingEvent(self, Event event)" alt="" coords="261,324,627,343"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.ProcessPendingEvents" alt="" coords="261,343,627,361"/>
+<area shape="rect" href="javascript:void(0);" title="Connect(self, int id, int lastId, int eventType, PyObject func)" alt="" coords="261,361,627,380"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnect(self, int id, int lastId=&#45;1, EventType eventType=wxEVT_NULL, ..." alt="" coords="261,380,627,399"/>
+<area shape="rect" href="javascript:void(0);" title="Bind an event to an event handler." alt="" coords="261,399,627,417"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnects the event handler binding for event from self." alt="" coords="261,417,627,436"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ EvtHandler class" alt="" coords="260,117,628,437"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAcceleratorTable` and `SetAcceleratorTable`" alt="" coords="320,484,568,503"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAutoLayout` and `SetAutoLayout`" alt="" coords="320,503,568,521"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundColour` and `SetBackgroundColour`" alt="" coords="320,521,568,540"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundStyle` and `SetBackgroundStyle`" alt="" coords="320,540,568,559"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestSize`" alt="" coords="320,559,568,577"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestVirtualSize`" alt="" coords="320,577,568,596"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBorder`" alt="" coords="320,596,568,615"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaret` and `SetCaret`" alt="" coords="320,615,568,633"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharHeight`" alt="" coords="320,633,568,652"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharWidth`" alt="" coords="320,652,568,671"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetChildren`" alt="" coords="320,671,568,689"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientAreaOrigin`" alt="" coords="320,689,568,708"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientRect` and `SetClientRect`" alt="" coords="320,708,568,727"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetWindowVariant` and `SetWindowVariant`" alt="" coords="320,745,568,764"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window have focus?" alt="" coords="320,767,568,785"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window be given focus by keyboard navigation? if not, the only way to give it focus (provided it accepts it at all) is to click it." alt="" coords="320,785,568,804"/>
+<area shape="rect" href="javascript:void(0);" title="AddChild(self, Window child)" alt="" coords="320,804,568,823"/>
+<area shape="rect" href="javascript:void(0);" title="AdjustForLayoutDirection(self, int x, int width, int widthTotal) &#45;&gt; int" alt="" coords="320,823,568,841"/>
+<area shape="rect" href="javascript:void(0);" title="AssociateHandle(self, long handle)" alt="" coords="320,841,568,860"/>
+<area shape="rect" href="javascript:void(0);" title="CacheBestSize(self, Size size)" alt="" coords="320,860,568,879"/>
+<area shape="rect" href="javascript:void(0);" title="Returns ``True`` if the platform supports setting the transparency for this window." alt="" coords="320,879,568,897"/>
+<area shape="rect" href="javascript:void(0);" title="Directs all mouse input to this window." alt="" coords="320,897,568,916"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="320,916,568,935"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="320,935,568,953"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="320,953,568,972"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="320,972,568,991"/>
+<area shape="rect" href="javascript:void(0);" title="Clears the window by filling it with the current background colour." alt="" coords="320,991,568,1009"/>
+<area shape="rect" href="javascript:void(0);" title="WindowToClientSize(self, Size size) &#45;&gt; Size" alt="" coords="320,1028,568,1047"/>
+<area shape="rect" href="javascript:void(0);" title="wx.Window is the base class for all windows and represents any visible object on the screen." alt="" coords="319,467,569,1048"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="363,28,525,47"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="363,49,525,68"/>
+<area shape="rect" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="363,68,525,87"/>
+<area shape="rect" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="361,11,527,88"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetDefaultItem` and `SetDefaultItem`" alt="" coords="337,1095,551,1113"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetIcon` and `SetIcon`" alt="" coords="337,1113,551,1132"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetTitle` and `SetTitle`" alt="" coords="337,1132,551,1151"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetTmpDefaultItem` and `SetTmpDefaultItem`" alt="" coords="337,1151,551,1169"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnScreen(self, int dir=BOTH)" alt="" coords="337,1172,551,1191"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnScreen(self, int dir=BOTH)" alt="" coords="337,1191,551,1209"/>
+<area shape="rect" href="javascript:void(0);" title="EnableCloseButton(self, bool enable) &#45;&gt; bool" alt="" coords="337,1209,551,1228"/>
+<area shape="rect" href="javascript:void(0);" title="Get the default child of this parent, i.e." alt="" coords="337,1228,551,1247"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.TopLevelWindow.GetIcon" alt="" coords="337,1247,551,1265"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.TopLevelWindow.GetTitle" alt="" coords="337,1265,551,1284"/>
+<area shape="rect" href="javascript:void(0);" title="Return the temporary default item, which can be None." alt="" coords="337,1284,551,1303"/>
+<area shape="rect" href="javascript:void(0);" title="Iconize(self, bool iconize=True)" alt="" coords="337,1303,551,1321"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsActive" alt="" coords="337,1321,551,1340"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsAlwaysMaximized" alt="" coords="337,1340,551,1359"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsFullScreen" alt="" coords="337,1359,551,1377"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsIconized" alt="" coords="337,1377,551,1396"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsMaximized" alt="" coords="337,1396,551,1415"/>
+<area shape="rect" href="javascript:void(0);" title="repr(x)" alt="" coords="337,1433,551,1452"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ TopLevelWindow class" alt="" coords="336,1077,552,1453"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetMenuBar` and `SetMenuBar`" alt="" coords="317,1500,571,1519"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetStatusBar` and `SetStatusBar`" alt="" coords="317,1519,571,1537"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetStatusBarPane` and `SetStatusBarPane`" alt="" coords="317,1537,571,1556"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetToolBar` and `SetToolBar`" alt="" coords="317,1556,571,1575"/>
+<area shape="rect" href="javascript:void(0);" title="The membership flag" alt="" coords="317,1575,571,1593"/>
+<area shape="rect" href="javascript:void(0);" title="ProcessCommand(self, int winid) &#45;&gt; bool" alt="" coords="317,1596,571,1615"/>
+<area shape="rect" href="javascript:void(0);" title="Create(self, Window parent, int id=&#45;1, String title=EmptyString, ..." alt="" coords="317,1615,571,1633"/>
+<area shape="rect" href="javascript:void(0);" title="CreateStatusBar(self, int number=1, long style=DEFAULT_STATUSBAR_STYLE, int winid=0, ..." alt="" coords="317,1633,571,1652"/>
+<area shape="rect" href="javascript:void(0);" title="CreateToolBar(self, long style=&#45;1, int winid=&#45;1, String &#160;name=ToolBarNameStr) &#45;&gt; wxToolBar" alt="" coords="317,1652,571,1671"/>
+<area shape="rect" href="javascript:void(0);" title="DoGiveHelp(self, String text, bool show)" alt="" coords="317,1671,571,1689"/>
+<area shape="rect" href="javascript:void(0);" title="DoMenuUpdates(self, Menu menu=None)" alt="" coords="317,1689,571,1708"/>
+<area shape="rect" href="javascript:void(0);" title="GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) &#45;&gt; &#160;VisualAttributes" alt="" coords="317,1708,571,1727"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Frame.GetMenuBar" alt="" coords="317,1727,571,1745"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Frame.GetStatusBar" alt="" coords="317,1745,571,1764"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Frame.GetStatusBarPane" alt="" coords="317,1764,571,1783"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Frame.GetToolBar" alt="" coords="317,1783,571,1801"/>
+<area shape="rect" href="javascript:void(0);" title="PopStatusText(self, int number=0)" alt="" coords="317,1801,571,1820"/>
+<area shape="rect" href="javascript:void(0);" title="ProcessCommand(self, int winid) &#45;&gt; bool" alt="" coords="317,1820,571,1839"/>
+<area shape="rect" href="javascript:void(0);" title="SetToolBar(self, wxToolBar toolbar)" alt="" coords="317,1857,571,1876"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ Frame class" alt="" coords="316,1483,572,1877"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_52.gif" alt='' usemap="#uml_class_diagram_for_priithon_52" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Frame containing a notebook containing EditorShellNotebooks.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">EvtHandler</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.editor.EditorShellNotebookFrame-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">title</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">PyAlaModeTest</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.Point(-1, -1)</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default"><code class="variable-group">(</code>600<code class="variable-op">, </code>400<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">541072960</span>,
+        <span class="summary-sig-arg">filename</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">singlefile</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Create EditorShellNotebookFrame instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.editor.EditorShellNotebookFrame-class.html#_setup" class="summary-sig-name" onclick="show_private();">_setup</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Setup prior to first buffer creation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame._setup">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.editor.EditorShellNotebookFrame-class.html#OnAbout" class="summary-sig-name">OnAbout</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Display an About window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.OnAbout">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferCreate" class="summary-sig-name">bufferCreate</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Create new buffer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferCreate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferDestroy" class="summary-sig-name">bufferDestroy</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Destroy the current buffer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferDestroy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferNew" class="summary-sig-name">bufferNew</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Create new buffer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferNew">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.editor.EditorShellNotebookFrame-class.html#bufferOpen" class="summary-sig-name">bufferOpen</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Open file in buffer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferOpen">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.editor.EditorNotebookFrame-class.html">EditorNotebookFrame</a></code></b> (private):
+      <code><a href="Priithon.py.editor.EditorNotebookFrame-class.html#_editorChange" onclick="show_private();">_editorChange</a></code>,
+      <code><a href="Priithon.py.editor.EditorNotebookFrame-class.html#_updateTitle" onclick="show_private();">_updateTitle</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.editor.EditorFrame-class.html">EditorFrame</a></code></b>:
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#OnClose">OnClose</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#OnIdle">OnIdle</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#bufferClose">bufferClose</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#bufferHasChanged">bufferHasChanged</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#bufferSave">bufferSave</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#bufferSaveAs">bufferSaveAs</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#bufferSuggestSave">bufferSuggestSave</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#hasBuffer">hasBuffer</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#setEditor">setEditor</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#updateNamespace">updateNamespace</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.editor.EditorFrame-class.html">EditorFrame</a></code></b> (private):
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#_updateStatus" onclick="show_private();">_updateStatus</a></code>,
+      <code><a href="Priithon.py.editor.EditorFrame-class.html#_updateTabText" onclick="show_private();">_updateTabText</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.frame.Frame-class.html">frame.Frame</a></code></b>:
+      <code><a href="Priithon.py.frame.Frame-class.html#OnAutoCompleteDouble">OnAutoCompleteDouble</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnAutoCompleteMagic">OnAutoCompleteMagic</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnAutoCompleteShow">OnAutoCompleteShow</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnAutoCompleteSingle">OnAutoCompleteSingle</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnAutoSaveSession">OnAutoSaveSession</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnCallTipsShow">OnCallTipsShow</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnCloneShell">OnCloneShell</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnCopy">OnCopy</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnCopyPlus">OnCopyPlus</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnEditor">OnEditor</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnExecPy">OnExecPy</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnExit">OnExit</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnInspect">OnInspect</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnListDir">OnListDir</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnListVars">OnListVars</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnMarkWindows">OnMarkWindows</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnMinimizeWindows">OnMinimizeWindows</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnOSXBug">OnOSXBug</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnPaste">OnPaste</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnPastePlus">OnPastePlus</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnRaiseWindows">OnRaiseWindows</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnRedo">OnRedo</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnSaveSession">OnSaveSession</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnTest2">OnTest2</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnTest5">OnTest5</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnTestAll">OnTestAll</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnUndo">OnUndo</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnUpdateMenu">OnUpdateMenu</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnUseAA">OnUseAA</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnVanimate">OnVanimate</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnVplotslider">OnVplotslider</a></code>,
+      <code><a href="Priithon.py.frame.Frame-class.html#OnWrap">OnWrap</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Frame</code></b>:
+      <code>Command</code>,
+      <code>Create</code>,
+      <code>CreateStatusBar</code>,
+      <code>CreateToolBar</code>,
+      <code>DoGiveHelp</code>,
+      <code>DoMenuUpdates</code>,
+      <code>GetMenuBar</code>,
+      <code>GetStatusBar</code>,
+      <code>GetStatusBarPane</code>,
+      <code>GetToolBar</code>,
+      <code>PopStatusText</code>,
+      <code>ProcessCommand</code>,
+      <code>PushStatusText</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetMenuBar</code>,
+      <code>SetStatusBar</code>,
+      <code>SetStatusBarPane</code>,
+      <code>SetStatusText</code>,
+      <code>SetStatusWidths</code>,
+      <code>SetToolBar</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.TopLevelWindow</code></b>:
+      <code>CenterOnScreen</code>,
+      <code>CentreOnScreen</code>,
+      <code>EnableCloseButton</code>,
+      <code>GetDefaultItem</code>,
+      <code>GetIcon</code>,
+      <code>GetTitle</code>,
+      <code>GetTmpDefaultItem</code>,
+      <code>Iconize</code>,
+      <code>IsActive</code>,
+      <code>IsAlwaysMaximized</code>,
+      <code>IsFullScreen</code>,
+      <code>IsIconized</code>,
+      <code>IsMaximized</code>,
+      <code>MacGetMetalAppearance</code>,
+      <code>MacGetTopLevelWindowRef</code>,
+      <code>MacGetUnifiedAppearance</code>,
+      <code>MacSetMetalAppearance</code>,
+      <code>Maximize</code>,
+      <code>RequestUserAttention</code>,
+      <code>Restore</code>,
+      <code>SetDefaultItem</code>,
+      <code>SetIcon</code>,
+      <code>SetIcons</code>,
+      <code>SetShape</code>,
+      <code>SetTitle</code>,
+      <code>SetTmpDefaultItem</code>,
+      <code>ShowFullScreen</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>ClientToWindowSize</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByLabel</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetGtkWidget</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>LineDown</code>,
+      <code>LineUp</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>PageDown</code>,
+      <code>PageUp</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>,
+      <code>WindowToClientSize</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Frame</code></b>:
+      <code>GetClassDefaultAttributes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.frame.Frame-class.html">frame.Frame</a></code></b>:
+      <code><a href="Priithon.py.frame.Frame-class.html#revision">revision</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Frame</code></b>:
+      <code>MenuBar</code>,
+      <code>StatusBar</code>,
+      <code>StatusBarPane</code>,
+      <code>ToolBar</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.TopLevelWindow</code></b>:
+      <code>DefaultItem</code>,
+      <code>Icon</code>,
+      <code>Title</code>,
+      <code>TmpDefaultItem</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>GtkWidget</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">id</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">title</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">PyAlaModeTest</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">wx.Point(-1, -1)</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default"><code class="variable-group">(</code>600<code class="variable-op">, </code>400<code class="variable-group">)</code></span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">541072960</span>,
+        <span class="sig-arg">filename</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">singlefile</span>=<span class="sig-default">False</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create EditorShellNotebookFrame instance.</p>
+  <dl class="fields">
+    <dt>Returns: EvtHandler</dt>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_setup"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_setup</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame._setup">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Setup prior to first buffer creation.</p>
+  <p>Called automatically by base class during init.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editor.EditorFrame-class.html#_setup" onclick="show_private();">EditorFrame._setup</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnAbout"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnAbout</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.OnAbout">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Display an About window.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.frame.Frame-class.html#OnAbout">frame.Frame.OnAbout</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="bufferCreate"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">bufferCreate</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferCreate">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create new buffer.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editor.EditorFrame-class.html#bufferCreate">EditorFrame.bufferCreate</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="bufferDestroy"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">bufferDestroy</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferDestroy">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Destroy the current buffer.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editor.EditorFrame-class.html#bufferDestroy">EditorFrame.bufferDestroy</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="bufferNew"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">bufferNew</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferNew">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create new buffer.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editor.EditorFrame-class.html#bufferNew">EditorFrame.bufferNew</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="bufferOpen"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">bufferOpen</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.editor-pysrc.html#EditorShellNotebookFrame.bufferOpen">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Open file in buffer.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editor.EditorFrame-class.html#bufferOpen">EditorFrame.bufferOpen</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:22 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.py.introspect</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.py-module.html">Package&nbsp;py</a> ::
+        Module&nbsp;introspect
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.py.introspect-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.py.introspect-module.html">Module Priithon.py.introspect</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Provides a variety of introspective-type support functions for</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">things like call tips and command auto completion."""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Patrick K. O'Brien &lt;pobrien@orbtech.com&gt;"</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Priithon.py.PyAlaCarte.__cvsid__=Priithon.py.PyAlaCarte-module.html#__cvsid__,Variable Priithon.py.PyAlaMode.__cvsid__=Priithon.py.PyAlaMode-module.html#__cvsid__,Variable Priithon.py.PyAlaModeTest.__cvsid__=Priithon.py.PyAlaModeTest-module.html#__cvsid__,Variable Priithon.py.PyCrust.__cvsid__=Priithon.py.PyCrust-module.html#__cvsid__,Variable Priithon.py.PyFilling.__cvsid__=Priithon.py.PyFilling-module.html#__cvsid__,Variable Priithon.py.PyShell.__cvsid__=Priithon.py.PyShell-module.html#__cvsid__,Variable Priithon.py.PyWrap.__cvsid__=Priithon.py.PyWrap-module.html#__cvsid__,Variable Priithon.py.__cvsid__=Priithon.py-module.html#__cvsid__,Variable Priithon.py.buffer.__cvsid__=Priithon.py.buffer-module.html#__cvsid__,Variable Priithon.py.crust.__cvsid__=Priithon.py.crust-module.html#__cvsid__,Variable Priithon.py.dispatcher.__cvsid__=Priithon.py.dispatcher-module.html#__cvsid__,Variable Priithon.py.document.__cvsid__=Priithon.py.document-module.html#__cvsid__,Variable Priithon.py.editor.__cvsid__=Priithon.py.editor-module.html#__cvsid__,Variable Priithon.py.editwindow.__cvsid__=Priithon.py.editwindow-module.html#__cvsid__,Variable Priithon.py.filling.__cvsid__=Priithon.py.filling-module.html#__cvsid__,Variable Priithon.py.frame.__cvsid__=Priithon.py.frame-module.html#__cvsid__,Variable Priithon.py.images.__cvsid__=Priithon.py.images-module.html#__cvsid__,Variable Priithon.py.interpreter.__cvsid__=Priithon.py.interpreter-module.html#__cvsid__,Variable Priithon.py.introspect.__cvsid__=Priithon.py.introspect-module.html#__cvsid__,Variable Priithon.py.pseudo.__cvsid__=Priithon.py.pseudo-module.html#__cvsid__,Variable Priithon.py.shell.__cvsid__=Priithon.py.shell-module.html#__cvsid__,Variable Priithon.py.version.__cvsid__=Priithon.py.version-module.html#__cvsid__"><a title="Priithon.py.PyAlaCarte.__cvsid__
+Priithon.py.PyAlaMode.__cvsid__
+Priithon.py.PyAlaModeTest.__cvsid__
+Priithon.py.PyCrust.__cvsid__
+Priithon.py.PyFilling.__cvsid__
+Priithon.py.PyShell.__cvsid__
+Priithon.py.PyWrap.__cvsid__
+Priithon.py.__cvsid__
+Priithon.py.buffer.__cvsid__
+Priithon.py.crust.__cvsid__
+Priithon.py.dispatcher.__cvsid__
+Priithon.py.document.__cvsid__
+Priithon.py.editor.__cvsid__
+Priithon.py.editwindow.__cvsid__
+Priithon.py.filling.__cvsid__
+Priithon.py.frame.__cvsid__
+Priithon.py.images.__cvsid__
+Priithon.py.interpreter.__cvsid__
+Priithon.py.introspect.__cvsid__
+Priithon.py.pseudo.__cvsid__
+Priithon.py.shell.__cvsid__
+Priithon.py.version.__cvsid__" class="py-name" href="#" onclick="return doclink('link-0', '__cvsid__', 'link-0');">__cvsid__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"$Id: introspect.py,v 1.11.2.2 2006/06/29 22:24:00 RD Exp $"</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable Priithon.py.PyAlaCarte.__revision__=Priithon.py.PyAlaCarte-module.html#__revision__,Variable Priithon.py.PyAlaMode.__revision__=Priithon.py.PyAlaMode-module.html#__revision__,Variable Priithon.py.PyAlaModeTest.__revision__=Priithon.py.PyAlaModeTest-module.html#__revision__,Variable Priithon.py.PyCrust.__revision__=Priithon.py.PyCrust-module.html#__revision__,Variable Priithon.py.PyFilling.__revision__=Priithon.py.PyFilling-module.html#__revision__,Variable Priithon.py.PyShell.__revision__=Priithon.py.PyShell-module.html#__revision__,Variable Priithon.py.PyWrap.__revision__=Priithon.py.PyWrap-module.html#__revision__,Variable Priithon.py.__revision__=Priithon.py-module.html#__revision__,Variable Priithon.py.buffer.__revision__=Priithon.py.buffer-module.html#__revision__,Variable Priithon.py.crust.__revision__=Priithon.py.crust-module.html#__revision__,Variable Priithon.py.dispatcher.__revision__=Priithon.py.dispatcher-module.html#__revision__,Variable Priithon.py.document.__revision__=Priithon.py.document-module.html#__revision__,Variable Priithon.py.editor.__revision__=Priithon.py.editor-module.html#__revision__,Variable Priithon.py.editwindow.__revision__=Priithon.py.editwindow-module.html#__revision__,Variable Priithon.py.filling.__revision__=Priithon.py.filling-module.html#__revision__,Variable Priithon.py.frame.__revision__=Priithon.py.frame-module.html#__revision__,Variable Priithon.py.images.__revision__=Priithon.py.images-module.html#__revision__,Variable Priithon.py.interpreter.__revision__=Priithon.py.interpreter-module.html#__revision__,Variable Priithon.py.introspect.__revision__=Priithon.py.introspect-module.html#__revision__,Variable Priithon.py.pseudo.__revision__=Priithon.py.pseudo-module.html#__revision__,Variable Priithon.py.shell.__revision__=Priithon.py.shell-module.html#__revision__,Variable Priithon.py.version.__revision__=Priithon.py.version-module.html#__revision__"><a title="Priithon.py.PyAlaCarte.__revision__
+Priithon.py.PyAlaMode.__revision__
+Priithon.py.PyAlaModeTest.__revision__
+Priithon.py.PyCrust.__revision__
+Priithon.py.PyFilling.__revision__
+Priithon.py.PyShell.__revision__
+Priithon.py.PyWrap.__revision__
+Priithon.py.__revision__
+Priithon.py.buffer.__revision__
+Priithon.py.crust.__revision__
+Priithon.py.dispatcher.__revision__
+Priithon.py.document.__revision__
+Priithon.py.editor.__revision__
+Priithon.py.editwindow.__revision__
+Priithon.py.filling.__revision__
+Priithon.py.frame.__revision__
+Priithon.py.images.__revision__
+Priithon.py.interpreter.__revision__
+Priithon.py.introspect.__revision__
+Priithon.py.pseudo.__revision__
+Priithon.py.shell.__revision__
+Priithon.py.version.__revision__" class="py-name" href="#" onclick="return doclink('link-1', '__revision__', 'link-1');">__revision__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"$Revision: 1.11.2.2 $"</tt><tt class="py-op">[</tt><tt class="py-number">11</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">cStringIO</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function Priithon.usefulX.inspect()=Priithon.usefulX-module.html#inspect"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-2', 'inspect', 'link-2');">inspect</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tokenize</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">wx</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-comment">#from pywinauto import application</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">import</tt> <tt class="py-name">pywinauto</tt>  </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable Priithon.py.introspect.handle_pywinauto=Priithon.py.introspect-module.html#handle_pywinauto"><a title="Priithon.py.introspect.handle_pywinauto" class="py-name" href="#" onclick="return doclink('link-3', 'handle_pywinauto', 'link-3');">handle_pywinauto</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name" targets="Variable Priithon.wxPyPlot.True=Priithon.wxPyPlot-module.html#True"><a title="Priithon.wxPyPlot.True" class="py-name" href="#" onclick="return doclink('link-4', 'True', 'link-4');">True</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt id="link-5" class="py-name"><a title="Priithon.py.introspect.handle_pywinauto" class="py-name" href="#" onclick="return doclink('link-5', 'handle_pywinauto', 'link-3');">handle_pywinauto</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name" targets="Variable Priithon.wxPyPlot.False=Priithon.wxPyPlot-module.html#False"><a title="Priithon.wxPyPlot.False" class="py-name" href="#" onclick="return doclink('link-6', 'False', 'link-6');">False</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="getAutoCompleteList"></a><div id="getAutoCompleteList-def"><a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="getAutoCompleteList-toggle" onclick="return toggle('getAutoCompleteList');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getAutoCompleteList">getAutoCompleteList</a><tt class="py-op">(</tt><tt class="py-param">command</tt><tt class="py-op">=</tt><tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-param">locals</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">includeMagic</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt>  </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">                        <tt class="py-param">includeSingle</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-param">includeDouble</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getAutoCompleteList-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getAutoCompleteList-expanded"><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return list of auto-completion options for command.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    The list of options will be based on the locals namespace."""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">    <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-comment"># Get the proper chunk of code from the command.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">root</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name" targets="Function Priithon.py.introspect.getRoot()=Priithon.py.introspect-module.html#getRoot"><a title="Priithon.py.introspect.getRoot" class="py-name" href="#" onclick="return doclink('link-7', 'getRoot', 'link-7');">getRoot</a></tt><tt class="py-op">(</tt><tt class="py-name">command</tt><tt class="py-op">,</tt> <tt class="py-name">terminator</tt><tt class="py-op">=</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">locals</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">            <tt class="py-name">object</tt> <tt class="py-op">=</tt> <tt class="py-name">eval</tt><tt class="py-op">(</tt><tt class="py-name">root</tt><tt class="py-op">,</tt> <tt class="py-name">locals</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">            <tt class="py-name">object</tt> <tt class="py-op">=</tt> <tt class="py-name">eval</tt><tt class="py-op">(</tt><tt class="py-name">root</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name" targets="Function Priithon.py.introspect.getAttributeNames()=Priithon.py.introspect-module.html#getAttributeNames"><a title="Priithon.py.introspect.getAttributeNames" class="py-name" href="#" onclick="return doclink('link-8', 'getAttributeNames', 'link-8');">getAttributeNames</a></tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">,</tt> <tt class="py-name">includeMagic</tt><tt class="py-op">,</tt>  </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                                       <tt class="py-name">includeSingle</tt><tt class="py-op">,</tt> <tt class="py-name">includeDouble</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">attributes</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">     </tt>
+<a name="getAttributeNames"></a><div id="getAttributeNames-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="getAttributeNames-toggle" onclick="return toggle('getAttributeNames');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getAttributeNames">getAttributeNames</a><tt class="py-op">(</tt><tt class="py-param">object</tt><tt class="py-op">,</tt> <tt class="py-param">includeMagic</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-param">includeSingle</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                      <tt class="py-param">includeDouble</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getAttributeNames-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getAttributeNames-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">  <tt class="py-docstring">"""Return list of unique attributes, including inherited, for object."""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">  <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-9" class="py-name"><a title="Priithon.py.introspect.handle_pywinauto" class="py-name" href="#" onclick="return doclink('link-9', 'handle_pywinauto', 'link-3');">handle_pywinauto</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">_win_find_timeout_bak</tt> <tt class="py-op">=</tt> <tt class="py-name">pywinauto</tt><tt class="py-op">.</tt><tt class="py-name">timings</tt><tt class="py-op">.</tt><tt class="py-name">Timings</tt><tt class="py-op">.</tt><tt class="py-name">window_find_timeout</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-name">pywinauto</tt><tt class="py-op">.</tt><tt class="py-name">timings</tt><tt class="py-op">.</tt><tt class="py-name">Timings</tt><tt class="py-op">.</tt><tt class="py-name">window_find_timeout</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-comment">#import pdb</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#pdb.set_trace()</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt class="py-name">dict</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-comment"># if handle_pywinauto:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#     if isinstance(object, application.Application):</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#         return []</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-10" class="py-name" targets="Function Priithon.py.introspect.hasattrAlwaysReturnsTrue()=Priithon.py.introspect-module.html#hasattrAlwaysReturnsTrue"><a title="Priithon.py.introspect.hasattrAlwaysReturnsTrue" class="py-name" href="#" onclick="return doclink('link-10', 'hasattrAlwaysReturnsTrue', 'link-10');">hasattrAlwaysReturnsTrue</a></tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-comment"># Add some attributes that don't always get picked up.</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">special_attrs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'__bases__'</tt><tt class="py-op">,</tt> <tt class="py-string">'__class__'</tt><tt class="py-op">,</tt> <tt class="py-string">'__dict__'</tt><tt class="py-op">,</tt> <tt class="py-string">'__name__'</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                         <tt class="py-string">'func_closure'</tt><tt class="py-op">,</tt> <tt class="py-string">'func_code'</tt><tt class="py-op">,</tt> <tt class="py-string">'func_defaults'</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                         <tt class="py-string">'func_dict'</tt><tt class="py-op">,</tt> <tt class="py-string">'func_doc'</tt><tt class="py-op">,</tt> <tt class="py-string">'func_globals'</tt><tt class="py-op">,</tt> <tt class="py-string">'func_name'</tt><tt class="py-op">]</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">attributes</tt> <tt class="py-op">+=</tt> <tt class="py-op">[</tt><tt class="py-name">attr</tt> <tt class="py-keyword">for</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">special_attrs</tt> \ </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                       <tt class="py-keyword">if</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">,</tt> <tt class="py-name">attr</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">includeMagic</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> <tt class="py-name">attributes</tt> <tt class="py-op">+=</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method Priithon.guiParams.guiParams._getAttributeNames()=Priithon.guiParams.guiParams-class.html#_getAttributeNames,Method Priithon.py.shell.ShellFacade._getAttributeNames()=Priithon.py.shell.ShellFacade-class.html#_getAttributeNames"><a title="Priithon.guiParams.guiParams._getAttributeNames
+Priithon.py.shell.ShellFacade._getAttributeNames" class="py-name" href="#" onclick="return doclink('link-11', '_getAttributeNames', 'link-11');">_getAttributeNames</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> <tt class="py-keyword">pass</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt class="py-comment"># Get all attribute names.</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">str_type</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">str_type</tt> <tt class="py-op">==</tt> <tt class="py-string">"&lt;type 'array'&gt;"</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">attributes</tt> <tt class="py-op">+=</tt> <tt class="py-name">dir</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">attrdict</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name" targets="Function Priithon.py.introspect.getAllAttributeNames()=Priithon.py.introspect-module.html#getAllAttributeNames"><a title="Priithon.py.introspect.getAllAttributeNames" class="py-name" href="#" onclick="return doclink('link-12', 'getAllAttributeNames', 'link-12');">getAllAttributeNames</a></tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-comment"># Store the object's dir.</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">object_dir</tt> <tt class="py-op">=</tt> <tt class="py-name">dir</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">obj_type_name</tt><tt class="py-op">,</tt> <tt class="py-name">technique</tt><tt class="py-op">,</tt> <tt class="py-name">count</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">attrlist</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attrdict</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-comment"># This complexity is necessary to avoid accessing all the</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># attributes of the object.  This is very handy for objects</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># whose attributes are lazily evaluated.</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-name">obj_type_name</tt> <tt class="py-keyword">and</tt> <tt class="py-name">technique</tt> <tt class="py-op">==</tt> <tt class="py-string">'dir'</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">attributes</tt> <tt class="py-op">+=</tt> <tt class="py-name">attrlist</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                <tt class="py-name">attributes</tt> <tt class="py-op">+=</tt> <tt class="py-op">[</tt><tt class="py-name">attr</tt> <tt class="py-keyword">for</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attrlist</tt> \ </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                               <tt class="py-keyword">if</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">object_dir</tt> <tt class="py-keyword">and</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">,</tt> <tt class="py-name">attr</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">             </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-comment"># Remove duplicates from the attribute list.</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attributes</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-name">dict</tt><tt class="py-op">[</tt><tt class="py-name">item</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Priithon.plt.dumbdbm_patched._Database.keys()=Priithon.plt.dumbdbm_patched._Database-class.html#keys"><a title="Priithon.plt.dumbdbm_patched._Database.keys" class="py-name" href="#" onclick="return doclink('link-13', 'keys', 'link-13');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-comment"># new-style swig wrappings can result in non-string attributes</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># e.g. ITK http://www.itk.org/</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">attribute</tt> <tt class="py-keyword">for</tt> <tt class="py-name">attribute</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attributes</tt> \ </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                  <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">attribute</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">str</tt><tt class="py-op">]</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-name">attributes</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">,</tt> <tt class="py-name">y</tt><tt class="py-op">:</tt> <tt class="py-name">cmp</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">y</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">includeSingle</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">item</tt><tt class="py-op">:</tt> <tt class="py-name">item</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">!=</tt><tt class="py-string">'_'</tt> \ </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                            <tt class="py-keyword">or</tt> <tt class="py-name">item</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">==</tt><tt class="py-string">'_'</tt><tt class="py-op">,</tt> <tt class="py-name">attributes</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">includeDouble</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">item</tt><tt class="py-op">:</tt> <tt class="py-name">item</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">!=</tt><tt class="py-string">'__'</tt><tt class="py-op">,</tt> <tt class="py-name">attributes</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">attributes</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">  <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-14" class="py-name"><a title="Priithon.py.introspect.handle_pywinauto" class="py-name" href="#" onclick="return doclink('link-14', 'handle_pywinauto', 'link-3');">handle_pywinauto</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">pywinauto</tt><tt class="py-op">.</tt><tt class="py-name">timings</tt><tt class="py-op">.</tt><tt class="py-name">Timings</tt><tt class="py-op">.</tt><tt class="py-name">window_find_timeout</tt> <tt class="py-op">=</tt> <tt class="py-name">_win_find_timeout_bak</tt> </tt>
+</div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="hasattrAlwaysReturnsTrue"></a><div id="hasattrAlwaysReturnsTrue-def"><a name="L106"></a><tt class="py-lineno">106</tt> <a class="py-toggle" href="#" id="hasattrAlwaysReturnsTrue-toggle" onclick="return toggle('hasattrAlwaysReturnsTrue');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#hasattrAlwaysReturnsTrue">hasattrAlwaysReturnsTrue</a><tt class="py-op">(</tt><tt class="py-param">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="hasattrAlwaysReturnsTrue-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="hasattrAlwaysReturnsTrue-expanded"><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">,</tt> <tt class="py-string">'bogu5_123_aTTri8ute'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="getAllAttributeNames"></a><div id="getAllAttributeNames-def"><a name="L109"></a><tt class="py-lineno">109</tt> <a class="py-toggle" href="#" id="getAllAttributeNames-toggle" onclick="return toggle('getAllAttributeNames');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getAllAttributeNames">getAllAttributeNames</a><tt class="py-op">(</tt><tt class="py-param">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getAllAttributeNames-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getAllAttributeNames-expanded"><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return dict of all attributes, including inherited, for an object.</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">    Recursively walk through a class and all base classes.</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-name">attrdict</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt>  <tt class="py-comment"># (object, technique, count): [list of attributes]</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-comment"># !!!</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># Do Not use hasattr() as a test anywhere in this function,</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># because it is unreliable with remote objects: xmlrpc, soap, etc.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># They always return true for hasattr().</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># !!!</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-comment"># This could(?) fail if the type is poorly defined without</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># even a name.</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">key</tt> <tt class="py-op">=</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">key</tt> <tt class="py-op">=</tt> <tt class="py-string">'anonymous'</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">    <tt class="py-comment"># Wake up sleepy objects - a hack for ZODB objects in "ghost" state.</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">wakeupcall</tt> <tt class="py-op">=</tt> <tt class="py-name">dir</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">    <tt class="py-keyword">del</tt> <tt class="py-name">wakeupcall</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt class="py-comment"># Get attributes available through the normal convention.</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-name">dir</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt class="py-name">attrdict</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">,</tt> <tt class="py-string">'dir'</tt><tt class="py-op">,</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">attributes</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">attributes</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-comment"># Get attributes from the object's dictionary, if it has one.</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-name">attributes</tt> <tt class="py-op">=</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Priithon.plt.dumbdbm_patched._Database.keys" class="py-name" href="#" onclick="return doclink('link-15', 'keys', 'link-13');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-name">attributes</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt>  <tt class="py-comment"># Must catch all because object might have __getattr__.</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-name">attrdict</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">,</tt> <tt class="py-string">'__dict__'</tt><tt class="py-op">,</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">attributes</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">attributes</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt class="py-comment"># For a class instance, get the attributes for the class.</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-name">klass</tt> <tt class="py-op">=</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt>  <tt class="py-comment"># Must catch all because object might have __getattr__.</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">klass</tt> <tt class="py-keyword">is</tt> <tt class="py-name">object</tt><tt class="py-op">:</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-comment"># Break a circular reference. This happens with extension</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># classes.</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">pass</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">            <tt class="py-name">attrdict</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Priithon.plt.wxplt.plot_canvas.update()=Priithon.plt.wxplt.plot_canvas-class.html#update,Method Priithon.plt.wxplt.plot_frame.update()=Priithon.plt.wxplt.plot_frame-class.html#update"><a title="Priithon.plt.wxplt.plot_canvas.update
+Priithon.plt.wxplt.plot_frame.update" class="py-name" href="#" onclick="return doclink('link-16', 'update', 'link-16');">update</a></tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="Priithon.py.introspect.getAllAttributeNames" class="py-name" href="#" onclick="return doclink('link-17', 'getAllAttributeNames', 'link-12');">getAllAttributeNames</a></tt><tt class="py-op">(</tt><tt class="py-name">klass</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">    <tt class="py-comment"># Also get attributes from any and all parent classes.</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-name">bases</tt> <tt class="py-op">=</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt class="py-name">__bases__</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt>  <tt class="py-comment"># Must catch all because object might have __getattr__.</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">bases</tt><tt class="py-op">,</tt> <tt class="py-name">tuple</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">base</tt> <tt class="py-keyword">in</tt> <tt class="py-name">bases</tt><tt class="py-op">:</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">base</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt class="py-name">type</tt><tt class="py-op">:</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">                    <tt class="py-comment"># Break a circular reference. Happens in Python 2.2.</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-keyword">pass</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                    <tt class="py-name">attrdict</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Priithon.plt.wxplt.plot_canvas.update
+Priithon.plt.wxplt.plot_frame.update" class="py-name" href="#" onclick="return doclink('link-18', 'update', 'link-16');">update</a></tt><tt class="py-op">(</tt><tt id="link-19" class="py-name"><a title="Priithon.py.introspect.getAllAttributeNames" class="py-name" href="#" onclick="return doclink('link-19', 'getAllAttributeNames', 'link-12');">getAllAttributeNames</a></tt><tt class="py-op">(</tt><tt class="py-name">base</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">attrdict</tt> </tt>
+</div><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-comment">#seb</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt id="link-20" class="py-name" targets="Variable Priithon.py.introspect.numpyScalarTypes=Priithon.py.introspect-module.html#numpyScalarTypes"><a title="Priithon.py.introspect.numpyScalarTypes" class="py-name" href="#" onclick="return doclink('link-20', 'numpyScalarTypes', 'link-20');">numpyScalarTypes</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="fnst"></a><div id="fnst-def"><a name="L170"></a><tt class="py-lineno">170</tt> <a class="py-toggle" href="#" id="fnst-toggle" onclick="return toggle('fnst');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#fnst">fnst</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="fnst-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="fnst-expanded"><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">N</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">tt</tt> <tt class="py-keyword">in</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Variable Priithon.mandel.ScalarType=Priithon.mandel-module.html#ScalarType,Variable Priithon.plt.ScalarType=Priithon.plt-module.html#ScalarType,Variable Priithon.plt.interface.ScalarType=Priithon.plt.interface-module.html#ScalarType,Variable Priithon.plt.plot_objects.ScalarType=Priithon.plt.plot_objects-module.html#ScalarType,Variable Priithon.plt.plot_utility.ScalarType=Priithon.plt.plot_utility-module.html#ScalarType,Variable Priithon.plt.wxplt.ScalarType=Priithon.plt.wxplt-module.html#ScalarType"><a title="Priithon.mandel.ScalarType
+Priithon.plt.ScalarType
+Priithon.plt.interface.ScalarType
+Priithon.plt.plot_objects.ScalarType
+Priithon.plt.plot_utility.ScalarType
+Priithon.plt.wxplt.ScalarType" class="py-name" href="#" onclick="return doclink('link-21', 'ScalarType', 'link-21');">ScalarType</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">            <tt class="py-name">l</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt id="link-22" class="py-name" targets="Variable Priithon.py.introspect.k=Priithon.py.introspect-module.html#k"><a title="Priithon.py.introspect.k" class="py-name" href="#" onclick="return doclink('link-22', 'k', 'link-22');">k</a></tt> <tt class="py-keyword">for</tt> <tt id="link-23" class="py-name"><a title="Priithon.py.introspect.k" class="py-name" href="#" onclick="return doclink('link-23', 'k', 'link-22');">k</a></tt><tt class="py-op">,</tt><tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt class="py-name">iteritems</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">v</tt> <tt class="py-op">==</tt> <tt class="py-name">tt</tt><tt class="py-op">]</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">            <tt class="py-comment"># l is list of 'N' members (names) for type tt</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#remove all names with '_'</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">checkIfSomeNamesShouldGoAway</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">            <tt class="py-keyword">while</tt> <tt class="py-name">checkIfSomeNamesShouldGoAway</tt><tt class="py-op">:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt id="link-24" class="py-name" targets="Variable Priithon.viewer.i=Priithon.viewer-module.html#i,Variable Priithon.viewer2.i=Priithon.viewer2-module.html#i,Variable Priithon.viewerCommon.i=Priithon.viewerCommon-module.html#i"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-24', 'i', 'link-24');">i</a></tt> <tt class="py-keyword">in</tt> <tt id="link-25" class="py-name" targets="Method Priithon.plt.plot_objects.axis_object.range()=Priithon.plt.plot_objects.axis_object-class.html#range"><a title="Priithon.plt.plot_objects.axis_object.range" class="py-name" href="#" onclick="return doclink('link-25', 'range', 'link-25');">range</a></tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-string">'_'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt id="link-26" class="py-name"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-26', 'i', 'link-24');">i</a></tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">                        <tt class="py-keyword">del</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt id="link-27" class="py-name"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-27', 'i', 'link-24');">i</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                        <tt class="py-name">checkIfSomeNamesShouldGoAway</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">                        <tt class="py-keyword">break</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">                    <tt class="py-name">checkIfSomeNamesShouldGoAway</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">            <tt class="py-comment">#remove all names that do NOT contains a digit</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">checkIfSomeNamesShouldGoAway</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">            <tt class="py-keyword">while</tt> <tt class="py-name">checkIfSomeNamesShouldGoAway</tt><tt class="py-op">:</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt id="link-28" class="py-name"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-28', 'i', 'link-24');">i</a></tt> <tt class="py-keyword">in</tt> <tt id="link-29" class="py-name"><a title="Priithon.plt.plot_objects.axis_object.range" class="py-name" href="#" onclick="return doclink('link-29', 'range', 'link-25');">range</a></tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-string">'[0-9]+'</tt><tt class="py-op">,</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt id="link-30" class="py-name"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-30', 'i', 'link-24');">i</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">                        <tt class="py-keyword">del</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt id="link-31" class="py-name"><a title="Priithon.viewer.i
+Priithon.viewer2.i
+Priithon.viewerCommon.i" class="py-name" href="#" onclick="return doclink('link-31', 'i', 'link-24');">i</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">                        <tt class="py-name">checkIfSomeNamesShouldGoAway</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">                        <tt class="py-keyword">break</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">                    <tt class="py-name">checkIfSomeNamesShouldGoAway</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">                     </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">                     </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">                <tt id="link-32" class="py-name"><a title="Priithon.py.introspect.numpyScalarTypes" class="py-name" href="#" onclick="return doclink('link-32', 'numpyScalarTypes', 'link-20');">numpyScalarTypes</a></tt><tt class="py-op">[</tt><tt class="py-name">tt</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">    <tt class="py-name">fnst</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">    <tt class="py-keyword">del</tt> <tt class="py-name">fnst</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"><tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">__builtin__</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line"><tt id="link-33" class="py-name" targets="Variable Priithon.py.introspect._builtin_inverse_lookup_table=Priithon.py.introspect-module.html#_builtin_inverse_lookup_table"><a title="Priithon.py.introspect._builtin_inverse_lookup_table" class="py-name" href="#" onclick="return doclink('link-33', '_builtin_inverse_lookup_table', 'link-33');">_builtin_inverse_lookup_table</a></tt><tt class="py-op">=</tt><tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">,</tt><tt id="link-34" class="py-name"><a title="Priithon.py.introspect.k" class="py-name" href="#" onclick="return doclink('link-34', 'k', 'link-22');">k</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt id="link-35" class="py-name"><a title="Priithon.py.introspect.k" class="py-name" href="#" onclick="return doclink('link-35', 'k', 'link-22');">k</a></tt><tt class="py-op">,</tt><tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">__builtin__</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt class="py-name">iteritems</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">                                    <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-name">bool</tt><tt class="py-op">,</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">,</tt> <tt class="py-name">unicode</tt><tt class="py-op">,</tt> <tt class="py-name">int</tt><tt class="py-op">,</tt> <tt class="py-name">float</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-comment"># CHECK</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"> </tt>
+<a name="getCallTip"></a><div id="getCallTip-def"><a name="L210"></a><tt class="py-lineno">210</tt> <a class="py-toggle" href="#" id="getCallTip-toggle" onclick="return toggle('getCallTip');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getCallTip">getCallTip</a><tt class="py-op">(</tt><tt class="py-param">command</tt><tt class="py-op">=</tt><tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-param">locals</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getCallTip-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getCallTip-expanded"><a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">    <tt class="py-docstring">"""For a command, return a tuple of object name, argspec, tip text.</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">    The call tip information will be based on the locals namespace."""</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">    <tt class="py-name">calltip</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt>  <tt class="py-comment"># object name, argspec, tip text.</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">    <tt class="py-comment"># Get the proper chunk of code from the command.</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">root</tt> <tt class="py-op">=</tt> <tt id="link-36" class="py-name"><a title="Priithon.py.introspect.getRoot" class="py-name" href="#" onclick="return doclink('link-36', 'getRoot', 'link-7');">getRoot</a></tt><tt class="py-op">(</tt><tt class="py-name">command</tt><tt class="py-op">,</tt> <tt class="py-name">terminator</tt><tt class="py-op">=</tt><tt class="py-string">'('</tt><tt class="py-op">)</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">locals</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">            <tt class="py-name">object</tt> <tt class="py-op">=</tt> <tt class="py-name">eval</tt><tt class="py-op">(</tt><tt class="py-name">root</tt><tt class="py-op">,</tt> <tt class="py-name">locals</tt><tt class="py-op">)</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">            <tt class="py-name">object</tt> <tt class="py-op">=</tt> <tt class="py-name">eval</tt><tt class="py-op">(</tt><tt class="py-name">root</tt><tt class="py-op">)</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">calltip</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">    <tt id="link-37" class="py-name" targets="Variable Priithon.py.crust.Crust.name=Priithon.py.crust.Crust-class.html#name,Variable Priithon.py.crust.CrustFrame.name=Priithon.py.crust.CrustFrame-class.html#name,Variable Priithon.py.filling.Filling.name=Priithon.py.filling.Filling-class.html#name,Variable Priithon.py.filling.FillingFrame.name=Priithon.py.filling.FillingFrame-class.html#name,Variable Priithon.py.filling.FillingText.name=Priithon.py.filling.FillingText-class.html#name,Variable Priithon.py.filling.FillingTree.name=Priithon.py.filling.FillingTree-class.html#name,Variable Priithon.py.shell.Shell.name=Priithon.py.shell.Shell-class.html#name,Variable Priithon.py.shell.ShellFacade.name=Priithon.py.shell.ShellFacade-class.html#name,Variable Priithon.py.shell.ShellFrame.name=Priithon.py.shell.ShellFrame-class.html#name"><a title="Priithon.py.crust.Crust.name
+Priithon.py.crust.CrustFrame.name
+Priithon.py.filling.Filling.name
+Priithon.py.filling.FillingFrame.name
+Priithon.py.filling.FillingText.name
+Priithon.py.filling.FillingTree.name
+Priithon.py.shell.Shell.name
+Priithon.py.shell.ShellFacade.name
+Priithon.py.shell.ShellFrame.name" class="py-name" href="#" onclick="return doclink('link-37', 'name', 'link-37');">name</a></tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">    <tt class="py-name">object</tt><tt class="py-op">,</tt> <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name" targets="Function Priithon.py.introspect.getBaseObject()=Priithon.py.introspect-module.html#getBaseObject"><a title="Priithon.py.introspect.getBaseObject" class="py-name" href="#" onclick="return doclink('link-38', 'getBaseObject', 'link-38');">getBaseObject</a></tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt id="link-39" class="py-name"><a title="Priithon.py.crust.Crust.name
+Priithon.py.crust.CrustFrame.name
+Priithon.py.filling.Filling.name
+Priithon.py.filling.FillingFrame.name
+Priithon.py.filling.FillingText.name
+Priithon.py.filling.FillingTree.name
+Priithon.py.shell.Shell.name
+Priithon.py.shell.ShellFacade.name
+Priithon.py.shell.ShellFrame.name" class="py-name" href="#" onclick="return doclink('link-39', 'name', 'link-37');">name</a></tt> <tt class="py-op">=</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">    <tt class="py-name">tip1</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">    <tt class="py-name">argspec</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-40" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-40', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">isbuiltin</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt class="py-comment"># Builtin functions don't have an argspec that we can get.</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">pass</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt id="link-41" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-41', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">isfunction</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">        <tt class="py-comment"># tip1 is a string like: "getCallTip(command='', locals=None)"</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">        <tt class="py-comment">#seb</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># seb's COMPLAIN: default float args show like f(a=0.59999999999999998)</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># seb's COMPLAIN:      instead of              f(a=0.6)</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-comment">#getargspec(func)</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#   Get the names and default values of a function's arguments.</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># A tuple of four things is returned: (args, varargs, varkw, defaults).</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># 'args' is a list of the argument names (it may contain nested lists).</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># 'varargs' and 'varkw' are the names of the * and ** arguments or None</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># 'defaults'is an n-tuple of the default values of the last n arguments</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">        <tt class="py-comment">#(args, varargs, varkw, defaults)=inspect.getargspec(object)</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#          def fixFloat(x):</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#              import __builtin__</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#              if type(x) == __builtin__.float:</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                  return str(x)</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#              else:</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                  return x</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#          defaults = map(fixFloat, defaults)</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#defaults = map(str, defaults)</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#argspec = (args, varargs, varkw, defaults)</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#print "seb2a:::",  argspec</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#argspec = apply(inspect.formatargspec, argspec)</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">        <tt class="py-comment">#  formatargspec(args, varargs=None, varkw=None, defaults=None,</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                formatarg=&lt;type 'str'&gt;,</tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                formatvarargs=&lt;function &lt;lambda&gt;&gt;,</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                formatvarkw=&lt;function &lt;lambda&gt;&gt;,</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                formatvalue=&lt;function &lt;lambda&gt;&gt;,</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                join=&lt;function joinseq&gt;)</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#    Format an argument spec from the 4 values returned by getargspec.</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">        <tt class="py-comment">#    The first four arguments are (args, varargs, varkw, defaults).  The</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#    other four arguments are the corresponding optional formatting functions</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#    that are called to turn names and values into strings.  The ninth</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#    argument is an optional function to format the sequence of arguments.</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">        <tt class="py-comment">#          def formatargspec(args, varargs=None, varkw=None, defaults=None,</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                    formatarg=str,</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                    formatvarargs=lambda name: '*' + name,</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                    formatvarkw=lambda name: '**' + name,</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                    formatvalue=lambda value: '=' + repr(value),</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#                    join=joinseq):</tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"><tt class="py-comment"></tt>             </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">        <tt class="py-comment">#DEBUG    (args, varargs, varkw, defaults)=inspect.getargspec(object)</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#DEBUG    argspec = (args, varargs, varkw, defaults)</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#DEBUG    print "seb2a:::",  argspec</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">sebValForm</tt><tt class="py-op">(</tt><tt class="py-param">v</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line">            <tt class="py-comment">#import __builtin__</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#if type(v) == __builtin__.float:</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt class="py-name">numarray</tt> <tt class="py-keyword">as</tt> <tt class="py-name">na</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">shouldAddNA</tt><tt class="py-op">(</tt><tt class="py-param">v</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line">                    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">na</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">:</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line">                            <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line">                    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line">                        <tt class="py-keyword">pass</tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line">                    <tt class="py-keyword">return</tt> <tt class="py-number">0</tt> </tt>
+</div><a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">shouldAddNA</tt><tt class="py-op">(</tt><tt class="py-param">v</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">                    <tt class="py-keyword">return</tt> <tt id="link-42" class="py-name"><a title="Priithon.wxPyPlot.False" class="py-name" href="#" onclick="return doclink('link-42', 'False', 'link-6');">False</a></tt> </tt>
+</div><a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line">            <tt class="py-comment">#             try:</tt> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                 import numpy as N</tt> </tt>
+<a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                 def shouldAddN(v):</tt> </tt>
+<a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                     try:</tt> </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                         if v in N.__dict__.values():</tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                             return 1</tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                     except:</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                         pass</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                     return 0</tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#             except:</tt> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                 def shouldAddN(v):</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#                     return False</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line">                <tt class="py-name">s</tt><tt class="py-op">=</tt><tt id="link-43" class="py-name"><a title="Priithon.py.introspect._builtin_inverse_lookup_table" class="py-name" href="#" onclick="return doclink('link-43', '_builtin_inverse_lookup_table', 'link-33');">_builtin_inverse_lookup_table</a></tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">]</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-string">'='</tt><tt class="py-op">+</tt><tt class="py-name">s</tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt><tt class="py-op">:</tt> <tt class="py-comment"># KeyError:  -- also: e.g. TypeError: list objects are unhashable</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line"> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">str</tt><tt class="py-op">:</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-string">'="'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'"'</tt>  <tt class="py-comment"># keep "aa" instead of aa</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">unicode</tt><tt class="py-op">:</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-string">'=u"'</tt> <tt class="py-op">+</tt> <tt class="py-name">unicode</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'"'</tt>  <tt class="py-comment"># keep u"aa" instead of aa</tt> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line">            <tt class="py-comment">#elif shouldAddNA(v): </tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#    return '=na.' + str(v)      # show type=na.Float  instead of  type=Float</tt> </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">elif</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt class="py-name">type</tt> <tt class="py-keyword">and</tt> <tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt id="link-44" class="py-name"><a title="Priithon.py.introspect.numpyScalarTypes" class="py-name" href="#" onclick="return doclink('link-44', 'numpyScalarTypes', 'link-20');">numpyScalarTypes</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Priithon.plt.dumbdbm_patched._Database.keys" class="py-name" href="#" onclick="return doclink('link-45', 'keys', 'link-13');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line">                <tt class="py-comment"># show dype=N.Float  instead of  dtype=&lt;type 'float32scalar'&gt;</tt> </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">return</tt> <tt class="py-string">'=N.'</tt> <tt class="py-op">+</tt> <tt id="link-46" class="py-name"><a title="Priithon.py.introspect.numpyScalarTypes" class="py-name" href="#" onclick="return doclink('link-46', 'numpyScalarTypes', 'link-20');">numpyScalarTypes</a></tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">]</tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line"> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line">            <tt class="py-comment"># elif shouldAddN(v): </tt> </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#     return '=N.' + str(v)      # show dype=N.Float  instead of  dtype=Float</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-string">'='</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt>         <tt class="py-comment"># show .6 instead of  .59999999</tt> </tt>
+</div><a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line">            <tt class="py-comment">#else:</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#    return '=' + repr(v)</tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line"><tt class="py-comment"></tt>             </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line">        <tt class="py-comment">#orig        argspec = apply(inspect.formatargspec, inspect.getargspec(object))</tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">argspec</tt> <tt class="py-op">=</tt> <tt class="py-name">apply</tt><tt class="py-op">(</tt><tt id="link-47" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-47', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">formatargspec</tt><tt class="py-op">,</tt> <tt id="link-48" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-48', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">getargspec</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line">                        <tt class="py-op">{</tt><tt class="py-string">'formatvalue'</tt><tt class="py-op">:</tt> <tt class="py-name">sebValForm</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line">                        <tt class="py-comment">#{'formatvalue': lambda value: '=' + str(value)})</tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">dropSelf</tt><tt class="py-op">:</tt> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line">            <tt class="py-comment"># The first parameter to a method is a reference to an</tt> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># instance, usually coded as "self", and is usually passed</tt> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># automatically by Python; therefore we want to drop it.</tt> </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">temp</tt> <tt class="py-op">=</tt> <tt class="py-name">argspec</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">','</tt><tt class="py-op">)</tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">temp</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt>  <tt class="py-comment"># No other arguments.</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line">                <tt class="py-name">argspec</tt> <tt class="py-op">=</tt> <tt class="py-string">'()'</tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">temp</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'(*'</tt><tt class="py-op">:</tt> <tt class="py-comment"># first param is like *args, not self</tt> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt>  </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt>  <tt class="py-comment"># Drop the first argument.</tt> </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line">                <tt class="py-name">argspec</tt> <tt class="py-op">=</tt> <tt class="py-string">'('</tt> <tt class="py-op">+</tt> <tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">temp</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">lstrip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L354"></a><tt class="py-lineno">354</tt>  <tt class="py-line">        <tt class="py-name">tip1</tt> <tt class="py-op">=</tt> <tt id="link-49" class="py-name"><a title="Priithon.py.crust.Crust.name
+Priithon.py.crust.CrustFrame.name
+Priithon.py.filling.Filling.name
+Priithon.py.filling.FillingFrame.name
+Priithon.py.filling.FillingText.name
+Priithon.py.filling.FillingTree.name
+Priithon.py.shell.Shell.name
+Priithon.py.shell.ShellFacade.name
+Priithon.py.shell.ShellFrame.name" class="py-name" href="#" onclick="return doclink('link-49', 'name', 'link-37');">name</a></tt> <tt class="py-op">+</tt> <tt class="py-name">argspec</tt> </tt>
+<a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line">    <tt class="py-name">doc</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L357"></a><tt class="py-lineno">357</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line">            <tt class="py-name">doc</tt> <tt class="py-op">=</tt> <tt id="link-50" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-50', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">getdoc</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">doc</tt><tt class="py-op">:</tt> </tt>
+<a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line">        <tt class="py-comment"># tip2 is the first separated line of the docstring, like:</tt> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># "Return call tip text for a command."</tt> </tt>
+<a name="L364"></a><tt class="py-lineno">364</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># tip3 is the rest of the docstring, like:</tt> </tt>
+<a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># "The call tip information will be based on ... &lt;snip&gt;</tt> </tt>
+<a name="L366"></a><tt class="py-lineno">366</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">firstline</tt> <tt class="py-op">=</tt> <tt class="py-name">doc</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">lstrip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">tip1</tt> <tt class="py-op">==</tt> <tt class="py-name">firstline</tt> <tt class="py-keyword">or</tt> <tt class="py-name">firstline</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="Priithon.py.crust.Crust.name
+Priithon.py.crust.CrustFrame.name
+Priithon.py.filling.Filling.name
+Priithon.py.filling.FillingFrame.name
+Priithon.py.filling.FillingText.name
+Priithon.py.filling.FillingTree.name
+Priithon.py.shell.Shell.name
+Priithon.py.shell.ShellFacade.name
+Priithon.py.shell.ShellFrame.name" class="py-name" href="#" onclick="return doclink('link-51', 'name', 'link-37');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt id="link-52" class="py-name"><a title="Priithon.py.crust.Crust.name
+Priithon.py.crust.CrustFrame.name
+Priithon.py.filling.Filling.name
+Priithon.py.filling.FillingFrame.name
+Priithon.py.filling.FillingText.name
+Priithon.py.filling.FillingTree.name
+Priithon.py.shell.Shell.name
+Priithon.py.shell.ShellFacade.name
+Priithon.py.shell.ShellFrame.name" class="py-name" href="#" onclick="return doclink('link-52', 'name', 'link-37');">name</a></tt><tt class="py-op">+</tt><tt class="py-string">'('</tt><tt class="py-op">:</tt> </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line">            <tt class="py-name">tip1</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line">            <tt class="py-name">tip1</tt> <tt class="py-op">+=</tt> <tt class="py-string">'\n\n'</tt> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line">        <tt class="py-name">docpieces</tt> <tt class="py-op">=</tt> <tt class="py-name">doc</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'\n\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line">        <tt class="py-name">tip2</tt> <tt class="py-op">=</tt> <tt class="py-name">docpieces</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line">        <tt class="py-name">tip3</tt> <tt class="py-op">=</tt> <tt class="py-string">'\n\n'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">docpieces</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line">        <tt class="py-name">tip</tt> <tt class="py-op">=</tt> <tt class="py-string">'%s%s\n\n%s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">tip1</tt><tt class="py-op">,</tt> <tt class="py-name">tip2</tt><tt class="py-op">,</tt> <tt class="py-name">tip3</tt><tt class="py-op">)</tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line">        <tt class="py-name">tip</tt> <tt class="py-op">=</tt> <tt class="py-name">tip1</tt> </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line">    <tt class="py-name">calltip</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-53" class="py-name"><a title="Priithon.py.crust.Crust.name
+Priithon.py.crust.CrustFrame.name
+Priithon.py.filling.Filling.name
+Priithon.py.filling.FillingFrame.name
+Priithon.py.filling.FillingText.name
+Priithon.py.filling.FillingTree.name
+Priithon.py.shell.Shell.name
+Priithon.py.shell.ShellFacade.name
+Priithon.py.shell.ShellFrame.name" class="py-name" href="#" onclick="return doclink('link-53', 'name', 'link-37');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">argspec</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">tip</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">calltip</tt> </tt>
+</div><a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line"> </tt>
+<a name="getRoot"></a><div id="getRoot-def"><a name="L380"></a><tt class="py-lineno">380</tt> <a class="py-toggle" href="#" id="getRoot-toggle" onclick="return toggle('getRoot');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getRoot">getRoot</a><tt class="py-op">(</tt><tt class="py-param">command</tt><tt class="py-op">,</tt> <tt class="py-param">terminator</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getRoot-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getRoot-expanded"><a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return the rightmost root portion of an arbitrary Python command.</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line"><tt class="py-docstring">    Return only the root portion that can be eval()'d without side</tt> </tt>
+<a name="L384"></a><tt class="py-lineno">384</tt>  <tt class="py-line"><tt class="py-docstring">    effects.  The command would normally terminate with a '(' or</tt> </tt>
+<a name="L385"></a><tt class="py-lineno">385</tt>  <tt class="py-line"><tt class="py-docstring">    '.'. The terminator and anything after the terminator will be</tt> </tt>
+<a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line"><tt class="py-docstring">    dropped."""</tt> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line">    <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">command</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">command</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">ps2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line">        <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">command</tt><tt class="py-op">[</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">ps2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">    <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">command</tt><tt class="py-op">.</tt><tt class="py-name">lstrip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line">    <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt id="link-54" class="py-name" targets="Function Priithon.py.introspect.rtrimTerminus()=Priithon.py.introspect-module.html#rtrimTerminus"><a title="Priithon.py.introspect.rtrimTerminus" class="py-name" href="#" onclick="return doclink('link-54', 'rtrimTerminus', 'link-54');">rtrimTerminus</a></tt><tt class="py-op">(</tt><tt class="py-name">command</tt><tt class="py-op">,</tt> <tt class="py-name">terminator</tt><tt class="py-op">)</tt> </tt>
+<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line">    <tt class="py-name">tokens</tt> <tt class="py-op">=</tt> <tt id="link-55" class="py-name" targets="Function Priithon.py.introspect.getTokens()=Priithon.py.introspect-module.html#getTokens"><a title="Priithon.py.introspect.getTokens" class="py-name" href="#" onclick="return doclink('link-55', 'getTokens', 'link-55');">getTokens</a></tt><tt class="py-op">(</tt><tt class="py-name">command</tt><tt class="py-op">)</tt> </tt>
+<a name="L393"></a><tt class="py-lineno">393</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">tokens</tt><tt class="py-op">:</tt> </tt>
+<a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">tokens</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">ENDMARKER</tt><tt class="py-op">:</tt> </tt>
+<a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line">        <tt class="py-comment"># Remove the end marker.</tt> </tt>
+<a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">del</tt> <tt class="py-name">tokens</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">tokens</tt><tt class="py-op">:</tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">terminator</tt> <tt class="py-op">==</tt> <tt class="py-string">'.'</tt> <tt class="py-keyword">and</tt> \ </tt>
+<a name="L401"></a><tt class="py-lineno">401</tt>  <tt class="py-line">           <tt class="py-op">(</tt><tt class="py-name">tokens</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">&lt;&gt;</tt> <tt class="py-string">'.'</tt> <tt class="py-keyword">or</tt> <tt class="py-name">tokens</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">OP</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L402"></a><tt class="py-lineno">402</tt>  <tt class="py-line">        <tt class="py-comment"># Trap decimals in numbers, versus the dot operator.</tt> </tt>
+<a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L404"></a><tt class="py-lineno">404</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line">        <tt class="py-comment"># Strip off the terminator.</tt> </tt>
+<a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">terminator</tt> <tt class="py-keyword">and</tt> <tt class="py-name">command</tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-name">terminator</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line">            <tt id="link-56" class="py-name" targets="Method Priithon.plt.plot_objects.text_object.size()=Priithon.plt.plot_objects.text_object-class.html#size,Method Priithon.plt.plot_utility.box_object.size()=Priithon.plt.plot_utility.box_object-class.html#size,Variable Priithon.viewerRubberbandMode.viewerRubberbandMode.size=Priithon.viewerRubberbandMode.viewerRubberbandMode-class.html#size"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-56', 'size', 'link-56');">size</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> <tt class="py-op">-</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">terminator</tt><tt class="py-op">)</tt> </tt>
+<a name="L408"></a><tt class="py-lineno">408</tt>  <tt class="py-line">            <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">command</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt id="link-57" class="py-name"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-57', 'size', 'link-56');">size</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L409"></a><tt class="py-lineno">409</tt>  <tt class="py-line">    <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">command</tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L410"></a><tt class="py-lineno">410</tt>  <tt class="py-line">    <tt class="py-name">tokens</tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="Priithon.py.introspect.getTokens" class="py-name" href="#" onclick="return doclink('link-58', 'getTokens', 'link-55');">getTokens</a></tt><tt class="py-op">(</tt><tt class="py-name">command</tt><tt class="py-op">)</tt> </tt>
+<a name="L411"></a><tt class="py-lineno">411</tt>  <tt class="py-line">    <tt class="py-name">tokens</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L412"></a><tt class="py-lineno">412</tt>  <tt class="py-line">    <tt class="py-name">line</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L413"></a><tt class="py-lineno">413</tt>  <tt class="py-line">    <tt class="py-name">start</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L414"></a><tt class="py-lineno">414</tt>  <tt class="py-line">    <tt class="py-name">prefix</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L415"></a><tt class="py-lineno">415</tt>  <tt class="py-line">    <tt class="py-name">laststring</tt> <tt class="py-op">=</tt> <tt class="py-string">'.'</tt> </tt>
+<a name="L416"></a><tt class="py-lineno">416</tt>  <tt class="py-line">    <tt class="py-name">emptyTypes</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'[]'</tt><tt class="py-op">,</tt> <tt class="py-string">'()'</tt><tt class="py-op">,</tt> <tt class="py-string">'{}'</tt><tt class="py-op">)</tt> </tt>
+<a name="L417"></a><tt class="py-lineno">417</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">token</tt> <tt class="py-keyword">in</tt> <tt class="py-name">tokens</tt><tt class="py-op">:</tt> </tt>
+<a name="L418"></a><tt class="py-lineno">418</tt>  <tt class="py-line">        <tt class="py-name">tokentype</tt> <tt class="py-op">=</tt> <tt class="py-name">token</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L419"></a><tt class="py-lineno">419</tt>  <tt class="py-line">        <tt class="py-name">tokenstring</tt> <tt class="py-op">=</tt> <tt class="py-name">token</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L420"></a><tt class="py-lineno">420</tt>  <tt class="py-line">        <tt class="py-name">line</tt> <tt class="py-op">=</tt> <tt class="py-name">token</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">]</tt> </tt>
+<a name="L421"></a><tt class="py-lineno">421</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">tokentype</tt> <tt class="py-keyword">is</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">ENDMARKER</tt><tt class="py-op">:</tt> </tt>
+<a name="L422"></a><tt class="py-lineno">422</tt>  <tt class="py-line">            <tt class="py-keyword">continue</tt> </tt>
+<a name="L423"></a><tt class="py-lineno">423</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">tokentype</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">NAME</tt><tt class="py-op">,</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">STRING</tt><tt class="py-op">,</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">NUMBER</tt><tt class="py-op">)</tt> \ </tt>
+<a name="L424"></a><tt class="py-lineno">424</tt>  <tt class="py-line">        <tt class="py-keyword">and</tt> <tt class="py-name">laststring</tt> <tt class="py-op">!=</tt> <tt class="py-string">'.'</tt><tt class="py-op">:</tt> </tt>
+<a name="L425"></a><tt class="py-lineno">425</tt>  <tt class="py-line">            <tt class="py-comment"># We've reached something that's not part of the root.</tt> </tt>
+<a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">if</tt> <tt class="py-name">prefix</tt> <tt class="py-keyword">and</tt> <tt class="py-name">line</tt><tt class="py-op">[</tt><tt class="py-name">token</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">!=</tt> <tt class="py-string">' '</tt><tt class="py-op">:</tt> </tt>
+<a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line">                <tt class="py-comment"># If it doesn't have a space after it, remove the prefix.</tt> </tt>
+<a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">prefix</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L429"></a><tt class="py-lineno">429</tt>  <tt class="py-line">            <tt class="py-keyword">break</tt> </tt>
+<a name="L430"></a><tt class="py-lineno">430</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">tokentype</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">NAME</tt><tt class="py-op">,</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">STRING</tt><tt class="py-op">,</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">NUMBER</tt><tt class="py-op">)</tt> \ </tt>
+<a name="L431"></a><tt class="py-lineno">431</tt>  <tt class="py-line">        <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">tokentype</tt> <tt class="py-keyword">is</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">OP</tt> <tt class="py-keyword">and</tt> <tt class="py-name">tokenstring</tt> <tt class="py-op">==</tt> <tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L432"></a><tt class="py-lineno">432</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">prefix</tt><tt class="py-op">:</tt> </tt>
+<a name="L433"></a><tt class="py-lineno">433</tt>  <tt class="py-line">                <tt class="py-comment"># The prefix isn't valid because it comes after a dot.</tt> </tt>
+<a name="L434"></a><tt class="py-lineno">434</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">prefix</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L435"></a><tt class="py-lineno">435</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L436"></a><tt class="py-lineno">436</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line">                <tt class="py-comment"># start represents the last known good point in the line.</tt> </tt>
+<a name="L438"></a><tt class="py-lineno">438</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">start</tt> <tt class="py-op">=</tt> <tt class="py-name">token</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">tokenstring</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt> <tt class="py-keyword">and</tt> <tt class="py-name">tokenstring</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">'[({])}'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L440"></a><tt class="py-lineno">440</tt>  <tt class="py-line">            <tt class="py-comment"># Remember, we're working backwords.</tt> </tt>
+<a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># So prefix += tokenstring would be wrong.</tt> </tt>
+<a name="L442"></a><tt class="py-lineno">442</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">if</tt> <tt class="py-name">prefix</tt> <tt class="py-keyword">in</tt> <tt class="py-name">emptyTypes</tt> <tt class="py-keyword">and</tt> <tt class="py-name">tokenstring</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">'[({'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L443"></a><tt class="py-lineno">443</tt>  <tt class="py-line">                <tt class="py-comment"># We've already got an empty type identified so now we</tt> </tt>
+<a name="L444"></a><tt class="py-lineno">444</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># are in a nested situation and we can break out with</tt> </tt>
+<a name="L445"></a><tt class="py-lineno">445</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># what we've got.</tt> </tt>
+<a name="L446"></a><tt class="py-lineno">446</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">break</tt> </tt>
+<a name="L447"></a><tt class="py-lineno">447</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L448"></a><tt class="py-lineno">448</tt>  <tt class="py-line">                <tt class="py-name">prefix</tt> <tt class="py-op">=</tt> <tt class="py-name">tokenstring</tt> <tt class="py-op">+</tt> <tt class="py-name">prefix</tt> </tt>
+<a name="L449"></a><tt class="py-lineno">449</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L450"></a><tt class="py-lineno">450</tt>  <tt class="py-line">            <tt class="py-comment"># We've reached something that's not part of the root.</tt> </tt>
+<a name="L451"></a><tt class="py-lineno">451</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">break</tt> </tt>
+<a name="L452"></a><tt class="py-lineno">452</tt>  <tt class="py-line">        <tt class="py-name">laststring</tt> <tt class="py-op">=</tt> <tt class="py-name">tokenstring</tt> </tt>
+<a name="L453"></a><tt class="py-lineno">453</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">start</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L454"></a><tt class="py-lineno">454</tt>  <tt class="py-line">        <tt class="py-name">start</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">line</tt><tt class="py-op">)</tt> </tt>
+<a name="L455"></a><tt class="py-lineno">455</tt>  <tt class="py-line">    <tt class="py-name">root</tt> <tt class="py-op">=</tt> <tt class="py-name">line</tt><tt class="py-op">[</tt><tt class="py-name">start</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L456"></a><tt class="py-lineno">456</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">prefix</tt> <tt class="py-keyword">in</tt> <tt class="py-name">emptyTypes</tt><tt class="py-op">:</tt> </tt>
+<a name="L457"></a><tt class="py-lineno">457</tt>  <tt class="py-line">        <tt class="py-comment"># Empty types are safe to be eval()'d and introspected.</tt> </tt>
+<a name="L458"></a><tt class="py-lineno">458</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">root</tt> <tt class="py-op">=</tt> <tt class="py-name">prefix</tt> <tt class="py-op">+</tt> <tt class="py-name">root</tt> </tt>
+<a name="L459"></a><tt class="py-lineno">459</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">root</tt>     </tt>
+</div><a name="L460"></a><tt class="py-lineno">460</tt>  <tt class="py-line"> </tt>
+<a name="getTokens"></a><div id="getTokens-def"><a name="L461"></a><tt class="py-lineno">461</tt> <a class="py-toggle" href="#" id="getTokens-toggle" onclick="return toggle('getTokens');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getTokens">getTokens</a><tt class="py-op">(</tt><tt class="py-param">command</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getTokens-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getTokens-expanded"><a name="L462"></a><tt class="py-lineno">462</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return list of token tuples for command."""</tt> </tt>
+<a name="L463"></a><tt class="py-lineno">463</tt>  <tt class="py-line"> </tt>
+<a name="L464"></a><tt class="py-lineno">464</tt>  <tt class="py-line">    <tt class="py-comment"># In case the command is unicode try encoding it</tt> </tt>
+<a name="L465"></a><tt class="py-lineno">465</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">command</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">unicode</tt><tt class="py-op">:</tt> </tt>
+<a name="L466"></a><tt class="py-lineno">466</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L467"></a><tt class="py-lineno">467</tt>  <tt class="py-line">            <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">command</tt><tt class="py-op">.</tt><tt class="py-name">encode</tt><tt class="py-op">(</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">GetDefaultPyEncoding</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L468"></a><tt class="py-lineno">468</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">UnicodeEncodeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L469"></a><tt class="py-lineno">469</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> <tt class="py-comment"># otherwise leave it alone</tt> </tt>
+<a name="L470"></a><tt class="py-lineno">470</tt>  <tt class="py-line">                 </tt>
+<a name="L471"></a><tt class="py-lineno">471</tt>  <tt class="py-line">    <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">cStringIO</tt><tt class="py-op">.</tt><tt class="py-name">StringIO</tt><tt class="py-op">(</tt><tt class="py-name">command</tt><tt class="py-op">)</tt> </tt>
+<a name="L472"></a><tt class="py-lineno">472</tt>  <tt class="py-line">    <tt class="py-comment"># tokens is a list of token tuples, each looking like: </tt> </tt>
+<a name="L473"></a><tt class="py-lineno">473</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># (type, string, (srow, scol), (erow, ecol), line)</tt> </tt>
+<a name="L474"></a><tt class="py-lineno">474</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">tokens</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L475"></a><tt class="py-lineno">475</tt>  <tt class="py-line">    <tt class="py-comment"># Can't use list comprehension:</tt> </tt>
+<a name="L476"></a><tt class="py-lineno">476</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#   tokens = [token for token in tokenize.generate_tokens(f.readline)]</tt> </tt>
+<a name="L477"></a><tt class="py-lineno">477</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># because of need to append as much as possible before TokenError.</tt> </tt>
+<a name="L478"></a><tt class="py-lineno">478</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L479"></a><tt class="py-lineno">479</tt>  <tt class="py-line"><tt class="py-comment">##        This code wasn't backward compatible with Python 2.1.3.</tt> </tt>
+<a name="L480"></a><tt class="py-lineno">480</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">##</tt> </tt>
+<a name="L481"></a><tt class="py-lineno">481</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">##        for token in tokenize.generate_tokens(f.readline):</tt> </tt>
+<a name="L482"></a><tt class="py-lineno">482</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">##            tokens.append(token)</tt> </tt>
+<a name="L483"></a><tt class="py-lineno">483</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L484"></a><tt class="py-lineno">484</tt>  <tt class="py-line">        <tt class="py-comment"># This works with Python 2.1.3 (with nested_scopes).</tt> </tt>
+<a name="L485"></a><tt class="py-lineno">485</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <tt class="py-def-name">eater</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L486"></a><tt class="py-lineno">486</tt>  <tt class="py-line">            <tt class="py-name">tokens</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L487"></a><tt class="py-lineno">487</tt>  <tt class="py-line">        <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">tokenize_loop</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name" targets="Method Priithon.Scientific_IO_TextFile.TextFile.readline()=Priithon.Scientific_IO_TextFile.TextFile-class.html#readline,Method Priithon.py.pseudo.PseudoFile.readline()=Priithon.py.pseudo.PseudoFile-class.html#readline,Method Priithon.py.shell.Shell.readline()=Priithon.py.shell.Shell-class.html#readline"><a title="Priithon.Scientific_IO_TextFile.TextFile.readline
+Priithon.py.pseudo.PseudoFile.readline
+Priithon.py.shell.Shell.readline" class="py-name" href="#" onclick="return doclink('link-59', 'readline', 'link-59');">readline</a></tt><tt class="py-op">,</tt> <tt class="py-name">eater</tt><tt class="py-op">)</tt> </tt>
+<a name="L488"></a><tt class="py-lineno">488</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">tokenize</tt><tt class="py-op">.</tt><tt class="py-name">TokenError</tt><tt class="py-op">:</tt> </tt>
+<a name="L489"></a><tt class="py-lineno">489</tt>  <tt class="py-line">        <tt class="py-comment"># This is due to a premature EOF, which we expect since we are</tt> </tt>
+<a name="L490"></a><tt class="py-lineno">490</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># feeding in fragments of Python code.</tt> </tt>
+<a name="L491"></a><tt class="py-lineno">491</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">pass</tt> </tt>
+<a name="L492"></a><tt class="py-lineno">492</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">tokens</tt>     </tt>
+</div><a name="L493"></a><tt class="py-lineno">493</tt>  <tt class="py-line"> </tt>
+<a name="rtrimTerminus"></a><div id="rtrimTerminus-def"><a name="L494"></a><tt class="py-lineno">494</tt> <a class="py-toggle" href="#" id="rtrimTerminus-toggle" onclick="return toggle('rtrimTerminus');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#rtrimTerminus">rtrimTerminus</a><tt class="py-op">(</tt><tt class="py-param">command</tt><tt class="py-op">,</tt> <tt class="py-param">terminator</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rtrimTerminus-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="rtrimTerminus-expanded"><a name="L495"></a><tt class="py-lineno">495</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return command minus anything that follows the final terminator."""</tt> </tt>
+<a name="L496"></a><tt class="py-lineno">496</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">terminator</tt><tt class="py-op">:</tt> </tt>
+<a name="L497"></a><tt class="py-lineno">497</tt>  <tt class="py-line">        <tt class="py-name">pieces</tt> <tt class="py-op">=</tt> <tt class="py-name">command</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-name">terminator</tt><tt class="py-op">)</tt> </tt>
+<a name="L498"></a><tt class="py-lineno">498</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">pieces</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L499"></a><tt class="py-lineno">499</tt>  <tt class="py-line">            <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">terminator</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">pieces</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">terminator</tt> </tt>
+<a name="L500"></a><tt class="py-lineno">500</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">command</tt> </tt>
+</div><a name="L501"></a><tt class="py-lineno">501</tt>  <tt class="py-line"> </tt>
+<a name="getBaseObject"></a><div id="getBaseObject-def"><a name="L502"></a><tt class="py-lineno">502</tt> <a class="py-toggle" href="#" id="getBaseObject-toggle" onclick="return toggle('getBaseObject');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getBaseObject">getBaseObject</a><tt class="py-op">(</tt><tt class="py-param">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getBaseObject-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getBaseObject-expanded"><a name="L503"></a><tt class="py-lineno">503</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return base object and dropSelf indicator for an object."""</tt> </tt>
+<a name="L504"></a><tt class="py-lineno">504</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-60" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-60', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">isbuiltin</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L505"></a><tt class="py-lineno">505</tt>  <tt class="py-line">        <tt class="py-comment"># Builtin functions don't have an argspec that we can get.</tt> </tt>
+<a name="L506"></a><tt class="py-lineno">506</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L507"></a><tt class="py-lineno">507</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt id="link-61" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-61', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">ismethod</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L508"></a><tt class="py-lineno">508</tt>  <tt class="py-line">        <tt class="py-comment"># Get the function from the object otherwise</tt> </tt>
+<a name="L509"></a><tt class="py-lineno">509</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># inspect.getargspec() complains that the object isn't a</tt> </tt>
+<a name="L510"></a><tt class="py-lineno">510</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Python function.</tt> </tt>
+<a name="L511"></a><tt class="py-lineno">511</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L512"></a><tt class="py-lineno">512</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt class="py-name">im_self</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L513"></a><tt class="py-lineno">513</tt>  <tt class="py-line">                <tt class="py-comment"># This is an unbound method so we do not drop self</tt> </tt>
+<a name="L514"></a><tt class="py-lineno">514</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># from the argspec, since an instance must be passed</tt> </tt>
+<a name="L515"></a><tt class="py-lineno">515</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># as the first arg.</tt> </tt>
+<a name="L516"></a><tt class="py-lineno">516</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L517"></a><tt class="py-lineno">517</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L518"></a><tt class="py-lineno">518</tt>  <tt class="py-line">                <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L519"></a><tt class="py-lineno">519</tt>  <tt class="py-line">            <tt class="py-name">object</tt> <tt class="py-op">=</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt class="py-name">im_func</tt> </tt>
+<a name="L520"></a><tt class="py-lineno">520</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L521"></a><tt class="py-lineno">521</tt>  <tt class="py-line">            <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L522"></a><tt class="py-lineno">522</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt id="link-62" class="py-name"><a title="Priithon.usefulX.inspect" class="py-name" href="#" onclick="return doclink('link-62', 'inspect', 'link-2');">inspect</a></tt><tt class="py-op">.</tt><tt class="py-name">isclass</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L523"></a><tt class="py-lineno">523</tt>  <tt class="py-line">        <tt class="py-comment"># Get the __init__ method function for the class.</tt> </tt>
+<a name="L524"></a><tt class="py-lineno">524</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">constructor</tt> <tt class="py-op">=</tt> <tt id="link-63" class="py-name" targets="Function Priithon.py.introspect.getConstructor()=Priithon.py.introspect-module.html#getConstructor"><a title="Priithon.py.introspect.getConstructor" class="py-name" href="#" onclick="return doclink('link-63', 'getConstructor', 'link-63');">getConstructor</a></tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt> </tt>
+<a name="L525"></a><tt class="py-lineno">525</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">constructor</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L526"></a><tt class="py-lineno">526</tt>  <tt class="py-line">            <tt class="py-name">object</tt> <tt class="py-op">=</tt> <tt class="py-name">constructor</tt> </tt>
+<a name="L527"></a><tt class="py-lineno">527</tt>  <tt class="py-line">            <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L528"></a><tt class="py-lineno">528</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L529"></a><tt class="py-lineno">529</tt>  <tt class="py-line">            <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L530"></a><tt class="py-lineno">530</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt class="py-name">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L531"></a><tt class="py-lineno">531</tt>  <tt class="py-line">        <tt class="py-comment"># Get the __call__ method instead.</tt> </tt>
+<a name="L532"></a><tt class="py-lineno">532</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L533"></a><tt class="py-lineno">533</tt>  <tt class="py-line">            <tt class="py-name">object</tt> <tt class="py-op">=</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name" targets="Method Priithon.py.dispatcher.BoundMethodWeakref.__call__()=Priithon.py.dispatcher.BoundMethodWeakref-class.html#__call__,Method Priithon.py.pseudo.PseudoKeyword.__call__()=Priithon.py.pseudo.PseudoKeyword-class.html#__call__,Method Priithon.useful.deco_memoized.__call__()=Priithon.useful.deco_memoized-class.html#__call__,Method Priithon.viewerRubberbandMode.viewerRubberbandMode.__call__()=Priithon.viewerRubberbandMode.viewerRubberbandMode-class.html#__call__"><a title="Priithon.py.dispatcher.BoundMethodWeakref.__call__
+Priithon.py.pseudo.PseudoKeyword.__call__
+Priithon.useful.deco_memoized.__call__
+Priithon.viewerRubberbandMode.viewerRubberbandMode.__call__" class="py-name" href="#" onclick="return doclink('link-64', '__call__', 'link-64');">__call__</a></tt><tt class="py-op">.</tt><tt class="py-name">im_func</tt> </tt>
+<a name="L534"></a><tt class="py-lineno">534</tt>  <tt class="py-line">            <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L535"></a><tt class="py-lineno">535</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L536"></a><tt class="py-lineno">536</tt>  <tt class="py-line">            <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L537"></a><tt class="py-lineno">537</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L538"></a><tt class="py-lineno">538</tt>  <tt class="py-line">        <tt class="py-name">dropSelf</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L539"></a><tt class="py-lineno">539</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">object</tt><tt class="py-op">,</tt> <tt class="py-name">dropSelf</tt> </tt>
+</div><a name="L540"></a><tt class="py-lineno">540</tt>  <tt class="py-line"> </tt>
+<a name="getConstructor"></a><div id="getConstructor-def"><a name="L541"></a><tt class="py-lineno">541</tt> <a class="py-toggle" href="#" id="getConstructor-toggle" onclick="return toggle('getConstructor');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.introspect-module.html#getConstructor">getConstructor</a><tt class="py-op">(</tt><tt class="py-param">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getConstructor-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getConstructor-expanded"><a name="L542"></a><tt class="py-lineno">542</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return constructor for class object, or None if there isn't one."""</tt> </tt>
+<a name="L543"></a><tt class="py-lineno">543</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L544"></a><tt class="py-lineno">544</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Method Priithon.DragAndDrop.ClipTextPanel.__init__()=Priithon.DragAndDrop.ClipTextPanel-class.html#__init__,Method Priithon.DragAndDrop.FileDropPanel.__init__()=Priithon.DragAndDrop.FileDropPanel-class.html#__init__,Method Priithon.DragAndDrop.MyFileDropTarget.__init__()=Priithon.DragAndDrop.MyFileDropTarget-class.html#__init__,Method Priithon.Mrc.Mrc.__init__()=Priithon.Mrc.Mrc-class.html#__init__,Method Priithon.Mrc.Mrc2.__init__()=Priithon.Mrc.Mrc2-class.html#__init__,Method Priithon.Scientific_IO_TextFile.TextFile.__init__()=Priithon.Scientific_IO_TextFile.TextFile-class.html#__init__,Method Priithon.buttonbox._buttonBox.__init__()=Priithon.buttonbox._buttonBox-class.html#__init__,Method Priithon.fileDropPopup.FileDropTarget.__init__()=Priithon.fileDropPopup.FileDropTarget-class.html#__init__,Method Priithon.gridviewer.ArrayGrid.__init__()=Priithon.gridviewer.ArrayGrid-class.html#__init__,Method Priithon.gridviewer.HugeTable.__init__()=Priithon.gridviewer.HugeTable-class.html#__init__,Method Priithon.gridviewer.HugeTableGrid.__init__()=Priithon.gridviewer.HugeTableGrid-class.html#__init__,Method Priithon.guiExceptionFrame.MyFrame.__init__()=Priithon.guiExceptionFrame.MyFrame-class.html#__init__,Method Priithon.guiParams.guiParams.__init__()=Priithon.guiParams.guiParams-class.html#__init__,Method Priithon.histogram.HistogramCanvas.__init__()=Priithon.histogram.HistogramCanvas-class.html#__init__,Method Priithon.histogram.MyCanvasBase.__init__()=Priithon.histogram.MyCanvasBase-class.html#__init__,Method Priithon.mmviewer.GLViewer.__init__()=Priithon.mmviewer.GLViewer-class.html#__init__,Method Priithon.mockNDarray.mockNDarray.__init__()=Priithon.mockNDarray.mockNDarray-class.html#__init__,Method Priithon.plt.dumb_shelve.DbfilenameShelf.__init__()=Priithon.plt.dumb_shelve.DbfilenameShelf-class.html#__init__,Method Priithon.plt.dumbdbm_patched._Database.__init__()=Priithon.plt.dumbdbm_patched._Database-class.html#__init__,Method Priithon.plt.plot_objects.axis_object.__init__()=Priithon.plt.plot_objects.axis_object-class.html#__init__,Method Priithon.plt.plot_objects.axis_window.__init__()=Priithon.plt.plot_objects.axis_window-class.html#__init__,Method Priithon.plt.plot_objects.border_object.__init__()=Priithon.plt.plot_objects.border_object-class.html#__init__,Method Priithon.plt.plot_objects.graphic_list.__init__()=Priithon.plt.plot_objects.graphic_list-class.html#__init__,Method Priithon.plt.plot_objects.image_object.__init__()=Priithon.plt.plot_objects.image_object-class.html#__init__,Method Priithon.plt.plot_objects.legend_object.__init__()=Priithon.plt.plot_objects.legend_object-class.html#__init__,Method Priithon.plt.plot_objects.line_object.__init__()=Priithon.plt.plot_objects.line_object-class.html#__init__,Method Priithon.plt.plot_objects.poly_line.__init__()=Priithon.plt.plot_objects.poly_line-class.html#__init__,Method Priithon.plt.plot_objects.poly_marker.__init__()=Priithon.plt.plot_objects.poly_marker-class.html#__init__,Method Priithon.plt.plot_objects.poly_points.__init__()=Priithon.plt.plot_objects.poly_points-class.html#__init__,Method Priithon.plt.plot_objects.text_object.__init__()=Priithon.plt.plot_objects.text_object-class.html#__init__,Method Priithon.plt.plot_objects.text_window.__init__()=Priithon.plt.plot_objects.text_window-class.html#__init__,Method Priithon.plt.plot_utility.box_object.__init__()=Priithon.plt.plot_utility.box_object-class.html#__init__,Method Priithon.plt.plot_utility.point_object.__init__()=Priithon.plt.plot_utility.point_object-class.html#__init__,Method Priithon.plt.plot_utility.property_object.__init__()=Priithon.plt.plot_utility.property_object-class.html#__init__,Method Priithon.plt.wxplt.graph_printout.__init__()=Priithon.plt.wxplt.graph_printout-class.html#__init__,Method Priithon.plt.wxplt.plot_canvas.__init__()=Priithon.plt.wxplt.plot_canvas-class.html#__init__,Method Priithon.plt.wxplt.plot_frame.__init__()=Priithon.plt.wxplt.plot_frame-class.html#__init__,Method Priithon.py.PyAlaCarte.App.__init__()=Priithon.py.PyAlaCarte.App-class.html#__init__,Method Priithon.py.PyAlaMode.App.__init__()=Priithon.py.PyAlaMode.App-class.html#__init__,Method Priithon.py.PyAlaModeTest.App.__init__()=Priithon.py.PyAlaModeTest.App-class.html#__init__,Method Priithon.py.buffer.Buffer.__init__()=Priithon.py.buffer.Buffer-class.html#__init__,Method Priithon.py.crust.Calltip.__init__()=Priithon.py.crust.Calltip-class.html#__init__,Method Priithon.py.crust.Crust.__init__()=Priithon.py.crust.Crust-class.html#__init__,Method Priithon.py.crust.CrustFrame.__init__()=Priithon.py.crust.CrustFrame-class.html#__init__,Method Priithon.py.crust.DispatcherListing.__init__()=Priithon.py.crust.DispatcherListing-class.html#__init__,Method Priithon.py.crust.Display.__init__()=Priithon.py.crust.Display-class.html#__init__,Method Priithon.py.crust.SessionListing.__init__()=Priithon.py.crust.SessionListing-class.html#__init__,Method Priithon.py.dispatcher.BoundMethodWeakref.__init__()=Priithon.py.dispatcher.BoundMethodWeakref-class.html#__init__,Method Priithon.py.dispatcher.DispatcherError.__init__()=Priithon.py.dispatcher.DispatcherError-class.html#__init__,Method Priithon.py.document.Document.__init__()=Priithon.py.document.Document-class.html#__init__,Method Priithon.py.editor.DialogResults.__init__()=Priithon.py.editor.DialogResults-class.html#__init__,Method Priithon.py.editor.EditWindow.__init__()=Priithon.py.editor.EditWindow-class.html#__init__,Method Priithon.py.editor.Editor.__init__()=Priithon.py.editor.Editor-class.html#__init__,Method Priithon.py.editor.EditorFrame.__init__()=Priithon.py.editor.EditorFrame-class.html#__init__,Method Priithon.py.editor.EditorNotebook.__init__()=Priithon.py.editor.EditorNotebook-class.html#__init__,Method Priithon.py.editor.EditorNotebookFrame.__init__()=Priithon.py.editor.EditorNotebookFrame-class.html#__init__,Method Priithon.py.editor.EditorShellNotebook.__init__()=Priithon.py.editor.EditorShellNotebook-class.html#__init__,Method Priithon.py.editor.EditorShellNotebookFrame.__init__()=Priithon.py.editor.EditorShellNotebookFrame-class.html#__init__,Method Priithon.py.editwindow.EditWindow.__init__()=Priithon.py.editwindow.EditWindow-class.html#__init__,Method Priithon.py.filling.Filling.__init__()=Priithon.py.filling.Filling-class.html#__init__,Method Priithon.py.filling.FillingFrame.__init__()=Priithon.py.filling.FillingFrame-class.html#__init__,Method Priithon.py.filling.FillingText.__init__()=Priithon.py.filling.FillingText-class.html#__init__,Method Priithon.py.filling.FillingTree.__init__()=Priithon.py.filling.FillingTree-class.html#__init__,Method Priithon.py.frame.Frame.__init__()=Priithon.py.frame.Frame-class.html#__init__,Method Priithon.py.interpreter.Interpreter.__init__()=Priithon.py.interpreter.Interpreter-class.html#__init__,Method Priithon.py.interpreter.InterpreterAlaCarte.__init__()=Priithon.py.interpreter.InterpreterAlaCarte-class.html#__init__,Method Priithon.py.pseudo.PseudoFile.__init__()=Priithon.py.pseudo.PseudoFile-class.html#__init__,Method Priithon.py.pseudo.PseudoFileErr.__init__()=Priithon.py.pseudo.PseudoFileErr-class.html#__init__,Method Priithon.py.pseudo.PseudoFileIn.__init__()=Priithon.py.pseudo.PseudoFileIn-class.html#__init__,Method Priithon.py.pseudo.PseudoFileOut.__init__()=Priithon.py.pseudo.PseudoFileOut-class.html#__init__,Method Priithon.py.pseudo.PseudoKeyword.__init__()=Priithon.py.pseudo.PseudoKeyword-class.html#__init__,Method Priithon.py.shell.Shell.__init__()=Priithon.py.shell.Shell-class.html#__init__,Method Priithon.py.shell.ShellFacade.__init__()=Priithon.py.shell.ShellFacade-class.html#__init__,Method Priithon.py.shell.ShellFrame.__init__()=Priithon.py.shell.ShellFrame-class.html#__init__,Method Priithon.readerSPE.File.__init__()=Priithon.readerSPE.File-class.html#__init__,Method Priithon.scalePanel.scalePanel.__init__()=Priithon.scalePanel.scalePanel-class.html#__init__,Method Priithon.splitND.TestTransientPopup.__init__()=Priithon.splitND.TestTransientPopup-class.html#__init__,Method Priithon.splitND.spv.__init__()=Priithon.splitND.spv-class.html#__init__,Method Priithon.splitND2.spv.__init__()=Priithon.splitND2.spv-class.html#__init__,Method Priithon.splitNDcommon.spvCommon.__init__()=Priithon.splitNDcommon.spvCommon-class.html#__init__,Method Priithon.useful.deco_memoized.__init__()=Priithon.useful.deco_memoized-class.html#__init__,Method Priithon.usefulX._listArrayViewer.__init__()=Priithon.usefulX._listArrayViewer-class.html#__init__,Method Priithon.usefulX._listFilesViewer.MyFileDropTarget.__init__()=Priithon.usefulX._listFilesViewer.MyFileDropTarget-class.html#__init__,Method Priithon.usefulX._listFilesViewer.__init__()=Priithon.usefulX._listFilesViewer-class.html#__init__,Method Priithon.usefulX.vtkMountain.__init__()=Priithon.usefulX.vtkMountain-class.html#__init__,Method Priithon.viewer.GLViewer.__init__()=Priithon.viewer.GLViewer-class.html#__init__,Method Priithon.viewer.GammaPopup.__init__()=Priithon.viewer.GammaPopup-class.html#__init__,Method Priithon.viewer2.GLViewer.__init__()=Priithon.viewer2.GLViewer-class.html#__init__,Method Priithon.viewerCommon.GLViewerCommon.__init__()=Priithon.viewerCommon.GLViewerCommon-class.html#__init__,Method Priithon.viewerRubberbandMode.viewerRubberbandMode.__init__()=Priithon.viewerRubberbandMode.viewerRubberbandMode-class.html#__init__,Method Priithon.wxAsyncDispatcher.DispatcherConnection.__init__()=Priithon.wxAsyncDispatcher.DispatcherConnection-class.html#__init__,Method Priithon.wxAsyncDispatcher.DispatcherServer.__init__()=Priithon.wxAsyncDispatcher.DispatcherServer-class.html#__init__,Method Priithon.wxAsyncDispatcher.MainWindow.__init__()=Priithon.wxAsyncDispatcher.MainWindow-class.html#__init__,Method Priithon.wxPyPlot.FloatDCWrapper.__init__()=Priithon.wxPyPlot.FloatDCWrapper-class.html#__init__,Method Priithon.wxPyPlot.PlotCanvas.__init__()=Priithon.wxPyPlot.PlotCanvas-class.html#__init__,Method Priithon.wxPyPlot.PlotGraphics.__init__()=Priithon.wxPyPlot.PlotGraphics-class.html#__init__,Method Priithon.wxPyPlot.PolyLine.__init__()=Priithon.wxPyPlot.PolyLine-class.html#__init__,Method Priithon.wxPyPlot.PolyMarker.__init__()=Priithon.wxPyPlot.PolyMarker-class.html#__init__,Method Priithon.wxPyPlot.PolyPoints.__init__()=Priithon.wxPyPlot.PolyPoints-class.html#__init__,Method Priithon.wxPyPlot.plot_printout.__init__()=Priithon.wxPyPlot.plot_printout-class.html#__init__,Method Priithon.zslider.ZSlider.__init__()=Priithon.zslider.ZSlider-class.html#__init__"><a title="Priithon.DragAndDrop.ClipTextPanel.__init__
+Priithon.DragAndDrop.FileDropPanel.__init__
+Priithon.DragAndDrop.MyFileDropTarget.__init__
+Priithon.Mrc.Mrc.__init__
+Priithon.Mrc.Mrc2.__init__
+Priithon.Scientific_IO_TextFile.TextFile.__init__
+Priithon.buttonbox._buttonBox.__init__
+Priithon.fileDropPopup.FileDropTarget.__init__
+Priithon.gridviewer.ArrayGrid.__init__
+Priithon.gridviewer.HugeTable.__init__
+Priithon.gridviewer.HugeTableGrid.__init__
+Priithon.guiExceptionFrame.MyFrame.__init__
+Priithon.guiParams.guiParams.__init__
+Priithon.histogram.HistogramCanvas.__init__
+Priithon.histogram.MyCanvasBase.__init__
+Priithon.mmviewer.GLViewer.__init__
+Priithon.mockNDarray.mockNDarray.__init__
+Priithon.plt.dumb_shelve.DbfilenameShelf.__init__
+Priithon.plt.dumbdbm_patched._Database.__init__
+Priithon.plt.plot_objects.axis_object.__init__
+Priithon.plt.plot_objects.axis_window.__init__
+Priithon.plt.plot_objects.border_object.__init__
+Priithon.plt.plot_objects.graphic_list.__init__
+Priithon.plt.plot_objects.image_object.__init__
+Priithon.plt.plot_objects.legend_object.__init__
+Priithon.plt.plot_objects.line_object.__init__
+Priithon.plt.plot_objects.poly_line.__init__
+Priithon.plt.plot_objects.poly_marker.__init__
+Priithon.plt.plot_objects.poly_points.__init__
+Priithon.plt.plot_objects.text_object.__init__
+Priithon.plt.plot_objects.text_window.__init__
+Priithon.plt.plot_utility.box_object.__init__
+Priithon.plt.plot_utility.point_object.__init__
+Priithon.plt.plot_utility.property_object.__init__
+Priithon.plt.wxplt.graph_printout.__init__
+Priithon.plt.wxplt.plot_canvas.__init__
+Priithon.plt.wxplt.plot_frame.__init__
+Priithon.py.PyAlaCarte.App.__init__
+Priithon.py.PyAlaMode.App.__init__
+Priithon.py.PyAlaModeTest.App.__init__
+Priithon.py.buffer.Buffer.__init__
+Priithon.py.crust.Calltip.__init__
+Priithon.py.crust.Crust.__init__
+Priithon.py.crust.CrustFrame.__init__
+Priithon.py.crust.DispatcherListing.__init__
+Priithon.py.crust.Display.__init__
+Priithon.py.crust.SessionListing.__init__
+Priithon.py.dispatcher.BoundMethodWeakref.__init__
+Priithon.py.dispatcher.DispatcherError.__init__
+Priithon.py.document.Document.__init__
+Priithon.py.editor.DialogResults.__init__
+Priithon.py.editor.EditWindow.__init__
+Priithon.py.editor.Editor.__init__
+Priithon.py.editor.EditorFrame.__init__
+Priithon.py.editor.EditorNotebook.__init__
+Priithon.py.editor.EditorNotebookFrame.__init__
+Priithon.py.editor.EditorShellNotebook.__init__
+Priithon.py.editor.EditorShellNotebookFrame.__init__
+Priithon.py.editwindow.EditWindow.__init__
+Priithon.py.filling.Filling.__init__
+Priithon.py.filling.FillingFrame.__init__
+Priithon.py.filling.FillingText.__init__
+Priithon.py.filling.FillingTree.__init__
+Priithon.py.frame.Frame.__init__
+Priithon.py.interpreter.Interpreter.__init__
+Priithon.py.interpreter.InterpreterAlaCarte.__init__
+Priithon.py.pseudo.PseudoFile.__init__
+Priithon.py.pseudo.PseudoFileErr.__init__
+Priithon.py.pseudo.PseudoFileIn.__init__
+Priithon.py.pseudo.PseudoFileOut.__init__
+Priithon.py.pseudo.PseudoKeyword.__init__
+Priithon.py.shell.Shell.__init__
+Priithon.py.shell.ShellFacade.__init__
+Priithon.py.shell.ShellFrame.__init__
+Priithon.readerSPE.File.__init__
+Priithon.scalePanel.scalePanel.__init__
+Priithon.splitND.TestTransientPopup.__init__
+Priithon.splitND.spv.__init__
+Priithon.splitND2.spv.__init__
+Priithon.splitNDcommon.spvCommon.__init__
+Priithon.useful.deco_memoized.__init__
+Priithon.usefulX._listArrayViewer.__init__
+Priithon.usefulX._listFilesViewer.MyFileDropTarget.__init__
+Priithon.usefulX._listFilesViewer.__init__
+Priithon.usefulX.vtkMountain.__init__
+Priithon.viewer.GLViewer.__init__
+Priithon.viewer.GammaPopup.__init__
+Priithon.viewer2.GLViewer.__init__
+Priithon.viewerCommon.GLViewerCommon.__init__
+Priithon.viewerRubberbandMode.viewerRubberbandMode.__init__
+Priithon.wxAsyncDispatcher.DispatcherConnection.__init__
+Priithon.wxAsyncDispatcher.DispatcherServer.__init__
+Priithon.wxAsyncDispatcher.MainWindow.__init__
+Priithon.wxPyPlot.FloatDCWrapper.__init__
+Priithon.wxPyPlot.PlotCanvas.__init__
+Priithon.wxPyPlot.PlotGraphics.__init__
+Priithon.wxPyPlot.PolyLine.__init__
+Priithon.wxPyPlot.PolyMarker.__init__
+Priithon.wxPyPlot.PolyPoints.__init__
+Priithon.wxPyPlot.plot_printout.__init__
+Priithon.zslider.ZSlider.__init__" class="py-name" href="#" onclick="return doclink('link-65', '__init__', 'link-65');">__init__</a></tt><tt class="py-op">.</tt><tt class="py-name">im_func</tt> </tt>
+<a name="L545"></a><tt class="py-lineno">545</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L546"></a><tt class="py-lineno">546</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">base</tt> <tt class="py-keyword">in</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt class="py-name">__bases__</tt><tt class="py-op">:</tt> </tt>
+<a name="L547"></a><tt class="py-lineno">547</tt>  <tt class="py-line">            <tt class="py-name">constructor</tt> <tt class="py-op">=</tt> <tt id="link-66" class="py-name"><a title="Priithon.py.introspect.getConstructor" class="py-name" href="#" onclick="return doclink('link-66', 'getConstructor', 'link-63');">getConstructor</a></tt><tt class="py-op">(</tt><tt class="py-name">base</tt><tt class="py-op">)</tt> </tt>
+<a name="L548"></a><tt class="py-lineno">548</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">constructor</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L549"></a><tt class="py-lineno">549</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">constructor</tt> </tt>
+<a name="L550"></a><tt class="py-lineno">550</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L551"></a><tt class="py-lineno">551</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:34 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

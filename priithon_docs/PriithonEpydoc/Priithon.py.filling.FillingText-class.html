@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.py.filling.FillingText</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.py-module.html">Package&nbsp;py</a> ::
+        <a href="Priithon.py.filling-module.html">Module&nbsp;filling</a> ::
+        Class&nbsp;FillingText
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.py.filling.FillingText-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class FillingText</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.py.filling-pysrc.html#FillingText">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_57" name="uml_class_diagram_for_priithon_57">
+<area shape="rect" href="javascript:void(0);" title="The membership flag" alt="" coords="204,1257,412,1276"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAnchor` and `SetAnchor`" alt="" coords="204,1276,412,1295"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackSpaceUnIndents` and `SetBackSpaceUnIndents`" alt="" coords="204,1295,412,1313"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBufferedDraw` and `SetBufferedDraw`" alt="" coords="204,1313,412,1332"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretForeground` and `SetCaretForeground`" alt="" coords="204,1332,412,1351"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineBack` and `SetCaretLineBack`" alt="" coords="204,1351,412,1369"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineBackAlpha` and `SetCaretLineBackAlpha`" alt="" coords="204,1369,412,1388"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineBackground` and `SetCaretLineBackground`" alt="" coords="204,1388,412,1407"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineVisible` and `SetCaretLineVisible`" alt="" coords="204,1407,412,1425"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretPeriod` and `SetCaretPeriod`" alt="" coords="204,1425,412,1444"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretSticky` and `SetCaretSticky`" alt="" coords="204,1444,412,1463"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretWidth` and `SetCaretWidth`" alt="" coords="204,1463,412,1481"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCodePage` and `SetCodePage`" alt="" coords="204,1481,412,1500"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetZoom` and `SetZoom`" alt="" coords="204,1519,412,1537"/>
+<area shape="rect" href="javascript:void(0);" title="repr(x)" alt="" coords="204,1540,412,1559"/>
+<area shape="rect" href="javascript:void(0);" title="Create(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, ..." alt="" coords="204,1559,412,1577"/>
+<area shape="rect" href="javascript:void(0);" title="AddText(self, String text)" alt="" coords="204,1577,412,1596"/>
+<area shape="rect" href="javascript:void(0);" title="AddStyledText(self, wxMemoryBuffer data)" alt="" coords="204,1596,412,1615"/>
+<area shape="rect" href="javascript:void(0);" title="InsertText(self, int pos, String text)" alt="" coords="204,1615,412,1633"/>
+<area shape="rect" href="javascript:void(0);" title="Delete all text in the document." alt="" coords="204,1633,412,1652"/>
+<area shape="rect" href="javascript:void(0);" title="Set all style bytes to 0, remove all folding information." alt="" coords="204,1652,412,1671"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the number of characters in the document." alt="" coords="204,1671,412,1689"/>
+<area shape="rect" href="javascript:void(0);" title="GetCharAt(self, int pos) &#45;&gt; int" alt="" coords="204,1689,412,1708"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the position of the caret." alt="" coords="204,1708,412,1727"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the position of the opposite end of the selection to the caret." alt="" coords="204,1727,412,1745"/>
+<area shape="rect" href="javascript:void(0);" title="GetStyleAt(self, int pos) &#45;&gt; int" alt="" coords="204,1745,412,1764"/>
+<area shape="rect" href="javascript:void(0);" title="Redoes the next action on the undo history." alt="" coords="204,1764,412,1783"/>
+<area shape="rect" href="javascript:void(0);" title="SetCaretLineBackground(self, Colour back)" alt="" coords="204,1801,412,1820"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ StyledTextCtrl class" alt="" coords="203,1240,413,1821"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#setStyles" title="Configure font size, typeface and color for lexer." alt="" coords="225,1876,391,1895"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#OnUpdateUI" title="Check for matching braces." alt="" coords="225,1895,391,1913"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#CanCopy" title="Return True if text is selected and can be copied." alt="" coords="225,1913,391,1932"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#CanCut" title="Return True if text is selected and can be cut." alt="" coords="225,1932,391,1951"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#CanEdit" title="Return True if editing should succeed." alt="" coords="225,1951,391,1969"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#CanPaste" title="Return True if pasting should succeed." alt="" coords="225,1969,391,1988"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#getStyle" title="Returns a style for a given colour if one exists." alt="" coords="225,1988,391,2007"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#write" title="Add the text to the end of the control using colour c which should be &#160;suitable for feeding directly to wx.NamedColour." alt="" coords="225,2007,391,2025"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#__call__" title="Add the text to the end of the control using colour c which should be &#160;suitable for feeding directly to wx.NamedColour." alt="" coords="225,2025,391,2044"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html" title="EditWindow based on StyledTextCtrl." alt="" coords="224,1851,392,2045"/>
+<area shape="rect" href="Priithon.py.filling.FillingText-class.html#name" title="Priithon.py.filling.FillingText.name" alt="" coords="17,2092,599,2111"/>
+<area shape="rect" href="Priithon.py.filling.FillingText-class.html#revision" title="Priithon.py.filling.FillingText.revision" alt="" coords="17,2111,599,2129"/>
+<area shape="rect" href="Priithon.py.filling.FillingText-class.html#__init__" title="Create FillingText instance." alt="" coords="17,2132,599,2151"/>
+<area shape="rect" href="Priithon.py.filling.FillingText-class.html#push" title="Receiver for Interpreter.push signal." alt="" coords="17,2151,599,2169"/>
+<area shape="rect" href="Priithon.py.filling.FillingText-class.html#SetText" title="SetText(self, String text)" alt="" coords="17,2169,599,2188"/>
+<area shape="rect" href="Priithon.py.filling.FillingText-class.html" title="FillingText based on StyledTextCtrl." alt="" coords="16,2075,600,2189"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="227,28,389,47"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="227,49,389,68"/>
+<area shape="rect" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="227,68,389,87"/>
+<area shape="rect" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="225,11,391,88"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`" alt="" coords="125,135,491,153"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetNextHandler` and `SetNextHandler`" alt="" coords="125,153,491,172"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPreviousHandler` and `SetPreviousHandler`" alt="" coords="125,172,491,191"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetNextHandler" alt="" coords="125,193,491,212"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetPreviousHandler" alt="" coords="125,212,491,231"/>
+<area shape="rect" href="javascript:void(0);" title="SetNextHandler(self, EvtHandler handler)" alt="" coords="125,231,491,249"/>
+<area shape="rect" href="javascript:void(0);" title="SetPreviousHandler(self, EvtHandler handler)" alt="" coords="125,249,491,268"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetEvtHandlerEnabled" alt="" coords="125,268,491,287"/>
+<area shape="rect" href="javascript:void(0);" title="SetEvtHandlerEnabled(self, bool enabled)" alt="" coords="125,287,491,305"/>
+<area shape="rect" href="javascript:void(0);" title="ProcessEvent(self, Event event) &#45;&gt; bool" alt="" coords="125,305,491,324"/>
+<area shape="rect" href="javascript:void(0);" title="AddPendingEvent(self, Event event)" alt="" coords="125,324,491,343"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.ProcessPendingEvents" alt="" coords="125,343,491,361"/>
+<area shape="rect" href="javascript:void(0);" title="Connect(self, int id, int lastId, int eventType, PyObject func)" alt="" coords="125,361,491,380"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnect(self, int id, int lastId=&#45;1, EventType eventType=wxEVT_NULL, ..." alt="" coords="125,380,491,399"/>
+<area shape="rect" href="javascript:void(0);" title="Bind an event to an event handler." alt="" coords="125,399,491,417"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnects the event handler binding for event from self." alt="" coords="125,417,491,436"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ EvtHandler class" alt="" coords="124,117,492,437"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAlignment`" alt="" coords="181,1095,435,1113"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetLabelText`" alt="" coords="181,1113,435,1132"/>
+<area shape="rect" href="javascript:void(0);" title="Get the control alignment (left/right/centre, top/bottom/centre)" alt="" coords="181,1135,435,1153"/>
+<area shape="rect" href="javascript:void(0);" title="Get just the text of the label, without mnemonic characters (&#39;&amp;&#39;)" alt="" coords="181,1153,435,1172"/>
+<area shape="rect" href="javascript:void(0);" title="Command(self, CommandEvent event)" alt="" coords="181,1172,435,1191"/>
+<area shape="rect" href="javascript:void(0);" title="GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) &#45;&gt; &#160;VisualAttributes" alt="" coords="181,1191,435,1209"/>
+<area shape="rect" href="javascript:void(0);" title="This is the base class for a control or &#39;widget&#39;." alt="" coords="180,1077,436,1211"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAcceleratorTable` and `SetAcceleratorTable`" alt="" coords="184,484,432,503"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAutoLayout` and `SetAutoLayout`" alt="" coords="184,503,432,521"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundColour` and `SetBackgroundColour`" alt="" coords="184,521,432,540"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundStyle` and `SetBackgroundStyle`" alt="" coords="184,540,432,559"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestSize`" alt="" coords="184,559,432,577"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestVirtualSize`" alt="" coords="184,577,432,596"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBorder`" alt="" coords="184,596,432,615"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaret` and `SetCaret`" alt="" coords="184,615,432,633"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharHeight`" alt="" coords="184,633,432,652"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharWidth`" alt="" coords="184,652,432,671"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetChildren`" alt="" coords="184,671,432,689"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientAreaOrigin`" alt="" coords="184,689,432,708"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientRect` and `SetClientRect`" alt="" coords="184,708,432,727"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetWindowVariant` and `SetWindowVariant`" alt="" coords="184,745,432,764"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window have focus?" alt="" coords="184,767,432,785"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window be given focus by keyboard navigation? if not, the only way to give it focus (provided it accepts it at all) is to click it." alt="" coords="184,785,432,804"/>
+<area shape="rect" href="javascript:void(0);" title="AddChild(self, Window child)" alt="" coords="184,804,432,823"/>
+<area shape="rect" href="javascript:void(0);" title="AdjustForLayoutDirection(self, int x, int width, int widthTotal) &#45;&gt; int" alt="" coords="184,823,432,841"/>
+<area shape="rect" href="javascript:void(0);" title="AssociateHandle(self, long handle)" alt="" coords="184,841,432,860"/>
+<area shape="rect" href="javascript:void(0);" title="CacheBestSize(self, Size size)" alt="" coords="184,860,432,879"/>
+<area shape="rect" href="javascript:void(0);" title="Returns ``True`` if the platform supports setting the transparency for this window." alt="" coords="184,879,432,897"/>
+<area shape="rect" href="javascript:void(0);" title="Directs all mouse input to this window." alt="" coords="184,897,432,916"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="184,916,432,935"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="184,935,432,953"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="184,953,432,972"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="184,972,432,991"/>
+<area shape="rect" href="javascript:void(0);" title="Clears the window by filling it with the current background colour." alt="" coords="184,991,432,1009"/>
+<area shape="rect" href="javascript:void(0);" title="WindowToClientSize(self, Size size) &#45;&gt; Size" alt="" coords="184,1028,432,1047"/>
+<area shape="rect" href="javascript:void(0);" title="wx.Window is the base class for all windows and represents any visible object on the screen." alt="" coords="183,467,433,1048"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_57.gif" alt='' usemap="#uml_class_diagram_for_priithon_57" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>FillingText based on StyledTextCtrl.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">EvtHandler</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.filling.FillingText-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.Point(-1, -1)</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.Size(-1, -1)</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">4194304</span>,
+        <span class="summary-sig-arg">static</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Create FillingText instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.filling-pysrc.html#FillingText.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="push"></a><span class="summary-sig-name">push</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">more</span>)</span><br />
+      Receiver for Interpreter.push signal.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.filling-pysrc.html#FillingText.push">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.filling.FillingText-class.html#SetText" class="summary-sig-name">SetText</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwds</span>)</span><br />
+      SetText(self, String text)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.filling-pysrc.html#FillingText.SetText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.editwindow.EditWindow-class.html">editwindow.EditWindow</a></code></b>:
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#CanCopy">CanCopy</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#CanCut">CanCut</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#CanEdit">CanEdit</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#CanPaste">CanPaste</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#OnUpdateUI">OnUpdateUI</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#__call__">__call__</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#getStyle">getStyle</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#setStyles">setStyles</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#write">write</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.editwindow.EditWindow-class.html">editwindow.EditWindow</a></code></b> (private):
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#_fontsizer" onclick="show_private();">_fontsizer</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.stc.StyledTextCtrl</code></b>:
+      <code>AddRefDocument</code>,
+      <code>AddStyledText</code>,
+      <code>AddText</code>,
+      <code>AddTextRaw</code>,
+      <code>AddTextUTF8</code>,
+      <code>Allocate</code>,
+      <code>AppendText</code>,
+      <code>AppendTextRaw</code>,
+      <code>AppendTextUTF8</code>,
+      <code>AutoCompActive</code>,
+      <code>AutoCompCancel</code>,
+      <code>AutoCompComplete</code>,
+      <code>AutoCompGetAutoHide</code>,
+      <code>AutoCompGetCancelAtStart</code>,
+      <code>AutoCompGetChooseSingle</code>,
+      <code>AutoCompGetCurrent</code>,
+      <code>AutoCompGetDropRestOfWord</code>,
+      <code>AutoCompGetIgnoreCase</code>,
+      <code>AutoCompGetMaxHeight</code>,
+      <code>AutoCompGetMaxWidth</code>,
+      <code>AutoCompGetSeparator</code>,
+      <code>AutoCompGetTypeSeparator</code>,
+      <code>AutoCompPosStart</code>,
+      <code>AutoCompSelect</code>,
+      <code>AutoCompSetAutoHide</code>,
+      <code>AutoCompSetCancelAtStart</code>,
+      <code>AutoCompSetChooseSingle</code>,
+      <code>AutoCompSetDropRestOfWord</code>,
+      <code>AutoCompSetFillUps</code>,
+      <code>AutoCompSetIgnoreCase</code>,
+      <code>AutoCompSetMaxHeight</code>,
+      <code>AutoCompSetMaxWidth</code>,
+      <code>AutoCompSetSeparator</code>,
+      <code>AutoCompSetTypeSeparator</code>,
+      <code>AutoCompShow</code>,
+      <code>AutoCompStops</code>,
+      <code>BackTab</code>,
+      <code>BeginUndoAction</code>,
+      <code>BraceBadLight</code>,
+      <code>BraceHighlight</code>,
+      <code>BraceMatch</code>,
+      <code>CallTipActive</code>,
+      <code>CallTipCancel</code>,
+      <code>CallTipPosAtStart</code>,
+      <code>CallTipSetBackground</code>,
+      <code>CallTipSetForeground</code>,
+      <code>CallTipSetForegroundHighlight</code>,
+      <code>CallTipSetHighlight</code>,
+      <code>CallTipShow</code>,
+      <code>CallTipUseStyle</code>,
+      <code>CanRedo</code>,
+      <code>CanUndo</code>,
+      <code>Cancel</code>,
+      <code>CharLeft</code>,
+      <code>CharLeftExtend</code>,
+      <code>CharLeftRectExtend</code>,
+      <code>CharRight</code>,
+      <code>CharRightExtend</code>,
+      <code>CharRightRectExtend</code>,
+      <code>ChooseCaretX</code>,
+      <code>Clear</code>,
+      <code>ClearAll</code>,
+      <code>ClearDocumentStyle</code>,
+      <code>ClearRegisteredImages</code>,
+      <code>CmdKeyAssign</code>,
+      <code>CmdKeyClear</code>,
+      <code>CmdKeyClearAll</code>,
+      <code>CmdKeyExecute</code>,
+      <code>Colourise</code>,
+      <code>ConvertEOLs</code>,
+      <code>Copy</code>,
+      <code>CopyRange</code>,
+      <code>CopyText</code>,
+      <code>Create</code>,
+      <code>CreateDocument</code>,
+      <code>Cut</code>,
+      <code>DelLineLeft</code>,
+      <code>DelLineRight</code>,
+      <code>DelWordLeft</code>,
+      <code>DelWordRight</code>,
+      <code>DeleteBack</code>,
+      <code>DeleteBackNotLine</code>,
+      <code>DoDragOver</code>,
+      <code>DoDropText</code>,
+      <code>DocLineFromVisible</code>,
+      <code>DocumentEnd</code>,
+      <code>DocumentEndExtend</code>,
+      <code>DocumentStart</code>,
+      <code>DocumentStartExtend</code>,
+      <code>EditToggleOvertype</code>,
+      <code>EmptyUndoBuffer</code>,
+      <code>EndUndoAction</code>,
+      <code>EnsureCaretVisible</code>,
+      <code>EnsureVisible</code>,
+      <code>EnsureVisibleEnforcePolicy</code>,
+      <code>FindColumn</code>,
+      <code>FindText</code>,
+      <code>FormFeed</code>,
+      <code>FormatRange</code>,
+      <code>GetAnchor</code>,
+      <code>GetBackSpaceUnIndents</code>,
+      <code>GetBufferedDraw</code>,
+      <code>GetCaretForeground</code>,
+      <code>GetCaretLineBack</code>,
+      <code>GetCaretLineBackAlpha</code>,
+      <code>GetCaretLineBackground</code>,
+      <code>GetCaretLineVisible</code>,
+      <code>GetCaretPeriod</code>,
+      <code>GetCaretSticky</code>,
+      <code>GetCaretWidth</code>,
+      <code>GetCharAt</code>,
+      <code>GetCodePage</code>,
+      <code>GetColumn</code>,
+      <code>GetControlCharSymbol</code>,
+      <code>GetCurLine</code>,
+      <code>GetCurLineRaw</code>,
+      <code>GetCurLineUTF8</code>,
+      <code>GetCurrentLine</code>,
+      <code>GetCurrentPos</code>,
+      <code>GetDocPointer</code>,
+      <code>GetEOLMode</code>,
+      <code>GetEdgeColour</code>,
+      <code>GetEdgeColumn</code>,
+      <code>GetEdgeMode</code>,
+      <code>GetEndAtLastLine</code>,
+      <code>GetEndStyled</code>,
+      <code>GetFirstVisibleLine</code>,
+      <code>GetFoldExpanded</code>,
+      <code>GetFoldLevel</code>,
+      <code>GetFoldParent</code>,
+      <code>GetHighlightGuide</code>,
+      <code>GetIndent</code>,
+      <code>GetIndentationGuides</code>,
+      <code>GetLastChild</code>,
+      <code>GetLastKeydownProcessed</code>,
+      <code>GetLayoutCache</code>,
+      <code>GetLength</code>,
+      <code>GetLexer</code>,
+      <code>GetLine</code>,
+      <code>GetLineCount</code>,
+      <code>GetLineEndPosition</code>,
+      <code>GetLineIndentPosition</code>,
+      <code>GetLineIndentation</code>,
+      <code>GetLineRaw</code>,
+      <code>GetLineSelEndPosition</code>,
+      <code>GetLineSelStartPosition</code>,
+      <code>GetLineState</code>,
+      <code>GetLineUTF8</code>,
+      <code>GetLineVisible</code>,
+      <code>GetMarginLeft</code>,
+      <code>GetMarginMask</code>,
+      <code>GetMarginRight</code>,
+      <code>GetMarginSensitive</code>,
+      <code>GetMarginType</code>,
+      <code>GetMarginWidth</code>,
+      <code>GetMaxLineState</code>,
+      <code>GetModEventMask</code>,
+      <code>GetModify</code>,
+      <code>GetMouseDownCaptures</code>,
+      <code>GetMouseDwellTime</code>,
+      <code>GetOvertype</code>,
+      <code>GetPasteConvertEndings</code>,
+      <code>GetPrintColourMode</code>,
+      <code>GetPrintMagnification</code>,
+      <code>GetPrintWrapMode</code>,
+      <code>GetProperty</code>,
+      <code>GetPropertyExpanded</code>,
+      <code>GetPropertyInt</code>,
+      <code>GetReadOnly</code>,
+      <code>GetSTCCursor</code>,
+      <code>GetSTCFocus</code>,
+      <code>GetScrollWidth</code>,
+      <code>GetSearchFlags</code>,
+      <code>GetSelAlpha</code>,
+      <code>GetSelectedText</code>,
+      <code>GetSelectedTextRaw</code>,
+      <code>GetSelectedTextUTF8</code>,
+      <code>GetSelection</code>,
+      <code>GetSelectionEnd</code>,
+      <code>GetSelectionMode</code>,
+      <code>GetSelectionStart</code>,
+      <code>GetStatus</code>,
+      <code>GetStyleAt</code>,
+      <code>GetStyleBits</code>,
+      <code>GetStyleBitsNeeded</code>,
+      <code>GetStyledText</code>,
+      <code>GetTabIndents</code>,
+      <code>GetTabWidth</code>,
+      <code>GetTargetEnd</code>,
+      <code>GetTargetStart</code>,
+      <code>GetText</code>,
+      <code>GetTextLength</code>,
+      <code>GetTextRange</code>,
+      <code>GetTextRangeRaw</code>,
+      <code>GetTextRangeUTF8</code>,
+      <code>GetTextRaw</code>,
+      <code>GetTextUTF8</code>,
+      <code>GetTwoPhaseDraw</code>,
+      <code>GetUndoCollection</code>,
+      <code>GetUseAntiAliasing</code>,
+      <code>GetUseHorizontalScrollBar</code>,
+      <code>GetUseTabs</code>,
+      <code>GetUseVerticalScrollBar</code>,
+      <code>GetViewEOL</code>,
+      <code>GetViewWhiteSpace</code>,
+      <code>GetWrapMode</code>,
+      <code>GetWrapStartIndent</code>,
+      <code>GetWrapVisualFlags</code>,
+      <code>GetWrapVisualFlagsLocation</code>,
+      <code>GetXOffset</code>,
+      <code>GetZoom</code>,
+      <code>GotoLine</code>,
+      <code>GotoPos</code>,
+      <code>HideLines</code>,
+      <code>HideSelection</code>,
+      <code>Home</code>,
+      <code>HomeDisplay</code>,
+      <code>HomeDisplayExtend</code>,
+      <code>HomeExtend</code>,
+      <code>HomeRectExtend</code>,
+      <code>HomeWrap</code>,
+      <code>HomeWrapExtend</code>,
+      <code>IndicatorGetForeground</code>,
+      <code>IndicatorGetStyle</code>,
+      <code>IndicatorSetForeground</code>,
+      <code>IndicatorSetStyle</code>,
+      <code>InsertText</code>,
+      <code>InsertTextRaw</code>,
+      <code>InsertTextUTF8</code>,
+      <code>LineCopy</code>,
+      <code>LineCut</code>,
+      <code>LineDelete</code>,
+      <code>LineDown</code>,
+      <code>LineDownExtend</code>,
+      <code>LineDownRectExtend</code>,
+      <code>LineDuplicate</code>,
+      <code>LineEnd</code>,
+      <code>LineEndDisplay</code>,
+      <code>LineEndDisplayExtend</code>,
+      <code>LineEndExtend</code>,
+      <code>LineEndRectExtend</code>,
+      <code>LineEndWrap</code>,
+      <code>LineEndWrapExtend</code>,
+      <code>LineFromPosition</code>,
+      <code>LineLength</code>,
+      <code>LineScroll</code>,
+      <code>LineScrollDown</code>,
+      <code>LineScrollUp</code>,
+      <code>LineTranspose</code>,
+      <code>LineUp</code>,
+      <code>LineUpExtend</code>,
+      <code>LineUpRectExtend</code>,
+      <code>LinesJoin</code>,
+      <code>LinesOnScreen</code>,
+      <code>LinesSplit</code>,
+      <code>LoadFile</code>,
+      <code>LowerCase</code>,
+      <code>MarkerAdd</code>,
+      <code>MarkerAddSet</code>,
+      <code>MarkerDefine</code>,
+      <code>MarkerDefineBitmap</code>,
+      <code>MarkerDelete</code>,
+      <code>MarkerDeleteAll</code>,
+      <code>MarkerDeleteHandle</code>,
+      <code>MarkerGet</code>,
+      <code>MarkerLineFromHandle</code>,
+      <code>MarkerNext</code>,
+      <code>MarkerPrevious</code>,
+      <code>MarkerSetAlpha</code>,
+      <code>MarkerSetBackground</code>,
+      <code>MarkerSetForeground</code>,
+      <code>MoveCaretInsideView</code>,
+      <code>NewLine</code>,
+      <code>PageDown</code>,
+      <code>PageDownExtend</code>,
+      <code>PageDownRectExtend</code>,
+      <code>PageUp</code>,
+      <code>PageUpExtend</code>,
+      <code>PageUpRectExtend</code>,
+      <code>ParaDown</code>,
+      <code>ParaDownExtend</code>,
+      <code>ParaUp</code>,
+      <code>ParaUpExtend</code>,
+      <code>Paste</code>,
+      <code>PointFromPosition</code>,
+      <code>PositionAfter</code>,
+      <code>PositionBefore</code>,
+      <code>PositionFromLine</code>,
+      <code>PositionFromPoint</code>,
+      <code>PositionFromPointClose</code>,
+      <code>Redo</code>,
+      <code>RegisterImage</code>,
+      <code>ReleaseDocument</code>,
+      <code>ReplaceSelection</code>,
+      <code>ReplaceTarget</code>,
+      <code>ReplaceTargetRE</code>,
+      <code>SaveFile</code>,
+      <code>ScrollToColumn</code>,
+      <code>ScrollToLine</code>,
+      <code>SearchAnchor</code>,
+      <code>SearchInTarget</code>,
+      <code>SearchNext</code>,
+      <code>SearchPrev</code>,
+      <code>SelectAll</code>,
+      <code>SelectionDuplicate</code>,
+      <code>SelectionIsRectangle</code>,
+      <code>SendMsg</code>,
+      <code>SetAnchor</code>,
+      <code>SetBackSpaceUnIndents</code>,
+      <code>SetBufferedDraw</code>,
+      <code>SetCaretForeground</code>,
+      <code>SetCaretLineBack</code>,
+      <code>SetCaretLineBackAlpha</code>,
+      <code>SetCaretLineBackground</code>,
+      <code>SetCaretLineVisible</code>,
+      <code>SetCaretPeriod</code>,
+      <code>SetCaretSticky</code>,
+      <code>SetCaretWidth</code>,
+      <code>SetCharsDefault</code>,
+      <code>SetCodePage</code>,
+      <code>SetControlCharSymbol</code>,
+      <code>SetCurrentPos</code>,
+      <code>SetDocPointer</code>,
+      <code>SetEOLMode</code>,
+      <code>SetEdgeColour</code>,
+      <code>SetEdgeColumn</code>,
+      <code>SetEdgeMode</code>,
+      <code>SetEndAtLastLine</code>,
+      <code>SetFoldExpanded</code>,
+      <code>SetFoldFlags</code>,
+      <code>SetFoldLevel</code>,
+      <code>SetFoldMarginColour</code>,
+      <code>SetFoldMarginHiColour</code>,
+      <code>SetHScrollBar</code>,
+      <code>SetHighlightGuide</code>,
+      <code>SetHotspotActiveBackground</code>,
+      <code>SetHotspotActiveForeground</code>,
+      <code>SetHotspotActiveUnderline</code>,
+      <code>SetHotspotSingleLine</code>,
+      <code>SetIndent</code>,
+      <code>SetIndentationGuides</code>,
+      <code>SetKeyWords</code>,
+      <code>SetLastKeydownProcessed</code>,
+      <code>SetLayoutCache</code>,
+      <code>SetLexer</code>,
+      <code>SetLexerLanguage</code>,
+      <code>SetLineIndentation</code>,
+      <code>SetLineState</code>,
+      <code>SetMarginLeft</code>,
+      <code>SetMarginMask</code>,
+      <code>SetMarginRight</code>,
+      <code>SetMarginSensitive</code>,
+      <code>SetMarginType</code>,
+      <code>SetMarginWidth</code>,
+      <code>SetMargins</code>,
+      <code>SetModEventMask</code>,
+      <code>SetMouseDownCaptures</code>,
+      <code>SetMouseDwellTime</code>,
+      <code>SetOvertype</code>,
+      <code>SetPasteConvertEndings</code>,
+      <code>SetPrintColourMode</code>,
+      <code>SetPrintMagnification</code>,
+      <code>SetPrintWrapMode</code>,
+      <code>SetProperty</code>,
+      <code>SetReadOnly</code>,
+      <code>SetSTCCursor</code>,
+      <code>SetSTCFocus</code>,
+      <code>SetSavePoint</code>,
+      <code>SetScrollWidth</code>,
+      <code>SetSearchFlags</code>,
+      <code>SetSelAlpha</code>,
+      <code>SetSelBackground</code>,
+      <code>SetSelForeground</code>,
+      <code>SetSelection</code>,
+      <code>SetSelectionEnd</code>,
+      <code>SetSelectionMode</code>,
+      <code>SetSelectionStart</code>,
+      <code>SetStatus</code>,
+      <code>SetStyleBits</code>,
+      <code>SetStyleBytes</code>,
+      <code>SetStyling</code>,
+      <code>SetTabIndents</code>,
+      <code>SetTabWidth</code>,
+      <code>SetTargetEnd</code>,
+      <code>SetTargetStart</code>,
+      <code>SetTextRaw</code>,
+      <code>SetTextUTF8</code>,
+      <code>SetTwoPhaseDraw</code>,
+      <code>SetUndoCollection</code>,
+      <code>SetUseAntiAliasing</code>,
+      <code>SetUseHorizontalScrollBar</code>,
+      <code>SetUseTabs</code>,
+      <code>SetUseVerticalScrollBar</code>,
+      <code>SetVScrollBar</code>,
+      <code>SetViewEOL</code>,
+      <code>SetViewWhiteSpace</code>,
+      <code>SetVisiblePolicy</code>,
+      <code>SetWhitespaceBackground</code>,
+      <code>SetWhitespaceChars</code>,
+      <code>SetWhitespaceForeground</code>,
+      <code>SetWordChars</code>,
+      <code>SetWrapMode</code>,
+      <code>SetWrapStartIndent</code>,
+      <code>SetWrapVisualFlags</code>,
+      <code>SetWrapVisualFlagsLocation</code>,
+      <code>SetXCaretPolicy</code>,
+      <code>SetXOffset</code>,
+      <code>SetYCaretPolicy</code>,
+      <code>SetZoom</code>,
+      <code>ShowLines</code>,
+      <code>StartRecord</code>,
+      <code>StartStyling</code>,
+      <code>StopRecord</code>,
+      <code>StutteredPageDown</code>,
+      <code>StutteredPageDownExtend</code>,
+      <code>StutteredPageUp</code>,
+      <code>StutteredPageUpExtend</code>,
+      <code>StyleClearAll</code>,
+      <code>StyleResetDefault</code>,
+      <code>StyleSetBackground</code>,
+      <code>StyleSetBold</code>,
+      <code>StyleSetCase</code>,
+      <code>StyleSetChangeable</code>,
+      <code>StyleSetCharacterSet</code>,
+      <code>StyleSetEOLFilled</code>,
+      <code>StyleSetFaceName</code>,
+      <code>StyleSetFont</code>,
+      <code>StyleSetFontAttr</code>,
+      <code>StyleSetFontEncoding</code>,
+      <code>StyleSetForeground</code>,
+      <code>StyleSetHotSpot</code>,
+      <code>StyleSetItalic</code>,
+      <code>StyleSetSize</code>,
+      <code>StyleSetSpec</code>,
+      <code>StyleSetUnderline</code>,
+      <code>StyleSetVisible</code>,
+      <code>Tab</code>,
+      <code>TargetFromSelection</code>,
+      <code>TextHeight</code>,
+      <code>TextWidth</code>,
+      <code>ToggleCaretSticky</code>,
+      <code>ToggleFold</code>,
+      <code>Undo</code>,
+      <code>UpperCase</code>,
+      <code>UsePopUp</code>,
+      <code>UserListShow</code>,
+      <code>VCHome</code>,
+      <code>VCHomeExtend</code>,
+      <code>VCHomeRectExtend</code>,
+      <code>VCHomeWrap</code>,
+      <code>VCHomeWrapExtend</code>,
+      <code>VisibleFromDocLine</code>,
+      <code>WordEndPosition</code>,
+      <code>WordLeft</code>,
+      <code>WordLeftEnd</code>,
+      <code>WordLeftEndExtend</code>,
+      <code>WordLeftExtend</code>,
+      <code>WordPartLeft</code>,
+      <code>WordPartLeftExtend</code>,
+      <code>WordPartRight</code>,
+      <code>WordPartRightExtend</code>,
+      <code>WordRight</code>,
+      <code>WordRightEnd</code>,
+      <code>WordRightEndExtend</code>,
+      <code>WordRightExtend</code>,
+      <code>WordStartPosition</code>,
+      <code>WrapCount</code>,
+      <code>ZoomIn</code>,
+      <code>ZoomOut</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Control</code></b>:
+      <code>Command</code>,
+      <code>GetAlignment</code>,
+      <code>GetLabelText</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>ClientToWindowSize</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByLabel</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetGtkWidget</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>,
+      <code>WindowToClientSize</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Control</code></b>:
+      <code>GetClassDefaultAttributes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="name"></a><span class="summary-name">name</span> = <code title="'Filling Text'"><code class="variable-quote">'</code><code class="variable-string">Filling Text</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="revision"></a><span class="summary-name">revision</span> = <code title="'1.5'"><code class="variable-quote">'</code><code class="variable-string">1.5</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.stc.StyledTextCtrl</code></b>:
+      <code>Anchor</code>,
+      <code>BackSpaceUnIndents</code>,
+      <code>BufferedDraw</code>,
+      <code>CaretForeground</code>,
+      <code>CaretLineBack</code>,
+      <code>CaretLineBackAlpha</code>,
+      <code>CaretLineBackground</code>,
+      <code>CaretLineVisible</code>,
+      <code>CaretPeriod</code>,
+      <code>CaretSticky</code>,
+      <code>CaretWidth</code>,
+      <code>CodePage</code>,
+      <code>ControlCharSymbol</code>,
+      <code>CurLine</code>,
+      <code>CurLineRaw</code>,
+      <code>CurLineUTF8</code>,
+      <code>CurrentLine</code>,
+      <code>CurrentPos</code>,
+      <code>DocPointer</code>,
+      <code>EOLMode</code>,
+      <code>EdgeColour</code>,
+      <code>EdgeColumn</code>,
+      <code>EdgeMode</code>,
+      <code>EndAtLastLine</code>,
+      <code>EndStyled</code>,
+      <code>FirstVisibleLine</code>,
+      <code>HighlightGuide</code>,
+      <code>Indent</code>,
+      <code>IndentationGuides</code>,
+      <code>LastKeydownProcessed</code>,
+      <code>LayoutCache</code>,
+      <code>Length</code>,
+      <code>Lexer</code>,
+      <code>LineCount</code>,
+      <code>MarginLeft</code>,
+      <code>MarginRight</code>,
+      <code>MaxLineState</code>,
+      <code>ModEventMask</code>,
+      <code>Modify</code>,
+      <code>MouseDownCaptures</code>,
+      <code>MouseDwellTime</code>,
+      <code>Overtype</code>,
+      <code>PasteConvertEndings</code>,
+      <code>PrintColourMode</code>,
+      <code>PrintMagnification</code>,
+      <code>PrintWrapMode</code>,
+      <code>ReadOnly</code>,
+      <code>STCCursor</code>,
+      <code>STCFocus</code>,
+      <code>ScrollWidth</code>,
+      <code>SearchFlags</code>,
+      <code>SelAlpha</code>,
+      <code>SelectedText</code>,
+      <code>SelectedTextRaw</code>,
+      <code>SelectedTextUTF8</code>,
+      <code>Selection</code>,
+      <code>SelectionEnd</code>,
+      <code>SelectionMode</code>,
+      <code>SelectionStart</code>,
+      <code>Status</code>,
+      <code>StyleBits</code>,
+      <code>StyleBitsNeeded</code>,
+      <code>TabIndents</code>,
+      <code>TabWidth</code>,
+      <code>TargetEnd</code>,
+      <code>TargetStart</code>,
+      <code>Text</code>,
+      <code>TextLength</code>,
+      <code>TextRaw</code>,
+      <code>TextUTF8</code>,
+      <code>TwoPhaseDraw</code>,
+      <code>UndoCollection</code>,
+      <code>UseAntiAliasing</code>,
+      <code>UseHorizontalScrollBar</code>,
+      <code>UseTabs</code>,
+      <code>UseVerticalScrollBar</code>,
+      <code>ViewEOL</code>,
+      <code>ViewWhiteSpace</code>,
+      <code>WrapMode</code>,
+      <code>WrapStartIndent</code>,
+      <code>WrapVisualFlags</code>,
+      <code>WrapVisualFlagsLocation</code>,
+      <code>XOffset</code>,
+      <code>Zoom</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Control</code></b>:
+      <code>Alignment</code>,
+      <code>LabelText</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>GtkWidget</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">id</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">wx.Point(-1, -1)</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.Size(-1, -1)</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">4194304</span>,
+        <span class="sig-arg">static</span>=<span class="sig-default">False</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.filling-pysrc.html#FillingText.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create FillingText instance.</p>
+  <dl class="fields">
+    <dt>Returns: EvtHandler</dt>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetText</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwds</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.filling-pysrc.html#FillingText.SetText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>SetText(self, String text)</p>
+  <p>Replace the contents of the document with the argument text.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        wx.stc.StyledTextCtrl.SetText
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:23 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

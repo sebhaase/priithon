@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.histogram.HistogramCanvas</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.histogram-module.html">Module&nbsp;histogram</a> ::
+        Class&nbsp;HistogramCanvas
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.histogram.HistogramCanvas-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class HistogramCanvas</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_10" name="uml_class_diagram_for_priithon_10">
+<area shape="rect" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="119,28,281,47"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="119,49,281,68"/>
+<area shape="rect" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="119,68,281,87"/>
+<area shape="rect" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="117,11,283,88"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`" alt="" coords="17,135,383,153"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetNextHandler` and `SetNextHandler`" alt="" coords="17,153,383,172"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPreviousHandler` and `SetPreviousHandler`" alt="" coords="17,172,383,191"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetNextHandler" alt="" coords="17,193,383,212"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetPreviousHandler" alt="" coords="17,212,383,231"/>
+<area shape="rect" href="javascript:void(0);" title="SetNextHandler(self, EvtHandler handler)" alt="" coords="17,231,383,249"/>
+<area shape="rect" href="javascript:void(0);" title="SetPreviousHandler(self, EvtHandler handler)" alt="" coords="17,249,383,268"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetEvtHandlerEnabled" alt="" coords="17,268,383,287"/>
+<area shape="rect" href="javascript:void(0);" title="SetEvtHandlerEnabled(self, bool enabled)" alt="" coords="17,287,383,305"/>
+<area shape="rect" href="javascript:void(0);" title="ProcessEvent(self, Event event) &#45;&gt; bool" alt="" coords="17,305,383,324"/>
+<area shape="rect" href="javascript:void(0);" title="AddPendingEvent(self, Event event)" alt="" coords="17,324,383,343"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.ProcessPendingEvents" alt="" coords="17,343,383,361"/>
+<area shape="rect" href="javascript:void(0);" title="Connect(self, int id, int lastId, int eventType, PyObject func)" alt="" coords="17,361,383,380"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnect(self, int id, int lastId=&#45;1, EventType eventType=wxEVT_NULL, ..." alt="" coords="17,380,383,399"/>
+<area shape="rect" href="javascript:void(0);" title="Bind an event to an event handler." alt="" coords="17,399,383,417"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnects the event handler binding for event from self." alt="" coords="17,417,383,436"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ EvtHandler class" alt="" coords="16,117,384,437"/>
+<area shape="rect" href="Priithon.histogram.MyCanvasBase-class.html#OnEraseBackground" title="Priithon.histogram.MyCanvasBase.OnEraseBackground" alt="" coords="104,1284,296,1303"/>
+<area shape="rect" href="Priithon.histogram.MyCanvasBase-class.html#OnPaint" title="Priithon.histogram.MyCanvasBase.OnPaint" alt="" coords="104,1303,296,1321"/>
+<area shape="rect" href="Priithon.histogram.MyCanvasBase-class.html" title="Priithon.histogram.MyCanvasBase" alt="" coords="103,1259,297,1323"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#__init__" title="__init__(self, Window parent, int id=&#45;1, Point pos=DefaultPosition, ..." alt="" coords="76,1377,324,1396"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnSize" title="Priithon.histogram.HistogramCanvas.OnSize" alt="" coords="76,1396,324,1415"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#InitGL" title="Priithon.histogram.HistogramCanvas.InitGL" alt="" coords="76,1415,324,1433"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnDraw" title="Priithon.histogram.HistogramCanvas.OnDraw" alt="" coords="76,1433,324,1452"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnWheel" title="Priithon.histogram.HistogramCanvas.OnWheel" alt="" coords="76,1452,324,1471"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnMouse" title="Priithon.histogram.HistogramCanvas.OnMouse" alt="" coords="76,1471,324,1489"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#MakePopupMenu" title="Make a menu that can be popped up later" alt="" coords="76,1489,324,1508"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnReset" title="Priithon.histogram.HistogramCanvas.OnReset" alt="" coords="76,1508,324,1527"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnEnterScale" title="Priithon.histogram.HistogramCanvas.OnEnterScale" alt="" coords="76,1527,324,1545"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnLog" title="Priithon.histogram.HistogramCanvas.OnLog" alt="" coords="76,1545,324,1564"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#OnFitYToSeen" title="Priithon.histogram.HistogramCanvas.OnFitYToSeen" alt="" coords="76,1564,324,1583"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#setHist" title="Priithon.histogram.HistogramCanvas.setHist" alt="" coords="76,1583,324,1601"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#goLog" title="Priithon.histogram.HistogramCanvas.goLog" alt="" coords="76,1601,324,1620"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html#setBraces" title="Priithon.histogram.HistogramCanvas.setBraces" alt="" coords="76,1639,324,1657"/>
+<area shape="rect" href="Priithon.histogram.HistogramCanvas-class.html" title="Priithon.histogram.HistogramCanvas" alt="" coords="75,1352,325,1659"/>
+<area shape="rect" href="javascript:void(0);" title="The membership flag" alt="" coords="120,1095,280,1113"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetContext`" alt="" coords="120,1113,280,1132"/>
+<area shape="rect" href="javascript:void(0);" title="repr(x)" alt="" coords="120,1135,280,1153"/>
+<area shape="rect" href="javascript:void(0);" title="SetCurrent(self, GLContext RC)" alt="" coords="120,1153,280,1172"/>
+<area shape="rect" href="javascript:void(0);" title="SetColour(self, String colour)" alt="" coords="120,1172,280,1191"/>
+<area shape="rect" href="javascript:void(0);" title="wx.glcanvas.GLCanvas.SwapBuffers" alt="" coords="120,1191,280,1209"/>
+<area shape="rect" href="javascript:void(0);" title="wx.glcanvas.GLCanvas.GetContext" alt="" coords="120,1209,280,1228"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ GLCanvas class" alt="" coords="119,1077,281,1229"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAcceleratorTable` and `SetAcceleratorTable`" alt="" coords="76,484,324,503"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAutoLayout` and `SetAutoLayout`" alt="" coords="76,503,324,521"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundColour` and `SetBackgroundColour`" alt="" coords="76,521,324,540"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundStyle` and `SetBackgroundStyle`" alt="" coords="76,540,324,559"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestSize`" alt="" coords="76,559,324,577"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestVirtualSize`" alt="" coords="76,577,324,596"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBorder`" alt="" coords="76,596,324,615"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaret` and `SetCaret`" alt="" coords="76,615,324,633"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharHeight`" alt="" coords="76,633,324,652"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharWidth`" alt="" coords="76,652,324,671"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetChildren`" alt="" coords="76,671,324,689"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientAreaOrigin`" alt="" coords="76,689,324,708"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientRect` and `SetClientRect`" alt="" coords="76,708,324,727"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetWindowVariant` and `SetWindowVariant`" alt="" coords="76,745,324,764"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window have focus?" alt="" coords="76,767,324,785"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window be given focus by keyboard navigation? if not, the only way to give it focus (provided it accepts it at all) is to click it." alt="" coords="76,785,324,804"/>
+<area shape="rect" href="javascript:void(0);" title="AddChild(self, Window child)" alt="" coords="76,804,324,823"/>
+<area shape="rect" href="javascript:void(0);" title="AdjustForLayoutDirection(self, int x, int width, int widthTotal) &#45;&gt; int" alt="" coords="76,823,324,841"/>
+<area shape="rect" href="javascript:void(0);" title="AssociateHandle(self, long handle)" alt="" coords="76,841,324,860"/>
+<area shape="rect" href="javascript:void(0);" title="CacheBestSize(self, Size size)" alt="" coords="76,860,324,879"/>
+<area shape="rect" href="javascript:void(0);" title="Returns ``True`` if the platform supports setting the transparency for this window." alt="" coords="76,879,324,897"/>
+<area shape="rect" href="javascript:void(0);" title="Directs all mouse input to this window." alt="" coords="76,897,324,916"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="76,916,324,935"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="76,935,324,953"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="76,953,324,972"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="76,972,324,991"/>
+<area shape="rect" href="javascript:void(0);" title="Clears the window by filling it with the current background colour." alt="" coords="76,991,324,1009"/>
+<area shape="rect" href="javascript:void(0);" title="WindowToClientSize(self, Size size) &#45;&gt; Size" alt="" coords="76,1028,324,1047"/>
+<area shape="rect" href="javascript:void(0);" title="wx.Window is the base class for all windows and represents any visible object on the screen." alt="" coords="75,467,325,1048"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_10.gif" alt='' usemap="#uml_class_diagram_for_priithon_10" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">EvtHandler</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.histogram.HistogramCanvas-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.Size(-1, -1)</span>)</span><br />
+      __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.histogram.HistogramCanvas-class.html#OnSize" class="summary-sig-name">OnSize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="InitGL"></a><span class="summary-sig-name">InitGL</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.InitGL">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnDraw"></a><span class="summary-sig-name">OnDraw</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnDraw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnWheel"></a><span class="summary-sig-name">OnWheel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">evt</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnWheel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnMouse"></a><span class="summary-sig-name">OnMouse</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnMouse">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="MakePopupMenu"></a><span class="summary-sig-name">MakePopupMenu</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Make a menu that can be popped up later</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.MakePopupMenu">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnReset"></a><span class="summary-sig-name">OnReset</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnReset">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnEnterScale"></a><span class="summary-sig-name">OnEnterScale</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnEnterScale">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnLog"></a><span class="summary-sig-name">OnLog</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnFitYToSeen"></a><span class="summary-sig-name">OnFitYToSeen</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnFitYToSeen">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setHist"></a><span class="summary-sig-name">setHist</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">yArray</span>,
+        <span class="summary-sig-arg">xMin</span>,
+        <span class="summary-sig-arg">xMax</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.setHist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="goLog"></a><span class="summary-sig-name">goLog</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.goLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="goLinear"></a><span class="summary-sig-name">goLinear</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.goLinear">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="fitY"></a><span class="summary-sig-name">fitY</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.fitY">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zoomToBraces"></a><span class="summary-sig-name">zoomToBraces</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.zoomToBraces">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="autoFit"></a><span class="summary-sig-name">autoFit</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">amin</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">amax</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">autoscale</span>=<span class="summary-sig-default">True</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.autoFit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setBraces"></a><span class="summary-sig-name">setBraces</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">l</span>,
+        <span class="summary-sig-arg">r</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.setBraces">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.histogram.MyCanvasBase-class.html">MyCanvasBase</a></code></b>:
+      <code><a href="Priithon.histogram.MyCanvasBase-class.html#OnEraseBackground">OnEraseBackground</a></code>,
+      <code><a href="Priithon.histogram.MyCanvasBase-class.html#OnPaint">OnPaint</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.glcanvas.GLCanvas</code></b>:
+      <code>GetContext</code>,
+      <code>SetColour</code>,
+      <code>SetCurrent</code>,
+      <code>SwapBuffers</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>ClientToWindowSize</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>Create</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByLabel</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetGtkWidget</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>LineDown</code>,
+      <code>LineUp</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>PageDown</code>,
+      <code>PageUp</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>,
+      <code>WindowToClientSize</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>GetClassDefaultAttributes</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.glcanvas.GLCanvas</code></b>:
+      <code>Context</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>GtkWidget</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.Size(-1, -1)</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+__init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+    Size size=DefaultSize, long style=0, String name=GLCanvasNameStr, 
+    int attribList=None, Palette palette=wxNullPalette) -&gt; GLCanvas
+
+</pre>
+  <dl class="fields">
+    <dt>Returns: EvtHandler</dt>
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnSize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.histogram-pysrc.html#HistogramCanvas.OnSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.histogram.MyCanvasBase-class.html#OnSize">MyCanvasBase.OnSize</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:16 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

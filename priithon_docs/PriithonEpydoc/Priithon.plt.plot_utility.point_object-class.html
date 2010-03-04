@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.plt.plot_utility.point_object</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.plt-module.html">Package&nbsp;plt</a> ::
+        <a href="Priithon.plt.plot_utility-module.html">Module&nbsp;plot_utility</a> ::
+        Class&nbsp;point_object
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.plt.plot_utility.point_object-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class point_object</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.plt.plot_utility-pysrc.html#point_object">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_29" name="uml_class_diagram_for_priithon_29">
+<area shape="rect" href="Priithon.plt.plot_utility.point_object-class.html#__init__" title="Priithon.plt.plot_utility.point_object.__init__" alt="" coords="29,372,133,391"/>
+<area shape="rect" href="Priithon.plt.plot_utility.point_object-class.html#radial" title="Length of a ray extending from the center of the box at the specified polar angle (in radians) to the edge of the box" alt="" coords="29,391,133,409"/>
+<area shape="rect" href="Priithon.plt.plot_utility.point_object-class.html#set_size" title="Set the size of the box." alt="" coords="29,409,133,428"/>
+<area shape="rect" href="Priithon.plt.plot_utility.point_object-class.html" title="Useful for laying points (and boxes) in relation to one another." alt="" coords="28,347,135,429"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#left" title="Return the x&#45;coordinate of the left edge." alt="" coords="17,36,145,55"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#right" title="Return the x&#45;coordinate of the right edge." alt="" coords="17,55,145,73"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#top" title="Return the y&#45;coordinate of the top edge." alt="" coords="17,73,145,92"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#bottom" title="Return the y&#45;coordinate of the bottom edge." alt="" coords="17,92,145,111"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#center_x" title="Return the x&#45;coordinate of the boxes center." alt="" coords="17,111,145,129"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#center_y" title="Return the y&#45;coordinate of the left edge." alt="" coords="17,129,145,148"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#size" title="Return the size of the box as array((width,height))." alt="" coords="17,148,145,167"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#width" title="Return the width of the box (length along x&#45;axis)" alt="" coords="17,167,145,185"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#height" title="Return the width of the box (length along y&#45;axis)" alt="" coords="17,185,145,204"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#center" title="Return the coordinates of the boxes center as an array" alt="" coords="17,204,145,223"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#move" title="Move box so that its top left corner is located at the specified location." alt="" coords="17,223,145,241"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#translate" title="Shift the box&#39;s location by the amount specifed in offset." alt="" coords="17,241,145,260"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#set_width" title="Set the width of the box." alt="" coords="17,260,145,279"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html#contains" title="Priithon.plt.plot_utility.box_object.contains" alt="" coords="17,297,145,316"/>
+<area shape="rect" href="Priithon.plt.plot_utility.box_object-class.html" title="Helpful for laying out rectangles." alt="" coords="16,11,147,317"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_29.gif" alt='' usemap="#uml_class_diagram_for_priithon_29" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Useful for laying points (and boxes) in relation to one another.</p>
+  <p>point_object is a degenerate case of a box_object that has zero size.
+  The set_size() method is not allowed for points. As a result, size 
+  altering methods such as set_height and trimming functions are not valid.
+  Also, the radial() method always returns zero.  Other than that, the 
+  standard box_object methods work. point_objects can also be used as 
+  arguments to box_object methods.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_utility.point_object-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pt</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_utility-pysrc.html#point_object.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_utility.point_object-class.html#radial" class="summary-sig-name">radial</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">angle</span>)</span><br />
+      Length of a ray extending from the center of the box at the specified
+      polar angle (in radians) to the edge of the box</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_utility-pysrc.html#point_object.radial">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.plt.plot_utility.point_object-class.html#set_size" class="summary-sig-name">set_size</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">sz</span>)</span><br />
+      Set the size of the box.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.plt.plot_utility-pysrc.html#point_object.set_size">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.plt.plot_utility.box_object-class.html">box_object</a></code></b>:
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#above">above</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#below">below</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#bottom">bottom</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center">center</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_on">center_on</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_on_x_of">center_on_x_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_on_y_of">center_on_y_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_x">center_x</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#center_y">center_y</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#contains">contains</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#height">height</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#inflate">inflate</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#left">left</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#left_of">left_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#move">move</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#radial_offset_from">radial_offset_from</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#right">right</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#right_of">right_of</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#same_as">same_as</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#set_height">set_height</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#set_width">set_width</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#size">size</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#top">top</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#translate">translate</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_all">trim_all</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_bottom">trim_bottom</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_left">trim_left</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_right">trim_right</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#trim_top">trim_top</a></code>,
+      <code><a href="Priithon.plt.plot_utility.box_object-class.html#width">width</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pt</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_utility-pysrc.html#point_object.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.plt.plot_utility.box_object-class.html#__init__">box_object.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="radial"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">radial</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">angle</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_utility-pysrc.html#point_object.radial">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Length of a ray extending from the center of the box at the specified 
+  polar angle (in radians) to the edge of the box</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.plt.plot_utility.box_object-class.html#radial">box_object.radial</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_size"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_size</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">sz</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.plt.plot_utility-pysrc.html#point_object.set_size">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set the size of the box. sz is an (x,y) pair.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.plt.plot_utility.box_object-class.html#set_size">box_object.set_size</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:18 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

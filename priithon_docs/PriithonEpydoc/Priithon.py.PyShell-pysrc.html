@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.py.PyShell</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.py-module.html">Package&nbsp;py</a> ::
+        Module&nbsp;PyShell
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.py.PyShell-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.py.PyShell-module.html">Module Priithon.py.PyShell</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""PyShell is a python shell application."""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># The next two lines, and the other code below that makes use of</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># ``__main__`` and ``original``, serve the purpose of cleaning up the</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># main namespace to look as much as possible like the regular Python</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># shell environment.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">__main__</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Priithon.py.PyCrust.original=Priithon.py.PyCrust-module.html#original,Variable Priithon.py.PyShell.original=Priithon.py.PyShell-module.html#original"><a title="Priithon.py.PyCrust.original
+Priithon.py.PyShell.original" class="py-name" href="#" onclick="return doclink('link-0', 'original', 'link-0');">original</a></tt> <tt class="py-op">=</tt> <tt class="py-name">__main__</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method Priithon.plt.dumbdbm_patched._Database.keys()=Priithon.plt.dumbdbm_patched._Database-class.html#keys"><a title="Priithon.plt.dumbdbm_patched._Database.keys" class="py-name" href="#" onclick="return doclink('link-1', 'keys', 'link-1');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Patrick K. O'Brien &lt;pobrien@orbtech.com&gt;"</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable Priithon.py.PyAlaCarte.__cvsid__=Priithon.py.PyAlaCarte-module.html#__cvsid__,Variable Priithon.py.PyAlaMode.__cvsid__=Priithon.py.PyAlaMode-module.html#__cvsid__,Variable Priithon.py.PyAlaModeTest.__cvsid__=Priithon.py.PyAlaModeTest-module.html#__cvsid__,Variable Priithon.py.PyCrust.__cvsid__=Priithon.py.PyCrust-module.html#__cvsid__,Variable Priithon.py.PyFilling.__cvsid__=Priithon.py.PyFilling-module.html#__cvsid__,Variable Priithon.py.PyShell.__cvsid__=Priithon.py.PyShell-module.html#__cvsid__,Variable Priithon.py.PyWrap.__cvsid__=Priithon.py.PyWrap-module.html#__cvsid__,Variable Priithon.py.__cvsid__=Priithon.py-module.html#__cvsid__,Variable Priithon.py.buffer.__cvsid__=Priithon.py.buffer-module.html#__cvsid__,Variable Priithon.py.crust.__cvsid__=Priithon.py.crust-module.html#__cvsid__,Variable Priithon.py.dispatcher.__cvsid__=Priithon.py.dispatcher-module.html#__cvsid__,Variable Priithon.py.document.__cvsid__=Priithon.py.document-module.html#__cvsid__,Variable Priithon.py.editor.__cvsid__=Priithon.py.editor-module.html#__cvsid__,Variable Priithon.py.editwindow.__cvsid__=Priithon.py.editwindow-module.html#__cvsid__,Variable Priithon.py.filling.__cvsid__=Priithon.py.filling-module.html#__cvsid__,Variable Priithon.py.frame.__cvsid__=Priithon.py.frame-module.html#__cvsid__,Variable Priithon.py.images.__cvsid__=Priithon.py.images-module.html#__cvsid__,Variable Priithon.py.interpreter.__cvsid__=Priithon.py.interpreter-module.html#__cvsid__,Variable Priithon.py.introspect.__cvsid__=Priithon.py.introspect-module.html#__cvsid__,Variable Priithon.py.pseudo.__cvsid__=Priithon.py.pseudo-module.html#__cvsid__,Variable Priithon.py.shell.__cvsid__=Priithon.py.shell-module.html#__cvsid__,Variable Priithon.py.version.__cvsid__=Priithon.py.version-module.html#__cvsid__"><a title="Priithon.py.PyAlaCarte.__cvsid__
+Priithon.py.PyAlaMode.__cvsid__
+Priithon.py.PyAlaModeTest.__cvsid__
+Priithon.py.PyCrust.__cvsid__
+Priithon.py.PyFilling.__cvsid__
+Priithon.py.PyShell.__cvsid__
+Priithon.py.PyWrap.__cvsid__
+Priithon.py.__cvsid__
+Priithon.py.buffer.__cvsid__
+Priithon.py.crust.__cvsid__
+Priithon.py.dispatcher.__cvsid__
+Priithon.py.document.__cvsid__
+Priithon.py.editor.__cvsid__
+Priithon.py.editwindow.__cvsid__
+Priithon.py.filling.__cvsid__
+Priithon.py.frame.__cvsid__
+Priithon.py.images.__cvsid__
+Priithon.py.interpreter.__cvsid__
+Priithon.py.introspect.__cvsid__
+Priithon.py.pseudo.__cvsid__
+Priithon.py.shell.__cvsid__
+Priithon.py.version.__cvsid__" class="py-name" href="#" onclick="return doclink('link-2', '__cvsid__', 'link-2');">__cvsid__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"$Id: PyShell.py,v 1.7 2004/03/15 13:42:37 PKO Exp $"</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable Priithon.py.PyAlaCarte.__revision__=Priithon.py.PyAlaCarte-module.html#__revision__,Variable Priithon.py.PyAlaMode.__revision__=Priithon.py.PyAlaMode-module.html#__revision__,Variable Priithon.py.PyAlaModeTest.__revision__=Priithon.py.PyAlaModeTest-module.html#__revision__,Variable Priithon.py.PyCrust.__revision__=Priithon.py.PyCrust-module.html#__revision__,Variable Priithon.py.PyFilling.__revision__=Priithon.py.PyFilling-module.html#__revision__,Variable Priithon.py.PyShell.__revision__=Priithon.py.PyShell-module.html#__revision__,Variable Priithon.py.PyWrap.__revision__=Priithon.py.PyWrap-module.html#__revision__,Variable Priithon.py.__revision__=Priithon.py-module.html#__revision__,Variable Priithon.py.buffer.__revision__=Priithon.py.buffer-module.html#__revision__,Variable Priithon.py.crust.__revision__=Priithon.py.crust-module.html#__revision__,Variable Priithon.py.dispatcher.__revision__=Priithon.py.dispatcher-module.html#__revision__,Variable Priithon.py.document.__revision__=Priithon.py.document-module.html#__revision__,Variable Priithon.py.editor.__revision__=Priithon.py.editor-module.html#__revision__,Variable Priithon.py.editwindow.__revision__=Priithon.py.editwindow-module.html#__revision__,Variable Priithon.py.filling.__revision__=Priithon.py.filling-module.html#__revision__,Variable Priithon.py.frame.__revision__=Priithon.py.frame-module.html#__revision__,Variable Priithon.py.images.__revision__=Priithon.py.images-module.html#__revision__,Variable Priithon.py.interpreter.__revision__=Priithon.py.interpreter-module.html#__revision__,Variable Priithon.py.introspect.__revision__=Priithon.py.introspect-module.html#__revision__,Variable Priithon.py.pseudo.__revision__=Priithon.py.pseudo-module.html#__revision__,Variable Priithon.py.shell.__revision__=Priithon.py.shell-module.html#__revision__,Variable Priithon.py.version.__revision__=Priithon.py.version-module.html#__revision__"><a title="Priithon.py.PyAlaCarte.__revision__
+Priithon.py.PyAlaMode.__revision__
+Priithon.py.PyAlaModeTest.__revision__
+Priithon.py.PyCrust.__revision__
+Priithon.py.PyFilling.__revision__
+Priithon.py.PyShell.__revision__
+Priithon.py.PyWrap.__revision__
+Priithon.py.__revision__
+Priithon.py.buffer.__revision__
+Priithon.py.crust.__revision__
+Priithon.py.dispatcher.__revision__
+Priithon.py.document.__revision__
+Priithon.py.editor.__revision__
+Priithon.py.editwindow.__revision__
+Priithon.py.filling.__revision__
+Priithon.py.frame.__revision__
+Priithon.py.images.__revision__
+Priithon.py.interpreter.__revision__
+Priithon.py.introspect.__revision__
+Priithon.py.pseudo.__revision__
+Priithon.py.shell.__revision__
+Priithon.py.version.__revision__" class="py-name" href="#" onclick="return doclink('link-3', '__revision__', 'link-3');">__revision__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"$Revision: 1.7 $"</tt><tt class="py-op">[</tt><tt class="py-number">11</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">wx</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="App"></a><div id="App-def"><a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="App-toggle" onclick="return toggle('App');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.py.PyShell.App-class.html">App</a><tt class="py-op">(</tt><tt class="py-base-class">wx</tt><tt class="py-op">.</tt><tt class="py-base-class">App</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="App-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="App-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-docstring">"""PyShell standalone application."""</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="App.OnInit"></a><div id="App.OnInit-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="App.OnInit-toggle" onclick="return toggle('App.OnInit');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.PyShell.App-class.html#OnInit">OnInit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="App.OnInit-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="App.OnInit-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">wx</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-comment">#seb from wx import py</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Module Priithon.py.shell=Priithon.py.shell-module.html,Function Priithon.usefulX.shell()=Priithon.usefulX-module.html#shell"><a title="Priithon.py.shell
+Priithon.usefulX.shell" class="py-name" href="#" onclick="return doclink('link-4', 'shell', 'link-4');">shell</a></tt> <tt class="py-comment"># seb</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">InitAllImageHandlers</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-comment">#seb self.frame = py.shell.ShellFrame()</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Module Priithon.py.frame=Priithon.py.frame-module.html"><a title="Priithon.py.frame" class="py-name" href="#" onclick="return doclink('link-5', 'frame', 'link-5');">frame</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="Priithon.py.shell
+Priithon.usefulX.shell" class="py-name" href="#" onclick="return doclink('link-6', 'shell', 'link-4');">shell</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Class Priithon.py.shell.ShellFrame=Priithon.py.shell.ShellFrame-class.html"><a title="Priithon.py.shell.ShellFrame" class="py-name" href="#" onclick="return doclink('link-7', 'ShellFrame', 'link-7');">ShellFrame</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="Priithon.py.frame" class="py-name" href="#" onclick="return doclink('link-8', 'frame', 'link-5');">frame</a></tt><tt class="py-op">.</tt><tt class="py-name">SetSize</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">750</tt><tt class="py-op">,</tt> <tt class="py-number">525</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Priithon.py.frame" class="py-name" href="#" onclick="return doclink('link-9', 'frame', 'link-5');">frame</a></tt><tt class="py-op">.</tt><tt class="py-name">Show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">SetTopWindow</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Priithon.py.frame" class="py-name" href="#" onclick="return doclink('link-10', 'frame', 'link-5');">frame</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="Priithon.py.frame" class="py-name" href="#" onclick="return doclink('link-11', 'frame', 'link-5');">frame</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="Priithon.py.shell
+Priithon.usefulX.shell" class="py-name" href="#" onclick="return doclink('link-12', 'shell', 'link-4');">shell</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Priithon.py.editor.EditorShellNotebook.SetFocus()=Priithon.py.editor.EditorShellNotebook-class.html#SetFocus"><a title="Priithon.py.editor.EditorShellNotebook.SetFocus" class="py-name" href="#" onclick="return doclink('link-13', 'SetFocus', 'link-13');">SetFocus</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-14" class="py-name" targets="Variable Priithon.wxPyPlot.True=Priithon.wxPyPlot-module.html#True"><a title="Priithon.wxPyPlot.True" class="py-name" href="#" onclick="return doclink('link-14', 'True', 'link-14');">True</a></tt> </tt>
+</div></div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-string">The main() function needs to handle being imported, such as with the</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-string">pyshell script that wxPython installs:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-string">    #!/usr/bin/env python</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-string">    from wx.py.PyShell import main</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-string">    main()</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="main"></a><div id="main-def"><a name="L42"></a><tt class="py-lineno">42</tt> <a class="py-toggle" href="#" id="main-toggle" onclick="return toggle('main');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.PyShell-module.html#main">main</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="main-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="main-expanded"><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt class="py-docstring">"""The main function for the PyShell program."""</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-comment"># Cleanup the main namespace, leaving the App class.</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">import</tt> <tt class="py-name">__main__</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-name">md</tt> <tt class="py-op">=</tt> <tt class="py-name">__main__</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-name">keepers</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="Priithon.py.PyCrust.original
+Priithon.py.PyShell.original" class="py-name" href="#" onclick="return doclink('link-15', 'original', 'link-0');">original</a></tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-name">keepers</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">'App'</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">key</tt> <tt class="py-keyword">in</tt> <tt class="py-name">md</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Priithon.plt.dumbdbm_patched._Database.keys" class="py-name" href="#" onclick="return doclink('link-16', 'keys', 'link-1');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">key</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">keepers</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">            <tt class="py-keyword">del</tt> <tt class="py-name">md</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">    <tt class="py-comment"># Create an application instance.</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-17" class="py-name" targets="Variable Priithon.py.PyFilling.app=Priithon.py.PyFilling-module.html#app"><a title="Priithon.py.PyFilling.app" class="py-name" href="#" onclick="return doclink('link-17', 'app', 'link-17');">app</a></tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name" targets="Class Priithon.py.PyAlaCarte.App=Priithon.py.PyAlaCarte.App-class.html,Class Priithon.py.PyAlaMode.App=Priithon.py.PyAlaMode.App-class.html,Class Priithon.py.PyAlaModeTest.App=Priithon.py.PyAlaModeTest.App-class.html,Class Priithon.py.PyCrust.App=Priithon.py.PyCrust.App-class.html,Class Priithon.py.PyFilling.App=Priithon.py.PyFilling.App-class.html,Class Priithon.py.PyShell.App=Priithon.py.PyShell.App-class.html,Class Priithon.py.filling.App=Priithon.py.filling.App-class.html"><a title="Priithon.py.PyAlaCarte.App
+Priithon.py.PyAlaMode.App
+Priithon.py.PyAlaModeTest.App
+Priithon.py.PyCrust.App
+Priithon.py.PyFilling.App
+Priithon.py.PyShell.App
+Priithon.py.filling.App" class="py-name" href="#" onclick="return doclink('link-18', 'App', 'link-18');">App</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">    <tt class="py-comment"># Cleanup the main namespace some more.</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">if</tt> <tt class="py-name">md</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method Priithon.plt.dumbdbm_patched._Database.has_key()=Priithon.plt.dumbdbm_patched._Database-class.html#has_key"><a title="Priithon.plt.dumbdbm_patched._Database.has_key" class="py-name" href="#" onclick="return doclink('link-19', 'has_key', 'link-19');">has_key</a></tt><tt class="py-op">(</tt><tt class="py-string">'App'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">md</tt><tt class="py-op">[</tt><tt class="py-string">'App'</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt id="link-20" class="py-name"><a title="Priithon.py.PyAlaCarte.App
+Priithon.py.PyAlaMode.App
+Priithon.py.PyAlaModeTest.App
+Priithon.py.PyCrust.App
+Priithon.py.PyFilling.App
+Priithon.py.PyShell.App
+Priithon.py.filling.App" class="py-name" href="#" onclick="return doclink('link-20', 'App', 'link-18');">App</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">md</tt><tt class="py-op">[</tt><tt class="py-string">'App'</tt><tt class="py-op">]</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">md</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Priithon.plt.dumbdbm_patched._Database.has_key" class="py-name" href="#" onclick="return doclink('link-21', 'has_key', 'link-19');">has_key</a></tt><tt class="py-op">(</tt><tt class="py-string">'__main__'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">md</tt><tt class="py-op">[</tt><tt class="py-string">'__main__'</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt class="py-name">__main__</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">md</tt><tt class="py-op">[</tt><tt class="py-string">'__main__'</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-comment"># Mimic the contents of the standard Python shell's sys.path.</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-comment"># Add the application object to the sys module's namespace.</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># This allows a shell user to do:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># &gt;&gt;&gt; import sys</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># &gt;&gt;&gt; sys.app.whatever</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Priithon.py.PyFilling.app" class="py-name" href="#" onclick="return doclink('link-22', 'app', 'link-17');">app</a></tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="Priithon.py.PyFilling.app" class="py-name" href="#" onclick="return doclink('link-23', 'app', 'link-17');">app</a></tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">    <tt class="py-keyword">del</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt class="py-comment"># Start the wxPython event loop.</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-24" class="py-name"><a title="Priithon.py.PyFilling.app" class="py-name" href="#" onclick="return doclink('link-24', 'app', 'link-17');">app</a></tt><tt class="py-op">.</tt><tt class="py-name">MainLoop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">    <tt id="link-25" class="py-name" targets="Function Priithon.PriShell.main()=Priithon.PriShell-module.html#main,Function Priithon.py.PyAlaCarte.main()=Priithon.py.PyAlaCarte-module.html#main,Function Priithon.py.PyAlaMode.main()=Priithon.py.PyAlaMode-module.html#main,Function Priithon.py.PyAlaModeTest.main()=Priithon.py.PyAlaModeTest-module.html#main,Function Priithon.py.PyCrust.main()=Priithon.py.PyCrust-module.html#main,Function Priithon.py.PyFilling.main()=Priithon.py.PyFilling-module.html#main,Function Priithon.py.PyShell.main()=Priithon.py.PyShell-module.html#main,Function Priithon.py.PyWrap.main()=Priithon.py.PyWrap-module.html#main"><a title="Priithon.PriShell.main
+Priithon.py.PyAlaCarte.main
+Priithon.py.PyAlaMode.main
+Priithon.py.PyAlaModeTest.main
+Priithon.py.PyCrust.main
+Priithon.py.PyFilling.main
+Priithon.py.PyShell.main
+Priithon.py.PyWrap.main" class="py-name" href="#" onclick="return doclink('link-25', 'main', 'link-25');">main</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:28 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.splitND2.spv</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.splitND2-module.html">Module&nbsp;splitND2</a> ::
+        Class&nbsp;spv
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.splitND2.spv-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class spv</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_73" name="uml_class_diagram_for_priithon_73">
+<area shape="rect" href="Priithon.splitND2.spv-class.html#__init__" title="splitter window for multi&#45;color viewerer combines a &quot;topBox&quot; &#45; zslider, &#160;OnMouse info, a viewer window and a set histogram windows (one for each &#160;color)" alt="" coords="17,353,543,372"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#onClose" title="Priithon.splitND2.spv.onClose" alt="" coords="17,372,543,391"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#makeFrame" title="create frame if dataOrig has &quot;Mrc&quot; attribute, append &quot;&lt;filename&gt; to given &#160;title" alt="" coords="17,391,543,409"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#addZsubMenu" title="Priithon.splitND2.spv.addZsubMenu" alt="" coords="17,409,543,428"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#fixupViewer" title="fix OnMouse event , and OnReload() menu" alt="" coords="17,428,543,447"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#initHists" title="Priithon.splitND2.spv.initHists" alt="" coords="17,447,543,465"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#OnAutoHistScale" title="Priithon.splitND2.spv.OnAutoHistScale" alt="" coords="17,465,543,484"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#OnViewFFT" title="Priithon.splitND2.spv.OnViewFFT" alt="" coords="17,484,543,503"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#OnViewFFTInv" title="Priithon.splitND2.spv.OnViewFFTInv" alt="" coords="17,503,543,521"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#OnViewCplxAsAbs" title="Priithon.splitND2.spv.OnViewCplxAsAbs" alt="" coords="17,521,543,540"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#OnViewCplxAsPhase" title="Priithon.splitND2.spv.OnViewCplxAsPhase" alt="" coords="17,540,543,559"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#OnViewFlipXZ" title="Priithon.splitND2.spv.OnViewFlipXZ" alt="" coords="17,559,543,577"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#OnViewFlipYZ" title="Priithon.splitND2.spv.OnViewFlipYZ" alt="" coords="17,577,543,596"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html#recalcHist" title="Priithon.splitND2.spv.recalcHist" alt="" coords="17,615,543,633"/>
+<area shape="rect" href="Priithon.splitND2.spv-class.html" title="&quot;split panel viewer &#45;&#45;&gt; multi&#45;color&quot;" alt="" coords="16,328,544,635"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#doScroll" title="dir is &#45;1 OR +1" alt="" coords="108,36,452,55"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#OnWheelWhat" title="Priithon.splitNDcommon.spvCommon.OnWheelWhat" alt="" coords="108,55,452,73"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#OnScrollIncr" title="Priithon.splitNDcommon.spvCommon.OnScrollIncr" alt="" coords="108,73,452,92"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#OnMenuAutoHistSec" title="Priithon.splitNDcommon.spvCommon.OnMenuAutoHistSec" alt="" coords="108,92,452,111"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#OnMenuAssignND" title="Priithon.splitNDcommon.spvCommon.OnMenuAssignND" alt="" coords="108,111,452,129"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#OnZZSlider" title="Priithon.splitNDcommon.spvCommon.OnZZSlider" alt="" coords="108,129,452,148"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#setSlider" title="zaxis specifies &quot;which&quot; zaxis should move to new value z" alt="" coords="108,148,452,167"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#OnMenuSaveND" title="Priithon.splitNDcommon.spvCommon.OnMenuSaveND" alt="" coords="108,167,452,185"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#normalizeKeyShortcutTable" title="Priithon.splitNDcommon.spvCommon.normalizeKeyShortcutTable" alt="" coords="108,185,452,204"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#installKeyCommands" title="Priithon.splitNDcommon.spvCommon.installKeyCommands" alt="" coords="108,204,452,223"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#OnKeyDown" title="Priithon.splitNDcommon.spvCommon.OnKeyDown" alt="" coords="108,223,452,241"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#setDefaultKeyShortcuts" title="Priithon.splitNDcommon.spvCommon.setDefaultKeyShortcuts" alt="" coords="108,241,452,260"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#putZSlidersIntoTopBox" title="Priithon.splitNDcommon.spvCommon.putZSlidersIntoTopBox" alt="" coords="108,260,452,279"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html#onPixelValInfoLabelRightClick" title="Priithon.splitNDcommon.spvCommon.onPixelValInfoLabelRightClick" alt="" coords="108,279,452,297"/>
+<area shape="rect" href="Priithon.splitNDcommon.spvCommon-class.html" title="&quot;split panel viewer&quot;" alt="" coords="107,11,453,299"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_73.gif" alt='' usemap="#uml_class_diagram_for_priithon_73" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>&quot;split panel viewer --&gt; multi-color&quot;</p>
+  <p>self.hist_arr != None ONLY IF NOT self.img.type() in (na.UInt8, 
+  na.Int16, na.UInt16) then also   self.hist_max   and   self.hist_min  is 
+  set to min,max of number type !! and:  self.hist_range = self.hist_max - 
+  self.hist_min then  call: S.histogram(self.img, self.hist_min, 
+  self.hist_max, self.hist_arr) self.hist.setHist(self.hist_arr, 
+  self.hist_min, self.hist_max)</p>
+  <p>otherwise call   self.recalcHist() this _should_ be done from worker 
+  thread !?</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.splitND2.spv-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">colorAxis</span>=<span class="summary-sig-default">-3</span>,
+        <span class="summary-sig-arg">title</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">originLeftBottom</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>)</span><br />
+      splitter window for multi-color viewerer combines a 
+      &quot;topBox&quot; - zslider, OnMouse info, a viewer window and a set
+      histogram windows (one for each color)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="onClose"></a><span class="summary-sig-name">onClose</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.onClose">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="makeFrame"></a><span class="summary-sig-name">makeFrame</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>,
+        <span class="summary-sig-arg">title</span>)</span><br />
+      create frame if dataOrig has &quot;Mrc&quot; attribute, append 
+      &quot;&lt;filename&gt; to given title</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.makeFrame">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="addZsubMenu"></a><span class="summary-sig-name">addZsubMenu</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.addZsubMenu">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="fixupViewer"></a><span class="summary-sig-name">fixupViewer</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      fix OnMouse event , and OnReload() menu</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.fixupViewer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="initHists"></a><span class="summary-sig-name">initHists</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.initHists">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnAutoHistScale"></a><span class="summary-sig-name">OnAutoHistScale</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnAutoHistScale">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewFFT"></a><span class="summary-sig-name">OnViewFFT</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewFFT">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewFFTInv"></a><span class="summary-sig-name">OnViewFFTInv</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewFFTInv">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewCplxAsAbs"></a><span class="summary-sig-name">OnViewCplxAsAbs</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewCplxAsAbs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewCplxAsPhase"></a><span class="summary-sig-name">OnViewCplxAsPhase</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewCplxAsPhase">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewFlipXZ"></a><span class="summary-sig-name">OnViewFlipXZ</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewFlipXZ">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewFlipYZ"></a><span class="summary-sig-name">OnViewFlipYZ</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewFlipYZ">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewMaxProj"></a><span class="summary-sig-name">OnViewMaxProj</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewMaxProj">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewMeanProj"></a><span class="summary-sig-name">OnViewMeanProj</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewMeanProj">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnAutoFitAll"></a><span class="summary-sig-name">OnAutoFitAll</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnAutoFitAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnViewInGrayViewer"></a><span class="summary-sig-name">OnViewInGrayViewer</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">i</span>=<span class="summary-sig-default">0</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnViewInGrayViewer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnHistToggleButton"></a><span class="summary-sig-name">OnHistToggleButton</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">i</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnHistToggleButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnHistColorChange"></a><span class="summary-sig-name">OnHistColorChange</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnHistColorChange">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setColor"></a><span class="summary-sig-name">setColor</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">r_or_RBG</span>,
+        <span class="summary-sig-arg">g</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">b</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">RefreshNow</span>=<span class="summary-sig-default">1</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.setColor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="helpNewData"></a><span class="summary-sig-name">helpNewData</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">doAutoscale</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">setupHistArr</span>=<span class="summary-sig-default">True</span>)</span><br />
+      doAutoscale gets ORed with self.autoHistEachSect == 2</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.helpNewData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnHistLog"></a><span class="summary-sig-name">OnHistLog</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>=<span class="summary-sig-default">77777</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnHistLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setupHistArrL"></a><span class="summary-sig-name">setupHistArrL</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.setupHistArrL">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setupHistArr"></a><span class="summary-sig-name">setupHistArr</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">i</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.setupHistArr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="autoFitHistL"></a><span class="summary-sig-name">autoFitHistL</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.autoFitHistL">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnIdle"></a><span class="summary-sig-name">OnIdle</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.OnIdle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="recalcHistL"></a><span class="summary-sig-name">recalcHistL</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">postponeToIdle</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.recalcHistL">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="recalcHist"></a><span class="summary-sig-name">recalcHist</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">postponeToIdle</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.recalcHist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.splitNDcommon.spvCommon-class.html">splitNDcommon.spvCommon</a></code></b>:
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#OnKeyDown">OnKeyDown</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#OnMenuAssignND">OnMenuAssignND</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#OnMenuAutoHistSec">OnMenuAutoHistSec</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#OnMenuSaveND">OnMenuSaveND</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#OnScrollIncr">OnScrollIncr</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#OnWheelWhat">OnWheelWhat</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#OnZZSlider">OnZZSlider</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#doScroll">doScroll</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#installKeyCommands">installKeyCommands</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#normalizeKeyShortcutTable">normalizeKeyShortcutTable</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#onPixelValInfoLabelRightClick">onPixelValInfoLabelRightClick</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#putZSlidersIntoTopBox">putZSlidersIntoTopBox</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#setDefaultKeyShortcuts">setDefaultKeyShortcuts</a></code>,
+      <code><a href="Priithon.splitNDcommon.spvCommon-class.html#setSlider">setSlider</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>,
+        <span class="sig-arg">colorAxis</span>=<span class="sig-default">-3</span>,
+        <span class="sig-arg">title</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">originLeftBottom</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">parent</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.splitND2-pysrc.html#spv.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>splitter window for multi-color viewerer combines a &quot;topBox&quot;
+  - zslider, OnMouse info, a viewer window and a set histogram windows (one
+  for each color)</p>
+  <p>if parent is None: makes a new frame with &quot;smart&quot; title and 
+  given size</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.splitNDcommon.spvCommon-class.html#__init__">splitNDcommon.spvCommon.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:25 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.plt.seb</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.plt-module.html">Package&nbsp;plt</a> ::
+        Module&nbsp;seb
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.plt.seb-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.plt.seb-module.html">Module Priithon.plt.seb</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#seb     big = limits.double_max / 10</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#seb    small = limits.double_min / 10</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">##import numarray as Numeric #HACK</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">##import numarray as na</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">N</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Function Priithon.plt.seb.toFloat32()=Priithon.plt.seb-module.html#toFloat32"><a title="Priithon.plt.seb.toFloat32" class="py-name" href="#" onclick="return doclink('link-0', 'toFloat32', 'link-0');">toFloat32</a></tt> <tt class="py-op">=</tt> <tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">asarray</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">astype</tt><tt class="py-op">(</tt><tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">)</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Function Priithon.plt.seb.toFloat64()=Priithon.plt.seb-module.html#toFloat64"><a title="Priithon.plt.seb.toFloat64" class="py-name" href="#" onclick="return doclink('link-1', 'toFloat64', 'link-1');">toFloat64</a></tt> <tt class="py-op">=</tt> <tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">asarray</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">astype</tt><tt class="py-op">(</tt><tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float64</tt><tt class="py-op">)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="limits"></a><div id="limits-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="limits-toggle" onclick="return toggle('limits');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.plt.seb.limits-class.html">limits</a><tt class="py-op">:</tt> </tt>
+</div><div id="limits-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="limits-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-comment"># not quite right...</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-2" class="py-name" targets="Variable Priithon.plt.seb.limits.double_min=Priithon.plt.seb.limits-class.html#double_min"><a title="Priithon.plt.seb.limits.double_min" class="py-name" href="#" onclick="return doclink('link-2', 'double_min', 'link-2');">double_min</a></tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">1.797683134862318e308</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable Priithon.plt.seb.limits.double_max=Priithon.plt.seb.limits-class.html#double_max"><a title="Priithon.plt.seb.limits.double_max" class="py-name" href="#" onclick="return doclink('link-3', 'double_max', 'link-3');">double_max</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.797683134862318e308</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable Priithon.plt.seb.limits.double_precision=Priithon.plt.seb.limits-class.html#double_precision"><a title="Priithon.plt.seb.limits.double_precision" class="py-name" href="#" onclick="return doclink('link-4', 'double_precision', 'link-4');">double_precision</a></tt> <tt class="py-op">=</tt> <tt class="py-number">15</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable Priithon.plt.seb.limits.double_resolution=Priithon.plt.seb.limits-class.html#double_resolution"><a title="Priithon.plt.seb.limits.double_resolution" class="py-name" href="#" onclick="return doclink('link-5', 'double_resolution', 'link-5');">double_resolution</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10.0</tt><tt class="py-op">**</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt id="link-6" class="py-name"><a title="Priithon.plt.seb.limits.double_precision" class="py-name" href="#" onclick="return doclink('link-6', 'double_precision', 'link-4');">double_precision</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable Priithon.plt.seb.limits.float_min=Priithon.plt.seb.limits-class.html#float_min"><a title="Priithon.plt.seb.limits.float_min" class="py-name" href="#" onclick="return doclink('link-7', 'float_min', 'link-7');">float_min</a></tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">3.402823e38</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable Priithon.plt.seb.limits.float_max=Priithon.plt.seb.limits-class.html#float_max"><a title="Priithon.plt.seb.limits.float_max" class="py-name" href="#" onclick="return doclink('link-8', 'float_max', 'link-8');">float_max</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3.402823e38</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable Priithon.plt.seb.limits.float_precision=Priithon.plt.seb.limits-class.html#float_precision"><a title="Priithon.plt.seb.limits.float_precision" class="py-name" href="#" onclick="return doclink('link-9', 'float_precision', 'link-9');">float_precision</a></tt> <tt class="py-op">=</tt> <tt class="py-number">6</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Variable Priithon.plt.seb.limits.float_resolution=Priithon.plt.seb.limits-class.html#float_resolution"><a title="Priithon.plt.seb.limits.float_resolution" class="py-name" href="#" onclick="return doclink('link-10', 'float_resolution', 'link-10');">float_resolution</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10.0</tt><tt class="py-op">**</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt id="link-11" class="py-name"><a title="Priithon.plt.seb.limits.float_precision" class="py-name" href="#" onclick="return doclink('link-11', 'float_precision', 'link-9');">float_precision</a></tt><tt class="py-op">)</tt> </tt>
+<a name="limits.epsilon"></a><div id="limits.epsilon-def"><a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="limits.epsilon-toggle" onclick="return toggle('limits.epsilon');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.plt.seb.limits-class.html#epsilon">epsilon</a><tt class="py-op">(</tt><tt class="py-param">typecode</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="limits.epsilon-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="limits.epsilon-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">typecode</tt> <tt class="py-op">==</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">:</tt> <tt id="link-12" class="py-name" targets="Variable Priithon.mandel.cast=Priithon.mandel-module.html#cast,Variable Priithon.plt.cast=Priithon.plt-module.html#cast,Variable Priithon.plt.interface.cast=Priithon.plt.interface-module.html#cast,Variable Priithon.plt.plot_objects.cast=Priithon.plt.plot_objects-module.html#cast,Variable Priithon.plt.plot_utility.cast=Priithon.plt.plot_utility-module.html#cast,Variable Priithon.plt.wxplt.cast=Priithon.plt.wxplt-module.html#cast"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-12', 'cast', 'link-12');">cast</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="Priithon.plt.seb.toFloat32" class="py-name" href="#" onclick="return doclink('link-13', 'toFloat32', 'link-0');">toFloat32</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">typecode</tt> <tt class="py-op">==</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float64</tt><tt class="py-op">:</tt> <tt id="link-14" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-14', 'cast', 'link-12');">cast</a></tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="Priithon.plt.seb.toFloat64" class="py-name" href="#" onclick="return doclink('link-15', 'toFloat64', 'link-1');">toFloat64</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">one</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-16', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">1.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">x</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-17', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">1.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Module Priithon.all=Priithon.all-module.html"><a title="Priithon.all" class="py-name" href="#" onclick="return doclink('link-18', 'all', 'link-18');">all</a></tt><tt class="py-op">(</tt><tt class="py-name">one</tt><tt class="py-op">+</tt><tt class="py-name">x</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">one</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">            <tt class="py-name">x</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt> <tt class="py-op">*</tt> <tt id="link-19" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-19', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">.5</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">x</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt> <tt class="py-op">*</tt> <tt id="link-20" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-20', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">2.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">x</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="limits.tiny"></a><div id="limits.tiny-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="limits.tiny-toggle" onclick="return toggle('limits.tiny');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.plt.seb.limits-class.html#tiny">tiny</a><tt class="py-op">(</tt><tt class="py-param">typecode</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="limits.tiny-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="limits.tiny-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">typecode</tt> <tt class="py-op">==</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">:</tt> <tt id="link-21" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-21', 'cast', 'link-12');">cast</a></tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name"><a title="Priithon.plt.seb.toFloat32" class="py-name" href="#" onclick="return doclink('link-22', 'toFloat32', 'link-0');">toFloat32</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">typecode</tt> <tt class="py-op">==</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float64</tt><tt class="py-op">:</tt> <tt id="link-23" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-23', 'cast', 'link-12');">cast</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="Priithon.plt.seb.toFloat64" class="py-name" href="#" onclick="return doclink('link-24', 'toFloat64', 'link-1');">toFloat64</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-name">zero</tt> <tt class="py-op">=</tt> <tt id="link-25" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-25', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">0.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-name">d1</tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-26', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">1.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-name">d2</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-27', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">1.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="Priithon.all" class="py-name" href="#" onclick="return doclink('link-28', 'all', 'link-18');">all</a></tt><tt class="py-op">(</tt><tt class="py-name">d1</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">zero</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-name">d2</tt> <tt class="py-op">=</tt> <tt class="py-name">d1</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">            <tt class="py-name">d1</tt> <tt class="py-op">=</tt> <tt class="py-name">d1</tt> <tt class="py-op">*</tt> <tt id="link-29" class="py-name"><a title="Priithon.mandel.cast
+Priithon.plt.cast
+Priithon.plt.interface.cast
+Priithon.plt.plot_objects.cast
+Priithon.plt.plot_utility.cast
+Priithon.plt.wxplt.cast" class="py-name" href="#" onclick="return doclink('link-29', 'cast', 'link-12');">cast</a></tt><tt class="py-op">(</tt><tt class="py-number">.5</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">d2</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt id="link-30" class="py-name" targets="Variable Priithon.plt.seb.limits.float_epsilon=Priithon.plt.seb.limits-class.html#float_epsilon"><a title="Priithon.plt.seb.limits.float_epsilon" class="py-name" href="#" onclick="return doclink('link-30', 'float_epsilon', 'link-30');">float_epsilon</a></tt> <tt class="py-op">=</tt> <tt id="link-31" class="py-name" targets="Method Priithon.plt.seb.limits.epsilon()=Priithon.plt.seb.limits-class.html#epsilon"><a title="Priithon.plt.seb.limits.epsilon" class="py-name" href="#" onclick="return doclink('link-31', 'epsilon', 'link-31');">epsilon</a></tt><tt class="py-op">(</tt><tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt id="link-32" class="py-name" targets="Variable Priithon.plt.seb.limits.float_tiny=Priithon.plt.seb.limits-class.html#float_tiny"><a title="Priithon.plt.seb.limits.float_tiny" class="py-name" href="#" onclick="return doclink('link-32', 'float_tiny', 'link-32');">float_tiny</a></tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name" targets="Variable Priithon.plt.plot_objects.tiny=Priithon.plt.plot_objects-module.html#tiny,Method Priithon.plt.seb.limits.tiny()=Priithon.plt.seb.limits-class.html#tiny"><a title="Priithon.plt.plot_objects.tiny
+Priithon.plt.seb.limits.tiny" class="py-name" href="#" onclick="return doclink('link-33', 'tiny', 'link-33');">tiny</a></tt><tt class="py-op">(</tt><tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-comment"># hard coded - taken from Norbert's Fortran code.</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#      INTEGER, PARAMETER :: kind_DBLE = KIND(0D0)           ! 8 (HP-UX)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#      INTEGER, PARAMETER :: prec_DBLE = PRECISION(0D0)      ! 15</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#      INTEGER, PARAMETER :: range_DBLE = RANGE(0D0)         ! 307</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#      REAL(kind_DBLE), PARAMETER :: eps_DBLE = EPSILON(0D0) ! 2.22e-16</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#      REAL(kind_DBLE), PARAMETER :: tiny_DBLE = TINY(0D0)   ! 2.23e-308</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#      REAL(kind_DBLE), PARAMETER :: huge_DBLE = HUGE(0D0)   ! 1.80e+308</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-34" class="py-name" targets="Variable Priithon.plt.seb.limits.double_epsilon=Priithon.plt.seb.limits-class.html#double_epsilon"><a title="Priithon.plt.seb.limits.double_epsilon" class="py-name" href="#" onclick="return doclink('link-34', 'double_epsilon', 'link-34');">double_epsilon</a></tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="Priithon.plt.seb.limits.epsilon" class="py-name" href="#" onclick="return doclink('link-35', 'epsilon', 'link-31');">epsilon</a></tt><tt class="py-op">(</tt><tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float64</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">    <tt id="link-36" class="py-name" targets="Variable Priithon.plt.seb.limits.double_tiny=Priithon.plt.seb.limits-class.html#double_tiny"><a title="Priithon.plt.seb.limits.double_tiny" class="py-name" href="#" onclick="return doclink('link-36', 'double_tiny', 'link-36');">double_tiny</a></tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name"><a title="Priithon.plt.plot_objects.tiny
+Priithon.plt.seb.limits.tiny" class="py-name" href="#" onclick="return doclink('link-37', 'tiny', 'link-33');">tiny</a></tt><tt class="py-op">(</tt><tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float64</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">     </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="big_for"></a><div id="big_for-def"><a name="L57"></a><tt class="py-lineno">57</tt> <a class="py-toggle" href="#" id="big_for-toggle" onclick="return toggle('big_for');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.plt.seb-module.html#big_for">big_for</a><tt class="py-op">(</tt><tt class="py-param">a</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="big_for-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="big_for-expanded"><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">    <tt class="py-docstring">'''returns a number that is considred big for the type of a'''</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">a</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Variable Priithon.mockNDarray.mockNDarray.dtype=Priithon.mockNDarray.mockNDarray-class.html#dtype"><a title="Priithon.mockNDarray.mockNDarray.dtype" class="py-name" href="#" onclick="return doclink('link-38', 'dtype', 'link-38');">dtype</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-39" class="py-name" targets="Class Priithon.plt.seb.limits=Priithon.plt.seb.limits-class.html"><a title="Priithon.plt.seb.limits" class="py-name" href="#" onclick="return doclink('link-39', 'limits', 'link-39');">limits</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="Priithon.plt.seb.limits.float_max" class="py-name" href="#" onclick="return doclink('link-40', 'float_max', 'link-8');">float_max</a></tt> <tt class="py-op">/</tt> <tt class="py-number">10</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">a</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.dtype" class="py-name" href="#" onclick="return doclink('link-41', 'dtype', 'link-38');">dtype</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float64</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-42" class="py-name"><a title="Priithon.plt.seb.limits" class="py-name" href="#" onclick="return doclink('link-42', 'limits', 'link-39');">limits</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="Priithon.plt.seb.limits.double_max" class="py-name" href="#" onclick="return doclink('link-43', 'double_max', 'link-3');">double_max</a></tt> <tt class="py-op">/</tt> <tt class="py-number">10</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-44" class="py-name"><a title="Priithon.plt.seb.limits" class="py-name" href="#" onclick="return doclink('link-44', 'limits', 'link-39');">limits</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Priithon.plt.seb.limits.float_max" class="py-name" href="#" onclick="return doclink('link-45', 'float_max', 'link-8');">float_max</a></tt> <tt class="py-op">/</tt> <tt class="py-number">10</tt> <tt class="py-comment"># FIXME</tt> </tt>
+</div><a name="small_for"></a><div id="small_for-def"><a name="L65"></a><tt class="py-lineno">65</tt> <a class="py-toggle" href="#" id="small_for-toggle" onclick="return toggle('small_for');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.plt.seb-module.html#small_for">small_for</a><tt class="py-op">(</tt><tt class="py-param">a</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="small_for-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="small_for-expanded"><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">    <tt class="py-docstring">'''returns a number that is considred small for the type of a'''</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">a</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.dtype" class="py-name" href="#" onclick="return doclink('link-46', 'dtype', 'link-38');">dtype</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-47" class="py-name"><a title="Priithon.plt.seb.limits" class="py-name" href="#" onclick="return doclink('link-47', 'limits', 'link-39');">limits</a></tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="Priithon.plt.seb.limits.float_min" class="py-name" href="#" onclick="return doclink('link-48', 'float_min', 'link-7');">float_min</a></tt> <tt class="py-op">/</tt> <tt class="py-number">10</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">a</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.dtype" class="py-name" href="#" onclick="return doclink('link-49', 'dtype', 'link-38');">dtype</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float64</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-50" class="py-name"><a title="Priithon.plt.seb.limits" class="py-name" href="#" onclick="return doclink('link-50', 'limits', 'link-39');">limits</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="Priithon.plt.seb.limits.double_min" class="py-name" href="#" onclick="return doclink('link-51', 'double_min', 'link-2');">double_min</a></tt> <tt class="py-op">/</tt> <tt class="py-number">10</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-52" class="py-name"><a title="Priithon.plt.seb.limits" class="py-name" href="#" onclick="return doclink('link-52', 'limits', 'link-39');">limits</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="Priithon.plt.seb.limits.float_min" class="py-name" href="#" onclick="return doclink('link-53', 'float_min', 'link-7');">float_min</a></tt> <tt class="py-op">/</tt> <tt class="py-number">10</tt> <tt class="py-comment"># FIXME</tt> </tt>
+</div><a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">     </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line"><tt class="py-comment">#added by seb: in case y.dtype is e.g. uint8, there might be more than 255 x values ...</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#20070731 - CHECK</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="dtypeBigEnough"></a><div id="dtypeBigEnough-def"><a name="L78"></a><tt class="py-lineno">78</tt> <a class="py-toggle" href="#" id="dtypeBigEnough-toggle" onclick="return toggle('dtypeBigEnough');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.plt.seb-module.html#dtypeBigEnough">dtypeBigEnough</a><tt class="py-op">(</tt><tt class="py-param">a</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="dtypeBigEnough-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="dtypeBigEnough-expanded"><a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"><tt class="py-docstring">    return dtype of a but at least N.int16</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">    <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">a</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.dtype" class="py-name" href="#" onclick="return doclink('link-54', 'dtype', 'link-38');">dtype</a></tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">d</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">bool</tt><tt class="py-op">,</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">uint8</tt><tt class="py-op">,</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int8</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int16</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">d</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:35 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

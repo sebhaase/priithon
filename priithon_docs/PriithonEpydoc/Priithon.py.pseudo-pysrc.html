@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.py.pseudo</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.py-module.html">Package&nbsp;py</a> ::
+        Module&nbsp;pseudo
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.py.pseudo-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.py.pseudo-module.html">Module Priithon.py.pseudo</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Provides a variety of classes to create pseudo keywords and pseudo files."""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Patrick K. O'Brien &lt;pobrien@orbtech.com&gt;"</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Priithon.py.PyAlaCarte.__cvsid__=Priithon.py.PyAlaCarte-module.html#__cvsid__,Variable Priithon.py.PyAlaMode.__cvsid__=Priithon.py.PyAlaMode-module.html#__cvsid__,Variable Priithon.py.PyAlaModeTest.__cvsid__=Priithon.py.PyAlaModeTest-module.html#__cvsid__,Variable Priithon.py.PyCrust.__cvsid__=Priithon.py.PyCrust-module.html#__cvsid__,Variable Priithon.py.PyFilling.__cvsid__=Priithon.py.PyFilling-module.html#__cvsid__,Variable Priithon.py.PyShell.__cvsid__=Priithon.py.PyShell-module.html#__cvsid__,Variable Priithon.py.PyWrap.__cvsid__=Priithon.py.PyWrap-module.html#__cvsid__,Variable Priithon.py.__cvsid__=Priithon.py-module.html#__cvsid__,Variable Priithon.py.buffer.__cvsid__=Priithon.py.buffer-module.html#__cvsid__,Variable Priithon.py.crust.__cvsid__=Priithon.py.crust-module.html#__cvsid__,Variable Priithon.py.dispatcher.__cvsid__=Priithon.py.dispatcher-module.html#__cvsid__,Variable Priithon.py.document.__cvsid__=Priithon.py.document-module.html#__cvsid__,Variable Priithon.py.editor.__cvsid__=Priithon.py.editor-module.html#__cvsid__,Variable Priithon.py.editwindow.__cvsid__=Priithon.py.editwindow-module.html#__cvsid__,Variable Priithon.py.filling.__cvsid__=Priithon.py.filling-module.html#__cvsid__,Variable Priithon.py.frame.__cvsid__=Priithon.py.frame-module.html#__cvsid__,Variable Priithon.py.images.__cvsid__=Priithon.py.images-module.html#__cvsid__,Variable Priithon.py.interpreter.__cvsid__=Priithon.py.interpreter-module.html#__cvsid__,Variable Priithon.py.introspect.__cvsid__=Priithon.py.introspect-module.html#__cvsid__,Variable Priithon.py.pseudo.__cvsid__=Priithon.py.pseudo-module.html#__cvsid__,Variable Priithon.py.shell.__cvsid__=Priithon.py.shell-module.html#__cvsid__,Variable Priithon.py.version.__cvsid__=Priithon.py.version-module.html#__cvsid__"><a title="Priithon.py.PyAlaCarte.__cvsid__
+Priithon.py.PyAlaMode.__cvsid__
+Priithon.py.PyAlaModeTest.__cvsid__
+Priithon.py.PyCrust.__cvsid__
+Priithon.py.PyFilling.__cvsid__
+Priithon.py.PyShell.__cvsid__
+Priithon.py.PyWrap.__cvsid__
+Priithon.py.__cvsid__
+Priithon.py.buffer.__cvsid__
+Priithon.py.crust.__cvsid__
+Priithon.py.dispatcher.__cvsid__
+Priithon.py.document.__cvsid__
+Priithon.py.editor.__cvsid__
+Priithon.py.editwindow.__cvsid__
+Priithon.py.filling.__cvsid__
+Priithon.py.frame.__cvsid__
+Priithon.py.images.__cvsid__
+Priithon.py.interpreter.__cvsid__
+Priithon.py.introspect.__cvsid__
+Priithon.py.pseudo.__cvsid__
+Priithon.py.shell.__cvsid__
+Priithon.py.version.__cvsid__" class="py-name" href="#" onclick="return doclink('link-0', '__cvsid__', 'link-0');">__cvsid__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"$Id: pseudo.py,v 1.5 2004/02/13 02:47:58 PKO Exp $"</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable Priithon.py.PyAlaCarte.__revision__=Priithon.py.PyAlaCarte-module.html#__revision__,Variable Priithon.py.PyAlaMode.__revision__=Priithon.py.PyAlaMode-module.html#__revision__,Variable Priithon.py.PyAlaModeTest.__revision__=Priithon.py.PyAlaModeTest-module.html#__revision__,Variable Priithon.py.PyCrust.__revision__=Priithon.py.PyCrust-module.html#__revision__,Variable Priithon.py.PyFilling.__revision__=Priithon.py.PyFilling-module.html#__revision__,Variable Priithon.py.PyShell.__revision__=Priithon.py.PyShell-module.html#__revision__,Variable Priithon.py.PyWrap.__revision__=Priithon.py.PyWrap-module.html#__revision__,Variable Priithon.py.__revision__=Priithon.py-module.html#__revision__,Variable Priithon.py.buffer.__revision__=Priithon.py.buffer-module.html#__revision__,Variable Priithon.py.crust.__revision__=Priithon.py.crust-module.html#__revision__,Variable Priithon.py.dispatcher.__revision__=Priithon.py.dispatcher-module.html#__revision__,Variable Priithon.py.document.__revision__=Priithon.py.document-module.html#__revision__,Variable Priithon.py.editor.__revision__=Priithon.py.editor-module.html#__revision__,Variable Priithon.py.editwindow.__revision__=Priithon.py.editwindow-module.html#__revision__,Variable Priithon.py.filling.__revision__=Priithon.py.filling-module.html#__revision__,Variable Priithon.py.frame.__revision__=Priithon.py.frame-module.html#__revision__,Variable Priithon.py.images.__revision__=Priithon.py.images-module.html#__revision__,Variable Priithon.py.interpreter.__revision__=Priithon.py.interpreter-module.html#__revision__,Variable Priithon.py.introspect.__revision__=Priithon.py.introspect-module.html#__revision__,Variable Priithon.py.pseudo.__revision__=Priithon.py.pseudo-module.html#__revision__,Variable Priithon.py.shell.__revision__=Priithon.py.shell-module.html#__revision__,Variable Priithon.py.version.__revision__=Priithon.py.version-module.html#__revision__"><a title="Priithon.py.PyAlaCarte.__revision__
+Priithon.py.PyAlaMode.__revision__
+Priithon.py.PyAlaModeTest.__revision__
+Priithon.py.PyCrust.__revision__
+Priithon.py.PyFilling.__revision__
+Priithon.py.PyShell.__revision__
+Priithon.py.PyWrap.__revision__
+Priithon.py.__revision__
+Priithon.py.buffer.__revision__
+Priithon.py.crust.__revision__
+Priithon.py.dispatcher.__revision__
+Priithon.py.document.__revision__
+Priithon.py.editor.__revision__
+Priithon.py.editwindow.__revision__
+Priithon.py.filling.__revision__
+Priithon.py.frame.__revision__
+Priithon.py.images.__revision__
+Priithon.py.interpreter.__revision__
+Priithon.py.introspect.__revision__
+Priithon.py.pseudo.__revision__
+Priithon.py.shell.__revision__
+Priithon.py.version.__revision__" class="py-name" href="#" onclick="return doclink('link-1', '__revision__', 'link-1');">__revision__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"$Revision: 1.5 $"</tt><tt class="py-op">[</tt><tt class="py-number">11</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="PseudoKeyword"></a><div id="PseudoKeyword-def"><a name="L8"></a><tt class="py-lineno">  8</tt> <a class="py-toggle" href="#" id="PseudoKeyword-toggle" onclick="return toggle('PseudoKeyword');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoKeyword-class.html">PseudoKeyword</a><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoKeyword-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PseudoKeyword-expanded"><a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">    <tt class="py-docstring">"""A callable class that calls a method passed as a parameter.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">    Good for creating a pseudo keyword in the python runtime</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">    environment. The keyword is really an object that has a repr()</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">    that calls itself which calls the method that was passed in the</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">    init of the object. All this just to avoid having to type in the</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">    closing parens on a method. So, for example:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; quit = PseudoKeyword(SomeObject.someMethod)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; quit</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">    SomeObject.someMethod gets executed as if it had been called</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">    directly and the user didn't have to type the parens, like</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">    'quit()'. This technique is most applicable for pseudo keywords</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">    like quit, exit and help.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    If SomeObject.someMethod can take parameters, they can still be</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    passed by using the keyword in the traditional way with parens."""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="PseudoKeyword.__init__"></a><div id="PseudoKeyword.__init__-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="PseudoKeyword.__init__-toggle" onclick="return toggle('PseudoKeyword.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoKeyword-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">method</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoKeyword.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoKeyword.__init__-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-docstring">"""Create a callable object that executes method when called."""</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt class="py-name">method</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">=</tt> <tt class="py-name">method</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">,</tt> <tt class="py-string">'method must be callable'</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="PseudoKeyword.__call__"></a><div id="PseudoKeyword.__call__-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="PseudoKeyword.__call__-toggle" onclick="return toggle('PseudoKeyword.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoKeyword-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwds</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoKeyword.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoKeyword.__call__-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">method</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwds</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"> </tt>
+<a name="PseudoKeyword.__repr__"></a><div id="PseudoKeyword.__repr__-def"><a name="L39"></a><tt class="py-lineno"> 39</tt> <a class="py-toggle" href="#" id="PseudoKeyword.__repr__-toggle" onclick="return toggle('PseudoKeyword.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoKeyword-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoKeyword.__repr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoKeyword.__repr__-expanded"><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+</div></div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFile"></a><div id="PseudoFile-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="PseudoFile-toggle" onclick="return toggle('PseudoFile');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFile-class.html">PseudoFile</a><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PseudoFile-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFile.__init__"></a><div id="PseudoFile.__init__-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="PseudoFile.__init__-toggle" onclick="return toggle('PseudoFile.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFile-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFile.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFile.__init__-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-docstring">"""Create a file-like object."""</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFile.readline"></a><div id="PseudoFile.readline-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="PseudoFile.readline-toggle" onclick="return toggle('PseudoFile.readline');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFile-class.html#readline">readline</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFile.readline-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFile.readline-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFile.write"></a><div id="PseudoFile.write-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="PseudoFile.write-toggle" onclick="return toggle('PseudoFile.write');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFile-class.html#write">write</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">s</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFile.write-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFile.write-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFile.writelines"></a><div id="PseudoFile.writelines-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="PseudoFile.writelines-toggle" onclick="return toggle('PseudoFile.writelines');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFile-class.html#writelines">writelines</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">l</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFile.writelines-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFile.writelines-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method Priithon.Scientific_IO_TextFile.TextFile.write()=Priithon.Scientific_IO_TextFile.TextFile-class.html#write,Method Priithon.py.document.Document.write()=Priithon.py.document.Document-class.html#write,Method Priithon.py.editwindow.EditWindow.write()=Priithon.py.editwindow.EditWindow-class.html#write,Method Priithon.py.pseudo.PseudoFile.write()=Priithon.py.pseudo.PseudoFile-class.html#write,Method Priithon.py.shell.Shell.write()=Priithon.py.shell.Shell-class.html#write"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-2', 'write', 'link-2');">write</a></tt><tt class="py-op">,</tt> <tt class="py-name">l</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFile.flush"></a><div id="PseudoFile.flush-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="PseudoFile.flush-toggle" onclick="return toggle('PseudoFile.flush');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFile-class.html#flush">flush</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFile.flush-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFile.flush-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFile.isatty"></a><div id="PseudoFile.isatty-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="PseudoFile.isatty-toggle" onclick="return toggle('PseudoFile.isatty');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFile-class.html#isatty">isatty</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFile.isatty-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFile.isatty-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div></div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileIn"></a><div id="PseudoFileIn-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="PseudoFileIn-toggle" onclick="return toggle('PseudoFileIn');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileIn-class.html">PseudoFileIn</a><tt class="py-op">(</tt><tt class="py-base-class">PseudoFile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileIn-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PseudoFileIn-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileIn.__init__"></a><div id="PseudoFileIn.__init__-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="PseudoFileIn.__init__-toggle" onclick="return toggle('PseudoFileIn.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileIn-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">readline</tt><tt class="py-op">,</tt> <tt class="py-param">readlines</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileIn.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFileIn.__init__-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt id="link-3" class="py-name" targets="Method Priithon.Scientific_IO_TextFile.TextFile.readline()=Priithon.Scientific_IO_TextFile.TextFile-class.html#readline,Method Priithon.py.pseudo.PseudoFile.readline()=Priithon.py.pseudo.PseudoFile-class.html#readline,Method Priithon.py.shell.Shell.readline()=Priithon.py.shell.Shell-class.html#readline"><a title="Priithon.Scientific_IO_TextFile.TextFile.readline
+Priithon.py.pseudo.PseudoFile.readline
+Priithon.py.shell.Shell.readline" class="py-name" href="#" onclick="return doclink('link-3', 'readline', 'link-3');">readline</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.readline
+Priithon.py.pseudo.PseudoFile.readline
+Priithon.py.shell.Shell.readline" class="py-name" href="#" onclick="return doclink('link-4', 'readline', 'link-3');">readline</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.readline
+Priithon.py.pseudo.PseudoFile.readline
+Priithon.py.shell.Shell.readline" class="py-name" href="#" onclick="return doclink('link-5', 'readline', 'link-3');">readline</a></tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">,</tt> <tt class="py-string">'readline must be callable'</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt id="link-6" class="py-name" targets="Method Priithon.Scientific_IO_TextFile.TextFile.readlines()=Priithon.Scientific_IO_TextFile.TextFile-class.html#readlines,Method Priithon.py.shell.Shell.readlines()=Priithon.py.shell.Shell-class.html#readlines"><a title="Priithon.Scientific_IO_TextFile.TextFile.readlines
+Priithon.py.shell.Shell.readlines" class="py-name" href="#" onclick="return doclink('link-6', 'readlines', 'link-6');">readlines</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.readlines
+Priithon.py.shell.Shell.readlines" class="py-name" href="#" onclick="return doclink('link-7', 'readlines', 'link-6');">readlines</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.readlines
+Priithon.py.shell.Shell.readlines" class="py-name" href="#" onclick="return doclink('link-8', 'readlines', 'link-6');">readlines</a></tt> </tt>
+</div><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileIn.isatty"></a><div id="PseudoFileIn.isatty-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="PseudoFileIn.isatty-toggle" onclick="return toggle('PseudoFileIn.isatty');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileIn-class.html#isatty">isatty</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileIn.isatty-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFileIn.isatty-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+</div></div><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">         </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">         </tt>
+<a name="PseudoFileOut"></a><div id="PseudoFileOut-def"><a name="L80"></a><tt class="py-lineno"> 80</tt> <a class="py-toggle" href="#" id="PseudoFileOut-toggle" onclick="return toggle('PseudoFileOut');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileOut-class.html">PseudoFileOut</a><tt class="py-op">(</tt><tt class="py-base-class">PseudoFile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileOut-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PseudoFileOut-expanded"><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileOut.__init__"></a><div id="PseudoFileOut.__init__-def"><a name="L82"></a><tt class="py-lineno"> 82</tt> <a class="py-toggle" href="#" id="PseudoFileOut.__init__-toggle" onclick="return toggle('PseudoFileOut.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileOut-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">write</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileOut.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFileOut.__init__-expanded"><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-9', 'write', 'link-2');">write</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-10', 'write', 'link-2');">write</a></tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-11', 'write', 'link-2');">write</a></tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">,</tt> <tt class="py-string">'write must be callable'</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileOut.isatty"></a><div id="PseudoFileOut.isatty-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="PseudoFileOut.isatty-toggle" onclick="return toggle('PseudoFileOut.isatty');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileOut-class.html#isatty">isatty</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileOut.isatty-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFileOut.isatty-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+</div></div><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileErr"></a><div id="PseudoFileErr-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="PseudoFileErr-toggle" onclick="return toggle('PseudoFileErr');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileErr-class.html">PseudoFileErr</a><tt class="py-op">(</tt><tt class="py-base-class">PseudoFile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileErr-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PseudoFileErr-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileErr.__init__"></a><div id="PseudoFileErr.__init__-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="PseudoFileErr.__init__-toggle" onclick="return toggle('PseudoFileErr.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileErr-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">write</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileErr.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFileErr.__init__-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">callable</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-12', 'write', 'link-2');">write</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-13', 'write', 'link-2');">write</a></tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-14', 'write', 'link-2');">write</a></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">,</tt> <tt class="py-string">'write must be callable'</tt> </tt>
+</div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="PseudoFileErr.isatty"></a><div id="PseudoFileErr.isatty-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="PseudoFileErr.isatty-toggle" onclick="return toggle('PseudoFileErr.isatty');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.py.pseudo.PseudoFileErr-class.html#isatty">isatty</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PseudoFileErr.isatty-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PseudoFileErr.isatty-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+</div></div><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:30 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

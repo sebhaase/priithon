@@ -1,0 +1,2588 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.py.shell.Shell</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.py-module.html">Package&nbsp;py</a> ::
+        <a href="Priithon.py.shell-module.html">Module&nbsp;shell</a> ::
+        Class&nbsp;Shell
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.py.shell.Shell-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Shell</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_66" name="uml_class_diagram_for_priithon_66">
+<area shape="rect" href="javascript:void(0);" title="The membership flag" alt="" coords="337,1257,545,1276"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAnchor` and `SetAnchor`" alt="" coords="337,1276,545,1295"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackSpaceUnIndents` and `SetBackSpaceUnIndents`" alt="" coords="337,1295,545,1313"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBufferedDraw` and `SetBufferedDraw`" alt="" coords="337,1313,545,1332"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretForeground` and `SetCaretForeground`" alt="" coords="337,1332,545,1351"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineBack` and `SetCaretLineBack`" alt="" coords="337,1351,545,1369"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineBackAlpha` and `SetCaretLineBackAlpha`" alt="" coords="337,1369,545,1388"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineBackground` and `SetCaretLineBackground`" alt="" coords="337,1388,545,1407"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretLineVisible` and `SetCaretLineVisible`" alt="" coords="337,1407,545,1425"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretPeriod` and `SetCaretPeriod`" alt="" coords="337,1425,545,1444"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretSticky` and `SetCaretSticky`" alt="" coords="337,1444,545,1463"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaretWidth` and `SetCaretWidth`" alt="" coords="337,1463,545,1481"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCodePage` and `SetCodePage`" alt="" coords="337,1481,545,1500"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetZoom` and `SetZoom`" alt="" coords="337,1519,545,1537"/>
+<area shape="rect" href="javascript:void(0);" title="repr(x)" alt="" coords="337,1540,545,1559"/>
+<area shape="rect" href="javascript:void(0);" title="Create(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, ..." alt="" coords="337,1559,545,1577"/>
+<area shape="rect" href="javascript:void(0);" title="AddText(self, String text)" alt="" coords="337,1577,545,1596"/>
+<area shape="rect" href="javascript:void(0);" title="AddStyledText(self, wxMemoryBuffer data)" alt="" coords="337,1596,545,1615"/>
+<area shape="rect" href="javascript:void(0);" title="InsertText(self, int pos, String text)" alt="" coords="337,1615,545,1633"/>
+<area shape="rect" href="javascript:void(0);" title="Delete all text in the document." alt="" coords="337,1633,545,1652"/>
+<area shape="rect" href="javascript:void(0);" title="Set all style bytes to 0, remove all folding information." alt="" coords="337,1652,545,1671"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the number of characters in the document." alt="" coords="337,1671,545,1689"/>
+<area shape="rect" href="javascript:void(0);" title="GetCharAt(self, int pos) &#45;&gt; int" alt="" coords="337,1689,545,1708"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the position of the caret." alt="" coords="337,1708,545,1727"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the position of the opposite end of the selection to the caret." alt="" coords="337,1727,545,1745"/>
+<area shape="rect" href="javascript:void(0);" title="GetStyleAt(self, int pos) &#45;&gt; int" alt="" coords="337,1745,545,1764"/>
+<area shape="rect" href="javascript:void(0);" title="Redoes the next action on the undo history." alt="" coords="337,1764,545,1783"/>
+<area shape="rect" href="javascript:void(0);" title="SetCaretLineBackground(self, Colour back)" alt="" coords="337,1801,545,1820"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ StyledTextCtrl class" alt="" coords="336,1240,547,1821"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#setStyles" title="Configure font size, typeface and color for lexer." alt="" coords="359,1876,524,1895"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#OnUpdateUI" title="Check for matching braces." alt="" coords="359,1895,524,1913"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#CanCopy" title="Return True if text is selected and can be copied." alt="" coords="359,1913,524,1932"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#getStyle" title="Returns a style for a given colour if one exists." alt="" coords="359,1932,524,1951"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html#__call__" title="Add the text to the end of the control using colour c which should be &#160;suitable for feeding directly to wx.NamedColour." alt="" coords="359,1951,524,1969"/>
+<area shape="rect" href="Priithon.py.editwindow.EditWindow-class.html" title="EditWindow based on StyledTextCtrl." alt="" coords="357,1851,525,1971"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#name" title="Priithon.py.shell.Shell.name" alt="" coords="17,2017,865,2036"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#revision" title="Priithon.py.shell.Shell.revision" alt="" coords="17,2036,865,2055"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#__init__" title="Create Shell instance." alt="" coords="17,2057,865,2076"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#destroy" title="Priithon.py.shell.Shell.destroy" alt="" coords="17,2076,865,2095"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#setFocus" title="Set focus to the shell." alt="" coords="17,2095,865,2113"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#OnIdle" title="Free the CPU to do other things." alt="" coords="17,2113,865,2132"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#showIntro" title="Display introductory text in the shell." alt="" coords="17,2132,865,2151"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#setBuiltinKeywords" title="Create pseudo keywords as part of builtins." alt="" coords="17,2151,865,2169"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#quit" title="Quit the application." alt="" coords="17,2169,865,2188"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#setLocalShell" title="Add &#39;shell&#39; to locals as reference to ShellFacade instance." alt="" coords="17,2188,865,2207"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#execStartupScript" title="Execute the user&#39;s PYTHONSTARTUP script if they have one." alt="" coords="17,2207,865,2225"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#about" title="Display information about Py." alt="" coords="17,2225,865,2244"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#OnChar" title="Keypress event handler." alt="" coords="17,2244,865,2263"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#OnKeyDown" title="Key down event handler." alt="" coords="17,2263,865,2281"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#clearCommand" title="Delete the current, unexecuted command." alt="" coords="17,2281,865,2300"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html#zoom" title="Set the zoom level." alt="" coords="17,2319,865,2337"/>
+<area shape="rect" href="Priithon.py.shell.Shell-class.html" title="Shell based on StyledTextCtrl." alt="" coords="16,2000,867,2339"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="360,28,523,47"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="360,49,523,68"/>
+<area shape="rect" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="360,68,523,87"/>
+<area shape="rect" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="359,11,524,88"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`" alt="" coords="259,135,624,153"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetNextHandler` and `SetNextHandler`" alt="" coords="259,153,624,172"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPreviousHandler` and `SetPreviousHandler`" alt="" coords="259,172,624,191"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetNextHandler" alt="" coords="259,193,624,212"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetPreviousHandler" alt="" coords="259,212,624,231"/>
+<area shape="rect" href="javascript:void(0);" title="SetNextHandler(self, EvtHandler handler)" alt="" coords="259,231,624,249"/>
+<area shape="rect" href="javascript:void(0);" title="SetPreviousHandler(self, EvtHandler handler)" alt="" coords="259,249,624,268"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.GetEvtHandlerEnabled" alt="" coords="259,268,624,287"/>
+<area shape="rect" href="javascript:void(0);" title="SetEvtHandlerEnabled(self, bool enabled)" alt="" coords="259,287,624,305"/>
+<area shape="rect" href="javascript:void(0);" title="ProcessEvent(self, Event event) &#45;&gt; bool" alt="" coords="259,305,624,324"/>
+<area shape="rect" href="javascript:void(0);" title="AddPendingEvent(self, Event event)" alt="" coords="259,324,624,343"/>
+<area shape="rect" href="javascript:void(0);" title="wx._core.EvtHandler.ProcessPendingEvents" alt="" coords="259,343,624,361"/>
+<area shape="rect" href="javascript:void(0);" title="Connect(self, int id, int lastId, int eventType, PyObject func)" alt="" coords="259,361,624,380"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnect(self, int id, int lastId=&#45;1, EventType eventType=wxEVT_NULL, ..." alt="" coords="259,380,624,399"/>
+<area shape="rect" href="javascript:void(0);" title="Bind an event to an event handler." alt="" coords="259,399,624,417"/>
+<area shape="rect" href="javascript:void(0);" title="Disconnects the event handler binding for event from self." alt="" coords="259,417,624,436"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ EvtHandler class" alt="" coords="257,117,625,437"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAlignment`" alt="" coords="315,1095,568,1113"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetLabelText`" alt="" coords="315,1113,568,1132"/>
+<area shape="rect" href="javascript:void(0);" title="Get the control alignment (left/right/centre, top/bottom/centre)" alt="" coords="315,1135,568,1153"/>
+<area shape="rect" href="javascript:void(0);" title="Get just the text of the label, without mnemonic characters (&#39;&amp;&#39;)" alt="" coords="315,1153,568,1172"/>
+<area shape="rect" href="javascript:void(0);" title="Command(self, CommandEvent event)" alt="" coords="315,1172,568,1191"/>
+<area shape="rect" href="javascript:void(0);" title="GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) &#45;&gt; &#160;VisualAttributes" alt="" coords="315,1191,568,1209"/>
+<area shape="rect" href="javascript:void(0);" title="This is the base class for a control or &#39;widget&#39;." alt="" coords="313,1077,569,1211"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAcceleratorTable` and `SetAcceleratorTable`" alt="" coords="317,484,565,503"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetAutoLayout` and `SetAutoLayout`" alt="" coords="317,503,565,521"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundColour` and `SetBackgroundColour`" alt="" coords="317,521,565,540"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBackgroundStyle` and `SetBackgroundStyle`" alt="" coords="317,540,565,559"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestSize`" alt="" coords="317,559,565,577"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBestVirtualSize`" alt="" coords="317,577,565,596"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetBorder`" alt="" coords="317,596,565,615"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCaret` and `SetCaret`" alt="" coords="317,615,565,633"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharHeight`" alt="" coords="317,633,565,652"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetCharWidth`" alt="" coords="317,652,565,671"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetChildren`" alt="" coords="317,671,565,689"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientAreaOrigin`" alt="" coords="317,689,565,708"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClientRect` and `SetClientRect`" alt="" coords="317,708,565,727"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetWindowVariant` and `SetWindowVariant`" alt="" coords="317,745,565,764"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window have focus?" alt="" coords="317,767,565,785"/>
+<area shape="rect" href="javascript:void(0);" title="Can this window be given focus by keyboard navigation? if not, the only way to give it focus (provided it accepts it at all) is to click it." alt="" coords="317,785,565,804"/>
+<area shape="rect" href="javascript:void(0);" title="AddChild(self, Window child)" alt="" coords="317,804,565,823"/>
+<area shape="rect" href="javascript:void(0);" title="AdjustForLayoutDirection(self, int x, int width, int widthTotal) &#45;&gt; int" alt="" coords="317,823,565,841"/>
+<area shape="rect" href="javascript:void(0);" title="AssociateHandle(self, long handle)" alt="" coords="317,841,565,860"/>
+<area shape="rect" href="javascript:void(0);" title="CacheBestSize(self, Size size)" alt="" coords="317,860,565,879"/>
+<area shape="rect" href="javascript:void(0);" title="Returns ``True`` if the platform supports setting the transparency for this window." alt="" coords="317,879,565,897"/>
+<area shape="rect" href="javascript:void(0);" title="Directs all mouse input to this window." alt="" coords="317,897,565,916"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="317,916,565,935"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="317,935,565,953"/>
+<area shape="rect" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="317,953,565,972"/>
+<area shape="rect" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="317,972,565,991"/>
+<area shape="rect" href="javascript:void(0);" title="Clears the window by filling it with the current background colour." alt="" coords="317,991,565,1009"/>
+<area shape="rect" href="javascript:void(0);" title="WindowToClientSize(self, Size size) &#45;&gt; Size" alt="" coords="317,1028,565,1047"/>
+<area shape="rect" href="javascript:void(0);" title="wx.Window is the base class for all windows and represents any visible object on the screen." alt="" coords="316,467,567,1048"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_66.gif" alt='' usemap="#uml_class_diagram_for_priithon_66" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Shell based on StyledTextCtrl.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">EvtHandler</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.Point(-1, -1)</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.Size(-1, -1)</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">4194304</span>,
+        <span class="summary-sig-arg">introText</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">locals</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">InterpClass</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwds</span>)</span><br />
+      Create Shell instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="destroy"></a><span class="summary-sig-name">destroy</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.destroy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setFocus"></a><span class="summary-sig-name">setFocus</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Set focus to the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.setFocus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnIdle"></a><span class="summary-sig-name">OnIdle</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Free the CPU to do other things.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.OnIdle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="showIntro"></a><span class="summary-sig-name">showIntro</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Display introductory text in the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.showIntro">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#setBuiltinKeywords" class="summary-sig-name">setBuiltinKeywords</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Create pseudo keywords as part of builtins.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.setBuiltinKeywords">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="quit"></a><span class="summary-sig-name">quit</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Quit the application.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.quit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setLocalShell"></a><span class="summary-sig-name">setLocalShell</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Add 'shell' to locals as reference to ShellFacade instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.setLocalShell">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="execStartupScript"></a><span class="summary-sig-name">execStartupScript</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">startupScript</span>)</span><br />
+      Execute the user's PYTHONSTARTUP script if they have one.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.execStartupScript">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="about"></a><span class="summary-sig-name">about</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Display information about Py.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.about">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#OnChar" class="summary-sig-name">OnChar</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Keypress event handler.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.OnChar">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnKeyDown"></a><span class="summary-sig-name">OnKeyDown</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Key down event handler.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.OnKeyDown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clearCommand"></a><span class="summary-sig-name">clearCommand</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Delete the current, unexecuted command.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.clearCommand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnHistoryReplace"></a><span class="summary-sig-name">OnHistoryReplace</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">step</span>)</span><br />
+      Replace with the previous/next command from the history buffer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.OnHistoryReplace">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="replaceFromHistory"></a><span class="summary-sig-name">replaceFromHistory</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">step</span>)</span><br />
+      Replace selection with command from the history buffer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.replaceFromHistory">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnHistoryInsert"></a><span class="summary-sig-name">OnHistoryInsert</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">step</span>)</span><br />
+      Insert the previous/next command from the history buffer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.OnHistoryInsert">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnHistorySearch"></a><span class="summary-sig-name">OnHistorySearch</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Search up the history buffer for the text in front of the cursor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.OnHistorySearch">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setStatusText"></a><span class="summary-sig-name">setStatusText</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Display status information.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.setStatusText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="insertLineBreak"></a><span class="summary-sig-name">insertLineBreak</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Insert a new line break.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.insertLineBreak">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="processLine"></a><span class="summary-sig-name">processLine</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Process the line of text at which the user hit Enter.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.processLine">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#getMultilineCommand" class="summary-sig-name">getMultilineCommand</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">rstrip</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Extract a multi-line command from the editor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.getMultilineCommand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#getCommand" class="summary-sig-name">getCommand</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">rstrip</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Extract a command from text which may include a shell prompt.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.getCommand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="lstripPrompt"></a><span class="summary-sig-name">lstripPrompt</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Return text without a leading prompt.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.lstripPrompt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="push"></a><span class="summary-sig-name">push</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">newPrompt</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Send command to the interpreter for execution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.push">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="addHistory"></a><span class="summary-sig-name">addHistory</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>)</span><br />
+      Add command to the command history.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.addHistory">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Display text in the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.write">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="fixLineEndings"></a><span class="summary-sig-name">fixLineEndings</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Return text with line endings replaced by OS-specific endings.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.fixLineEndings">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#prompt" class="summary-sig-name">prompt</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Display proper prompt for the context: ps1, ps2 or ps3.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.prompt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="readline"></a><span class="summary-sig-name">readline</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Replacement for stdin.readline().</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.readline">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="readlines"></a><span class="summary-sig-name">readlines</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Replacement for stdin.readlines().</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.readlines">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="raw_input"></a><span class="summary-sig-name">raw_input</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">prompt</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Return string based on user input.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.raw_input">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ask"></a><span class="summary-sig-name">ask</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">prompt</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">Please enter your response:</code><code class="variable-quote">'</code></span>)</span><br />
+      Get response from the user using a dialog box.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.ask">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="pause"></a><span class="summary-sig-name">pause</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Halt execution pending a response from the user.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.pause">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clear"></a><span class="summary-sig-name">clear</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Delete all text from the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.clear">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#run" class="summary-sig-name">run</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">prompt</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Execute command as if it was typed in directly.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.run">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="runfile"></a><span class="summary-sig-name">runfile</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span><br />
+      Execute all commands in file as if they were typed into the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.runfile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="autoCompleteShow"></a><span class="summary-sig-name">autoCompleteShow</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">offset</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Display auto-completion popup list.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.autoCompleteShow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="autoCallTipShow"></a><span class="summary-sig-name">autoCallTipShow</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">alwaysShow</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Display argument spec and docstring in a popup window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.autoCallTipShow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writeOut"></a><span class="summary-sig-name">writeOut</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Replacement for stdout.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.writeOut">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writeErr"></a><span class="summary-sig-name">writeErr</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Replacement for stderr.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.writeErr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="redirectStdin"></a><span class="summary-sig-name">redirectStdin</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">redirect</span>=<span class="summary-sig-default">True</span>)</span><br />
+      If redirect is true then sys.stdin will come from the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.redirectStdin">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="redirectStdout"></a><span class="summary-sig-name">redirectStdout</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">redirect</span>=<span class="summary-sig-default">True</span>)</span><br />
+      If redirect is true then sys.stdout will go to the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.redirectStdout">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="redirectStderr"></a><span class="summary-sig-name">redirectStderr</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">redirect</span>=<span class="summary-sig-default">True</span>)</span><br />
+      If redirect is true then sys.stderr will go to the shell.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.redirectStderr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#CanCut" class="summary-sig-name">CanCut</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return true if text is selected and can be cut.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CanCut">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#CanPaste" class="summary-sig-name">CanPaste</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return true if a paste should succeed.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CanPaste">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#CanEdit" class="summary-sig-name">CanEdit</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return true if editing should succeed.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CanEdit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#Cut" class="summary-sig-name">Cut</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Remove selection and place it on the clipboard.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.Cut">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#Copy" class="summary-sig-name">Copy</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Copy selection and place it on the clipboard.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.Copy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CopyWithPrompts"></a><span class="summary-sig-name">CopyWithPrompts</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Copy selection, including prompts, and place it on the clipboard.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CopyWithPrompts">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CopyWithPromptsPrefixed"></a><span class="summary-sig-name">CopyWithPromptsPrefixed</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Copy selection, including prompts prefixed with four spaces, and 
+      place it on the clipboard.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CopyWithPromptsPrefixed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_clip"></a><span class="summary-sig-name">_clip</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell._clip">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#Paste" class="summary-sig-name">Paste</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Replace selection with clipboard contents.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.Paste">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="PasteAndRun"></a><span class="summary-sig-name">PasteAndRun</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Replace selection with clipboard contents, run commands.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.PasteAndRun">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="wrap"></a><span class="summary-sig-name">wrap</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Sets whether text is word wrapped.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.wrap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.py.shell.Shell-class.html#zoom" class="summary-sig-name">zoom</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">points</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Set the zoom level.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.zoom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.editwindow.EditWindow-class.html">editwindow.EditWindow</a></code></b>:
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#CanCopy">CanCopy</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#OnUpdateUI">OnUpdateUI</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#__call__">__call__</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#getStyle">getStyle</a></code>,
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#setStyles">setStyles</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.py.editwindow.EditWindow-class.html">editwindow.EditWindow</a></code></b> (private):
+      <code><a href="Priithon.py.editwindow.EditWindow-class.html#_fontsizer" onclick="show_private();">_fontsizer</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.stc.StyledTextCtrl</code></b>:
+      <code>AddRefDocument</code>,
+      <code>AddStyledText</code>,
+      <code>AddText</code>,
+      <code>AddTextRaw</code>,
+      <code>AddTextUTF8</code>,
+      <code>Allocate</code>,
+      <code>AppendText</code>,
+      <code>AppendTextRaw</code>,
+      <code>AppendTextUTF8</code>,
+      <code>AutoCompActive</code>,
+      <code>AutoCompCancel</code>,
+      <code>AutoCompComplete</code>,
+      <code>AutoCompGetAutoHide</code>,
+      <code>AutoCompGetCancelAtStart</code>,
+      <code>AutoCompGetChooseSingle</code>,
+      <code>AutoCompGetCurrent</code>,
+      <code>AutoCompGetDropRestOfWord</code>,
+      <code>AutoCompGetIgnoreCase</code>,
+      <code>AutoCompGetMaxHeight</code>,
+      <code>AutoCompGetMaxWidth</code>,
+      <code>AutoCompGetSeparator</code>,
+      <code>AutoCompGetTypeSeparator</code>,
+      <code>AutoCompPosStart</code>,
+      <code>AutoCompSelect</code>,
+      <code>AutoCompSetAutoHide</code>,
+      <code>AutoCompSetCancelAtStart</code>,
+      <code>AutoCompSetChooseSingle</code>,
+      <code>AutoCompSetDropRestOfWord</code>,
+      <code>AutoCompSetFillUps</code>,
+      <code>AutoCompSetIgnoreCase</code>,
+      <code>AutoCompSetMaxHeight</code>,
+      <code>AutoCompSetMaxWidth</code>,
+      <code>AutoCompSetSeparator</code>,
+      <code>AutoCompSetTypeSeparator</code>,
+      <code>AutoCompShow</code>,
+      <code>AutoCompStops</code>,
+      <code>BackTab</code>,
+      <code>BeginUndoAction</code>,
+      <code>BraceBadLight</code>,
+      <code>BraceHighlight</code>,
+      <code>BraceMatch</code>,
+      <code>CallTipActive</code>,
+      <code>CallTipCancel</code>,
+      <code>CallTipPosAtStart</code>,
+      <code>CallTipSetBackground</code>,
+      <code>CallTipSetForeground</code>,
+      <code>CallTipSetForegroundHighlight</code>,
+      <code>CallTipSetHighlight</code>,
+      <code>CallTipShow</code>,
+      <code>CallTipUseStyle</code>,
+      <code>CanRedo</code>,
+      <code>CanUndo</code>,
+      <code>Cancel</code>,
+      <code>CharLeft</code>,
+      <code>CharLeftExtend</code>,
+      <code>CharLeftRectExtend</code>,
+      <code>CharRight</code>,
+      <code>CharRightExtend</code>,
+      <code>CharRightRectExtend</code>,
+      <code>ChooseCaretX</code>,
+      <code>Clear</code>,
+      <code>ClearAll</code>,
+      <code>ClearDocumentStyle</code>,
+      <code>ClearRegisteredImages</code>,
+      <code>CmdKeyAssign</code>,
+      <code>CmdKeyClear</code>,
+      <code>CmdKeyClearAll</code>,
+      <code>CmdKeyExecute</code>,
+      <code>Colourise</code>,
+      <code>ConvertEOLs</code>,
+      <code>CopyRange</code>,
+      <code>CopyText</code>,
+      <code>Create</code>,
+      <code>CreateDocument</code>,
+      <code>DelLineLeft</code>,
+      <code>DelLineRight</code>,
+      <code>DelWordLeft</code>,
+      <code>DelWordRight</code>,
+      <code>DeleteBack</code>,
+      <code>DeleteBackNotLine</code>,
+      <code>DoDragOver</code>,
+      <code>DoDropText</code>,
+      <code>DocLineFromVisible</code>,
+      <code>DocumentEnd</code>,
+      <code>DocumentEndExtend</code>,
+      <code>DocumentStart</code>,
+      <code>DocumentStartExtend</code>,
+      <code>EditToggleOvertype</code>,
+      <code>EmptyUndoBuffer</code>,
+      <code>EndUndoAction</code>,
+      <code>EnsureCaretVisible</code>,
+      <code>EnsureVisible</code>,
+      <code>EnsureVisibleEnforcePolicy</code>,
+      <code>FindColumn</code>,
+      <code>FindText</code>,
+      <code>FormFeed</code>,
+      <code>FormatRange</code>,
+      <code>GetAnchor</code>,
+      <code>GetBackSpaceUnIndents</code>,
+      <code>GetBufferedDraw</code>,
+      <code>GetCaretForeground</code>,
+      <code>GetCaretLineBack</code>,
+      <code>GetCaretLineBackAlpha</code>,
+      <code>GetCaretLineBackground</code>,
+      <code>GetCaretLineVisible</code>,
+      <code>GetCaretPeriod</code>,
+      <code>GetCaretSticky</code>,
+      <code>GetCaretWidth</code>,
+      <code>GetCharAt</code>,
+      <code>GetCodePage</code>,
+      <code>GetColumn</code>,
+      <code>GetControlCharSymbol</code>,
+      <code>GetCurLine</code>,
+      <code>GetCurLineRaw</code>,
+      <code>GetCurLineUTF8</code>,
+      <code>GetCurrentLine</code>,
+      <code>GetCurrentPos</code>,
+      <code>GetDocPointer</code>,
+      <code>GetEOLMode</code>,
+      <code>GetEdgeColour</code>,
+      <code>GetEdgeColumn</code>,
+      <code>GetEdgeMode</code>,
+      <code>GetEndAtLastLine</code>,
+      <code>GetEndStyled</code>,
+      <code>GetFirstVisibleLine</code>,
+      <code>GetFoldExpanded</code>,
+      <code>GetFoldLevel</code>,
+      <code>GetFoldParent</code>,
+      <code>GetHighlightGuide</code>,
+      <code>GetIndent</code>,
+      <code>GetIndentationGuides</code>,
+      <code>GetLastChild</code>,
+      <code>GetLastKeydownProcessed</code>,
+      <code>GetLayoutCache</code>,
+      <code>GetLength</code>,
+      <code>GetLexer</code>,
+      <code>GetLine</code>,
+      <code>GetLineCount</code>,
+      <code>GetLineEndPosition</code>,
+      <code>GetLineIndentPosition</code>,
+      <code>GetLineIndentation</code>,
+      <code>GetLineRaw</code>,
+      <code>GetLineSelEndPosition</code>,
+      <code>GetLineSelStartPosition</code>,
+      <code>GetLineState</code>,
+      <code>GetLineUTF8</code>,
+      <code>GetLineVisible</code>,
+      <code>GetMarginLeft</code>,
+      <code>GetMarginMask</code>,
+      <code>GetMarginRight</code>,
+      <code>GetMarginSensitive</code>,
+      <code>GetMarginType</code>,
+      <code>GetMarginWidth</code>,
+      <code>GetMaxLineState</code>,
+      <code>GetModEventMask</code>,
+      <code>GetModify</code>,
+      <code>GetMouseDownCaptures</code>,
+      <code>GetMouseDwellTime</code>,
+      <code>GetOvertype</code>,
+      <code>GetPasteConvertEndings</code>,
+      <code>GetPrintColourMode</code>,
+      <code>GetPrintMagnification</code>,
+      <code>GetPrintWrapMode</code>,
+      <code>GetProperty</code>,
+      <code>GetPropertyExpanded</code>,
+      <code>GetPropertyInt</code>,
+      <code>GetReadOnly</code>,
+      <code>GetSTCCursor</code>,
+      <code>GetSTCFocus</code>,
+      <code>GetScrollWidth</code>,
+      <code>GetSearchFlags</code>,
+      <code>GetSelAlpha</code>,
+      <code>GetSelectedText</code>,
+      <code>GetSelectedTextRaw</code>,
+      <code>GetSelectedTextUTF8</code>,
+      <code>GetSelection</code>,
+      <code>GetSelectionEnd</code>,
+      <code>GetSelectionMode</code>,
+      <code>GetSelectionStart</code>,
+      <code>GetStatus</code>,
+      <code>GetStyleAt</code>,
+      <code>GetStyleBits</code>,
+      <code>GetStyleBitsNeeded</code>,
+      <code>GetStyledText</code>,
+      <code>GetTabIndents</code>,
+      <code>GetTabWidth</code>,
+      <code>GetTargetEnd</code>,
+      <code>GetTargetStart</code>,
+      <code>GetText</code>,
+      <code>GetTextLength</code>,
+      <code>GetTextRange</code>,
+      <code>GetTextRangeRaw</code>,
+      <code>GetTextRangeUTF8</code>,
+      <code>GetTextRaw</code>,
+      <code>GetTextUTF8</code>,
+      <code>GetTwoPhaseDraw</code>,
+      <code>GetUndoCollection</code>,
+      <code>GetUseAntiAliasing</code>,
+      <code>GetUseHorizontalScrollBar</code>,
+      <code>GetUseTabs</code>,
+      <code>GetUseVerticalScrollBar</code>,
+      <code>GetViewEOL</code>,
+      <code>GetViewWhiteSpace</code>,
+      <code>GetWrapMode</code>,
+      <code>GetWrapStartIndent</code>,
+      <code>GetWrapVisualFlags</code>,
+      <code>GetWrapVisualFlagsLocation</code>,
+      <code>GetXOffset</code>,
+      <code>GetZoom</code>,
+      <code>GotoLine</code>,
+      <code>GotoPos</code>,
+      <code>HideLines</code>,
+      <code>HideSelection</code>,
+      <code>Home</code>,
+      <code>HomeDisplay</code>,
+      <code>HomeDisplayExtend</code>,
+      <code>HomeExtend</code>,
+      <code>HomeRectExtend</code>,
+      <code>HomeWrap</code>,
+      <code>HomeWrapExtend</code>,
+      <code>IndicatorGetForeground</code>,
+      <code>IndicatorGetStyle</code>,
+      <code>IndicatorSetForeground</code>,
+      <code>IndicatorSetStyle</code>,
+      <code>InsertText</code>,
+      <code>InsertTextRaw</code>,
+      <code>InsertTextUTF8</code>,
+      <code>LineCopy</code>,
+      <code>LineCut</code>,
+      <code>LineDelete</code>,
+      <code>LineDown</code>,
+      <code>LineDownExtend</code>,
+      <code>LineDownRectExtend</code>,
+      <code>LineDuplicate</code>,
+      <code>LineEnd</code>,
+      <code>LineEndDisplay</code>,
+      <code>LineEndDisplayExtend</code>,
+      <code>LineEndExtend</code>,
+      <code>LineEndRectExtend</code>,
+      <code>LineEndWrap</code>,
+      <code>LineEndWrapExtend</code>,
+      <code>LineFromPosition</code>,
+      <code>LineLength</code>,
+      <code>LineScroll</code>,
+      <code>LineScrollDown</code>,
+      <code>LineScrollUp</code>,
+      <code>LineTranspose</code>,
+      <code>LineUp</code>,
+      <code>LineUpExtend</code>,
+      <code>LineUpRectExtend</code>,
+      <code>LinesJoin</code>,
+      <code>LinesOnScreen</code>,
+      <code>LinesSplit</code>,
+      <code>LoadFile</code>,
+      <code>LowerCase</code>,
+      <code>MarkerAdd</code>,
+      <code>MarkerAddSet</code>,
+      <code>MarkerDefine</code>,
+      <code>MarkerDefineBitmap</code>,
+      <code>MarkerDelete</code>,
+      <code>MarkerDeleteAll</code>,
+      <code>MarkerDeleteHandle</code>,
+      <code>MarkerGet</code>,
+      <code>MarkerLineFromHandle</code>,
+      <code>MarkerNext</code>,
+      <code>MarkerPrevious</code>,
+      <code>MarkerSetAlpha</code>,
+      <code>MarkerSetBackground</code>,
+      <code>MarkerSetForeground</code>,
+      <code>MoveCaretInsideView</code>,
+      <code>NewLine</code>,
+      <code>PageDown</code>,
+      <code>PageDownExtend</code>,
+      <code>PageDownRectExtend</code>,
+      <code>PageUp</code>,
+      <code>PageUpExtend</code>,
+      <code>PageUpRectExtend</code>,
+      <code>ParaDown</code>,
+      <code>ParaDownExtend</code>,
+      <code>ParaUp</code>,
+      <code>ParaUpExtend</code>,
+      <code>PointFromPosition</code>,
+      <code>PositionAfter</code>,
+      <code>PositionBefore</code>,
+      <code>PositionFromLine</code>,
+      <code>PositionFromPoint</code>,
+      <code>PositionFromPointClose</code>,
+      <code>Redo</code>,
+      <code>RegisterImage</code>,
+      <code>ReleaseDocument</code>,
+      <code>ReplaceSelection</code>,
+      <code>ReplaceTarget</code>,
+      <code>ReplaceTargetRE</code>,
+      <code>SaveFile</code>,
+      <code>ScrollToColumn</code>,
+      <code>ScrollToLine</code>,
+      <code>SearchAnchor</code>,
+      <code>SearchInTarget</code>,
+      <code>SearchNext</code>,
+      <code>SearchPrev</code>,
+      <code>SelectAll</code>,
+      <code>SelectionDuplicate</code>,
+      <code>SelectionIsRectangle</code>,
+      <code>SendMsg</code>,
+      <code>SetAnchor</code>,
+      <code>SetBackSpaceUnIndents</code>,
+      <code>SetBufferedDraw</code>,
+      <code>SetCaretForeground</code>,
+      <code>SetCaretLineBack</code>,
+      <code>SetCaretLineBackAlpha</code>,
+      <code>SetCaretLineBackground</code>,
+      <code>SetCaretLineVisible</code>,
+      <code>SetCaretPeriod</code>,
+      <code>SetCaretSticky</code>,
+      <code>SetCaretWidth</code>,
+      <code>SetCharsDefault</code>,
+      <code>SetCodePage</code>,
+      <code>SetControlCharSymbol</code>,
+      <code>SetCurrentPos</code>,
+      <code>SetDocPointer</code>,
+      <code>SetEOLMode</code>,
+      <code>SetEdgeColour</code>,
+      <code>SetEdgeColumn</code>,
+      <code>SetEdgeMode</code>,
+      <code>SetEndAtLastLine</code>,
+      <code>SetFoldExpanded</code>,
+      <code>SetFoldFlags</code>,
+      <code>SetFoldLevel</code>,
+      <code>SetFoldMarginColour</code>,
+      <code>SetFoldMarginHiColour</code>,
+      <code>SetHScrollBar</code>,
+      <code>SetHighlightGuide</code>,
+      <code>SetHotspotActiveBackground</code>,
+      <code>SetHotspotActiveForeground</code>,
+      <code>SetHotspotActiveUnderline</code>,
+      <code>SetHotspotSingleLine</code>,
+      <code>SetIndent</code>,
+      <code>SetIndentationGuides</code>,
+      <code>SetKeyWords</code>,
+      <code>SetLastKeydownProcessed</code>,
+      <code>SetLayoutCache</code>,
+      <code>SetLexer</code>,
+      <code>SetLexerLanguage</code>,
+      <code>SetLineIndentation</code>,
+      <code>SetLineState</code>,
+      <code>SetMarginLeft</code>,
+      <code>SetMarginMask</code>,
+      <code>SetMarginRight</code>,
+      <code>SetMarginSensitive</code>,
+      <code>SetMarginType</code>,
+      <code>SetMarginWidth</code>,
+      <code>SetMargins</code>,
+      <code>SetModEventMask</code>,
+      <code>SetMouseDownCaptures</code>,
+      <code>SetMouseDwellTime</code>,
+      <code>SetOvertype</code>,
+      <code>SetPasteConvertEndings</code>,
+      <code>SetPrintColourMode</code>,
+      <code>SetPrintMagnification</code>,
+      <code>SetPrintWrapMode</code>,
+      <code>SetProperty</code>,
+      <code>SetReadOnly</code>,
+      <code>SetSTCCursor</code>,
+      <code>SetSTCFocus</code>,
+      <code>SetSavePoint</code>,
+      <code>SetScrollWidth</code>,
+      <code>SetSearchFlags</code>,
+      <code>SetSelAlpha</code>,
+      <code>SetSelBackground</code>,
+      <code>SetSelForeground</code>,
+      <code>SetSelection</code>,
+      <code>SetSelectionEnd</code>,
+      <code>SetSelectionMode</code>,
+      <code>SetSelectionStart</code>,
+      <code>SetStatus</code>,
+      <code>SetStyleBits</code>,
+      <code>SetStyleBytes</code>,
+      <code>SetStyling</code>,
+      <code>SetTabIndents</code>,
+      <code>SetTabWidth</code>,
+      <code>SetTargetEnd</code>,
+      <code>SetTargetStart</code>,
+      <code>SetText</code>,
+      <code>SetTextRaw</code>,
+      <code>SetTextUTF8</code>,
+      <code>SetTwoPhaseDraw</code>,
+      <code>SetUndoCollection</code>,
+      <code>SetUseAntiAliasing</code>,
+      <code>SetUseHorizontalScrollBar</code>,
+      <code>SetUseTabs</code>,
+      <code>SetUseVerticalScrollBar</code>,
+      <code>SetVScrollBar</code>,
+      <code>SetViewEOL</code>,
+      <code>SetViewWhiteSpace</code>,
+      <code>SetVisiblePolicy</code>,
+      <code>SetWhitespaceBackground</code>,
+      <code>SetWhitespaceChars</code>,
+      <code>SetWhitespaceForeground</code>,
+      <code>SetWordChars</code>,
+      <code>SetWrapMode</code>,
+      <code>SetWrapStartIndent</code>,
+      <code>SetWrapVisualFlags</code>,
+      <code>SetWrapVisualFlagsLocation</code>,
+      <code>SetXCaretPolicy</code>,
+      <code>SetXOffset</code>,
+      <code>SetYCaretPolicy</code>,
+      <code>SetZoom</code>,
+      <code>ShowLines</code>,
+      <code>StartRecord</code>,
+      <code>StartStyling</code>,
+      <code>StopRecord</code>,
+      <code>StutteredPageDown</code>,
+      <code>StutteredPageDownExtend</code>,
+      <code>StutteredPageUp</code>,
+      <code>StutteredPageUpExtend</code>,
+      <code>StyleClearAll</code>,
+      <code>StyleResetDefault</code>,
+      <code>StyleSetBackground</code>,
+      <code>StyleSetBold</code>,
+      <code>StyleSetCase</code>,
+      <code>StyleSetChangeable</code>,
+      <code>StyleSetCharacterSet</code>,
+      <code>StyleSetEOLFilled</code>,
+      <code>StyleSetFaceName</code>,
+      <code>StyleSetFont</code>,
+      <code>StyleSetFontAttr</code>,
+      <code>StyleSetFontEncoding</code>,
+      <code>StyleSetForeground</code>,
+      <code>StyleSetHotSpot</code>,
+      <code>StyleSetItalic</code>,
+      <code>StyleSetSize</code>,
+      <code>StyleSetSpec</code>,
+      <code>StyleSetUnderline</code>,
+      <code>StyleSetVisible</code>,
+      <code>Tab</code>,
+      <code>TargetFromSelection</code>,
+      <code>TextHeight</code>,
+      <code>TextWidth</code>,
+      <code>ToggleCaretSticky</code>,
+      <code>ToggleFold</code>,
+      <code>Undo</code>,
+      <code>UpperCase</code>,
+      <code>UsePopUp</code>,
+      <code>UserListShow</code>,
+      <code>VCHome</code>,
+      <code>VCHomeExtend</code>,
+      <code>VCHomeRectExtend</code>,
+      <code>VCHomeWrap</code>,
+      <code>VCHomeWrapExtend</code>,
+      <code>VisibleFromDocLine</code>,
+      <code>WordEndPosition</code>,
+      <code>WordLeft</code>,
+      <code>WordLeftEnd</code>,
+      <code>WordLeftEndExtend</code>,
+      <code>WordLeftExtend</code>,
+      <code>WordPartLeft</code>,
+      <code>WordPartLeftExtend</code>,
+      <code>WordPartRight</code>,
+      <code>WordPartRightExtend</code>,
+      <code>WordRight</code>,
+      <code>WordRightEnd</code>,
+      <code>WordRightEndExtend</code>,
+      <code>WordRightExtend</code>,
+      <code>WordStartPosition</code>,
+      <code>WrapCount</code>,
+      <code>ZoomIn</code>,
+      <code>ZoomOut</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Control</code></b>:
+      <code>Command</code>,
+      <code>GetAlignment</code>,
+      <code>GetLabelText</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>ClientToWindowSize</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByLabel</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetGtkWidget</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>,
+      <code>WindowToClientSize</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Control</code></b>:
+      <code>GetClassDefaultAttributes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="name"></a><span class="summary-name">name</span> = <code title="'Shell'"><code class="variable-quote">'</code><code class="variable-string">Shell</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="revision"></a><span class="summary-name">revision</span> = <code title="'1.9'"><code class="variable-quote">'</code><code class="variable-string">1.9</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.stc.StyledTextCtrl</code></b>:
+      <code>Anchor</code>,
+      <code>BackSpaceUnIndents</code>,
+      <code>BufferedDraw</code>,
+      <code>CaretForeground</code>,
+      <code>CaretLineBack</code>,
+      <code>CaretLineBackAlpha</code>,
+      <code>CaretLineBackground</code>,
+      <code>CaretLineVisible</code>,
+      <code>CaretPeriod</code>,
+      <code>CaretSticky</code>,
+      <code>CaretWidth</code>,
+      <code>CodePage</code>,
+      <code>ControlCharSymbol</code>,
+      <code>CurLine</code>,
+      <code>CurLineRaw</code>,
+      <code>CurLineUTF8</code>,
+      <code>CurrentLine</code>,
+      <code>CurrentPos</code>,
+      <code>DocPointer</code>,
+      <code>EOLMode</code>,
+      <code>EdgeColour</code>,
+      <code>EdgeColumn</code>,
+      <code>EdgeMode</code>,
+      <code>EndAtLastLine</code>,
+      <code>EndStyled</code>,
+      <code>FirstVisibleLine</code>,
+      <code>HighlightGuide</code>,
+      <code>Indent</code>,
+      <code>IndentationGuides</code>,
+      <code>LastKeydownProcessed</code>,
+      <code>LayoutCache</code>,
+      <code>Length</code>,
+      <code>Lexer</code>,
+      <code>LineCount</code>,
+      <code>MarginLeft</code>,
+      <code>MarginRight</code>,
+      <code>MaxLineState</code>,
+      <code>ModEventMask</code>,
+      <code>Modify</code>,
+      <code>MouseDownCaptures</code>,
+      <code>MouseDwellTime</code>,
+      <code>Overtype</code>,
+      <code>PasteConvertEndings</code>,
+      <code>PrintColourMode</code>,
+      <code>PrintMagnification</code>,
+      <code>PrintWrapMode</code>,
+      <code>ReadOnly</code>,
+      <code>STCCursor</code>,
+      <code>STCFocus</code>,
+      <code>ScrollWidth</code>,
+      <code>SearchFlags</code>,
+      <code>SelAlpha</code>,
+      <code>SelectedText</code>,
+      <code>SelectedTextRaw</code>,
+      <code>SelectedTextUTF8</code>,
+      <code>Selection</code>,
+      <code>SelectionEnd</code>,
+      <code>SelectionMode</code>,
+      <code>SelectionStart</code>,
+      <code>Status</code>,
+      <code>StyleBits</code>,
+      <code>StyleBitsNeeded</code>,
+      <code>TabIndents</code>,
+      <code>TabWidth</code>,
+      <code>TargetEnd</code>,
+      <code>TargetStart</code>,
+      <code>Text</code>,
+      <code>TextLength</code>,
+      <code>TextRaw</code>,
+      <code>TextUTF8</code>,
+      <code>TwoPhaseDraw</code>,
+      <code>UndoCollection</code>,
+      <code>UseAntiAliasing</code>,
+      <code>UseHorizontalScrollBar</code>,
+      <code>UseTabs</code>,
+      <code>UseVerticalScrollBar</code>,
+      <code>ViewEOL</code>,
+      <code>ViewWhiteSpace</code>,
+      <code>WrapMode</code>,
+      <code>WrapStartIndent</code>,
+      <code>WrapVisualFlags</code>,
+      <code>WrapVisualFlagsLocation</code>,
+      <code>XOffset</code>,
+      <code>Zoom</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Control</code></b>:
+      <code>Alignment</code>,
+      <code>LabelText</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>GtkWidget</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">id</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">wx.Point(-1, -1)</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.Size(-1, -1)</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">4194304</span>,
+        <span class="sig-arg">introText</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">locals</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">InterpClass</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwds</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create Shell instance.</p>
+  <dl class="fields">
+    <dt>Returns: EvtHandler</dt>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="setBuiltinKeywords"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setBuiltinKeywords</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.setBuiltinKeywords">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create pseudo keywords as part of builtins.</p>
+  <p>This sets `close`, `exit` and `quit` to a helpful string.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnChar"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnChar</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.OnChar">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Keypress event handler.</p>
+  <p>Only receives an event if OnKeyDown calls event.Skip() for the 
+  corresponding event.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getMultilineCommand"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getMultilineCommand</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">rstrip</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.getMultilineCommand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Extract a multi-line command from the editor.</p>
+  <p>The command may not necessarily be valid Python syntax.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getCommand"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getCommand</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">rstrip</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.getCommand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Extract a command from text which may include a shell prompt.</p>
+  <p>The command may not necessarily be valid Python syntax.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.write">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Display text in the shell.</p>
+  <p>Replace line endings with OS-specific endings.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editwindow.EditWindow-class.html#write">editwindow.EditWindow.write</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="prompt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">prompt</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.prompt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Display proper prompt for the context: ps1, ps2 or ps3.</p>
+  <p>If this is a continuation line, autoindent as necessary.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="run"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">run</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">command</span>,
+        <span class="sig-arg">prompt</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">verbose</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.run">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Execute command as if it was typed in directly. &gt;&gt;&gt; 
+  shell.run('print &quot;this&quot;') &gt;&gt;&gt; print &quot;this&quot; 
+  this &gt;&gt;&gt;</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CanCut"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CanCut</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CanCut">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return true if text is selected and can be cut.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editwindow.EditWindow-class.html#CanCut">editwindow.EditWindow.CanCut</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CanPaste"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CanPaste</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CanPaste">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return true if a paste should succeed.</p>
+  <dl class="fields">
+    <dt>Returns: bool</dt>
+    <dt>Overrides:
+        wx.stc.StyledTextCtrl.CanPaste
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CanEdit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CanEdit</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.CanEdit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return true if editing should succeed.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.py.editwindow.EditWindow-class.html#CanEdit">editwindow.EditWindow.CanEdit</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="Cut"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Cut</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.Cut">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Remove selection and place it on the clipboard.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        wx.stc.StyledTextCtrl.Cut
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="Copy"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Copy</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.Copy">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Copy selection and place it on the clipboard.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        wx.stc.StyledTextCtrl.Copy
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="Paste"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Paste</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.Paste">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Replace selection with clipboard contents.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        wx.stc.StyledTextCtrl.Paste
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="zoom"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zoom</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">points</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.py.shell-pysrc.html#Shell.zoom">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set the zoom level.</p>
+  <p>This number of points is added to the size of all fonts.  It may be 
+  positive to magnify or negative to reduce.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:25 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

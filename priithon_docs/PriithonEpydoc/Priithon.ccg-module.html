@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.ccg</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;ccg
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.ccg-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module ccg</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.ccg-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+Priithon &quot;constrained conjugate gradient&quot;-methode interface
+
+ccg ChangeLog
+* starting out with ccg essentially from GPL Eden version
+   (2/24/95)
+   Author:  Erik M. Johansson, translation of Dennis Goodman;s
+            FORTRAN constrained least squares conjugate gradient
+            codes            
+* python binding for original AIDA ccg
+  * global memory-pointers xn,gn,go,d inited with by init_global_array_pointers
+  * CostFunction takes arguments: xo, grad
+  * later removed 'grad' argument
+  * xmin,xmax changed to scalar (all dimensions see same xmin,xmax)
+  * 20050707: ivec was 'int' now changed to 'unsigned char'
+              fixed some bugs in countem function - only used for debug-printing
+
+* 20060425 changed to more generic priithon version
+  * all global pointers removed
+      required to add some extra args to some internal functions
+      we only use those 4 arrays as module-global variables
+        to reuse beween ccg calls
+        and (maybe) simplify debugging (?)
+  * xmin,xmax is an array again
+      BUT if size of xmin is 1 (given by nMinMax) use &quot;scalar iterpretation&quot;
+          from above (all dimensions see same xmin,xmax)
+  * CostFunction not a hard-coded python module/function pair anymore
+      BUT given as Python(-function) object as argument to getsol
+  * CostFunction takes two arguments (again)
+      xx,gg: eliminates need to access any &quot;global&quot; arrays
+             (BUT xx,gg still are effectively pointers to same arrays (xn and gn=grad))
+             (no copying!)
+  * debug and debug2 as arguments to control debug printing (debug2 enables prints in clsrch)
+  * 20060510: added dfdxpc as argument (was &quot;uninitialized&quot;/never-used global)
+                 meaning: Stop getsol if df/dx is reduced to 'dfdxpc' of its initial value
+                 (needed to read Eden code to understand this)
+  * 20060510: changed returned itn and ifn to be 0-based,
+               i.e. one &quot;successful&quot; loop run returns now 1 (before: 2)
+  * fixed bugs about not itn and/or Nclsrch not being intied to 0 on early exit
+  * 20060510: fixed bug of missing memcpy on NORMAL_STOP and DX_TOO_SMALL (?????? 20060519 not here) exit
+              result x was in xn (forgot to copy into xo)
+
+  * python function renamed from _gs and doCCG to _getsolMultiType and getsol
+  * order of return tuple changed: 20060517
+     old:  itn,ifn, istop, fn, df0, Nclsrch
+     new:  istop, itn,ifn, Nclsrch, fn, df0
+
+     (fixed SWIG interface unclarity: we use Nclsrch only as output
+                    - not cumulative between getsol calls !!)
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Sebastian Haase &lt;haase@msg.ucsf.edu&gt;
+      </p>
+      <p><strong>License:</strong>
+        BSD license - see LICENSE file
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_getsolMultiType"></a><span class="summary-sig-name">_getsolMultiType</span>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">*args</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.ccg-pysrc.html#_getsolMultiType">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.ccg-module.html#getsol" class="summary-sig-name">getsol</a>(<span class="summary-sig-arg">xo</span>,
+        <span class="summary-sig-arg">xmin</span>,
+        <span class="summary-sig-arg">xmax</span>,
+        <span class="summary-sig-arg">_ivec</span>,
+        <span class="summary-sig-arg">CG_iter</span>,
+        <span class="summary-sig-arg">fmin</span>,
+        <span class="summary-sig-arg">df0</span>,
+        <span class="summary-sig-arg">CCG_tolerance</span>,
+        <span class="summary-sig-arg">costGradFunc</span>,
+        <span class="summary-sig-arg">dfdxpc</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">debug</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">debug2</span>=<span class="summary-sig-default">0</span>)</span><br />
+      xo   vector of variables.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.ccg-pysrc.html#getsol">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.ccg-module.html#makeCostGradFunction" class="summary-sig-name">makeCostGradFunction</a>(<span class="summary-sig-arg">cgf</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      use this if your costGradFunction wants
+additional arguments and/or keyword-arguments
+(constant thought optimization)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.ccg-pysrc.html#makeCostGradFunction">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.ccg-module.html#makeCostGradFunction2" class="summary-sig-name">makeCostGradFunction2</a>(<span class="summary-sig-arg">cf</span>,
+        <span class="summary-sig-arg">gf</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      use this if your have separate functions for
+cost and gradient calculation
+also
+additional arguments and/or keyword-arguments
+(constant thought optimization)
+can be specified.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.ccg-pysrc.html#makeCostGradFunction2">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="bufSize"></a><span class="summary-name">bufSize</span> = <code title="-1">-1</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="getsol"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getsol</span>(<span class="sig-arg">xo</span>,
+        <span class="sig-arg">xmin</span>,
+        <span class="sig-arg">xmax</span>,
+        <span class="sig-arg">_ivec</span>,
+        <span class="sig-arg">CG_iter</span>,
+        <span class="sig-arg">fmin</span>,
+        <span class="sig-arg">df0</span>,
+        <span class="sig-arg">CCG_tolerance</span>,
+        <span class="sig-arg">costGradFunc</span>,
+        <span class="sig-arg">dfdxpc</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">debug</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">debug2</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.ccg-pysrc.html#getsol">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+   xo   vector of variables.  Set to initial estimate.
+          On return, it holds the location of the minimum      
+   xmin     lower bound (&quot;scalar&quot;? see N.B.) on the variables          
+   xmax     upper bound (&quot;scalar&quot;? see N.B.) on the variables          
+   ivec     array of integers (20050707: now type Bytes) providing information about the
+       variables.  See ccg.h                   
+            if scalar is provided - ivec gets expanded into ivec global array
+   iter     maximum number of iterations allowed in getsol 
+   fmin     smallest possible value for function being minimized   
+   df0  initial value for df for this call to getsol.  
+                  On return, same for next call to getsol      
+   tol  relative tolerance for function            
+
+   costGradFunc  a callback function - see below
+   dfdxpc    Stop getsol if df/dx is reduced to 'dfdxpc' of its initial value
+
+returns:
+   itn  the number of iterations in getsol         
+   ifn  the number of times funct was evaluated        
+   istop    the reason for stopping.  See ccg.h            
+   fn   the value of funct at the minimum          
+
+    on entry and return:
+
+   Nclsrch     cumulative # calls to clsrch()      
+
+   costGradFunc::
+   ***************
+   csol ;       current solution array  (=xn)
+   grad ;       gradient array (returned, i.e. changed inplace)
+   ressq ;      (returned) residue         
+   iqflag ;     (returned) flag re success 
+
+   note: doCCG caches buffers for subsequent calls
+   
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="makeCostGradFunction"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">makeCostGradFunction</span>(<span class="sig-arg">cgf</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.ccg-pysrc.html#makeCostGradFunction">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+use this if your costGradFunction wants
+additional arguments and/or keyword-arguments
+(constant thought optimization)
+
+example:
+def myCGF(x, gg, zzz=0, set=1):
+    ...
+    gg[:] = ... zzz...
+    return set*x, 0
+
+ccg.getsol( ... costGradFunc=ccg.makeCostGradFunction(myCGF, set=4) ...)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="makeCostGradFunction2"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">makeCostGradFunction2</span>(<span class="sig-arg">cf</span>,
+        <span class="sig-arg">gf</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.ccg-pysrc.html#makeCostGradFunction2">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+use this if your have separate functions for
+cost and gradient calculation
+also
+additional arguments and/or keyword-arguments
+(constant thought optimization)
+can be specified.
+
+example:
+def myCost(x, zzz=0, set=1):
+    ...
+    return set*x, 0
+
+def myGrad(x, gg, zzz=0, set=1):
+    ...
+    gg[:] = ... zzz...
+
+ccg.getsol( ... costGradFunc=ccg.makeCostGradFunction2(myCost, myGrad, set=4) ...)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:12 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

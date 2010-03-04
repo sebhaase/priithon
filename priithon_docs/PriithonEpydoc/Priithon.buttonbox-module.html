@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.buttonbox</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;buttonbox
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.buttonbox-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module buttonbox</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.buttonbox-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+A buttonBox is a list (maybe many rows) of buttons, labels, txtCtrls, checkBoxes
+
+Create a new buttonBox with 
+&gt;&gt;&gt; buttonBox(...)
+it gets automatically appended to the list of all `buttonBoxes`.
+
+You can (dynamically) add one or more controls with `buttonBoxAdd()`.
+Both `buttonBoxAdd()` and `buttonBox()` take the same `itemList` argument
+   each `item` in `itemList` is translated into a call of
+     1) startNewRow(weight, expand)
+   or
+     2) addButton(label, cmd, weight, expand, tooltip, iniFcn)
+
+if `item` is a list or tuple, up to 4 things can be specified:
+     1.) `label` (i.e. text on button or text in textCtrl)
+     2.) `command`  (default: None)
+     3.) `weight` - items will get screen-space by relative weight (default: 1)
+     4.) `expand` - adjust size vertically (on resizing buttonBox) (default: True)
+     5.) `tooltip` - set mouse-over tooltip (default: the cmd string)
+  .if `item` is a string, it specifies `label` and uses the above defaults for all others
+
+`label` has the one of 3 forms (note the SPACE and the TAB):
+        &quot;C&quot;  ,  &quot;A      C&quot;  or   &quot;A B   C&quot;
+  &quot;A&quot; specifies the wx-control type: 'b','tb','t','c','l','sl'
+      default is 'b'
+      'b'  button
+      'tb' togglebutton
+      't'  text-control
+      'c'  checkbox
+      'l'  static-label
+      'sl' slider
+
+  &quot;B&quot; specifies `exec_to_name_control` - a string that is executed at creation time, 
+      exec in execModule - use 'x' to refer to the wx-control, '_' to the execModule
+      default is ''
+  &quot;C&quot; specifies the wx-control&quot;s label
+
+  note 0) label without '       ' defaults to control-type button (A =&gt; 'b')
+  note 1) for button: if cmd is None: use label (part C) as cmd
+  note 2) for txtCtrl: if cmd is '--': make read-only, set cmd to None
+  note 3) for checkbox: if label (part C) contains (another) '  ' use ALIGN_RIGHT
+  note 4) for label: command is ignored #CHECK
+  note 5) for slider: label gives value,minValue,maxValue (space separated) - default: 0,0,100
+
+
+`cmd` (`command`) will get exec'ed when the button is pressed, or the text is changed
+  if will get exec'ed with globals been the buttonbox's execModule
+                       and locals as follows:
+   `x`: the control's value
+   `_`: the execModule  -- so that you can write &quot;_.x = x&quot;, instead of &quot;globals()[x] = x&quot;
+   `_ev`: the wx-event (wxButtonEvent, ....)
+   `_b`: the wxControl (the buttonbox's &quot;button&quot;, or now more general, it's &quot;gui-control&quot;) object
+         ( same as _ev.GetEventObject() )
+
+
+EXAMPLES:
+buttonBox('print 666')
+buttonBox(('devil', 'print 666'))
+buttonBox([('devil', 'print 666'),
+           ('xx', 'xx=99'),
+          ])
+buttonBox([('c  on/off', 'print x'),
+          ])
+
+
+buttonBox([('l  x-value:','',0),('t     1234', '_.x=float(x)')])
+buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.buttonbox._buttonBox-class.html" class="summary-name" onclick="show_private();">_buttonBox</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.buttonbox-module.html#buttonBox" class="summary-sig-name">buttonBox</a>(<span class="summary-sig-arg">itemList</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">title</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">button box</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">execModule</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">layout</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">boxHoriz</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">panel</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.Point(-1, -1)</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">541072960</span>)</span><br />
+      create new button box</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBox">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.buttonbox-module.html#buttonBoxAdd" class="summary-sig-name">buttonBoxAdd</a>(<span class="summary-sig-arg">itemList</span>,
+        <span class="summary-sig-arg">bb_id</span>=<span class="summary-sig-default">-1</span>)</span><br />
+      add button to existing buttonBox</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBoxAdd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.buttonbox-module.html#buttonBox_setFocus" class="summary-sig-name">buttonBox_setFocus</a>(<span class="summary-sig-arg">buttonNum</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">bb_id</span>=<span class="summary-sig-default">-1</span>)</span><br />
+      set a button given as &quot;active focus&quot; - hitting space or 
+      return should trigger the button</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBox_setFocus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="buttonBox_clickButton"></a><span class="summary-sig-name">buttonBox_clickButton</span>(<span class="summary-sig-arg">label</span>,
+        <span class="summary-sig-arg">bb_id</span>=<span class="summary-sig-default">-1</span>)</span><br />
+      postEvent to button with given label</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBox_clickButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="buttonBoxes"></a><span class="summary-name">buttonBoxes</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="buttonBox"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">buttonBox</span>(<span class="sig-arg">itemList</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">title</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">button box</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">execModule</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">layout</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">boxHoriz</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">panel</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">parent</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">wx.Point(-1, -1)</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">541072960</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBox">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+    create new button box
+
+    itemList is a list of cmd s
+    cmd can be:
+       + a string that is both button label and command to execute
+       + a tuple of (label, commandString[[, weight=1[, expand=True]],tooltip=None]) (i.e.: 2,3,4 or 5 elements)
+
+       if the string == '
+' : that means start a new row
+
+    title: window title (buttonBox id will be added in parenthesis)
+
+        layout:
+          boxHoriz OR h   - horizontal BoxSizer, use &quot;
+&quot; to start new row
+          boxVert  OR v   - vertical   BoxSizer, use &quot;
+&quot; to start new column
+          (nx,ny)           - FlexGridSizer (one of nx or ny can be 0)
+          (nx,ny,hgap,vgap) - FlexGridSizer (one of nx or ny can be 0)
+         -- all other docstring assume boxHoriz
+    if execModule is None: use __main__
+           otherwise exec all string-command there
+    panel: put buttons into this panel
+      - if None: 
+         create new frame
+         use title, parent, pos and style for that frame
+    
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="buttonBoxAdd"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">buttonBoxAdd</span>(<span class="sig-arg">itemList</span>,
+        <span class="sig-arg">bb_id</span>=<span class="sig-default">-1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBoxAdd">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+    add button to existing buttonBox
+
+    itemList is a list of cmd s
+    cmd can be:
+       + a string that is both button label and command to execute
+       + a tuple of (label, commandString [[, weight=1[, expand=True]],tooltip=None]) (i.e.: 2,3,4 or 5 elements) 
+
+       if the string == '
+' : that means start a new row
+
+    bb_id is the id of the buttonBox
+    
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="buttonBox_setFocus"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">buttonBox_setFocus</span>(<span class="sig-arg">buttonNum</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">bb_id</span>=<span class="sig-default">-1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBox_setFocus">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>set a button given as &quot;active focus&quot; - hitting space or 
+  return should trigger the button</p>
+  <p>buttonNum is the number of button in buttonBox (-1 is last button)</p>
+  <p>bb_id is the id of the buttonBox</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:12 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

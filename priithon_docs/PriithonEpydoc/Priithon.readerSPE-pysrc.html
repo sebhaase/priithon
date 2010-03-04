@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.readerSPE</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;readerSPE
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.readerSPE-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.readerSPE-module.html">Module Priithon.readerSPE</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># read_spe.py</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">Priithon: reader for Hamamatzu(?) SPE files</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring"># http://www.scipy.org/Cookbook/Reading_SPE_files</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring"># http://forums.wolfram.com/student-support/topics/8778</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">absolute_import</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-name">__author__</tt>  <tt class="py-op">=</tt> <tt class="py-string">"Sebastian Haase &lt;haase@msg.ucsf.edu&gt;"</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Priithon.PriShell.__license__=Priithon.PriShell-module.html#__license__,Variable Priithon.__license__=Priithon-module.html#__license__"><a title="Priithon.PriShell.__license__
+Priithon.__license__" class="py-name" href="#" onclick="return doclink('link-0', '__license__', 'link-0');">__license__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"BSD license - see LICENSE file"</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">N</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable Priithon.readerSPE._type_dtype_map=Priithon.readerSPE-module.html#_type_dtype_map"><a title="Priithon.readerSPE._type_dtype_map" class="py-name" href="#" onclick="return doclink('link-1', '_type_dtype_map', 'link-1');">_type_dtype_map</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt>  </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-number">0</tt><tt class="py-op">:</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">,</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-number">1</tt><tt class="py-op">:</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-number">2</tt><tt class="py-op">:</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int16</tt><tt class="py-op">,</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-number">3</tt><tt class="py-op">:</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">uint16</tt><tt class="py-op">,</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-op">}</tt> </tt>
+<a name="File"></a><div id="File-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="File-toggle" onclick="return toggle('File');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.readerSPE.File-class.html">File</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="File-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="File-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">     </tt>
+<a name="File.__init__"></a><div id="File.__init__-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="File.__init__-toggle" onclick="return toggle('File.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.readerSPE.File-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fname</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="File.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="File.__init__-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_fid</tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name" targets="Function Priithon.Mrc.open()=Priithon.Mrc-module.html#open,Function Priithon.plt.dumb_shelve.open()=Priithon.plt.dumb_shelve-module.html#open,Function Priithon.plt.dumbdbm_patched.open()=Priithon.plt.dumbdbm_patched-module.html#open,Method Priithon.py.buffer.Buffer.open()=Priithon.py.buffer.Buffer-class.html#open"><a title="Priithon.Mrc.open
+Priithon.plt.dumb_shelve.open
+Priithon.plt.dumbdbm_patched.open
+Priithon.py.buffer.Buffer.open" class="py-name" href="#" onclick="return doclink('link-2', 'open', 'link-2');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt> <tt class="py-string">'rb'</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method Priithon.readerSPE.File._load_size()=Priithon.readerSPE.File-class.html#_load_size"><a title="Priithon.readerSPE.File._load_size" class="py-name" href="#" onclick="return doclink('link-3', '_load_size', 'link-3');">_load_size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="File._load_size"></a><div id="File._load_size-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="File._load_size-toggle" onclick="return toggle('File._load_size');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.readerSPE.File-class.html#_load_size">_load_size</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="File._load_size-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="File._load_size-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_xdim</tt> <tt class="py-op">=</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int64</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method Priithon.readerSPE.File.read_at()=Priithon.readerSPE.File-class.html#read_at"><a title="Priithon.readerSPE.File.read_at" class="py-name" href="#" onclick="return doclink('link-4', 'read_at', 'link-4');">read_at</a></tt><tt class="py-op">(</tt><tt class="py-number">42</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">uint16</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_ydim</tt> <tt class="py-op">=</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int64</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Priithon.readerSPE.File.read_at" class="py-name" href="#" onclick="return doclink('link-5', 'read_at', 'link-4');">read_at</a></tt><tt class="py-op">(</tt><tt class="py-number">656</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">uint16</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_zdim</tt> <tt class="py-op">=</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int64</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Priithon.readerSPE.File.read_at" class="py-name" href="#" onclick="return doclink('link-6', 'read_at', 'link-4');">read_at</a></tt><tt class="py-op">(</tt><tt class="py-number">1446</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_type</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Priithon.readerSPE.File.read_at" class="py-name" href="#" onclick="return doclink('link-7', 'read_at', 'link-4');">read_at</a></tt><tt class="py-op">(</tt><tt class="py-number">108</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">int16</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dtype</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="Priithon.readerSPE._type_dtype_map" class="py-name" href="#" onclick="return doclink('link-8', '_type_dtype_map', 'link-1');">_type_dtype_map</a></tt><tt class="py-op">[</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_type</tt> <tt class="py-op">]</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="File.get_shape"></a><div id="File.get_shape-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="File.get_shape-toggle" onclick="return toggle('File.get_shape');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.readerSPE.File-class.html#get_shape">get_shape</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="File.get_shape-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="File.get_shape-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_zdim</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_ydim</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_xdim</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="File.read_at"></a><div id="File.read_at-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="File.read_at-toggle" onclick="return toggle('File.read_at');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.readerSPE.File-class.html#read_at">read_at</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">pos</tt><tt class="py-op">,</tt> <tt class="py-param">size</tt><tt class="py-op">,</tt> <tt class="py-param">ntype</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="File.read_at-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="File.read_at-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-comment">#use memmap instead  self._fid.seek(pos)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#use memmap instead  return N.fromfile(self._fid, ntype, size)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">return</tt> <tt class="py-name">N</tt><tt class="py-op">.</tt><tt class="py-name">memmap</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_fid</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Variable Priithon.mockNDarray.mockNDarray.dtype=Priithon.mockNDarray.mockNDarray-class.html#dtype"><a title="Priithon.mockNDarray.mockNDarray.dtype" class="py-name" href="#" onclick="return doclink('link-9', 'dtype', 'link-9');">dtype</a></tt><tt class="py-op">=</tt><tt class="py-name">ntype</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">=</tt><tt class="py-string">'r'</tt><tt class="py-op">,</tt> <tt class="py-name">offset</tt><tt class="py-op">=</tt><tt class="py-name">pos</tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Variable Priithon.mockNDarray.mockNDarray.shape=Priithon.mockNDarray.mockNDarray-class.html#shape"><a title="Priithon.mockNDarray.mockNDarray.shape" class="py-name" href="#" onclick="return doclink('link-10', 'shape', 'link-10');">shape</a></tt><tt class="py-op">=</tt><tt id="link-11" class="py-name" targets="Method Priithon.plt.plot_objects.text_object.size()=Priithon.plt.plot_objects.text_object-class.html#size,Method Priithon.plt.plot_utility.box_object.size()=Priithon.plt.plot_utility.box_object-class.html#size,Variable Priithon.viewerRubberbandMode.viewerRubberbandMode.size=Priithon.viewerRubberbandMode.viewerRubberbandMode-class.html#size"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-11', 'size', 'link-11');">size</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="File.load_img"></a><div id="File.load_img-def"><a name="L44"></a><tt class="py-lineno">44</tt> <a class="py-toggle" href="#" id="File.load_img-toggle" onclick="return toggle('File.load_img');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.readerSPE.File-class.html#load_img">load_img</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="File.load_img-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="File.load_img-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">img</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="Priithon.readerSPE.File.read_at" class="py-name" href="#" onclick="return doclink('link-12', 'read_at', 'link-4');">read_at</a></tt><tt class="py-op">(</tt><tt class="py-number">4100</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_zdim</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_xdim</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_ydim</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dtype</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">img</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Priithon.mockNDarray.mockNDarray.shape" class="py-name" href="#" onclick="return doclink('link-13', 'shape', 'link-10');">shape</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method Priithon.readerSPE.File.get_shape()=Priithon.readerSPE.File-class.html#get_shape"><a title="Priithon.readerSPE.File.get_shape" class="py-name" href="#" onclick="return doclink('link-14', 'get_shape', 'link-14');">get_shape</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">img</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="File.close"></a><div id="File.close-def"><a name="L49"></a><tt class="py-lineno">49</tt> <a class="py-toggle" href="#" id="File.close-toggle" onclick="return toggle('File.close');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.readerSPE.File-class.html#close">close</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="File.close-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="File.close-expanded"><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_fid</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method Priithon.Mrc.Mrc.close()=Priithon.Mrc.Mrc-class.html#close,Method Priithon.Mrc.Mrc2.close()=Priithon.Mrc.Mrc2-class.html#close,Method Priithon.Scientific_IO_TextFile.TextFile.close()=Priithon.Scientific_IO_TextFile.TextFile-class.html#close,Method Priithon.plt.dumbdbm_patched._Database.close()=Priithon.plt.dumbdbm_patched._Database-class.html#close,Function Priithon.plt.interface.close()=Priithon.plt.interface-module.html#close,Method Priithon.readerSPE.File.close()=Priithon.readerSPE.File-class.html#close"><a title="Priithon.Mrc.Mrc.close
+Priithon.Mrc.Mrc2.close
+Priithon.Scientific_IO_TextFile.TextFile.close
+Priithon.plt.dumbdbm_patched._Database.close
+Priithon.plt.interface.close
+Priithon.readerSPE.File.close" class="py-name" href="#" onclick="return doclink('link-15', 'close', 'link-15');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"> </tt>
+<a name="load"></a><div id="load-def"><a name="L52"></a><tt class="py-lineno">52</tt> <a class="py-toggle" href="#" id="load-toggle" onclick="return toggle('load');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.readerSPE-module.html#load">load</a><tt class="py-op">(</tt><tt class="py-param">fname</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="load-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="load-expanded"><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">    <tt class="py-name">fid</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name" targets="Class Priithon.readerSPE.File=Priithon.readerSPE.File-class.html"><a title="Priithon.readerSPE.File" class="py-name" href="#" onclick="return doclink('link-16', 'File', 'link-16');">File</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">    <tt class="py-name">img</tt> <tt class="py-op">=</tt> <tt class="py-name">fid</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method Priithon.readerSPE.File.load_img()=Priithon.readerSPE.File-class.html#load_img"><a title="Priithon.readerSPE.File.load_img" class="py-name" href="#" onclick="return doclink('link-17', 'load_img', 'link-17');">load_img</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">    <tt class="py-name">fid</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Priithon.Mrc.Mrc.close
+Priithon.Mrc.Mrc2.close
+Priithon.Scientific_IO_TextFile.TextFile.close
+Priithon.plt.dumbdbm_patched._Database.close
+Priithon.plt.interface.close
+Priithon.readerSPE.File.close" class="py-name" href="#" onclick="return doclink('link-18', 'close', 'link-15');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">img</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt class="py-name">img</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name" targets="Function Priithon.Mrc.load()=Priithon.Mrc-module.html#load,Method Priithon.mmviewer.GLViewer.load()=Priithon.mmviewer.GLViewer-class.html#load,Function Priithon.readerSPE.load()=Priithon.readerSPE-module.html#load,Function Priithon.useful.load()=Priithon.useful-module.html#load,Function Priithon.usefulX.load()=Priithon.usefulX-module.html#load"><a title="Priithon.Mrc.load
+Priithon.mmviewer.GLViewer.load
+Priithon.readerSPE.load
+Priithon.useful.load
+Priithon.usefulX.load" class="py-name" href="#" onclick="return doclink('link-19', 'load', 'link-19');">load</a></tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:31 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

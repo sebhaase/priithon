@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.Scientific_IO_TextFile</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;Scientific_IO_TextFile
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.Scientific_IO_TextFile-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.Scientific_IO_TextFile-module.html">Module Priithon.Scientific_IO_TextFile</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># Text files with automatic (un)compression and URL access.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Written by: Konrad Hinsen &lt;hinsen@cnrs-orleans.fr&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Last revision: 2000-11-17</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># </tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">absolute_import</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">,</tt> <tt id="link-0" class="py-name" targets="Module Priithon.string=Priithon.string-module.html"><a title="Priithon.string" class="py-name" href="#" onclick="return doclink('link-0', 'string', 'link-0');">string</a></tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># Use the gzip module for Python version 1.5.2 or higher</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-name">gzip</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable Priithon.Scientific_IO_TextFile._version=Priithon.Scientific_IO_TextFile-module.html#_version"><a title="Priithon.Scientific_IO_TextFile._version" class="py-name" href="#" onclick="return doclink('link-1', '_version', 'link-1');">_version</a></tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="Priithon.string" class="py-name" href="#" onclick="return doclink('link-2', 'string', 'link-0');">string</a></tt><tt class="py-op">.</tt><tt class="py-name">atoi</tt><tt class="py-op">,</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">                   <tt id="link-3" class="py-name"><a title="Priithon.string" class="py-name" href="#" onclick="return doclink('link-3', 'string', 'link-0');">string</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name"><a title="Priithon.string" class="py-name" href="#" onclick="return doclink('link-4', 'string', 'link-0');">string</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Module Priithon.py.version=Priithon.py.version-module.html"><a title="Priithon.py.version" class="py-name" href="#" onclick="return doclink('link-5', 'version', 'link-5');">version</a></tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-6" class="py-name"><a title="Priithon.Scientific_IO_TextFile._version" class="py-name" href="#" onclick="return doclink('link-6', '_version', 'link-1');">_version</a></tt> <tt class="py-op">&gt;=</tt> <tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">5</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">            <tt class="py-keyword">import</tt> <tt class="py-name">gzip</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">            <tt class="py-name">gzip</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="TextFile"></a><div id="TextFile-def"><a name="L23"></a><tt class="py-lineno"> 23</tt> <a class="py-toggle" href="#" id="TextFile-toggle" onclick="return toggle('TextFile');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html">TextFile</a><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TextFile-expanded"><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-docstring">"""Text files with line iteration and transparent compression</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    TextFile instances can be used like normal file objects</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    (i.e. by calling readline(), readlines(), and write()), but can</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">    also be used as sequences of lines in for-loops.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    TextFile objects also handle compression transparently. i.e. it is</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    possible to read lines from a compressed text file as if it were not</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    compressed.  Compression is deduced from the file name suffixes '.Z'</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    (compress/uncompress), '.gz' (gzip/gunzip), and '.bz2' (bzip2).</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    Finally, TextFile objects accept file names that start with '~' or</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">    '~user' to indicate a home directory, as well as URLs (for reading only).</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    Constructor: TextFile(|filename|, |mode|='"r"'), where |filename| is</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    the name of the file (or a URL) and |mode| is one of '"r"' (read),</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    '"w"' (write) or '"a"' (append, not supported for .Z files).</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.__init__"></a><div id="TextFile.__init__-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="TextFile.__init__-toggle" onclick="return toggle('TextFile.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">mode</tt> <tt class="py-op">=</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.__init__-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-7" class="py-name"><a title="Priithon.string" class="py-name" href="#" onclick="return doclink('link-7', 'string', 'link-0');">string</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">':/'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> <tt class="py-comment"># URL</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">mode</tt> <tt class="py-op">!=</tt> <tt class="py-string">'r'</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-string">"can't write to a URL"</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">            <tt class="py-keyword">import</tt> <tt class="py-name">urllib</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">urllib</tt><tt class="py-op">.</tt><tt class="py-name">urlopen</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-name">filename</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">expanduser</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">mode</tt> <tt class="py-op">==</tt> <tt class="py-string">'r'</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                    <tt class="py-keyword">raise</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-string">'No such file or directory: '</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                                    <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.Z'</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"uncompress -c "</tt> <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">3</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.gz'</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">gzip</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"gunzip -c "</tt> <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">gzip</tt><tt class="py-op">.</tt><tt class="py-name">GzipFile</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">'rb'</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">4</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.bz2'</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"bzip2 -dc "</tt> <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name" targets="Function Priithon.Mrc.open()=Priithon.Mrc-module.html#open,Function Priithon.plt.dumb_shelve.open()=Priithon.plt.dumb_shelve-module.html#open,Function Priithon.plt.dumbdbm_patched.open()=Priithon.plt.dumbdbm_patched-module.html#open,Method Priithon.py.buffer.Buffer.open()=Priithon.py.buffer.Buffer-class.html#open"><a title="Priithon.Mrc.open
+Priithon.plt.dumb_shelve.open
+Priithon.plt.dumbdbm_patched.open
+Priithon.py.buffer.Buffer.open" class="py-name" href="#" onclick="return doclink('link-8', 'open', 'link-8');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"rU"</tt><tt class="py-op">)</tt> <tt class="py-comment">#  universal newline !  seb !!  mode)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                    <tt class="py-keyword">except</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-name">details</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">details</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                            <tt class="py-name">details</tt> <tt class="py-op">=</tt> <tt class="py-name">details</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-name">details</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">mode</tt> <tt class="py-op">==</tt> <tt class="py-string">'w'</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.Z'</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"compress &gt; "</tt> <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">3</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.gz'</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">gzip</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"gzip &gt; "</tt> <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">gzip</tt><tt class="py-op">.</tt><tt class="py-name">GzipFile</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">'wb'</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">4</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.bz2'</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"bzip2 &gt; "</tt> <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="Priithon.Mrc.open
+Priithon.plt.dumb_shelve.open
+Priithon.plt.dumbdbm_patched.open
+Priithon.py.buffer.Buffer.open" class="py-name" href="#" onclick="return doclink('link-9', 'open', 'link-8');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                    <tt class="py-keyword">except</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-name">details</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">details</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                            <tt class="py-name">details</tt> <tt class="py-op">=</tt> <tt class="py-name">details</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-name">details</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">mode</tt> <tt class="py-op">==</tt> <tt class="py-string">'a'</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.Z'</tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                    <tt class="py-keyword">raise</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">"Can't append to .Z files"</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">filename</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">3</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'.gz'</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">gzip</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"gzip &gt;&gt; "</tt> <tt class="py-op">+</tt> <tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt class="py-name">gzip</tt><tt class="py-op">.</tt><tt class="py-name">GzipFile</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">'ab'</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="Priithon.Mrc.open
+Priithon.plt.dumb_shelve.open
+Priithon.plt.dumbdbm_patched.open
+Priithon.py.buffer.Buffer.open" class="py-name" href="#" onclick="return doclink('link-10', 'open', 'link-8');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">mode</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'Illegal mode: '</tt> <tt class="py-op">+</tt> <tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">mode</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.__del__"></a><div id="TextFile.__del__-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="TextFile.__del__-toggle" onclick="return toggle('TextFile.__del__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#__del__">__del__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.__del__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.__del__-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method Priithon.Mrc.Mrc.close()=Priithon.Mrc.Mrc-class.html#close,Method Priithon.Mrc.Mrc2.close()=Priithon.Mrc.Mrc2-class.html#close,Method Priithon.Scientific_IO_TextFile.TextFile.close()=Priithon.Scientific_IO_TextFile.TextFile-class.html#close,Method Priithon.plt.dumbdbm_patched._Database.close()=Priithon.plt.dumbdbm_patched._Database-class.html#close,Function Priithon.plt.interface.close()=Priithon.plt.interface-module.html#close,Method Priithon.readerSPE.File.close()=Priithon.readerSPE.File-class.html#close"><a title="Priithon.Mrc.Mrc.close
+Priithon.Mrc.Mrc2.close
+Priithon.Scientific_IO_TextFile.TextFile.close
+Priithon.plt.dumbdbm_patched._Database.close
+Priithon.plt.interface.close
+Priithon.readerSPE.File.close" class="py-name" href="#" onclick="return doclink('link-11', 'close', 'link-11');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.__getitem__"></a><div id="TextFile.__getitem__-def"><a name="L105"></a><tt class="py-lineno">105</tt> <a class="py-toggle" href="#" id="TextFile.__getitem__-toggle" onclick="return toggle('TextFile.__getitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#__getitem__">__getitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">item</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.__getitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.__getitem__-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">line</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method Priithon.Scientific_IO_TextFile.TextFile.readline()=Priithon.Scientific_IO_TextFile.TextFile-class.html#readline,Method Priithon.py.pseudo.PseudoFile.readline()=Priithon.py.pseudo.PseudoFile-class.html#readline,Method Priithon.py.shell.Shell.readline()=Priithon.py.shell.Shell-class.html#readline"><a title="Priithon.Scientific_IO_TextFile.TextFile.readline
+Priithon.py.pseudo.PseudoFile.readline
+Priithon.py.shell.Shell.readline" class="py-name" href="#" onclick="return doclink('link-12', 'readline', 'link-12');">readline</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">line</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">IndexError</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">line</tt> </tt>
+</div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.readline"></a><div id="TextFile.readline-def"><a name="L111"></a><tt class="py-lineno">111</tt> <a class="py-toggle" href="#" id="TextFile.readline-toggle" onclick="return toggle('TextFile.readline');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#readline">readline</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.readline-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.readline-expanded"><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.readline
+Priithon.py.pseudo.PseudoFile.readline
+Priithon.py.shell.Shell.readline" class="py-name" href="#" onclick="return doclink('link-13', 'readline', 'link-12');">readline</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.readlines"></a><div id="TextFile.readlines-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="TextFile.readlines-toggle" onclick="return toggle('TextFile.readlines');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#readlines">readlines</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.readlines-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.readlines-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method Priithon.Scientific_IO_TextFile.TextFile.readlines()=Priithon.Scientific_IO_TextFile.TextFile-class.html#readlines,Method Priithon.py.shell.Shell.readlines()=Priithon.py.shell.Shell-class.html#readlines"><a title="Priithon.Scientific_IO_TextFile.TextFile.readlines
+Priithon.py.shell.Shell.readlines" class="py-name" href="#" onclick="return doclink('link-14', 'readlines', 'link-14');">readlines</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.write"></a><div id="TextFile.write-def"><a name="L117"></a><tt class="py-lineno">117</tt> <a class="py-toggle" href="#" id="TextFile.write-toggle" onclick="return toggle('TextFile.write');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#write">write</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.write-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.write-expanded"><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method Priithon.Scientific_IO_TextFile.TextFile.write()=Priithon.Scientific_IO_TextFile.TextFile-class.html#write,Method Priithon.py.document.Document.write()=Priithon.py.document.Document-class.html#write,Method Priithon.py.editwindow.EditWindow.write()=Priithon.py.editwindow.EditWindow-class.html#write,Method Priithon.py.pseudo.PseudoFile.write()=Priithon.py.pseudo.PseudoFile-class.html#write,Method Priithon.py.shell.Shell.write()=Priithon.py.shell.Shell-class.html#write"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-15', 'write', 'link-15');">write</a></tt><tt class="py-op">(</tt><tt id="link-16" class="py-name" targets="Variable Priithon.viewerRubberbandMode.viewerRubberbandMode.data=Priithon.viewerRubberbandMode.viewerRubberbandMode-class.html#data"><a title="Priithon.viewerRubberbandMode.viewerRubberbandMode.data" class="py-name" href="#" onclick="return doclink('link-16', 'data', 'link-16');">data</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.writelines"></a><div id="TextFile.writelines-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="TextFile.writelines-toggle" onclick="return toggle('TextFile.writelines');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#writelines">writelines</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.writelines-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.writelines-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">list</tt><tt class="py-op">:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Priithon.Scientific_IO_TextFile.TextFile.write
+Priithon.py.document.Document.write
+Priithon.py.editwindow.EditWindow.write
+Priithon.py.pseudo.PseudoFile.write
+Priithon.py.shell.Shell.write" class="py-name" href="#" onclick="return doclink('link-17', 'write', 'link-15');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">line</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.close"></a><div id="TextFile.close-def"><a name="L124"></a><tt class="py-lineno">124</tt> <a class="py-toggle" href="#" id="TextFile.close-toggle" onclick="return toggle('TextFile.close');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#close">close</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.close-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.close-expanded"><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Priithon.Mrc.Mrc.close
+Priithon.Mrc.Mrc2.close
+Priithon.Scientific_IO_TextFile.TextFile.close
+Priithon.plt.dumbdbm_patched._Database.close
+Priithon.plt.interface.close
+Priithon.readerSPE.File.close" class="py-name" href="#" onclick="return doclink('link-18', 'close', 'link-11');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="TextFile.flush"></a><div id="TextFile.flush-def"><a name="L127"></a><tt class="py-lineno">127</tt> <a class="py-toggle" href="#" id="TextFile.flush-toggle" onclick="return toggle('TextFile.flush');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.Scientific_IO_TextFile.TextFile-class.html#flush">flush</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TextFile.flush-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TextFile.flush-expanded"><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">file</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method Priithon.Mrc.Mrc2.flush()=Priithon.Mrc.Mrc2-class.html#flush,Method Priithon.Scientific_IO_TextFile.TextFile.flush()=Priithon.Scientific_IO_TextFile.TextFile-class.html#flush,Method Priithon.py.pseudo.PseudoFile.flush()=Priithon.py.pseudo.PseudoFile-class.html#flush"><a title="Priithon.Mrc.Mrc2.flush
+Priithon.Scientific_IO_TextFile.TextFile.flush
+Priithon.py.pseudo.PseudoFile.flush" class="py-name" href="#" onclick="return doclink('link-19', 'flush', 'link-19');">flush</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:33 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

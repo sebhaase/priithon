@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.wxPyPlot.plot_printout</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.wxPyPlot-module.html">Module&nbsp;wxPyPlot</a> ::
+        Class&nbsp;plot_printout
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.wxPyPlot.plot_printout-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class plot_printout</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_89" name="uml_class_diagram_for_priithon_89">
+<area shape="rect" href="Priithon.wxPyPlot.plot_printout-class.html#__init__" title="graph is instance of plotCanvas to be printed or previewed" alt="" coords="80,623,224,641"/>
+<area shape="rect" href="Priithon.wxPyPlot.plot_printout-class.html#HasPage" title="HasPage(self, int page) &#45;&gt; bool" alt="" coords="80,641,224,660"/>
+<area shape="rect" href="Priithon.wxPyPlot.plot_printout-class.html#GetPageInfo" title="Priithon.wxPyPlot.plot_printout.GetPageInfo" alt="" coords="80,660,224,679"/>
+<area shape="rect" href="Priithon.wxPyPlot.plot_printout-class.html#OnPrintPage" title="Priithon.wxPyPlot.plot_printout.OnPrintPage" alt="" coords="80,679,224,697"/>
+<area shape="rect" href="Priithon.wxPyPlot.plot_printout-class.html" title="Controls how the plot is made in printing and previewing" alt="" coords="79,597,225,699"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetDC` and `SetDC`" alt="" coords="17,153,287,172"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPPIPrinter` and `SetPPIPrinter`" alt="" coords="17,172,287,191"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPPIScreen` and `SetPPIScreen`" alt="" coords="17,191,287,209"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPageSizeMM` and `SetPageSizeMM`" alt="" coords="17,209,287,228"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetPageSizePixels` and `SetPageSizePixels`" alt="" coords="17,228,287,247"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetTitle`" alt="" coords="17,247,287,265"/>
+<area shape="rect" href="javascript:void(0);" title="The membership flag" alt="" coords="17,265,287,284"/>
+<area shape="rect" href="javascript:void(0);" title="FitThisSizeToPage(self, Size imageSize)" alt="" coords="17,287,287,305"/>
+<area shape="rect" href="javascript:void(0);" title="FitThisSizeToPageMargins(self, Size imageSize, PageSetupDialogData &#160;pageSetupData)" alt="" coords="17,305,287,324"/>
+<area shape="rect" href="javascript:void(0);" title="FitThisSizeToPaper(self, Size imageSize)" alt="" coords="17,324,287,343"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetDC" alt="" coords="17,343,287,361"/>
+<area shape="rect" href="javascript:void(0);" title="GetLogicalPageMarginsRect(self, PageSetupDialogData pageSetupData) &#45;&gt; Rect" alt="" coords="17,361,287,380"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetLogicalPageRect" alt="" coords="17,380,287,399"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetLogicalPaperRect" alt="" coords="17,399,287,417"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetPPIPrinter" alt="" coords="17,417,287,436"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetPPIScreen" alt="" coords="17,436,287,455"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetPageSizeMM" alt="" coords="17,455,287,473"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetPageSizePixels" alt="" coords="17,473,287,492"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetPaperRectPixels" alt="" coords="17,492,287,511"/>
+<area shape="rect" href="javascript:void(0);" title="wx._windows.Printout.GetTitle" alt="" coords="17,511,287,529"/>
+<area shape="rect" href="javascript:void(0);" title="Please use Printout.OnPreparePrinting instead." alt="" coords="17,548,287,567"/>
+<area shape="rect" href="javascript:void(0);" title="Proxy of C++ Printout class" alt="" coords="16,136,288,568"/>
+<area shape="rect" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="71,28,233,47"/>
+<area shape="rect" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="71,49,233,68"/>
+<area shape="rect" href="javascript:void(0);" title="Deletes the C++ object this Python object is a proxy for." alt="" coords="71,68,233,87"/>
+<area shape="rect" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="71,87,233,105"/>
+<area shape="rect" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="69,11,235,107"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_89.gif" alt='' usemap="#uml_class_diagram_for_priithon_89" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Controls how the plot is made in printing and previewing</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.plot_printout-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">graph</span>)</span><br />
+      graph is instance of plotCanvas to be printed or previewed</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.plot_printout-class.html#HasPage" class="summary-sig-name">HasPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>)</span><br />
+      HasPage(self, int page) -&gt; bool</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout.HasPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(minPage, maxPage, pageFrom, pageTo)</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.wxPyPlot.plot_printout-class.html#GetPageInfo" class="summary-sig-name">GetPageInfo</a>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout.GetPageInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnPrintPage"></a><span class="summary-sig-name">OnPrintPage</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout.OnPrintPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Printout</code></b>:
+      <code>FitThisSizeToPage</code>,
+      <code>FitThisSizeToPageMargins</code>,
+      <code>FitThisSizeToPaper</code>,
+      <code>GetDC</code>,
+      <code>GetLogicalPageMarginsRect</code>,
+      <code>GetLogicalPageRect</code>,
+      <code>GetLogicalPaperRect</code>,
+      <code>GetPPIPrinter</code>,
+      <code>GetPPIScreen</code>,
+      <code>GetPageSizeMM</code>,
+      <code>GetPageSizePixels</code>,
+      <code>GetPaperRectPixels</code>,
+      <code>GetTitle</code>,
+      <code>IsPreview</code>,
+      <code>MapScreenSizeToDevice</code>,
+      <code>MapScreenSizeToPage</code>,
+      <code>MapScreenSizeToPageMargins</code>,
+      <code>MapScreenSizeToPaper</code>,
+      <code>OffsetLogicalOrigin</code>,
+      <code>OnBeginDocument</code>,
+      <code>OnBeginPrinting</code>,
+      <code>OnEndDocument</code>,
+      <code>OnEndPrinting</code>,
+      <code>OnPreparePrinting</code>,
+      <code>SetDC</code>,
+      <code>SetIsPreview</code>,
+      <code>SetLogicalOrigin</code>,
+      <code>SetPPIPrinter</code>,
+      <code>SetPPIScreen</code>,
+      <code>SetPageSizeMM</code>,
+      <code>SetPageSizePixels</code>,
+      <code>SetPaperRectPixels</code>,
+      <code>__del__</code>,
+      <code>__repr__</code>,
+      <code>__swig_destroy__</code>,
+      <code>base_GetPageInfo</code>,
+      <code>base_OnBeginDocument</code>,
+      <code>base_OnBeginPrinting</code>,
+      <code>base_OnEndDocument</code>,
+      <code>base_OnEndPrinting</code>,
+      <code>base_OnPreparePrinting</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Printout</code></b> (private):
+      <code>_setCallbackInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>Destroy</code>,
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Printout</code></b>:
+      <code>DC</code>,
+      <code>PPIPrinter</code>,
+      <code>PPIScreen</code>,
+      <code>PageSizeMM</code>,
+      <code>PageSizePixels</code>,
+      <code>Title</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">graph</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>graph is instance of plotCanvas to be printed or previewed</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="HasPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">HasPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout.HasPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>HasPage(self, int page) -&gt; bool</p>
+  <dl class="fields">
+    <dt>Overrides:
+        wx._windows.Printout.HasPage
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageInfo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageInfo</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.wxPyPlot-pysrc.html#plot_printout.GetPageInfo">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Returns: (minPage, maxPage, pageFrom, pageTo)</dt>
+    <dt>Overrides:
+        wx._windows.Printout.GetPageInfo
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:28 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
