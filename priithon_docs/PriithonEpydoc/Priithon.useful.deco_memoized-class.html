@@ -63,21 +63,32 @@
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class deco_memoized</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.useful-pysrc.html#deco_memoized">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_priithon_75" name="uml_class_diagram_for_priithon_75">
-<area shape="rect" href="Priithon.useful.deco_memoized-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="17,36,137,55"/>
-<area shape="rect" href="Priithon.useful.deco_memoized-class.html#__call__" title="Priithon.useful.deco_memoized.__call__" alt="" coords="17,55,137,73"/>
-<area shape="rect" href="Priithon.useful.deco_memoized-class.html#__repr__" title="repr(x)" alt="" coords="17,73,137,92"/>
-<area shape="rect" href="Priithon.useful.deco_memoized-class.html#__str__" title="str(x)" alt="" coords="17,92,137,111"/>
-<area shape="rect" href="Priithon.useful.deco_memoized-class.html" title="Decorator that caches a function&#39;s return value each time it is called." alt="" coords="16,11,139,112"/>
+<center>  <map id="uml_class_diagram_for_priithon_82" name="uml_class_diagram_for_priithon_82">
+<area shape="rect" id="node387" href="Priithon.useful.deco_memoized-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="17,39,207,57"/>
+<area shape="rect" id="node387" href="Priithon.useful.deco_memoized-class.html#__call__" title="Priithon.useful.deco_memoized.__call__" alt="" coords="17,57,207,76"/>
+<area shape="rect" id="node387" href="Priithon.useful.deco_memoized-class.html#__repr__" title="repr(x)" alt="" coords="17,76,207,95"/>
+<area shape="rect" id="node387" href="Priithon.useful.deco_memoized-class.html#__str__" title="str(x)" alt="" coords="17,95,207,113"/>
+<area shape="rect" id="node1" href="Priithon.useful.deco_memoized-class.html" title="Decorator that caches a function&#39;s return value each time it is called." alt="" coords="5,6,219,119"/>
 </map>
-  <img src="uml_class_diagram_for_priithon_75.gif" alt='' usemap="#uml_class_diagram_for_priithon_75" ismap="ismap" class="graph-without-title" />
+  <img src="uml_class_diagram_for_priithon_82.gif" alt='' usemap="#uml_class_diagram_for_priithon_82" ismap="ismap" class="graph-without-title" />
 </center>
 </center>
 <hr />
-<p>Decorator that caches a function's return value each time it is 
-  called. If called later with the same arguments, the cached value is 
-  returned, and not re-evaluated.</p>
-  <p>from  http://wiki.python.org/moin/PythonDecoratorLibrary</p>
+<pre class="literalblock">
+Decorator that caches a function's return value each time it is called.
+If called later with the same arguments, the cached value is returned, and
+not re-evaluated.
+
+from  http://wiki.python.org/moin/PythonDecoratorLibrary
+
+seb 20100624: 
+if cacheSize not None:
+    hold no more than `cacheSize` results in cache
+    this is useful to limit memory usage
+    if more calls are made,
+    cache is used in FIFO mode, i.e. oldest results are &quot;forgotten&quot; first
+
+</pre>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -103,10 +114,48 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="Priithon.useful.deco_memoized-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">func</span>)</span><br />
+        <span class="summary-sig-arg">cacheSize</span>=<span class="summary-sig-default">None</span>)</span><br />
       x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#deco_memoized.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.useful.deco_memoized-class.html#_setCacheSize" class="summary-sig-name" onclick="show_private();">_setCacheSize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cacheSize</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">clearNow</span>=<span class="summary-sig-default">False</span>)</span><br />
+      cacheSize = None --&gt; inifinite memoizing cache
+cacheSize = 0    --&gt; memoizing turned off (for testing !?)
+cacheSize &gt; 0    --&gt; memoizing used for up to cacheSize different arguments (limit used to save memory)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.useful-pysrc.html#deco_memoized._setCacheSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_clearCache"></a><span class="summary-sig-name">_clearCache</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      clear entire cache</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.useful-pysrc.html#deco_memoized._clearCache">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -121,7 +170,7 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="__call__"></a><span class="summary-sig-name">__call__</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">*args</span>)</span></td>
+        <span class="summary-sig-arg">func</span>)</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#deco_memoized.__call__">source&nbsp;code</a></span>
             
@@ -230,7 +279,7 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">func</span>)</span>
+        <span class="sig-arg">cacheSize</span>=<span class="sig-default">None</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
@@ -245,6 +294,40 @@
         object.__init__
         <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_setCacheSize"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_setCacheSize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cacheSize</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">clearNow</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.useful-pysrc.html#deco_memoized._setCacheSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+cacheSize = None --&gt; inifinite memoizing cache
+cacheSize = 0    --&gt; memoizing turned off (for testing !?)
+cacheSize &gt; 0    --&gt; memoizing used for up to cacheSize different arguments (limit used to save memory)
+
+if clearNow: clear cache completely now
+
+note: if cacheSize was None, setting to finite size will
+      NOT adjust cacheSize, and the cache will always stay
+      (by the current size) larger than the given value.
+      unless you have clearNow=True, or until you call clearCache later 
+
+</pre>
+  <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
@@ -328,7 +411,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:26 2010
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:46 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

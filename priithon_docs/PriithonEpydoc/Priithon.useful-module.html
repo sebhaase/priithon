@@ -65,7 +65,7 @@
 
 <hr />
 <div class="fields">      <p><strong>Author:</strong>
-        Sebastian Haase &lt;haase@msg.ucsf.edu&gt;
+        Sebastian Haase &lt;seb.haase+Priithon@gmail.com&gt;
       </p>
       <p><strong>License:</strong>
         BSD license - see LICENSE file
@@ -92,8 +92,7 @@
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="Priithon.useful.deco_memoized-class.html" class="summary-name">deco_memoized</a><br />
-      Decorator that caches a function's return value each time it is 
-        called.
+      Decorator that caches a function's return value each time it is called.
     </td>
   </tr>
 </table>
@@ -207,7 +206,7 @@ It is used for any file that contains startup information for a command.</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="_getSourceCodeLine"></a><span class="summary-sig-name">_getSourceCodeLine</span>(<span class="summary-sig-arg">depth</span>=<span class="summary-sig-default">0</span>)</span><br />
+          <td><span class="summary-sig"><a href="Priithon.useful-module.html#_getSourceCodeLine" class="summary-sig-name" onclick="show_private();">_getSourceCodeLine</a>(<span class="summary-sig-arg">depth</span>=<span class="summary-sig-default">0</span>)</span><br />
       return &quot;current&quot; line number of source code  inside py-file</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#_getSourceCodeLine">source&nbsp;code</a></span>
@@ -246,7 +245,7 @@ if numPathTails:
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="_getSourceCodeFuncName"></a><span class="summary-sig-name">_getSourceCodeFuncName</span>(<span class="summary-sig-arg">depth</span>=<span class="summary-sig-default">0</span>)</span><br />
+          <td><span class="summary-sig"><a href="Priithon.useful-module.html#_getSourceCodeFuncName" class="summary-sig-name" onclick="show_private();">_getSourceCodeFuncName</a>(<span class="summary-sig-arg">depth</span>=<span class="summary-sig-default">0</span>)</span><br />
       return &quot;current&quot; function name</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#_getSourceCodeFuncName">source&nbsp;code</a></span>
@@ -263,7 +262,7 @@ if numPathTails:
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="_getSourceCodeLocation"></a><span class="summary-sig-name">_getSourceCodeLocation</span>(<span class="summary-sig-arg">numPathTails</span>=<span class="summary-sig-default">None</span>,
+          <td><span class="summary-sig"><a href="Priithon.useful-module.html#_getSourceCodeLocation" class="summary-sig-name" onclick="show_private();">_getSourceCodeLocation</a>(<span class="summary-sig-arg">numPathTails</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">depth</span>=<span class="summary-sig-default">0</span>)</span><br />
       return &lt;filename&gt;:&lt;lineNo concatenating the results of 
       _getSourceCodeFilename  and _getSourceCodeLine</td>
@@ -391,6 +390,23 @@ if nReps &gt; 1  the it calls it nReps times
               and return mmms over all (each separately timed!)</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#timeIt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="reload"></a><span class="summary-sig-name">reload</span>(<span class="summary-sig-arg">*modules</span>)</span><br />
+      shortcut for non-verbose reloading of modules</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.useful-pysrc.html#reload">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -747,6 +763,26 @@ if addHere is
       returns N.asarray(a, N.Float32)</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#asFloat32">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.useful-module.html#asUInt16" class="summary-sig-name">asUInt16</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">round</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">setMinTo0</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">rescaleToMax</span>=<span class="summary-sig-default">False</span>)</span><br />
+      returns N.asarray(a, N.uint16)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.useful-pysrc.html#asUInt16">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -1326,11 +1362,32 @@ parms:
         <span class="summary-sig-arg">fixed_mask</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">**leastsq_kwargs</span>)</span><br />
       data should be list of (x,y)  tuples
-TODO: or (x,y,deltaY)
-(instead of 'list' you can of course have an array w/
-shape=(n,2) or shape=(n,3), n beeing the number of data points</td>
+or (x,y,deltaY) [ weighted fitting: minimize (y(x)-x)/deltaY ]</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#fitAny">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.useful-module.html#fitAny_leftSided" class="summary-sig-name">fitAny_leftSided</a>(<span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">parmTuple0</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">xLeftSidedOfParm</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">fixed_mask</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">**leastsq_kwargs</span>)</span><br />
+      data should be list of (x,y)  tuples
+or (x,y,deltaY) [ weighted fitting: minimize (y(x)-x)/deltaY ]</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.useful-pysrc.html#fitAny_leftSided">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -1407,7 +1464,7 @@ shape=(n,2) or shape=(n,3), n beeing the number of data points</td>
           <td><span class="summary-sig"><a href="Priithon.useful-module.html#nd__center_of_mass" class="summary-sig-name">nd__center_of_mass</a>(<span class="summary-sig-arg">input</span>,
         <span class="summary-sig-arg">labels</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">index</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Calculate the center of mass of of the array.</td>
+      Calculate the center of mass of the values of an array at labels.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#nd__center_of_mass">source&nbsp;code</a></span>
             
@@ -1426,7 +1483,7 @@ shape=(n,2) or shape=(n,3), n beeing the number of data points</td>
           <td><span class="summary-sig"><a href="Priithon.useful-module.html#nd__maximum_position" class="summary-sig-name">nd__maximum_position</a>(<span class="summary-sig-arg">input</span>,
         <span class="summary-sig-arg">labels</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">index</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Find the position of the maximum of the values of the array.</td>
+      Find the positions of the maximums of the values of an array at labels.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#nd__maximum_position">source&nbsp;code</a></span>
             
@@ -1445,7 +1502,7 @@ shape=(n,2) or shape=(n,3), n beeing the number of data points</td>
           <td><span class="summary-sig"><a href="Priithon.useful-module.html#nd__minimum_position" class="summary-sig-name">nd__minimum_position</a>(<span class="summary-sig-arg">input</span>,
         <span class="summary-sig-arg">labels</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">index</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Find the position of the minimum of the values of the array.</td>
+      Find the positions of the minimums of the values of an array at labels.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#nd__minimum_position">source&nbsp;code</a></span>
             
@@ -1548,7 +1605,7 @@ shape=(n,2) or shape=(n,3), n beeing the number of data points</td>
 if amin and/or amax is None it calculates the min/max of a and uses that
 if nBins is None:
     nBins = int(amax-amin+1)
-    if narr is of float dtype  Bins &lt; 100:
+    if narr is of float dtype and nBins &lt; 100:
         nBins = 100
 if histArr is given it is used to fill in the histogram values
     then nBins must be None and histArr of dtype N.int32</td>
@@ -1807,6 +1864,28 @@ e.g.</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a href="Priithon.useful-module.html#project_lowmem" class="summary-sig-name">project_lowmem</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">max</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">astype</span>=<span class="summary-sig-default">None</span>)</span><br />
+      calc projection along axis 0
+`mode`: == &quot;max&quot; -&gt; calc maximum intensity projection
+        == &quot;mean&quot; -&gt; calc mean intensity projection
+            (accumulation is always done using float64)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.useful-pysrc.html#project_lowmem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a href="Priithon.useful-module.html#insert" class="summary-sig-name">insert</a>(<span class="summary-sig-arg">arr</span>,
         <span class="summary-sig-arg">i</span>,
         <span class="summary-sig-arg">entry</span>,
@@ -1904,7 +1983,8 @@ THEN apply rotate/skew
         <span class="summary-sig-arg">b</span>,
         <span class="summary-sig-arg">angle</span>,
         <span class="summary-sig-arg">rot_axis</span>=<span class="summary-sig-default">0</span>)</span><br />
-      angle: in degree, rot_axis: axis to rotate the object about</td>
+      a: 3d input array b: 3d output array angle: in degree, rot_axis: axis
+      to rotate the object about</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.useful-pysrc.html#rot3d">source&nbsp;code</a></span>
             
@@ -3040,6 +3120,17 @@ from the sequence and all recursively contained sub-sequences
         <a name="_pi_over_180"></a><span class="summary-name">_pi_over_180</span> = <code title="0.0174532925199">0.0174532925199</code>
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.useful-module.html#_U_nd_extra_doc_" class="summary-name">_U_nd_extra_doc_</a> = <code title="'''
+Seb: this is from scipy.ndimage, but returns ndarray and
+fixes return value type &amp; shape
+for the cases  len(index) == 1 and len(index) == 0
+'''"><code class="variable-quote">'</code><code class="variable-string">\nSeb: this is from scipy.ndimage, but ret</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
 </table>
 <!-- ==================== FUNCTION DETAILS ==================== -->
 <a name="section-FunctionDetails"></a>
@@ -3113,6 +3204,27 @@ Similarely to matplotlib (ref. matplotlib_fname()), we look for a &quot;user cus
   </dl>
 </td></tr></table>
 </div>
+<a name="_getSourceCodeLine"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getSourceCodeLine</span>(<span class="sig-arg">depth</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.useful-pysrc.html#_getSourceCodeLine">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>return &quot;current&quot; line number of source code  inside 
+  py-file</p>
+  <p>(to be used only inside py-modules - not for interactive shell!)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
 <a name="_getSourceCodeFilename"></a>
 <div class="private">
 <table class="details" border="1" cellpadding="3"
@@ -3136,7 +3248,51 @@ if numPathTails:
     and return only those remaining parts;
     e.g. for numPathTails=2: for &quot;/a/b/c/d/e.py&quot; return &quot;d/e.py&quot;
 
+(to be used only inside py-modules - not for interactive shell!)
+
 </pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_getSourceCodeFuncName"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getSourceCodeFuncName</span>(<span class="sig-arg">depth</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.useful-pysrc.html#_getSourceCodeFuncName">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>return &quot;current&quot; function name</p>
+  <p>(to be used only inside py-modules - not for interactive shell!)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_getSourceCodeLocation"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getSourceCodeLocation</span>(<span class="sig-arg">numPathTails</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">depth</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.useful-pysrc.html#_getSourceCodeLocation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>return &lt;filename&gt;:&lt;lineNo concatenating the results of 
+  _getSourceCodeFilename  and _getSourceCodeLine</p>
+  <p>(to be used only inside py-modules - not for interactive shell!)</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -3422,6 +3578,39 @@ else
   </dl>
 </td></tr></table>
 </div>
+<a name="asUInt16"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">asUInt16</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">round</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">setMinTo0</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">rescaleToMax</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.useful-pysrc.html#asUInt16">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+returns N.asarray(a, N.uint16)
+
+`setMinTo0`: if True, subtract (negative) minimum
+`rescaleToMax`: if True or 1 rescale data to min..65535
+     if `rescaleToMax` is a number &gt; 1: rescale data to min..`rescaleToMax`
+
+`round`: add +.5 before conversion to int
+
+TODO/FIXME:  optimize memory usage of this function !!
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
 <a name="norm"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -3662,7 +3851,8 @@ parms:
   <pre class="literalblock">
 
 data should be list of (x,y)  tuples
-TODO: or (x,y,deltaY)
+or (x,y,deltaY) [ weighted fitting: minimize (y(x)-x)/deltaY ]
+
 (instead of 'list' you can of course have an array w/
 shape=(n,2) or shape=(n,3), n beeing the number of data points
 
@@ -3670,6 +3860,62 @@ if data.ndim == 1 or data.shape = (n,1) it fits assuming x=0,1,2,3,...n-1
 
 f is your 'model' function that takes two arguments:
    a tuple of parameters and x
+
+The function returns a list containing the optimal parameter values
+and the chi-squared value describing the quality of the fit. (CHECK if this is true)
+
+fixed_mask: if not None: 
+   this sequence of bool values determinces if the respective parameter
+   shall be fixed or free to be adjusted
+
+leastsq_kwargs: optional arguments feed to scipy.optimize.leastsq:
+   useful might be e.g.: 
+    * maxfev -- The maximum number of calls to the function. If zero,
+       then 100*(N+1) is the maximum where N is the number
+       of elements in x0.
+    * full_output -- non-zero to return all optional outputs.
+    * warning -- True to print a warning message when the call is
+         unsuccessful; False to suppress the warning message.
+    for more see scipy.optimize.leastsq
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="fitAny_leftSided"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fitAny_leftSided</span>(<span class="sig-arg">f</span>,
+        <span class="sig-arg">parmTuple0</span>,
+        <span class="sig-arg">data</span>,
+        <span class="sig-arg">xLeftSidedOfParm</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">fixed_mask</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">**leastsq_kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.useful-pysrc.html#fitAny_leftSided">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+data should be list of (x,y)  tuples
+or (x,y,deltaY) [ weighted fitting: minimize (y(x)-x)/deltaY ]
+
+(instead of 'list' you can of course have an array w/
+shape=(n,2) or shape=(n,3), n beeing the number of data points
+
+if data.ndim == 1 or data.shape = (n,1) it fits assuming x=0,1,2,3,...n-1
+
+f is your 'model' function that takes two arguments:
+   a tuple of parameters and x
+
+!!! MODEL IS ONLY OPTIMIZED FOR X&lt;`parmTuple0[xLeftSidedOfParm]` !!!
 
 The function returns a list containing the optimal parameter values
 and the chi-squared value describing the quality of the fit. (CHECK if this is true)
@@ -3812,13 +4058,19 @@ if fixed_mask is not None:
     </td>
   </tr></table>
   
-  <p>Calculate the center of mass of of the array.</p>
-  <p>The index parameter is a single label number or a sequence of label 
-  numbers of the objects to be measured. If index is None, all values are 
-  used where labels is larger than zero.</p>
-  <p>Seb: this is from scipy.ndimage, but returns ndarray and fixes return 
-  value type &amp; shape for the cases  len(index) == 1 and len(index) == 
-  0</p>
+  <pre class="literalblock">
+Calculate the center of mass of the values of an array at labels.
+
+    Labels must be None or an array of the same dimensions as the input.  
+
+    Index must be None, a single label or sequence of labels.  If
+    none, all values where label is greater than zero are used.
+    
+Seb: this is from scipy.ndimage, but returns ndarray and
+fixes return value type &amp; shape
+for the cases  len(index) == 1 and len(index) == 0
+
+</pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -3839,13 +4091,19 @@ if fixed_mask is not None:
     </td>
   </tr></table>
   
-  <p>Find the position of the maximum of the values of the array.</p>
-  <p>The index parameter is a single label number or a sequence of label 
-  numbers of the objects to be measured. If index is None, all values are 
-  used where labels is larger than zero.</p>
-  <p>Seb: this is from scipy.ndimage, but returns ndarray and fixes return 
-  value type &amp; shape for the cases  len(index) == 1 and len(index) == 
-  0</p>
+  <pre class="literalblock">
+Find the positions of the maximums of the values of an array at labels.
+
+    Labels must be None or an array of the same dimensions as the input.  
+
+    Index must be None, a single label or sequence of labels.  If
+    none, all values where label is greater than zero are used.
+    
+Seb: this is from scipy.ndimage, but returns ndarray and
+fixes return value type &amp; shape
+for the cases  len(index) == 1 and len(index) == 0
+
+</pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -3866,13 +4124,19 @@ if fixed_mask is not None:
     </td>
   </tr></table>
   
-  <p>Find the position of the minimum of the values of the array.</p>
-  <p>The index parameter is a single label number or a sequence of label 
-  numbers of the objects to be measured. If index is None, all values are 
-  used where labels is larger than zero.</p>
-  <p>Seb: this is from scipy.ndimage, but returns ndarray and fixes return 
-  value type &amp; shape for the cases  len(index) == 1 and len(index) == 
-  0</p>
+  <pre class="literalblock">
+Find the positions of the minimums of the values of an array at labels.
+
+    Labels must be None or an array of the same dimensions as the input.  
+
+    Index must be None, a single label or sequence of labels.  If
+    none, all values where label is greater than zero are used.
+    
+Seb: this is from scipy.ndimage, but returns ndarray and
+fixes return value type &amp; shape
+for the cases  len(index) == 1 and len(index) == 0
+
+</pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -3894,25 +4158,44 @@ if fixed_mask is not None:
   </tr></table>
   
   <pre class="literalblock">
-Calculate the sum of the values of the array.
 
-:Parameters:
+    Calculate the sum of the values of the array.
+
+    Parameters
+    ----------
+
+    input : array_like
+        Values of `input` inside the regions defined by `labels`
+        are summed together.
+
     labels : array of integers, same shape as input
         Assign labels to the values of the array.
 
     index : scalar or array
         A single label number or a sequence of label numbers of
-        the objects to be measured. If index is None, all
-        values are used where 'labels' is larger than zero.
+        the objects to be measured.
 
-Examples
---------
+    Returns
+    -------
 
-&gt;&gt;&gt; input =  [0,1,2,3]
-&gt;&gt;&gt; labels = [1,1,2,2]
-&gt;&gt;&gt; sum(input, labels, index=[1,2])
-[1.0, 5.0]
+    output : list
+        A list of the sums of the values of `input` inside the regions
+        defined by `labels`.
 
+    See also
+    --------
+
+    mean
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; input =  [0,1,2,3]
+    &gt;&gt;&gt; labels = [1,1,2,2]
+    &gt;&gt;&gt; sum(input, labels, index=[1,2])
+    [1.0, 5.0]
+
+    
 Seb: this is from scipy.ndimage, but returns ndarray and
 fixes return value type &amp; shape
 for the cases  len(index) == 1 and len(index) == 0
@@ -3940,6 +4223,8 @@ for the cases  len(index) == 1 and len(index) == 0
   
   <p>assume a function f(x) = y defined by value-pairs in y,x evaluate this
   at x=x0</p>
+  <p>uses order 3 spline to do interpolation 
+  [scipy.interpolate.splrep(...k=3...)</p>
   <p>note: x0 does not need to be one of the given values in x</p>
   <p>if x is None: use N.arange(len(y))</p>
   <p>more repeated evaluations this is slow - because it remakes the spline
@@ -3977,7 +4262,7 @@ creates/returns  array with nBins int32 entries
 if amin and/or amax is None it calculates the min/max of a and uses that
 if nBins is None:
     nBins = int(amax-amin+1)
-    if narr is of float dtype  Bins &lt; 100:
+    if narr is of float dtype and nBins &lt; 100:
         nBins = 100
 if histArr is given it is used to fill in the histogram values
     then nBins must be None and histArr of dtype N.int32
@@ -4031,7 +4316,7 @@ creates/returns  array with nBins int32 entries
 if amin and/or amax is None it calculates the min/max of a and uses that
 if nBins is None:
     nBins = int(amax-amin+1)
-    if narr is of float dtype  Bins &lt; 100:
+    if narr is of float dtype and nBins &lt; 100:
         nBins = 100
 if histArr is given it is used to fill in the histogram values
     then nBins must be None and histArr of dtype N.int32
@@ -4084,7 +4369,7 @@ creates/returns  array with nBins int32 entries
 if amin and/or amax is None it calculates the min/max of a and uses that
 if nBins is None:
     nBins = int(amax-amin+1)
-    if narr is of float dtype  Bins &lt; 100:
+    if narr is of float dtype and nBins &lt; 100:
         nBins = 100
 if histArr is given it is used to fill in the histogram values
     then nBins must be None and histArr of dtype N.int32
@@ -4215,6 +4500,40 @@ http://en.wikipedia.org/wiki/Root_mean_square
   </dl>
 </td></tr></table>
 </div>
+<a name="project_lowmem"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">project_lowmem</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">max</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">astype</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.useful-pysrc.html#project_lowmem">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+calc projection along axis 0
+`mode`: == &quot;max&quot; -&gt; calc maximum intensity projection
+        == &quot;mean&quot; -&gt; calc mean intensity projection
+            (accumulation is always done using float64)    
+
+`astype`: if not `None`, convert result before return
+
+this function &quot;might&quot;(!) save memory and might be faster, 
+because iteration over the first axis is done &quot;by hand&quot;
+and does not rely on full convertion of a to an ndarray
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
 <a name="insert"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -4265,7 +4584,7 @@ THEN rotate and mag and aniso-mag
 
 if outArr is None ret
 NOTE: tx,ty go positive for right/up
-(bettinas Fortran goes left/down !!!) 
+(Bettina's Fortran goes left/down !!!) 
 
 </pre>
   <dl class="fields">
@@ -4342,7 +4661,7 @@ THEN apply rotate/skew
 use bi-linear interpolation
 
 NOTE: tx,ty go positive for right/up
-(bettinas Fortran goes left/down !!!)
+(Bettina's Fortran goes left/down !!!)
 
 tx2,ty2 is for an extra translating ?? before OR after ?&gt;??
 
@@ -4437,7 +4756,7 @@ open any image file:
         #20060824 CHECK  in this case the returned arr gets attr: arr._originLeftBottom=0
    'Mrc' (use Mrc.bindFile)
    TODO: &quot;_thmb_&lt;fn.jpg&gt;&quot; files are taken to mean &lt;fn.jpg&gt;
-returns image array
+returns image array of type ndarray_meta
         None on error
 
 if imgFN is None  call Y.FN()  for you
@@ -4614,7 +4933,7 @@ also supports multipage TIFF:
 for multi-color images:
      rgbOrder: order in which axes are mapped to RGB(A) channels
   
-use `format` to spefy format (e.g. &quot;tiff&quot;) when fn is really as stream
+use `format` to specify format (e.g. &quot;tiff&quot;) when fn is really as stream
 !!be careful about up-down orientation !!
 
 </pre>
@@ -4992,23 +5311,36 @@ if transpose: transpose last 2 dimensions of arrND before saving
     </td>
   </tr></table>
   
-  <p>load a text file into a ndimensional array (mockNDarray)</p>
-  <p>fname can be an open file or a filename or a filename ending on 
-  &quot;.gz&quot; or &quot;.bz2&quot; if dtype is not None, force data to 
-  be dtype</p>
-  <p>delimiter is a string-like character used to seperate values in the 
-  file. If delimiter is unspecified or none, any whitespace string is a 
-  separator.</p>
-  <p>lines or trailing line parts starting with a character in comments are
-  ignored</p>
-  <p>converters, if not None, is a dictionary mapping column number to a 
-  function that will convert that column to a float.  Eg, if column 0 is a 
-  date string: converters={0:datestr2num}</p>
-  <p>usecols, if not None, is a sequence of integer column indexes to 
-  extract where 0 is the first column, eg usecols=(1,4,5) to extract just 
-  the 2nd, 5th and 6th columns</p>
-  <p>after applying converters (at first) and usecols (after that), the 
-  first ndim-2 columns are interpreted as the nd-index</p>
+  <pre class="literalblock">
+
+load a text file into a ndimensional array (mockNDarray)
+
+1d arrays are columns of one line
+2d arrays are multiple rows (i.e. multiple 1d lines)
+higher-d arrays are like 2d arrays, where the first n-2 columns 
+    are taken to be the indices for the higher dimensions
+
+fname can be an open file or a filename or a filename ending on &quot;.gz&quot; or &quot;.bz2&quot;
+if dtype is not None, force data to be dtype
+
+delimiter is a string-like character used to seperate values in the
+file. If delimiter is unspecified or none, any whitespace string is
+a separator.
+
+lines or trailing line parts starting with `comments` are ignored
+
+converters, if not None, is a dictionary mapping column number to
+a function that will convert that column to a float.  Eg, if
+column 0 is a date string: converters={0:datestr2num}
+
+usecols, if not None, is a sequence of integer column indexes to
+extract where 0 is the first column, eg usecols=(1,4,5) to extract
+just the 2nd, 5th and 6th columns
+
+after applying converters (at first) and usecols (after that),
+the first ndim-2 columns are interpreted as the nd-index
+
+</pre>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -5469,6 +5801,47 @@ else(!) if percent&gt;0: print note every `percent` increments
 </td></tr></table>
 </div>
 <br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_U_nd_extra_doc_"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_U_nd_extra_doc_</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"></code>
+<code class="variable-string">Seb: this is from scipy.ndimage, but returns ndarray and</code>
+<code class="variable-string">fixes return value type &amp; shape</code>
+<code class="variable-string">for the cases  len(index) == 1 and len(index) == 0</code>
+<code class="variable-string"></code><code class="variable-quote">'''</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
@@ -5500,7 +5873,7 @@ else(!) if percent&gt;0: print note every `percent` increments
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:14 2010
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:33 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

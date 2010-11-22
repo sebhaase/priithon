@@ -92,6 +92,7 @@ if `item` is a list or tuple, up to 4 things can be specified:
       'tb' togglebutton
       't'  text-control
       'c'  checkbox
+      'r'  radiobutton
       'l'  static-label
       'sl' slider
 
@@ -104,8 +105,9 @@ if `item` is a list or tuple, up to 4 things can be specified:
   note 1) for button: if cmd is None: use label (part C) as cmd
   note 2) for txtCtrl: if cmd is '--': make read-only, set cmd to None
   note 3) for checkbox: if label (part C) contains (another) '  ' use ALIGN_RIGHT
-  note 4) for label: command is ignored #CHECK
-  note 5) for slider: label gives value,minValue,maxValue (space separated) - default: 0,0,100
+  note 4) for radiobutton: if label (part C) contains (another) '       ' use RB_GROUP (to start a new group)
+  note 5) for label: command is ignored #CHECK
+  note 6) for slider: label gives value,minValue,maxValue (space separated) - default: 0,0,100
 
 
 `cmd` (`command`) will get exec'ed when the button is pressed, or the text is changed
@@ -133,7 +135,14 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
 
 </pre>
 
-<!-- ==================== CLASSES ==================== -->
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Sebastian Haase &lt;seb.haase+Priithon@gmail.com&gt;
+      </p>
+      <p><strong>License:</strong>
+        BSD license - see LICENSE file
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
 <a name="section-Classes"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
@@ -188,7 +197,9 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
         <span class="summary-sig-arg">panel</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.Point(-1, -1)</span>,
-        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">541072960</span>)</span><br />
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.Size(-1, -1)</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">541072960</span>,
+        <span class="summary-sig-arg">ret</span>=<span class="summary-sig-default">False</span>)</span><br />
       create new button box</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBox">source&nbsp;code</a></span>
@@ -206,7 +217,8 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="Priithon.buttonbox-module.html#buttonBoxAdd" class="summary-sig-name">buttonBoxAdd</a>(<span class="summary-sig-arg">itemList</span>,
-        <span class="summary-sig-arg">bb_id</span>=<span class="summary-sig-default">-1</span>)</span><br />
+        <span class="summary-sig-arg">bb_id</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">refitFrame</span>=<span class="summary-sig-default">True</span>)</span><br />
       add button to existing buttonBox</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBoxAdd">source&nbsp;code</a></span>
@@ -312,7 +324,9 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
         <span class="sig-arg">panel</span>=<span class="sig-default">None</span>,
         <span class="sig-arg">parent</span>=<span class="sig-default">None</span>,
         <span class="sig-arg">pos</span>=<span class="sig-default">wx.Point(-1, -1)</span>,
-        <span class="sig-arg">style</span>=<span class="sig-default">541072960</span>)</span>
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.Size(-1, -1)</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">541072960</span>,
+        <span class="sig-arg">ret</span>=<span class="sig-default">False</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBox">source&nbsp;code</a></span>&nbsp;
@@ -334,12 +348,10 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
     title: window title (buttonBox id will be added in parenthesis)
 
         layout:
-          boxHoriz OR h   - horizontal BoxSizer, use &quot;
-&quot; to start new row
-          boxVert  OR v   - vertical   BoxSizer, use &quot;
-&quot; to start new column
-          (nx,ny)           - FlexGridSizer (one of nx or ny can be 0)
-          (nx,ny,hgap,vgap) - FlexGridSizer (one of nx or ny can be 0)
+          boxHoriz OR h   - horizontal BoxSizer, use &quot;\n&quot; to start new row
+          boxVert  OR v   - vertical   BoxSizer, use &quot;\n&quot; to start new column
+          (rows,cols)           - FlexGridSizer (one of nx or ny can be 0)
+          (rows,cols,vgap,hgap) - FlexGridSizer (one of nx or ny can be 0)
          -- all other docstring assume boxHoriz
     if execModule is None: use __main__
            otherwise exec all string-command there
@@ -347,6 +359,8 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
       - if None: 
          create new frame
          use title, parent, pos and style for that frame
+
+    if `ret`: return buttonBox object
     
 
 </pre>
@@ -362,7 +376,8 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">buttonBoxAdd</span>(<span class="sig-arg">itemList</span>,
-        <span class="sig-arg">bb_id</span>=<span class="sig-default">-1</span>)</span>
+        <span class="sig-arg">bb_id</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">refitFrame</span>=<span class="sig-default">True</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="Priithon.buttonbox-pysrc.html#buttonBoxAdd">source&nbsp;code</a></span>&nbsp;
@@ -444,7 +459,7 @@ buttonBox([('l  x-value:','',0),('t _.myText=x  1234', '_.textVal=x;print x')])
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:12 2010
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:32 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

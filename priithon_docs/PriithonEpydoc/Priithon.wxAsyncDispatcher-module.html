@@ -159,7 +159,7 @@ Priithon
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Priithon.wxAsyncDispatcher-module.html#startSocketServer" class="summary-sig-name">startSocketServer</a>(<span class="summary-sig-arg">onRead</span>,
+          <td><span class="summary-sig"><a href="Priithon.wxAsyncDispatcher-module.html#socketServerStart" class="summary-sig-name">socketServerStart</a>(<span class="summary-sig-arg">onRead</span>,
         <span class="summary-sig-arg">linewise</span>=<span class="summary-sig-default">True</span>,
         <span class="summary-sig-arg">logFcn</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">port</span>=<span class="summary-sig-default">4711</span>,
@@ -168,7 +168,7 @@ Priithon
         <span class="summary-sig-arg">threaded</span>=<span class="summary-sig-default">False</span>)</span><br />
       install a server to listen on given `port` on given `host`</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#startSocketServer">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#socketServerStart">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -182,11 +182,11 @@ Priithon
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="startSocketServer_demo"></a><span class="summary-sig-name">startSocketServer_demo</span>(<span class="summary-sig-arg">port</span>=<span class="summary-sig-default">4711</span>,
+          <td><span class="summary-sig"><a name="socketServer_demo"></a><span class="summary-sig-name">socketServer_demo</span>(<span class="summary-sig-arg">port</span>=<span class="summary-sig-default">4711</span>,
         <span class="summary-sig-arg">host</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">localhost</code><code class="variable-quote">'</code></span>,
         <span class="summary-sig-arg">threaded</span>=<span class="summary-sig-default">False</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#startSocketServer_demo">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#socketServer_demo">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -200,11 +200,11 @@ Priithon
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="startSocketServer_clearAll"></a><span class="summary-sig-name">startSocketServer_clearAll</span>(<span class="summary-sig-arg">closeAllSockets</span>=<span class="summary-sig-default">True</span>,
+          <td><span class="summary-sig"><a name="socketServer_clearAll"></a><span class="summary-sig-name">socketServer_clearAll</span>(<span class="summary-sig-arg">closeAllSockets</span>=<span class="summary-sig-default">True</span>,
         <span class="summary-sig-arg">stopAllPolling</span>=<span class="summary-sig-default">True</span>)</span><br />
       use this to stop all prior started servers</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#startSocketServer_clearAll">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#socketServer_clearAll">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -250,7 +250,7 @@ Priithon
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="EVT_LOG_EVENT"></a><span class="summary-name">EVT_LOG_EVENT</span> = <code title="&lt;wx._core.PyEventBinder object at 0x8339250&gt;">&lt;wx._core.PyEventBinder object at 0x8339250&gt;</code>
+        <a name="EVT_LOG_EVENT"></a><span class="summary-name">EVT_LOG_EVENT</span> = <code title="&lt;wx._core.PyEventBinder object at 0x80cce50&gt;">&lt;wx._core.PyEventBinder object at 0x80cce50&gt;</code>
     </td>
   </tr>
 </table>
@@ -272,14 +272,14 @@ Priithon
   </td>
 </tr>
 </table>
-<a name="startSocketServer"></a>
+<a name="socketServerStart"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">startSocketServer</span>(<span class="sig-arg">onRead</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">socketServerStart</span>(<span class="sig-arg">onRead</span>,
         <span class="sig-arg">linewise</span>=<span class="sig-default">True</span>,
         <span class="sig-arg">logFcn</span>=<span class="sig-default">None</span>,
         <span class="sig-arg">port</span>=<span class="sig-default">4711</span>,
@@ -288,7 +288,7 @@ Priithon
         <span class="sig-arg">threaded</span>=<span class="sig-default">False</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#startSocketServer">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="Priithon.wxAsyncDispatcher-pysrc.html#socketServerStart">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -411,7 +411,7 @@ class CustomConnection(DispatcherConnection):
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:14 2010
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:33 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

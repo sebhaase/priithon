@@ -61,13 +61,16 @@
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
 <h1 class="epydoc">Module readerSPE</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.readerSPE-pysrc.html">source&nbsp;code</a></span></p>
-<p>Priithon: reader for Hamamatzu(?) SPE files</p>
+<p>Priithon: reader for Hamamatsu(?) SPE files</p>
   <p># http://www.scipy.org/Cookbook/Reading_SPE_files # 
   http://forums.wolfram.com/student-support/topics/8778</p>
+  <p># MORE INFO AT 
+  http://ftp.roperscientific.com/Public/Manuals/Princeton%20Instruments/ #
+  WinSpec32.pdf</p>
 
 <hr />
 <div class="fields">      <p><strong>Author:</strong>
-        Sebastian Haase &lt;haase@msg.ucsf.edu&gt;
+        Sebastian Haase &lt;seb.haase+Priithon@gmail.com&gt;
       </p>
       <p><strong>License:</strong>
         BSD license - see LICENSE file
@@ -130,6 +133,85 @@
       
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.readerSPE-module.html#speToFits" class="summary-sig-name">speToFits</a>(<span class="summary-sig-arg">spefile</span>,
+        <span class="summary-sig-arg">fitsfile</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">clobber</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Read in an SPE file and output a FITS file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.readerSPE-pysrc.html#speToFits">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.readerSPE-module.html#readSpe" class="summary-sig-name">readSpe</a>(<span class="summary-sig-arg">spefilename</span>,
+        <span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">onlyHdr</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Read a binary PI SPE file into a python dictionary</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.readerSPE-pysrc.html#readSpe">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.readerSPE-module.html#speDictToFits" class="summary-sig-name">speDictToFits</a>(<span class="summary-sig-arg">spedict</span>,
+        <span class="summary-sig-arg">outfile</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">clobber</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Given a python dictionary containing information about the SPE file 
+      generate a sequence of FITS files, one FITS file per image in the SPE
+      file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.readerSPE-pysrc.html#speDictToFits">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.readerSPE-module.html#_getHeaderDescriptions" class="summary-sig-name" onclick="show_private();">_getHeaderDescriptions</a>()</span><br />
+      Defines the descriptions of the Header items that are populated in 
+      readSpe().</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.readerSPE-pysrc.html#_getHeaderDescriptions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 </table>
 <!-- ==================== VARIABLES ==================== -->
 <a name="section-Variables"></a>
@@ -152,6 +234,21 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
+        <a href="Priithon.readerSPE-module.html#_header_struct__info" class="summary-name" onclick="show_private();">_header_struct__info</a> = <code title="''' 
+typedef struct tagCSMAHEAD {
+#ifdef __cplusplus                // STARTING
+  tagCSMAHEAD();                  // ADDRESS
+#endif                            // (decimal)
+  SHORT   ControllerVersion;      //    0  Hardware Version
+  SHORT   LogicOutput;            //    2  Definition of Output BNC
+  WORD    AmpHiCapLowNoise;       //    4  Amp Switching Mode
+..."><code class="variable-quote">'</code><code class="variable-string"> \ntypedef struct tagCSMAHEAD {\n#ifde</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
         <a href="Priithon.readerSPE-module.html#_type_dtype_map" class="summary-name" onclick="show_private();">_type_dtype_map</a> = <code title="{0: &lt;type 'numpy.float32'&gt;,
  1: &lt;type 'numpy.int32'&gt;,
  2: &lt;type 'numpy.int16'&gt;,
@@ -159,6 +256,157 @@
     </td>
   </tr>
 </table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="speToFits"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">speToFits</span>(<span class="sig-arg">spefile</span>,
+        <span class="sig-arg">fitsfile</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">clobber</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">verbose</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.readerSPE-pysrc.html#speToFits">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read in an SPE file and output a FITS file</p>
+  <p>Example usage: Given an SPE file named test.SPE which contains 3 image
+  frames, then the following code will produce three FITS images, named: .
+  image_x001.fits .   image_x002.fits .   image_x003.fits &gt;&gt;&gt; 
+  import piUtils &gt;&gt;&gt; piUtils.speToFits('test.SPE', 
+  fitsfile='image')</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="readSpe"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readSpe</span>(<span class="sig-arg">spefilename</span>,
+        <span class="sig-arg">verbose</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">onlyHdr</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.readerSPE-pysrc.html#readSpe">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Read a binary PI SPE file into a python dictionary
+
+Inputs
+spefilename --  string specifying the name of the SPE file to be read
+verbose     --  boolean print debug statements (True) or not (False)
+onlyHdr     --  if True, only read header, and skip filling `data` with image data
+
+Outputs
+spedict     --  python dictionary containing header and data information
+                from the SPE file
+                Content of the dictionary is:
+                spedict = {'data':[],    # a list of 2D numpy arrays, one per image
+                'IGAIN':pimaxGain,
+                'EXPOSURE':exp_sec,
+                'SPEFNAME':spefilename,
+                'OBSDATE':date,
+                'CHIPTEMP':detectorTemperature
+           }
+
+Example usage:
+Given an SPE file named test.SPE, you can read the SPE data into
+a python dictionary named spedict with the following:
+&gt;&gt;&gt; import piUtils
+&gt;&gt;&gt; spedict = piUtils.readSpe('test.SPE')
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="speDictToFits"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">speDictToFits</span>(<span class="sig-arg">spedict</span>,
+        <span class="sig-arg">outfile</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">clobber</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">verbose</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.readerSPE-pysrc.html#speDictToFits">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Given a python dictionary containing information about the SPE file 
+  generate a sequence of FITS files, one FITS file per image in the SPE 
+  file.</p>
+  <p>Inputs spedict  --   A dictionary containing information from the SPE 
+  file .             as output by readSpe() outfile  --   root of output 
+  filename for FITS files. .             e.g. outfile='fitsimage'  will 
+  produce fits files .             named fitsimage_x000.fits clobber  --   
+  Boolean.  True will overwrite any existing FITS files. verbose  --   
+  Print debug messages.</p>
+  <p>Outputs fitsFileNames  --  Returns a list of the generated output 
+  filenames.</p>
+  <p>Example usage: If the file called test.SPE contains 3 image frames, 
+  then the following code: &gt;&gt;&gt; import piUtils &gt;&gt;&gt; spedict
+  = piUtils.readSpe('test.SPE') &gt;&gt;&gt; piUtils.speDictToFits(spedict,
+  outfile='image') will produce three FITS images, named: .   
+  image_x001.fits .   image_x002.fits .   image_x003.fits</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_getHeaderDescriptions"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getHeaderDescriptions</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.readerSPE-pysrc.html#_getHeaderDescriptions">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Defines the descriptions of the Header items that are populated in 
+  readSpe().  Only a few quantities (see below) are transferred from the 
+  SPE header into the FITS header.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
 <!-- ==================== VARIABLES DETAILS ==================== -->
 <a name="section-VariablesDetails"></a>
 <table class="details" border="1" cellpadding="3"
@@ -177,6 +425,32 @@
   </td>
 </tr>
 </table>
+<a name="_header_struct__info"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_header_struct__info</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"> </code>
+<code class="variable-string">typedef struct tagCSMAHEAD {</code>
+<code class="variable-string">#ifdef __cplusplus                // STARTING</code>
+<code class="variable-string">  tagCSMAHEAD();                  // ADDRESS</code>
+<code class="variable-string">#endif                            // (decimal)</code>
+<code class="variable-string">  SHORT   ControllerVersion;      //    0  Hardware Version</code>
+<code class="variable-string">  SHORT   LogicOutput;            //    2  Definition of Output BNC</code>
+<code class="variable-string">  WORD    AmpHiCapLowNoise;       //    4  Amp Switching Mode</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="_type_dtype_map"></a>
 <div class="private">
 <table class="details" border="1" cellpadding="3"
@@ -230,7 +504,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:14 2010
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:33 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

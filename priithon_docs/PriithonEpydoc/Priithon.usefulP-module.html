@@ -65,7 +65,7 @@
 
 <hr />
 <div class="fields">      <p><strong>Author:</strong>
-        Sebastian Haase &lt;haase@msg.ucsf.edu&gt;
+        Sebastian Haase &lt;seb.haase+Priithon@gmail.com&gt;
       </p>
       <p><strong>License:</strong>
         BSD license - see LICENSE file
@@ -93,13 +93,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Priithon.usefulP-module.html#plotSetColorsDefault" class="summary-sig-name">plotSetColorsDefault</a>(<span class="summary-sig-arg">colString</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">rgbkcm</code><code class="variable-quote">'</code></span>)</span><br />
-      color-cycle: these colors are used in sequence when multiple graphs in one figure-window
-colors:
-  r - red;   g - green;  b - blue
-  k - black; c - cyan;   m - magenta</td>
+          <td><span class="summary-sig"><a href="Priithon.usefulP-module.html#plotColorsDefault" class="summary-sig-name">plotColorsDefault</a>(<span class="summary-sig-arg">colString</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">rgbkcm</code><code class="variable-quote">'</code></span>)</span><br />
+      set or get default colors used for graph plotting</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotSetColorsDefault">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotColorsDefault">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -130,7 +127,8 @@ colors:
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="_getFig"></a><span class="summary-sig-name">_getFig</span>(<span class="summary-sig-arg">figureNo</span>)</span></td>
+          <td><span class="summary-sig"><a href="Priithon.usefulP-module.html#_getFig" class="summary-sig-name" onclick="show_private();">_getFig</a>(<span class="summary-sig-arg">figureNo</span>)</span><br />
+      figureNo can be ...</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulP-pysrc.html#_getFig">source&nbsp;code</a></span>
             
@@ -658,7 +656,7 @@ x-values of 0,1,2,3,4 are used as needed</td>
           <td><span class="summary-sig"><a name="plotsave"></a><span class="summary-sig-name">plotsave</span>(<span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">format</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">png</code><code class="variable-quote">'</code></span>,
         <span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">None</span>)</span><br />
-      save image of plot into a file if fn is None calls FN() for you</td>
+      save image of plot into a file if `fn` is None calls FN() for you</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotsave">source&nbsp;code</a></span>
             
@@ -698,8 +696,30 @@ if transpose:
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a href="Priithon.usefulP-module.html#plotsave_csv_singleXcolumn" class="summary-sig-name">plotsave_csv_singleXcolumn</a>(<span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">sep</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">\t</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">None</span>)</span><br />
+      save comma separated value table into a text file
+use sep (instead of comma) to separate values</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotsave_csv_singleXcolumn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a name="plotMouse__graph2window"></a><span class="summary-sig-name">plotMouse__graph2window</span>(<span class="summary-sig-arg">pts</span>,
-        <span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">None</span>)</span></td>
+        <span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">None</span>)</span><br />
+      convert graph coordinates to wxWindow coordinates pts: one or list of
+      many x,y coordinate(s)</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotMouse__graph2window">source&nbsp;code</a></span>
             
@@ -716,7 +736,9 @@ if transpose:
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="plotMouse__window2graph"></a><span class="summary-sig-name">plotMouse__window2graph</span>(<span class="summary-sig-arg">p</span>,
-        <span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">None</span>)</span></td>
+        <span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">None</span>)</span><br />
+      convert wxWindow coordinates to graph coordinates pts: one or list of
+      many x,y coordinate(s)</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotMouse__window2graph">source&nbsp;code</a></span>
             
@@ -817,28 +839,58 @@ if onlyOnClick is False, call fct when LeftIsDown,
   </td>
 </tr>
 </table>
-<a name="plotSetColorsDefault"></a>
+<a name="plotColorsDefault"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">plotSetColorsDefault</span>(<span class="sig-arg">colString</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">rgbkcm</code><code class="variable-quote">'</code></span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">plotColorsDefault</span>(<span class="sig-arg">colString</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">rgbkcm</code><code class="variable-quote">'</code></span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotSetColorsDefault">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotColorsDefault">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <pre class="literalblock">
+
+set or get default colors used for graph plotting
 
 color-cycle: these colors are used in sequence when multiple graphs in one figure-window
 colors:
   r - red;   g - green;  b - blue
   k - black; c - cyan;   m - magenta
 
-if colString False: return current colString (global `plot_colors`)
+if colString False: 
+   return current colString (global `plot_colors`)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_getFig"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getFig</span>(<span class="sig-arg">figureNo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.usefulP-pysrc.html#_getFig">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+figureNo can be 
+   None:   return  active figure
+   an int: return  figure with that id
+   a figure object: return that
+   (TODO: an id-string)
 
 </pre>
   <dl class="fields">
@@ -1215,7 +1267,46 @@ else:
     y1  y2  y3  ...
     ... other datasets below...
 
-if fn is None calls FN() for you    
+if `fn` is None calls FN() for you    
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="plotsave_csv_singleXcolumn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">plotsave_csv_singleXcolumn</span>(<span class="sig-arg">fn</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">sep</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">\t</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">figureNo</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.usefulP-pysrc.html#plotsave_csv_singleXcolumn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+save comma separated value table into a text file
+use sep (instead of comma) to separate values
+
+all x values found in any dataset are compiled into one (sorted) column
+
+values are written in columns for each dataset
+    x_1 y1_1 y2_1 ...other datasets to the right...
+    x_2 y2_2 y2_2 ...other datasets to the right...
+    x_3 y3_3 y2_3 ...other datasets to the right...
+    .........
+if a dataset has no corresponding y value for 
+     a given x value (present in another dataset)
+     the respective y entry is left blank.
+
+if `fn` is None calls FN() for you    
 
 </pre>
   <dl class="fields">
@@ -1316,7 +1407,7 @@ example `fct_XY`
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:14 2010
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:33 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

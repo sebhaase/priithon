@@ -65,7 +65,7 @@
 
 <hr />
 <div class="fields">      <p><strong>Author:</strong>
-        Sebastian Haase &lt;haase@msg.ucsf.edu&gt;
+        Sebastian Haase &lt;seb.haase+Priithon@gmail.com&gt;
       </p>
       <p><strong>License:</strong>
         BSD license - see LICENSE file
@@ -99,13 +99,6 @@
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="Priithon.usefulX._listArrayViewer-class.html" class="summary-name" onclick="show_private();">_listArrayViewer</a>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="Priithon.usefulX.vtkMountain-class.html" class="summary-name">vtkMountain</a>
     </td>
   </tr>
 </table>
@@ -170,6 +163,55 @@
           <td><span class="summary-sig"><a name="_fixGuiExceptHook"></a><span class="summary-sig-name">_fixGuiExceptHook</span>()</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#_fixGuiExceptHook">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_guiDisplNdArrayChoice"></a><span class="summary-sig-name">_guiDisplNdArrayChoice</span>(<span class="summary-sig-arg">arr</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#_guiDisplNdArrayChoice">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_guiDisplHook"></a><span class="summary-sig-name">_guiDisplHook</span>(<span class="summary-sig-arg">v</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#_guiDisplHook">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_fixGuiDisplayHook"></a><span class="summary-sig-name">_fixGuiDisplayHook</span>()</span><br />
+      change default displayHook: print .3 instead of .299999</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#_fixGuiDisplayHook">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -458,7 +500,8 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#saveSession" class="summary-sig-name">saveSession</a>(<span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">autosave</span>=<span class="summary-sig-default">False</span>)</span><br />
+        <span class="summary-sig-arg">autosave</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">True</span>)</span><br />
       saves all text from PyShell into a file w/ file name 'fn'
 if fn is None it calls smart 'FN()' for you</td>
           <td align="right" valign="top">
@@ -545,8 +588,9 @@ if fn is None it calls smart 'FN()' for you</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="sleep"></a><span class="summary-sig-name">sleep</span>(<span class="summary-sig-arg">secs</span>=<span class="summary-sig-default">1</span>)</span><br />
-      resfresh and then sleep</td>
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#sleep" class="summary-sig-name">sleep</a>(<span class="summary-sig-arg">secs</span>=<span class="summary-sig-default">1</span>)</span><br />
+      resfresh and then sleep if secs is int: call wxSleep else call 
+      wxMilliSleep</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#sleep">source&nbsp;code</a></span>
             
@@ -813,8 +857,8 @@ if hold is not None call Y.plothold(hold) beforehand</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="vd"></a><span class="summary-sig-name">vd</span>(<span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>)</span><br />
-      return data arr of viewer 'id' shortcut for: Y.viewers[id].data</td>
+          <td><span class="summary-sig"><a name="vd"></a><span class="summary-sig-name">vd</span>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default">-1</span>)</span><br />
+      return data arr of viewer 'vid' shortcut for: Y.viewers[vid].data</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vd">source&nbsp;code</a></span>
             
@@ -830,7 +874,7 @@ if hold is not None call Y.plothold(hold) beforehand</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vTransferFct" class="summary-sig-name">vTransferFct</a>(<span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>,
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vTransferFct" class="summary-sig-name">vTransferFct</a>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default">-1</span>,
         <span class="summary-sig-arg">execStr</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
         <span class="summary-sig-arg">usingXX</span>=<span class="summary-sig-default">True</span>)</span><br />
       define custom transfer function:
@@ -855,7 +899,7 @@ y:  result needs to get assigned to `y`</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="vTransferGamma"></a><span class="summary-sig-name">vTransferGamma</span>(<span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>,
+          <td><span class="summary-sig"><a name="vTransferGamma"></a><span class="summary-sig-name">vTransferGamma</span>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default">-1</span>,
         <span class="summary-sig-arg">gamma</span>=<span class="summary-sig-default">0.3</span>)</span><br />
       set transfer function so that images gets displayed using given gamma
       value</td>
@@ -874,9 +918,26 @@ y:  result needs to get assigned to `y`</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="vClose"></a><span class="summary-sig-name">vClose</span>(<span class="summary-sig-arg">id</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">all</code><code class="variable-quote">'</code></span>)</span><br />
-      close viewer with given id id can be a number, a sequence of numbers,
-      or 'all'</td>
+          <td><span class="summary-sig"><a name="vGammaGUI"></a><span class="summary-sig-name">vGammaGUI</span>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">gamma</span>=<span class="summary-sig-default">0.3</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vGammaGUI">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="vClose"></a><span class="summary-sig-name">vClose</span>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">all</code><code class="variable-quote">'</code></span>)</span><br />
+      close viewer with given vid vid can be a number, a sequence of 
+      numbers, or 'all'</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vClose">source&nbsp;code</a></span>
             
@@ -954,11 +1015,11 @@ y:  result needs to get assigned to `y`</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="vHistSettings"></a><span class="summary-sig-name">vHistSettings</span>(<span class="summary-sig-arg">id_src</span>=<span class="summary-sig-default">-2</span>,
+          <td><span class="summary-sig"><a name="vHistSettingsCopy"></a><span class="summary-sig-name">vHistSettingsCopy</span>(<span class="summary-sig-arg">id_src</span>=<span class="summary-sig-default">-2</span>,
         <span class="summary-sig-arg">id_target</span>=<span class="summary-sig-default">-1</span>)</span><br />
       copy settings from one viewer (viewer2) to another</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vHistSettings">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vHistSettingsCopy">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -1184,18 +1245,32 @@ y:  result needs to get assigned to `y`</td>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vColMap" class="summary-sig-name">vColMap</a>(<span class="summary-sig-arg">id</span>=<span class="summary-sig-default">-1</span>,
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vColMap2" class="summary-sig-name">vColMap2</a>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">channel</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">colmap</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">reverse</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">rgb</span>=<span class="summary-sig-default"><code class="variable-group">(</code>1<code class="variable-op">, </code>1<code class="variable-op">, </code>1<code class="variable-group">)</code></span>)</span><br />
+      set color map for given color-viewer+channel</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vColMap2">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vColMap" class="summary-sig-name">vColMap</a>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default">-1</span>,
         <span class="summary-sig-arg">colmap</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
         <span class="summary-sig-arg">reverse</span>=<span class="summary-sig-default">0</span>)</span><br />
       set color map for given viewer
-colmap should be a string; one of:
-  ''   &lt;no color map&gt;
-  lo[g]       log-scale
-  mi[nmaxgray] (both mi or mm work)
-  bl[ackbody]
-  ra[inbow]
-  wh[eel] red-green-blue-red
-  wh[eel]XX  (last two characters must be digits: number-of-wheel-cycles)</td>
+use vid=(vid,channel) for color-viewers</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vColMap">source&nbsp;code</a></span>
             
@@ -1231,8 +1306,28 @@ colmap should be a string; one of:
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a name="vPlotInspectDatapointsGUI"></a><span class="summary-sig-name">vPlotInspectDatapointsGUI</span>(<span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">dataset</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">activate</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">decimals</span>=<span class="summary-sig-default">3</span>)</span><br />
+      open GUI for inspection of plot figure data points figureNo</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vPlotInspectDatapointsGUI">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vPlotAsSliderGUI" class="summary-sig-name">vPlotAsSliderGUI</a>(<span class="summary-sig-arg">vid</span>=<span class="summary-sig-default">-1</span>,
-        <span class="summary-sig-arg">figNo</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">figureNo</span>=<span class="summary-sig-default">-1</span>,
         <span class="summary-sig-arg">zaxis</span>=<span class="summary-sig-default">0</span>,
         <span class="summary-sig-arg">activate</span>=<span class="summary-sig-default">True</span>)</span><br />
       use a plot figure as z-slider by clicking into that plot...</td>
@@ -1254,7 +1349,7 @@ colmap should be a string; one of:
           <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vSetAspectRatio" class="summary-sig-name">vSetAspectRatio</a>(<span class="summary-sig-arg">v_ids</span>=<span class="summary-sig-default"><code class="variable-group">[</code>-1<code class="variable-group">]</code></span>,
         <span class="summary-sig-arg">y_over_x</span>=<span class="summary-sig-default">1</span>,
         <span class="summary-sig-arg">refreshNow</span>=<span class="summary-sig-default">1</span>)</span><br />
-      strech images in y direction use negative value to mirror</td>
+      strech images in y direction use negative value to mirror (flip)</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vSetAspectRatio">source&nbsp;code</a></span>
             
@@ -1431,6 +1526,25 @@ if angle is None open slider GUI</td>
       it means (viewerID, zaxis) default is zaxis=0 otherwise</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vzslider">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="vClearClosedViewers"></a><span class="summary-sig-name">vClearClosedViewers</span>(<span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">True</span>)</span><br />
+      delete trailing closed Y.viewers items closed viewer stay in 
+      `Y.viewers` list as None only trailing items should be removed to 
+      keep used viewer IDs valid</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vClearClosedViewers">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -1765,6 +1879,22 @@ for v=viewers[id] v.lastLeftClick_atYX  gets set to remember
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a name="vSyncViewersGui"></a><span class="summary-sig-name">vSyncViewersGui</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vSyncViewersGui">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#vgMarkIn3D" class="summary-sig-name">vgMarkIn3D</a>(<span class="summary-sig-arg">v_id</span>=<span class="summary-sig-default">-1</span>,
         <span class="summary-sig-arg">zyx</span>=<span class="summary-sig-default"><code class="variable-group">(</code>None<code class="variable-op">, </code>200<code class="variable-op">, </code>200<code class="variable-group">)</code></span>,
         <span class="summary-sig-arg">kind</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">Cross</code><code class="variable-quote">'</code></span>,
@@ -2031,6 +2161,24 @@ if size is not None: set size scale (EITHER scalar, (sx,sy) or (sx,sy,sz)
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#inspectWX" class="summary-sig-name">inspectWX</a>(<span class="summary-sig-arg">selectObj</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">refreshTree</span>=<span class="summary-sig-default">False</span>)</span><br />
+      use this to debug / develop wx applications</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#inspectWX">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#inspect" class="summary-sig-name">inspect</a>(<span class="summary-sig-arg">what</span>=<span class="summary-sig-default">None</span>)</span><br />
       open a new pyFilling window.</td>
           <td align="right" valign="top">
@@ -2048,13 +2196,33 @@ if size is not None: set size scale (EITHER scalar, (sx,sy) or (sx,sy,sz)
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#shellExec" class="summary-sig-name">shellExec</a>(<span class="summary-sig-arg">command</span>,
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#shellExec0" class="summary-sig-name">shellExec0</a>(<span class="summary-sig-arg">command</span>,
         <span class="summary-sig-arg">addHistory</span>=<span class="summary-sig-default">True</span>,
-        <span class="summary-sig-arg">useLocals</span>=<span class="summary-sig-default">True</span>)</span><br />
+        <span class="summary-sig-arg">useLocals</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">writeCommand</span>=<span class="summary-sig-default">True</span>)</span><br />
       to emulate a command beeing typed into the Priithon shell,
 exec `command` in __main__.__dict__
 and, if `addHistory` is True
  inject `command` into Priithon shell history</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#shellExec0">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#shellExec" class="summary-sig-name">shellExec</a>(<span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">prompt</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Execute command as if it was typed in directly.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#shellExec">source&nbsp;code</a></span>
             
@@ -2210,38 +2378,6 @@ cmd:
       Return an array containing the data currently as text in the clipboard.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#clipboardGetText2array">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="vtkInit"></a><span class="summary-sig-name">vtkInit</span>()</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vtkInit">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="vtkWxDemoCone"></a><span class="summary-sig-name">vtkWxDemoCone</span>(<span class="summary-sig-arg">resolution</span>=<span class="summary-sig-default">8</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vtkWxDemoCone">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -2609,14 +2745,14 @@ else:
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#_registerEventHandler" class="summary-sig-name" onclick="show_private();">_registerEventHandler</a>(<span class="summary-sig-arg">handlerList</span>,
-        <span class="summary-sig-arg">newFcn</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">newFcnName</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">oldFcnName</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
-        <span class="summary-sig-arg">delAll</span>=<span class="summary-sig-default">False</span>)</span><br />
-      use this for event-handler function lists.</td>
+          <td><span class="summary-sig"><a name="_callAllEventHandlers"></a><span class="summary-sig-name">_callAllEventHandlers</span>(<span class="summary-sig-arg">handlerList</span>,
+        <span class="summary-sig-arg">handlerFcnArgs</span>,
+        <span class="summary-sig-arg">errorMsgListName</span>,
+        <span class="summary-sig-arg">neverRaise</span>=<span class="summary-sig-default">False</span>)</span><br />
+      helper function to call all registered event handlers prints 
+      traceback to stderr</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#_registerEventHandler">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#_callAllEventHandlers">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -2630,7 +2766,29 @@ else:
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="vAnimate"></a><span class="summary-sig-name">vAnimate</span>(<span class="summary-sig-arg">vids</span>=<span class="summary-sig-default">-1</span>)</span></td>
+          <td><span class="summary-sig"><a href="Priithon.usefulX-module.html#registerEventHandler" class="summary-sig-name">registerEventHandler</a>(<span class="summary-sig-arg">handlerList</span>,
+        <span class="summary-sig-arg">newFcn</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">newFcnName</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">oldFcnName</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">delAll</span>=<span class="summary-sig-default">False</span>)</span><br />
+      use this for event-handler function lists.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.usefulX-pysrc.html#registerEventHandler">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="vAnimate"></a><span class="summary-sig-name">vAnimate</span>(<span class="summary-sig-arg">vids</span>=<span class="summary-sig-default">-1</span>)</span><br />
+      Open GUI window for &quot;play video&quot; mode</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Priithon.usefulX-pysrc.html#vAnimate">source&nbsp;code</a></span>
             
@@ -2939,6 +3097,13 @@ else:
     </table>
   </td>
 </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="viewers"></a><span class="summary-name">viewers</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -2953,11 +3118,60 @@ else:
         <a name="_error"></a><span class="summary-name">_error</span> = <code title="''"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></code>
     </td>
   </tr>
-<tr>
+<tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="viewers"></a><span class="summary-name">viewers</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code>
+        <a name="_guiDisplNdArrayChoice_Menu_print"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_print</span> = <code title="168">168</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_guiDisplNdArrayChoice_Menu_view"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_view</span> = <code title="169">169</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_guiDisplNdArrayChoice_Menu_view2"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_view2</span> = <code title="170">170</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_guiDisplNdArrayChoice_Menu_ploty"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_ploty</span> = <code title="171">171</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_guiDisplNdArrayChoice_Menu_plotxy"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_plotxy</span> = <code title="172">172</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_guiDisplNdArrayChoice_Menu_viewIn"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_viewIn</span> = <code title="173">173</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_guiDisplNdArrayChoice_Menu_viewIn2"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_viewIn2</span> = <code title="174">174</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_guiDisplNdArrayChoice_Menu_gridview"></a><span class="summary-name">_guiDisplNdArrayChoice_Menu_gridview</span> = <code title="175">175</code>
     </td>
   </tr>
 <tr class="private">
@@ -2971,21 +3185,14 @@ else:
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="_Menu_enableSync"></a><span class="summary-name">_Menu_enableSync</span> = <code title="194">194</code>
+        <a name="_Menu_enableSync"></a><span class="summary-name">_Menu_enableSync</span> = <code title="176">176</code>
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="_Menu_SyncDone"></a><span class="summary-name">_Menu_SyncDone</span> = <code title="195">195</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="exc_info"></a><span class="summary-name">exc_info</span> = <code title="sys.exc_info()">sys.exc_info()</code>
+        <a name="_Menu_SyncDone"></a><span class="summary-name">_Menu_SyncDone</span> = <code title="177">177</code>
     </td>
   </tr>
 <tr class="private">
@@ -3008,6 +3215,145 @@ else:
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a name="buttonBoxes"></a><span class="summary-name">buttonBoxes</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="cms_blackbody"></a><span class="summary-name">cms_blackbody</span> = <code title="['black', 'darkred', 'orange', 'yellow', 'white']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">yellow</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">white</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.usefulX-module.html#cms_colnames" class="summary-name">cms_colnames</a> = <code title="{'amaranth': array([ 0.89803922,  0.16862745,  0.31372549]),
+ 'amber': array([ 1.        ,  0.74901961,  0.        ]),
+ 'aquamarine': array([ 0.49803922,  1.        ,  0.83137255]),
+ 'azure': array([ 0.        ,  0.49803922,  1.        ]),
+ 'beige': array([ 0.96078431,  0.96078431,  0.8627451 ]),
+ 'black': array([ 0.,  0.,  0.]),
+ 'blue': array([ 0.,  0.,  1.]),
+ 'bluegreen': array([ 0.        ,  0.58431373,  0.71372549]),
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">amaranth</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.89803922,  0.16862745,  <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.usefulX-module.html#cms_colnames_255" class="summary-name">cms_colnames_255</a> = <code title="{'black': (0, 0, 0),
+ 'blue': (0, 0, 255),
+ 'cyan': (0, 255, 255),
+ 'darkblue': (0, 0, 128),
+ 'darkgreen': (0, 128, 0),
+ 'darkred': (128, 0, 0),
+ 'gray': (128, 128, 128),
+ 'green': (0, 255, 0),
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-op">, </code>0<code class="variable-group">)</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-op">, </code>255<code class="variable-group">)</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.usefulX-module.html#cms_colnames_simple_wikipedia_org_List_of_colors" class="summary-name">cms_colnames_simple_wikipedia_org_List_of_colors</a> = <code title="'''Amaranth\t#E52B50
+Amber\t#FFBF00
+Aquamarine\t#7FFFD4
+Azure\t#007FFF
+Beige\t#F5F5DC
+Black\t#000000
+Blue\t#0000FF
+Blue-green\t#0095B6
+..."><code class="variable-quote">'</code><code class="variable-string">Amaranth\t</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="cms_greenred"></a><span class="summary-name">cms_greenred</span> = <code title="['green', 'darkgreen', 'black', 'darkred', 'red']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">darkgreen</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="cms_grey"></a><span class="summary-name">cms_grey</span> = <code title="['black', 'white']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">white</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="cms_redgreen"></a><span class="summary-name">cms_redgreen</span> = <code title="['red', 'darkred', 'black', 'darkgreen', 'green']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">darkgreen</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.usefulX-module.html#cms_spectrum" class="summary-name">cms_spectrum</a> = <code title="['darkred',
+ 'red',
+ 'orange',
+ 'yellow',
+ 'green',
+ 'blue',
+ 'darkblue',
+ 'violet']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">yellow</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">,</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.usefulX-module.html#cms_spectrum2" class="summary-name">cms_spectrum2</a> = <code title="['darkred',
+ 'red',
+ 'orange',
+ '255:255:0',
+ 'green',
+ 'cyan',
+ 'blue',
+ 'darkblue',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">255:255:0</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">gre</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.usefulX-module.html#cms_spectrum3" class="summary-name">cms_spectrum3</a> = <code title="['darkred',
+ 'red',
+ 'orange',
+ '255:255:0',
+ 'green',
+ 'cyan',
+ 'blue',
+ 'darkblue',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">255:255:0</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">gre</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Priithon.usefulX-module.html#cms_spectrum4" class="summary-name">cms_spectrum4</a> = <code title="['black',
+ 'darkred',
+ 'red',
+ 'orange',
+ '255:255:0',
+ 'green',
+ 'cyan',
+ 'blue',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">255:255</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="cms_twocolorarray"></a><span class="summary-name">cms_twocolorarray</span> = <code title="['green', 'yellow', 'red']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">yellow</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
     </td>
   </tr>
 <tr>
@@ -3228,7 +3574,8 @@ viewInViewer2 fails EXCEPT id==-1
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">saveSession</span>(<span class="sig-arg">fn</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">autosave</span>=<span class="sig-default">False</span>)</span>
+        <span class="sig-arg">autosave</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">verbose</span>=<span class="sig-default">True</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#saveSession">source&nbsp;code</a></span>&nbsp;
@@ -3242,6 +3589,9 @@ if fn is None it calls smart 'FN()' for you
 
 if autosave is True:
    ignore fn and use auto generated filename (see _priConfig.autoSave...)
+
+if verbose:
+   print '#  ..&lt;pySession&gt; ... saved' 
 
 </pre>
   <dl class="fields">
@@ -3285,6 +3635,27 @@ if autosave is True:
   
   <p>use mouse to get directory name</p>
   <p>if verbose is true: also print dirname</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="sleep"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sleep</span>(<span class="sig-arg">secs</span>=<span class="sig-default">1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#sleep">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>resfresh and then sleep if secs is int: call wxSleep else call 
+  wxMilliSleep</p>
+  <p>without wx  call time.sleep(</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -3525,7 +3896,7 @@ if hold is not None call Y.plothold(hold) beforehand
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">vTransferFct</span>(<span class="sig-arg">id</span>=<span class="sig-default">-1</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">vTransferFct</span>(<span class="sig-arg">vid</span>=<span class="sig-default">-1</span>,
         <span class="sig-arg">execStr</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
         <span class="sig-arg">usingXX</span>=<span class="sig-default">True</span>)</span>
   </h3>
@@ -3753,6 +4124,54 @@ return title of given viewer window
   </dl>
 </td></tr></table>
 </div>
+<a name="vColMap2"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">vColMap2</span>(<span class="sig-arg">vid</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">channel</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">colmap</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">reverse</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">rgb</span>=<span class="sig-default"><code class="variable-group">(</code>1<code class="variable-op">, </code>1<code class="variable-op">, </code>1<code class="variable-group">)</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#vColMap2">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+set color map for given color-viewer+channel
+
+specify RGB of given channel as tuple of 3
+   or use `None` to leave channel's RGB color setting unchanged
+
+`colmap` should be a string; one of:
+   ''   &lt;no color map&gt;
+   lo[g]       log-scale
+   mi[nmaxgray] (both mi or mm work)
+   bl[ackbody]
+   ra[inbow]
+   wh[eel] red-green-blue-red
+   wh[eel]XX  (last two characters must be digits: number-of-wheel-cycles)
+  
+  (only first two letters are checked)
+OR
+if colmap is a numpy array, the array is used directly as colmap
+   it should be of shape (3, 256)
+   if reverse is True: use array reversed (i.e. colmap[:, ::-1])
+OR
+colmap can also be a sequence of colors:
+   e.g. colmap= ['darkred', 'red', 'orange', 'yellow', 'green', 'blue', 'darkblue', 'violet']
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
 <a name="vColMap"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -3760,7 +4179,7 @@ return title of given viewer window
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">vColMap</span>(<span class="sig-arg">id</span>=<span class="sig-default">-1</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">vColMap</span>(<span class="sig-arg">vid</span>=<span class="sig-default">-1</span>,
         <span class="sig-arg">colmap</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
         <span class="sig-arg">reverse</span>=<span class="sig-default">0</span>)</span>
   </h3>
@@ -3772,20 +4191,23 @@ return title of given viewer window
   <pre class="literalblock">
 
 set color map for given viewer
+use vid=(vid,channel) for color-viewers
+
 colmap should be a string; one of:
-  ''   &lt;no color map&gt;
-  lo[g]       log-scale
-  mi[nmaxgray] (both mi or mm work)
-  bl[ackbody]
-  ra[inbow]
-  wh[eel] red-green-blue-red
-  wh[eel]XX  (last two characters must be digits: number-of-wheel-cycles)
+   ''   &lt;no color map&gt;
+   lo[g]       log-scale
+   mi[nmaxgray] (both mi or mm work)
+   bl[ackbody]
+   ra[inbow]
+   wh[eel] red-green-blue-red
+   wh[eel]XX  (last two characters must be digits: number-of-wheel-cycles)
   
   (only first two letters are checked)
-
+OR
 if colmap is a numpy array, the array is used directly as colmap
    it should be of shape (3, 256)
    if reverse is True: use array reversed (i.e. colmap[:, ::-1])
+OR
 colmap can also be a sequence of colors:
    e.g. colmap= ['darkred', 'red', 'orange', 'yellow', 'green', 'blue', 'darkblue', 'violet']
 
@@ -3802,7 +4224,7 @@ colmap can also be a sequence of colors:
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">vPlotAsSliderGUI</span>(<span class="sig-arg">vid</span>=<span class="sig-default">-1</span>,
-        <span class="sig-arg">figNo</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">figureNo</span>=<span class="sig-default">-1</span>,
         <span class="sig-arg">zaxis</span>=<span class="sig-default">0</span>,
         <span class="sig-arg">activate</span>=<span class="sig-default">True</span>)</span>
   </h3>
@@ -3816,7 +4238,7 @@ colmap can also be a sequence of colors:
 use a plot figure as z-slider by clicking into that plot
 a GUI control window will open
 given arguments are used as default values
-note: changing `figNo` in GUI (maybe) requires to click `active` 
+note: changing `figureNo` in GUI (maybe) requires to click `active` 
       before and after to 
 
 </pre>
@@ -3840,7 +4262,7 @@ note: changing `figNo` in GUI (maybe) requires to click `active`
     </td>
   </tr></table>
   
-  <p>strech images in y direction use negative value to mirror</p>
+  <p>strech images in y direction use negative value to mirror (flip)</p>
   <p>if v_ids is a scalar change only for that viewer, otherwise for all 
   viewers in that list</p>
   <dl class="fields">
@@ -4308,6 +4730,32 @@ if enableLineSmooth  bracket code with glEnable/glDisable GL_LINE_SMOOTH
   </dl>
 </td></tr></table>
 </div>
+<a name="inspectWX"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">inspectWX</span>(<span class="sig-arg">selectObj</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">refreshTree</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#inspectWX">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>use this to debug / develop wx applications</p>
+  <p>Creates the inspection frame if it hasn't been already, and raises it 
+  if neccessary.  Pass a widget or sizer in selectObj to have that object 
+  be preselected in widget tree.  If refreshTree is True then the widget 
+  tree will be rebuilt, otherwise if the tree has already been built it 
+  will be left alone.</p>
+  <p>ref. http://wiki.wxpython.org/Widget%20Inspection%20Tool</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
 <a name="inspect"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -4330,19 +4778,20 @@ if enableLineSmooth  bracket code with glEnable/glDisable GL_LINE_SMOOTH
   </dl>
 </td></tr></table>
 </div>
-<a name="shellExec"></a>
+<a name="shellExec0"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">shellExec</span>(<span class="sig-arg">command</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">shellExec0</span>(<span class="sig-arg">command</span>,
         <span class="sig-arg">addHistory</span>=<span class="sig-default">True</span>,
-        <span class="sig-arg">useLocals</span>=<span class="sig-default">True</span>)</span>
+        <span class="sig-arg">useLocals</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">writeCommand</span>=<span class="sig-default">True</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#shellExec">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#shellExec0">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -4354,8 +4803,33 @@ and, if `addHistory` is True
  inject `command` into Priithon shell history
 
 if `useLocals` uses callers local name space in addition to __main__ globals
+  note: `useLocals` should be False, if you want to change __main__ 
+        without having to use the `globals ...` line
 
 </pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="shellExec"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">shellExec</span>(<span class="sig-arg">command</span>,
+        <span class="sig-arg">prompt</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">verbose</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#shellExec">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Execute command as if it was typed in directly. &gt;&gt;&gt; 
+  Y.shellExec('print &quot;this&quot;') &gt;&gt;&gt; print &quot;this&quot;
+  this &gt;&gt;&gt;</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -4760,21 +5234,21 @@ otherwise image is substituted where brush&gt;0
   </dl>
 </td></tr></table>
 </div>
-<a name="_registerEventHandler"></a>
-<div class="private">
+<a name="registerEventHandler"></a>
+<div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">_registerEventHandler</span>(<span class="sig-arg">handlerList</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">registerEventHandler</span>(<span class="sig-arg">handlerList</span>,
         <span class="sig-arg">newFcn</span>=<span class="sig-default">None</span>,
         <span class="sig-arg">newFcnName</span>=<span class="sig-default">None</span>,
         <span class="sig-arg">oldFcnName</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
         <span class="sig-arg">delAll</span>=<span class="sig-default">False</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#_registerEventHandler">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="Priithon.usefulX-pysrc.html#registerEventHandler">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -4791,7 +5265,7 @@ to append a new handler function:
 to remove functions by name:
     set newFcn to None (default)
     set oldFcnName to the handler function name that should be removed
-    if delAl: not only the last, but all, such handlers will get removed
+    if delAll: not only the last, but all, such handlers will get removed
 
 
 to replace a given handler function:
@@ -5270,6 +5744,187 @@ ps can be Y-X tuples if enumLabel is a number, label-text is auto-generated as 1
   </dl>
 </td></tr></table>
 </div>
+<a name="cms_colnames"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">cms_colnames</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">amaranth</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.89803922,  0.16862745,  0.31372549])<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">amber</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 1.        ,  0.74901961,  0.        ])<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">aquamarine</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.49803922,  1.        ,  0.83137255])<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">azure</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.        ,  0.49803922,  1.        ])<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">beige</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.96078431,  0.96078431,  0.8627451 ])<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.,  0.,  0.])<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.,  0.,  1.])<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">bluegreen</code><code class="variable-quote">'</code><code class="variable-op">: </code>array([ 0.        ,  0.58431373,  0.71372549])<code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cms_colnames_255"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">cms_colnames_255</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-op">, </code>0<code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-op">, </code>255<code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">cyan</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>255<code class="variable-op">, </code>255<code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">darkblue</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-op">, </code>128<code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">darkgreen</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>128<code class="variable-op">, </code>0<code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>128<code class="variable-op">, </code>0<code class="variable-op">, </code>0<code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">gray</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>128<code class="variable-op">, </code>128<code class="variable-op">, </code>128<code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">(</code>0<code class="variable-op">, </code>255<code class="variable-op">, </code>0<code class="variable-group">)</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cms_colnames_simple_wikipedia_org_List_of_colors"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">cms_colnames_simple_wikipedia_org_List_of_colors</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string">Amaranth\t#E52B50</code>
+<code class="variable-string">Amber\t#FFBF00</code>
+<code class="variable-string">Aquamarine\t#7FFFD4</code>
+<code class="variable-string">Azure\t#007FFF</code>
+<code class="variable-string">Beige\t#F5F5DC</code>
+<code class="variable-string">Black\t#000000</code>
+<code class="variable-string">Blue\t#0000FF</code>
+<code class="variable-string">Blue-green\t#0095B6</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cms_spectrum"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">cms_spectrum</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">yellow</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">darkblue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">violet</code><code class="variable-quote">'</code><code class="variable-group">]</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cms_spectrum2"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">cms_spectrum2</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">255:255:0</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">cyan</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">darkblue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cms_spectrum3"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">cms_spectrum3</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">255:255:0</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">cyan</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">darkblue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cms_spectrum4"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">cms_spectrum4</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">darkred</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">red</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">orange</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">255:255:0</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">green</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">cyan</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">blue</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
 <br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
@@ -5302,7 +5957,7 @@ ps can be Y-X tuples if enumLabel is a number, label-text is auto-generated as 1
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Mar  4 14:03:14 2010
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:33 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
