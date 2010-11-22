@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.viewer2.GLViewer2</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.viewer2-module.html">Module&nbsp;viewer2</a> ::
+        Class&nbsp;GLViewer2
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.viewer2.GLViewer2-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class GLViewer2</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_85" name="uml_class_diagram_for_priithon_85">
+<area shape="rect" id="node399" href="javascript:void(0);" title="The membership flag" alt="" coords="204,1105,368,1124"/>
+<area shape="rect" id="node399" href="javascript:void(0);" title="See `GetContext`" alt="" coords="204,1124,368,1143"/>
+<area shape="rect" id="node399" href="javascript:void(0);" title="repr(x)" alt="" coords="204,1145,368,1164"/>
+<area shape="rect" id="node399" href="javascript:void(0);" title="SetCurrent(self, GLContext RC)" alt="" coords="204,1164,368,1183"/>
+<area shape="rect" id="node399" href="javascript:void(0);" title="SetColour(self, String colour)" alt="" coords="204,1183,368,1201"/>
+<area shape="rect" id="node399" href="javascript:void(0);" title="wx.glcanvas.GLCanvas.SwapBuffers" alt="" coords="204,1201,368,1220"/>
+<area shape="rect" id="node399" href="javascript:void(0);" title="wx.glcanvas.GLCanvas.GetContext" alt="" coords="204,1220,368,1239"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="Proxy of C++ GLCanvas class" alt="" coords="192,1081,379,1245"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#m_zoomChanged" title="warp=False..." alt="" coords="63,1289,511,1308"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnAspectRatio" title="Priithon.viewerCommon.GLViewerCommon.OnAspectRatio" alt="" coords="63,1311,511,1329"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnAssign" title="Priithon.viewerCommon.GLViewerCommon.OnAssign" alt="" coords="63,1329,511,1348"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnCenter" title="Priithon.viewerCommon.GLViewerCommon.OnCenter" alt="" coords="63,1348,511,1367"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnChgNoGfx" title="Priithon.viewerCommon.GLViewerCommon.OnChgNoGfx" alt="" coords="63,1367,511,1385"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnChgOrig" title="Priithon.viewerCommon.GLViewerCommon.OnChgOrig" alt="" coords="63,1385,511,1404"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnEraseBackground" title="Priithon.viewerCommon.GLViewerCommon.OnEraseBackground" alt="" coords="63,1404,511,1423"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnMenu" title="Priithon.viewerCommon.GLViewerCommon.OnMenu" alt="" coords="63,1423,511,1441"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnMouse" title="Priithon.viewerCommon.GLViewerCommon.OnMouse" alt="" coords="63,1441,511,1460"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnNoGfx" title="Priithon.viewerCommon.GLViewerCommon.OnNoGfx" alt="" coords="63,1460,511,1479"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnRotate" title="Priithon.viewerCommon.GLViewerCommon.OnRotate" alt="" coords="63,1479,511,1497"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnSave" title="Priithon.viewerCommon.GLViewerCommon.OnSave" alt="" coords="63,1497,511,1516"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnSaveClipboard" title="Priithon.viewerCommon.GLViewerCommon.OnSaveClipboard" alt="" coords="63,1516,511,1535"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#OnSaveScreenShort" title="always flipY" alt="" coords="63,1535,511,1553"/>
+<area shape="rect" id="node398" href="Priithon.viewerCommon.GLViewerCommon-class.html#zoom" title="set new zoom factor to zoomfactor if absolute is False &#160;&#160;&#160;adjust current zoom factor to &#160;&#160;&#160;&#160;&#160;&#160;&quot;current&quot;*zoomfactor if zoomfactor is None: &#160;&#160;&#160;&#160;zoomfactor stays unchanged" alt="" coords="63,1572,511,1591"/>
+<area shape="rect" id="node2" href="Priithon.viewerCommon.GLViewerCommon-class.html" title="Priithon.viewerCommon.GLViewerCommon" alt="" coords="51,1265,523,1597"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#__init__" title="__init__(self, Window parent, int id=&#45;1, Point pos=DefaultPosition, ..." alt="" coords="17,1649,555,1668"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#MakePopupMenu" title="Make a menu that can be popped up later" alt="" coords="17,1668,555,1687"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#InitGL" title="Priithon.viewer2.GLViewer2.InitGL" alt="" coords="17,1687,555,1705"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#addImgL" title="Priithon.viewer2.GLViewer2.addImgL" alt="" coords="17,1705,555,1724"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#addImg" title="append new inage." alt="" coords="17,1724,555,1743"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#defGlList" title="Priithon.viewer2.GLViewer2.defGlList" alt="" coords="17,1743,555,1761"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#updateGlList" title="Priithon.viewer2.GLViewer2.updateGlList" alt="" coords="17,1761,555,1780"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#addGlList" title="Priithon.viewer2.GLViewer2.addGlList" alt="" coords="17,1780,555,1799"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#changeHistogramScaling" title="Priithon.viewer2.GLViewer2.changeHistogramScaling" alt="" coords="17,1799,555,1817"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#changeHistScale" title="Priithon.viewer2.GLViewer2.changeHistScale" alt="" coords="17,1817,555,1836"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#changeImgOffset" title="if ty is None:..." alt="" coords="17,1836,555,1855"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#setColor" title="Priithon.viewer2.GLViewer2.setColor" alt="" coords="17,1855,555,1873"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#getColor" title="Priithon.viewer2.GLViewer2.getColor" alt="" coords="17,1873,555,1892"/>
+<area shape="rect" id="node397" href="Priithon.viewer2.GLViewer2-class.html#OnColor" title="Priithon.viewer2.GLViewer2.OnColor" alt="" coords="17,1911,555,1929"/>
+<area shape="rect" id="node4" href="Priithon.viewer2.GLViewer2-class.html" title="Priithon.viewer2.GLViewer2" alt="" coords="5,1617,565,1935"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetAcceleratorTable` and `SetAcceleratorTable`" alt="" coords="160,492,412,511"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetAutoLayout` and `SetAutoLayout`" alt="" coords="160,511,412,529"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetBackgroundColour` and `SetBackgroundColour`" alt="" coords="160,529,412,548"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetBackgroundStyle` and `SetBackgroundStyle`" alt="" coords="160,548,412,567"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetBestSize`" alt="" coords="160,567,412,585"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetBestVirtualSize`" alt="" coords="160,585,412,604"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetBorder`" alt="" coords="160,604,412,623"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetCaret` and `SetCaret`" alt="" coords="160,623,412,641"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetCharHeight`" alt="" coords="160,641,412,660"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetCharWidth`" alt="" coords="160,660,412,679"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetChildren`" alt="" coords="160,679,412,697"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetClientAreaOrigin`" alt="" coords="160,697,412,716"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetClientRect` and `SetClientRect`" alt="" coords="160,716,412,735"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="See `GetWindowVariant` and `SetWindowVariant`" alt="" coords="160,753,412,772"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="Can this window have focus?" alt="" coords="160,775,412,793"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="Can this window be given focus by keyboard navigation? if not, the only way to give it focus (provided it accepts it at all) is to click it." alt="" coords="160,793,412,812"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="AddChild(self, Window child)" alt="" coords="160,812,412,831"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="AdjustForLayoutDirection(self, int x, int width, int widthTotal) &#45;&gt; int" alt="" coords="160,831,412,849"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="AssociateHandle(self, long handle)" alt="" coords="160,849,412,868"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="CacheBestSize(self, Size size)" alt="" coords="160,868,412,887"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="Returns ``True`` if the platform supports setting the transparency for this window." alt="" coords="160,887,412,905"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="Directs all mouse input to this window." alt="" coords="160,905,412,924"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="160,924,412,943"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="160,943,412,961"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="160,961,412,980"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="160,980,412,999"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="Clears the window by filling it with the current background colour." alt="" coords="160,999,412,1017"/>
+<area shape="rect" id="node400" href="javascript:void(0);" title="WindowToClientSize(self, Size size) &#45;&gt; Size" alt="" coords="160,1036,412,1055"/>
+<area shape="rect" id="node3" href="javascript:void(0);" title="wx.Window is the base class for all windows and represents any visible object on the screen." alt="" coords="148,467,423,1061"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`" alt="" coords="100,140,473,159"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="See `GetNextHandler` and `SetNextHandler`" alt="" coords="100,159,473,177"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="See `GetPreviousHandler` and `SetPreviousHandler`" alt="" coords="100,177,473,196"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="wx._core.EvtHandler.GetNextHandler" alt="" coords="100,199,473,217"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="wx._core.EvtHandler.GetPreviousHandler" alt="" coords="100,217,473,236"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="SetNextHandler(self, EvtHandler handler)" alt="" coords="100,236,473,255"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="SetPreviousHandler(self, EvtHandler handler)" alt="" coords="100,255,473,273"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="wx._core.EvtHandler.GetEvtHandlerEnabled" alt="" coords="100,273,473,292"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="SetEvtHandlerEnabled(self, bool enabled)" alt="" coords="100,292,473,311"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="ProcessEvent(self, Event event) &#45;&gt; bool" alt="" coords="100,311,473,329"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="AddPendingEvent(self, Event event)" alt="" coords="100,329,473,348"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="wx._core.EvtHandler.ProcessPendingEvents" alt="" coords="100,348,473,367"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="Connect(self, int id, int lastId, int eventType, PyObject func)" alt="" coords="100,367,473,385"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="Disconnect(self, int id, int lastId=&#45;1, EventType eventType=wxEVT_NULL, ..." alt="" coords="100,385,473,404"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="Bind an event to an event handler." alt="" coords="100,404,473,423"/>
+<area shape="rect" id="node401" href="javascript:void(0);" title="Disconnects the event handler binding for event from self." alt="" coords="100,423,473,441"/>
+<area shape="rect" id="node5" href="javascript:void(0);" title="Proxy of C++ EvtHandler class" alt="" coords="88,115,485,447"/>
+<area shape="rect" id="node402" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="203,31,369,49"/>
+<area shape="rect" id="node402" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="203,52,369,71"/>
+<area shape="rect" id="node402" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="203,71,369,89"/>
+<area shape="rect" id="node6" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="191,6,380,95"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_85.gif" alt='' usemap="#uml_class_diagram_for_priithon_85" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">EvtHandler</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.viewer2.GLViewer2-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.Size(-1, -1)</span>,
+        <span class="summary-sig-arg">originLeftBottom</span>=<span class="summary-sig-default">None</span>)</span><br />
+      __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="MakePopupMenu"></a><span class="summary-sig-name">MakePopupMenu</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Make a menu that can be popped up later</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.MakePopupMenu">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="InitGL"></a><span class="summary-sig-name">InitGL</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.InitGL">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="addImgL"></a><span class="summary-sig-name">addImgL</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imgL</span>,
+        <span class="summary-sig-arg">smin</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">smax</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">interp</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">refreshNow</span>=<span class="summary-sig-default">1</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.addImgL">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.viewer2.GLViewer2-class.html#addImg" class="summary-sig-name">addImg</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">img</span>,
+        <span class="summary-sig-arg">smin</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">smax</span>=<span class="summary-sig-default">10000</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">interp</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">imgidx</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">refreshNow</span>=<span class="summary-sig-default">1</span>)</span><br />
+      append new inage.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.addImg">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_loadImgIntoGfx"></a><span class="summary-sig-name">_loadImgIntoGfx</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imgidx</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2._loadImgIntoGfx">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_setHistScale"></a><span class="summary-sig-name">_setHistScale</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">smin</span>,
+        <span class="summary-sig-arg">smax</span>,
+        <span class="summary-sig-arg">dataTypeMaxValue</span>,
+        <span class="summary-sig-arg">colMap</span>)</span><br />
+      call this right before you load data into the gfx-card</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2._setHistScale">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="defGlList"></a><span class="summary-sig-name">defGlList</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.defGlList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="updateGlList"></a><span class="summary-sig-name">updateGlList</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">glCallsFunctions</span>,
+        <span class="summary-sig-arg">refreshNow</span>=<span class="summary-sig-default">True</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.updateGlList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="addGlList"></a><span class="summary-sig-name">addGlList</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">glCallsFunctions</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.addGlList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="changeHistogramScaling"></a><span class="summary-sig-name">changeHistogramScaling</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.changeHistogramScaling">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="changeHistScale"></a><span class="summary-sig-name">changeHistScale</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imgidx</span>,
+        <span class="summary-sig-arg">smin</span>,
+        <span class="summary-sig-arg">smax</span>,
+        <span class="summary-sig-arg">RefreshNow</span>=<span class="summary-sig-default">1</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.changeHistScale">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.viewer2.GLViewer2-class.html#changeImgOffset" class="summary-sig-name">changeImgOffset</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imgidx</span>,
+        <span class="summary-sig-arg">tx_or_4tuple</span>,
+        <span class="summary-sig-arg">ty</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">rot</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">mag</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">RefreshNow</span>=<span class="summary-sig-default">1</span>)</span><br />
+      if ty is None:...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.changeImgOffset">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setColor"></a><span class="summary-sig-name">setColor</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imgidx</span>,
+        <span class="summary-sig-arg">r_or_RBG</span>,
+        <span class="summary-sig-arg">g</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">b</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">RefreshNow</span>=<span class="summary-sig-default">1</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.setColor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getColor"></a><span class="summary-sig-name">getColor</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imgidx</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.getColor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnPaint"></a><span class="summary-sig-name">OnPaint</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.OnPaint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setImageL"></a><span class="summary-sig-name">setImageL</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imgArrL</span>,
+        <span class="summary-sig-arg">refreshNow</span>=<span class="summary-sig-default">True</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.setImageL">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setImage"></a><span class="summary-sig-name">setImage</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">imgArr</span>,
+        <span class="summary-sig-arg">refreshNow</span>=<span class="summary-sig-default">True</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.setImage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="delImage"></a><span class="summary-sig-name">delImage</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">refreshNow</span>=<span class="summary-sig-default">1</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.delImage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="goFFTmode"></a><span class="summary-sig-name">goFFTmode</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.goFFTmode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.viewer2.GLViewer2-class.html#setOriginLeftBottom" class="summary-sig-name">setOriginLeftBottom</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">olb</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.setOriginLeftBottom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnReload"></a><span class="summary-sig-name">OnReload</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.OnReload">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnColor"></a><span class="summary-sig-name">OnColor</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.OnColor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html">viewerCommon.GLViewerCommon</a></code></b>:
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnAspectRatio">OnAspectRatio</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnAssign">OnAssign</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnCenter">OnCenter</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnChgNoGfx">OnChgNoGfx</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnChgOrig">OnChgOrig</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnEraseBackground">OnEraseBackground</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnMenu">OnMenu</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnMouse">OnMouse</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnNoGfx">OnNoGfx</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnRotate">OnRotate</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnSave">OnSave</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnSaveClipboard">OnSaveClipboard</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnSaveScreenShort">OnSaveScreenShort</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnSize">OnSize</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnWheel_zoom">OnWheel_zoom</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnZoomIn">OnZoomIn</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#OnZoomOut">OnZoomOut</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#center">center</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#doReset">doReset</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#doShift">doShift</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#drawPixelGrid">drawPixelGrid</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#flipY">flipY</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListAbort">newGLListAbort</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListDone">newGLListDone</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListEnable">newGLListEnable</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListEnableByName">newGLListEnableByName</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListNameAdd">newGLListNameAdd</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListNameRemove">newGLListNameRemove</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListNow">newGLListNow</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListRemove">newGLListRemove</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListRemoveAll">newGLListRemoveAll</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#newGLListRemoveByName">newGLListRemoveByName</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#quaterShiftOffsetDown">quaterShiftOffsetDown</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#quaterShiftOffsetLeft">quaterShiftOffsetLeft</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#quaterShiftOffsetRight">quaterShiftOffsetRight</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#quaterShiftOffsetUp">quaterShiftOffsetUp</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#readGLviewport">readGLviewport</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#setAspectRatio">setAspectRatio</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#setPixelGrid">setPixelGrid</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#setRotation">setRotation</a></code>,
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#zoom">zoom</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.glcanvas.GLCanvas</code></b>:
+      <code>GetContext</code>,
+      <code>SetColour</code>,
+      <code>SetCurrent</code>,
+      <code>SwapBuffers</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>ClientToWindowSize</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>Create</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByLabel</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetGtkWidget</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>LineDown</code>,
+      <code>LineUp</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>PageDown</code>,
+      <code>PageUp</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>,
+      <code>WindowToClientSize</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>GetClassDefaultAttributes</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html">viewerCommon.GLViewerCommon</a></code></b>:
+      <code><a href="Priithon.viewerCommon.GLViewerCommon-class.html#m_zoomChanged">m_zoomChanged</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx.glcanvas.GLCanvas</code></b>:
+      <code>Context</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>GtkWidget</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.Size(-1, -1)</span>,
+        <span class="sig-arg">originLeftBottom</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+__init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+    Size size=DefaultSize, long style=0, String name=GLCanvasNameStr, 
+    int attribList=None, Palette palette=wxNullPalette) -&gt; GLCanvas
+
+</pre>
+  <dl class="fields">
+    <dt>Returns: EvtHandler</dt>
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="addImg"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addImg</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">img</span>,
+        <span class="sig-arg">smin</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">smax</span>=<span class="sig-default">10000</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">1.0</span>,
+        <span class="sig-arg">interp</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">imgidx</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">refreshNow</span>=<span class="sig-default">1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.addImg">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>append new inage. Following lists get somthing appended: m_imgList 
+  m_loadImgsToGfxCard</p>
+  <p>if imgidx is not None use 'insert(imgidx,...)' with m_imgList instead 
+  of append</p>
+  <p>a new GL-texture is generated and an empty(!) texture with proper 
+  dtype is created. a new GL-Display-lists  is generated an compiled 
+  according to m_originLeftBottom</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="changeImgOffset"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">changeImgOffset</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">imgidx</span>,
+        <span class="sig-arg">tx_or_4tuple</span>,
+        <span class="sig-arg">ty</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">rot</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">mag</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">RefreshNow</span>=<span class="sig-default">1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.changeImgOffset">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+if ty is None:
+tx_or_4tuple needs to be valid 4-tuple
+      like e.g.(10,10,90,2)
+        for shift 10right,10up,rot90deg,mag2x
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setOriginLeftBottom"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setOriginLeftBottom</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">olb</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.viewer2-pysrc.html#GLViewer2.setOriginLeftBottom">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Priithon.viewerCommon.GLViewerCommon-class.html#setOriginLeftBottom">viewerCommon.GLViewerCommon.setOriginLeftBottom</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:46 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

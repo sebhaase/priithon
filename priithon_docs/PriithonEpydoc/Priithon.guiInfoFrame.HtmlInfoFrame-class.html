@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.guiInfoFrame.HtmlInfoFrame</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.guiInfoFrame-module.html">Module&nbsp;guiInfoFrame</a> ::
+        Class&nbsp;HtmlInfoFrame
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class HtmlInfoFrame</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.guiInfoFrame-pysrc.html#HtmlInfoFrame">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_10" name="uml_class_diagram_for_priithon_10">
+<area shape="rect" id="node41" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#__init__" title="__init__(self, Window parent, int id=&#45;1, String title=EmptyString, ..." alt="" coords="17,1948,396,1967"/>
+<area shape="rect" id="node41" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnClose" title="Priithon.guiInfoFrame.HtmlInfoFrame.OnClose" alt="" coords="17,1967,396,1985"/>
+<area shape="rect" id="node41" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnPrint" title="Priithon.guiInfoFrame.HtmlInfoFrame.OnPrint" alt="" coords="17,1985,396,2004"/>
+<area shape="rect" id="node41" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnKeyDown" title="Priithon.guiInfoFrame.HtmlInfoFrame.OnKeyDown" alt="" coords="17,2004,396,2023"/>
+<area shape="rect" id="node1" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html" title="Priithon.guiInfoFrame.HtmlInfoFrame" alt="" coords="5,1915,408,2029"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="See `GetMenuBar` and `SetMenuBar`" alt="" coords="77,1513,336,1532"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="See `GetStatusBar` and `SetStatusBar`" alt="" coords="77,1532,336,1551"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="See `GetStatusBarPane` and `SetStatusBarPane`" alt="" coords="77,1551,336,1569"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="See `GetToolBar` and `SetToolBar`" alt="" coords="77,1569,336,1588"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="The membership flag" alt="" coords="77,1588,336,1607"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="ProcessCommand(self, int winid) &#45;&gt; bool" alt="" coords="77,1609,336,1628"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="Create(self, Window parent, int id=&#45;1, String title=EmptyString, ..." alt="" coords="77,1628,336,1647"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="CreateStatusBar(self, int number=1, long style=DEFAULT_STATUSBAR_STYLE, int winid=0, ..." alt="" coords="77,1647,336,1665"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="CreateToolBar(self, long style=&#45;1, int winid=&#45;1, String &#160;name=ToolBarNameStr) &#45;&gt; wxToolBar" alt="" coords="77,1665,336,1684"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="DoGiveHelp(self, String text, bool show)" alt="" coords="77,1684,336,1703"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="DoMenuUpdates(self, Menu menu=None)" alt="" coords="77,1703,336,1721"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) &#45;&gt; &#160;VisualAttributes" alt="" coords="77,1721,336,1740"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="wx._windows.Frame.GetMenuBar" alt="" coords="77,1740,336,1759"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="wx._windows.Frame.GetStatusBar" alt="" coords="77,1759,336,1777"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="wx._windows.Frame.GetStatusBarPane" alt="" coords="77,1777,336,1796"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="wx._windows.Frame.GetToolBar" alt="" coords="77,1796,336,1815"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="PopStatusText(self, int number=0)" alt="" coords="77,1815,336,1833"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="ProcessCommand(self, int winid) &#45;&gt; bool" alt="" coords="77,1833,336,1852"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="SetToolBar(self, wxToolBar toolbar)" alt="" coords="77,1871,336,1889"/>
+<area shape="rect" id="node2" href="javascript:void(0);" title="Proxy of C++ Frame class" alt="" coords="65,1489,348,1895"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetAcceleratorTable` and `SetAcceleratorTable`" alt="" coords="80,492,332,511"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetAutoLayout` and `SetAutoLayout`" alt="" coords="80,511,332,529"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetBackgroundColour` and `SetBackgroundColour`" alt="" coords="80,529,332,548"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetBackgroundStyle` and `SetBackgroundStyle`" alt="" coords="80,548,332,567"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetBestSize`" alt="" coords="80,567,332,585"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetBestVirtualSize`" alt="" coords="80,585,332,604"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetBorder`" alt="" coords="80,604,332,623"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetCaret` and `SetCaret`" alt="" coords="80,623,332,641"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetCharHeight`" alt="" coords="80,641,332,660"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetCharWidth`" alt="" coords="80,660,332,679"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetChildren`" alt="" coords="80,679,332,697"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetClientAreaOrigin`" alt="" coords="80,697,332,716"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetClientRect` and `SetClientRect`" alt="" coords="80,716,332,735"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="See `GetWindowVariant` and `SetWindowVariant`" alt="" coords="80,753,332,772"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="Can this window have focus?" alt="" coords="80,775,332,793"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="Can this window be given focus by keyboard navigation? if not, the only way to give it focus (provided it accepts it at all) is to click it." alt="" coords="80,793,332,812"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="AddChild(self, Window child)" alt="" coords="80,812,332,831"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="AdjustForLayoutDirection(self, int x, int width, int widthTotal) &#45;&gt; int" alt="" coords="80,831,332,849"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="AssociateHandle(self, long handle)" alt="" coords="80,849,332,868"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="CacheBestSize(self, Size size)" alt="" coords="80,868,332,887"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="Returns ``True`` if the platform supports setting the transparency for this window." alt="" coords="80,887,332,905"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="Directs all mouse input to this window." alt="" coords="80,905,332,924"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="80,924,332,943"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="80,943,332,961"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="Center(self, int direction=BOTH)" alt="" coords="80,961,332,980"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="CenterOnParent(self, int dir=BOTH)" alt="" coords="80,980,332,999"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="Clears the window by filling it with the current background colour." alt="" coords="80,999,332,1017"/>
+<area shape="rect" id="node44" href="javascript:void(0);" title="WindowToClientSize(self, Size size) &#45;&gt; Size" alt="" coords="80,1036,332,1055"/>
+<area shape="rect" id="node3" href="javascript:void(0);" title="wx.Window is the base class for all windows and represents any visible object on the screen." alt="" coords="68,467,343,1061"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="See `GetDefaultItem` and `SetDefaultItem`" alt="" coords="97,1105,315,1124"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="See `GetIcon` and `SetIcon`" alt="" coords="97,1124,315,1143"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="See `GetTitle` and `SetTitle`" alt="" coords="97,1143,315,1161"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="See `GetTmpDefaultItem` and `SetTmpDefaultItem`" alt="" coords="97,1161,315,1180"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="CenterOnScreen(self, int dir=BOTH)" alt="" coords="97,1183,315,1201"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="CenterOnScreen(self, int dir=BOTH)" alt="" coords="97,1201,315,1220"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="EnableCloseButton(self, bool enable) &#45;&gt; bool" alt="" coords="97,1220,315,1239"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="Get the default child of this parent, i.e." alt="" coords="97,1239,315,1257"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="wx._windows.TopLevelWindow.GetIcon" alt="" coords="97,1257,315,1276"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="wx._windows.TopLevelWindow.GetTitle" alt="" coords="97,1276,315,1295"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="Return the temporary default item, which can be None." alt="" coords="97,1295,315,1313"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="Iconize(self, bool iconize=True)" alt="" coords="97,1313,315,1332"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsActive" alt="" coords="97,1332,315,1351"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsAlwaysMaximized" alt="" coords="97,1351,315,1369"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsFullScreen" alt="" coords="97,1369,315,1388"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsIconized" alt="" coords="97,1388,315,1407"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="wx._windows.TopLevelWindow.IsMaximized" alt="" coords="97,1407,315,1425"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="repr(x)" alt="" coords="97,1444,315,1463"/>
+<area shape="rect" id="node6" href="javascript:void(0);" title="Proxy of C++ TopLevelWindow class" alt="" coords="85,1081,325,1469"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`" alt="" coords="20,140,393,159"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="See `GetNextHandler` and `SetNextHandler`" alt="" coords="20,159,393,177"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="See `GetPreviousHandler` and `SetPreviousHandler`" alt="" coords="20,177,393,196"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="wx._core.EvtHandler.GetNextHandler" alt="" coords="20,199,393,217"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="wx._core.EvtHandler.GetPreviousHandler" alt="" coords="20,217,393,236"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="SetNextHandler(self, EvtHandler handler)" alt="" coords="20,236,393,255"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="SetPreviousHandler(self, EvtHandler handler)" alt="" coords="20,255,393,273"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="wx._core.EvtHandler.GetEvtHandlerEnabled" alt="" coords="20,273,393,292"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="SetEvtHandlerEnabled(self, bool enabled)" alt="" coords="20,292,393,311"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="ProcessEvent(self, Event event) &#45;&gt; bool" alt="" coords="20,311,393,329"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="AddPendingEvent(self, Event event)" alt="" coords="20,329,393,348"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="wx._core.EvtHandler.ProcessPendingEvents" alt="" coords="20,348,393,367"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="Connect(self, int id, int lastId, int eventType, PyObject func)" alt="" coords="20,367,393,385"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="Disconnect(self, int id, int lastId=&#45;1, EventType eventType=wxEVT_NULL, ..." alt="" coords="20,385,393,404"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="Bind an event to an event handler." alt="" coords="20,404,393,423"/>
+<area shape="rect" id="node45" href="javascript:void(0);" title="Disconnects the event handler binding for event from self." alt="" coords="20,423,393,441"/>
+<area shape="rect" id="node4" href="javascript:void(0);" title="Proxy of C++ EvtHandler class" alt="" coords="8,115,405,447"/>
+<area shape="rect" id="node46" href="javascript:void(0);" title="See `GetClassName`" alt="" coords="123,31,289,49"/>
+<area shape="rect" id="node46" href="javascript:void(0);" title="Returns the class name of the C++ class using wxRTTI." alt="" coords="123,52,289,71"/>
+<area shape="rect" id="node46" href="javascript:void(0);" title="IsSameAs(self, Object p) &#45;&gt; bool" alt="" coords="123,71,289,89"/>
+<area shape="rect" id="node5" href="javascript:void(0);" title="The base class for most wx objects, although in wxPython not much functionality is needed nor exposed." alt="" coords="111,6,300,95"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_10.gif" alt='' usemap="#uml_class_diagram_for_priithon_10" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">EvtHandler</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">htmlTxt</span>,
+        <span class="summary-sig-arg">title</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">info</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default"><code class="variable-group">(</code>600<code class="variable-op">, </code>600<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">parent</span>=<span class="summary-sig-default">None</span>)</span><br />
+      __init__(self, Window parent, int id=-1, String title=EmptyString, ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.guiInfoFrame-pysrc.html#HtmlInfoFrame.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnClose"></a><span class="summary-sig-name">OnClose</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.guiInfoFrame-pysrc.html#HtmlInfoFrame.OnClose">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnPrint"></a><span class="summary-sig-name">OnPrint</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ev</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.guiInfoFrame-pysrc.html#HtmlInfoFrame.OnPrint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnKeyDown"></a><span class="summary-sig-name">OnKeyDown</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.guiInfoFrame-pysrc.html#HtmlInfoFrame.OnKeyDown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Frame</code></b>:
+      <code>Command</code>,
+      <code>Create</code>,
+      <code>CreateStatusBar</code>,
+      <code>CreateToolBar</code>,
+      <code>DoGiveHelp</code>,
+      <code>DoMenuUpdates</code>,
+      <code>GetMenuBar</code>,
+      <code>GetStatusBar</code>,
+      <code>GetStatusBarPane</code>,
+      <code>GetToolBar</code>,
+      <code>PopStatusText</code>,
+      <code>ProcessCommand</code>,
+      <code>PushStatusText</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetMenuBar</code>,
+      <code>SetStatusBar</code>,
+      <code>SetStatusBarPane</code>,
+      <code>SetStatusText</code>,
+      <code>SetStatusWidths</code>,
+      <code>SetToolBar</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.TopLevelWindow</code></b>:
+      <code>CenterOnScreen</code>,
+      <code>CentreOnScreen</code>,
+      <code>EnableCloseButton</code>,
+      <code>GetDefaultItem</code>,
+      <code>GetIcon</code>,
+      <code>GetTitle</code>,
+      <code>GetTmpDefaultItem</code>,
+      <code>Iconize</code>,
+      <code>IsActive</code>,
+      <code>IsAlwaysMaximized</code>,
+      <code>IsFullScreen</code>,
+      <code>IsIconized</code>,
+      <code>IsMaximized</code>,
+      <code>MacGetMetalAppearance</code>,
+      <code>MacGetTopLevelWindowRef</code>,
+      <code>MacGetUnifiedAppearance</code>,
+      <code>MacSetMetalAppearance</code>,
+      <code>Maximize</code>,
+      <code>RequestUserAttention</code>,
+      <code>Restore</code>,
+      <code>SetDefaultItem</code>,
+      <code>SetIcon</code>,
+      <code>SetIcons</code>,
+      <code>SetShape</code>,
+      <code>SetTitle</code>,
+      <code>SetTmpDefaultItem</code>,
+      <code>ShowFullScreen</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>ClientToWindowSize</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByLabel</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetGtkWidget</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>LineDown</code>,
+      <code>LineUp</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>PageDown</code>,
+      <code>PageUp</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>,
+      <code>WindowToClientSize</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Frame</code></b>:
+      <code>GetClassDefaultAttributes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Frame</code></b>:
+      <code>MenuBar</code>,
+      <code>StatusBar</code>,
+      <code>StatusBarPane</code>,
+      <code>ToolBar</code>,
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.TopLevelWindow</code></b>:
+      <code>DefaultItem</code>,
+      <code>Icon</code>,
+      <code>Title</code>,
+      <code>TmpDefaultItem</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>GtkWidget</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">htmlTxt</span>,
+        <span class="sig-arg">title</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">info</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">size</span>=<span class="sig-default"><code class="variable-group">(</code>600<code class="variable-op">, </code>600<code class="variable-group">)</code></span>,
+        <span class="sig-arg">parent</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.guiInfoFrame-pysrc.html#HtmlInfoFrame.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+__init__(self, Window parent, int id=-1, String title=EmptyString, 
+    Point pos=DefaultPosition, Size size=DefaultSize, 
+    long style=DEFAULT_FRAME_STYLE, String name=FrameNameStr) -&gt; Frame
+
+</pre>
+  <dl class="fields">
+    <dt>Returns: EvtHandler</dt>
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:35 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

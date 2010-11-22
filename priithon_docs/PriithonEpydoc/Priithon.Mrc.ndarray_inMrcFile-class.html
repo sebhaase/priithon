@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.Mrc.ndarray_inMrcFile</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        <a href="Priithon.Mrc-module.html">Module&nbsp;Mrc</a> ::
+        Class&nbsp;ndarray_inMrcFile
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.Mrc.ndarray_inMrcFile-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ndarray_inMrcFile</h1><p class="nomargin-top"><span class="codelink"><a href="Priithon.Mrc-pysrc.html#ndarray_inMrcFile">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_priithon_4" name="uml_class_diagram_for_priithon_4">
+<area shape="rect" id="node13" href="Priithon.Mrc.ndarray_inMrcFile-class.html#__new__" title="Priithon.Mrc.ndarray_inMrcFile.__new__" alt="" coords="17,652,265,671"/>
+<area shape="rect" id="node13" href="Priithon.Mrc.ndarray_inMrcFile-class.html#__array_finalize__" title="None." alt="" coords="17,671,265,689"/>
+<area shape="rect" id="node1" href="Priithon.Mrc.ndarray_inMrcFile-class.html" title="Priithon.Mrc.ndarray_inMrcFile" alt="" coords="5,619,277,695"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Same as self.transpose(), except that self is returned if self.ndim &lt; 2." alt="" coords="41,31,241,49"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Array protocol: Python side." alt="" coords="41,49,241,68"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Array priority." alt="" coords="41,68,241,87"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Array protocol: C&#45;struct side." alt="" coords="41,87,241,105"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Base object if memory is from some other object." alt="" coords="41,105,241,124"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="An object to simplify the interaction of the array with the ctypes module." alt="" coords="41,124,241,143"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Python buffer object pointing to the start of the array&#39;s data." alt="" coords="41,143,241,161"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Data&#45;type of the array&#39;s elements." alt="" coords="41,161,241,180"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Information about the memory layout of the array." alt="" coords="41,180,241,199"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="A 1&#45;D iterator over the array." alt="" coords="41,199,241,217"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="The imaginary part of the array." alt="" coords="41,217,241,236"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Length of one array element in bytes." alt="" coords="41,236,241,255"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Total bytes consumed by the elements of the array." alt="" coords="41,255,241,273"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Tuple of bytes to step in each dimension when traversing an array." alt="" coords="41,292,241,311"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="abs(x)" alt="" coords="41,313,241,332"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="x+y" alt="" coords="41,332,241,351"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="x&amp;y" alt="" coords="41,351,241,369"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="a.__array__(|dtype) &#45;&gt; reference if type unchanged, copy otherwise." alt="" coords="41,369,241,388"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="numpy.ndarray.__array_prepare__" alt="" coords="41,388,241,407"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="numpy.ndarray.__array_wrap__" alt="" coords="41,407,241,425"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="y in x" alt="" coords="41,425,241,444"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Return a copy of the array." alt="" coords="41,444,241,463"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="Used if copy.deepcopy is called on an array." alt="" coords="41,463,241,481"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="del x[y]" alt="" coords="41,481,241,500"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="del x[i:j]" alt="" coords="41,500,241,519"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="x/y" alt="" coords="41,519,241,537"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="divmod(x, y)" alt="" coords="41,537,241,556"/>
+<area shape="rect" id="node14" href="javascript:void(0);" title="New view of array with the same data." alt="" coords="41,575,241,593"/>
+<area shape="rect" id="node2" href="javascript:void(0);" title="ndarray(shape, dtype=float, buffer=None, offset=0, strides=None, order=None)" alt="" coords="29,6,253,599"/>
+</map>
+  <img src="uml_class_diagram_for_priithon_4.gif" alt='' usemap="#uml_class_diagram_for_priithon_4" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.Mrc.ndarray_inMrcFile-class.html#__array_finalize__" class="summary-sig-name">__array_finalize__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>)</span><br />
+      None.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.Mrc-pysrc.html#ndarray_inMrcFile.__array_finalize__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>numpy.ndarray</code></b>:
+      <code>__abs__</code>,
+      <code>__add__</code>,
+      <code>__and__</code>,
+      <code>__array__</code>,
+      <code>__array_prepare__</code>,
+      <code>__array_wrap__</code>,
+      <code>__contains__</code>,
+      <code>__copy__</code>,
+      <code>__deepcopy__</code>,
+      <code>__delitem__</code>,
+      <code>__delslice__</code>,
+      <code>__div__</code>,
+      <code>__divmod__</code>,
+      <code>__eq__</code>,
+      <code>__float__</code>,
+      <code>__floordiv__</code>,
+      <code>__ge__</code>,
+      <code>__getitem__</code>,
+      <code>__getslice__</code>,
+      <code>__gt__</code>,
+      <code>__hex__</code>,
+      <code>__iadd__</code>,
+      <code>__iand__</code>,
+      <code>__idiv__</code>,
+      <code>__ifloordiv__</code>,
+      <code>__ilshift__</code>,
+      <code>__imod__</code>,
+      <code>__imul__</code>,
+      <code>__index__</code>,
+      <code>__int__</code>,
+      <code>__invert__</code>,
+      <code>__ior__</code>,
+      <code>__ipow__</code>,
+      <code>__irshift__</code>,
+      <code>__isub__</code>,
+      <code>__iter__</code>,
+      <code>__itruediv__</code>,
+      <code>__ixor__</code>,
+      <code>__le__</code>,
+      <code>__len__</code>,
+      <code>__long__</code>,
+      <code>__lshift__</code>,
+      <code>__lt__</code>,
+      <code>__mod__</code>,
+      <code>__mul__</code>,
+      <code>__ne__</code>,
+      <code>__neg__</code>,
+      <code>__nonzero__</code>,
+      <code>__oct__</code>,
+      <code>__or__</code>,
+      <code>__pos__</code>,
+      <code>__pow__</code>,
+      <code>__radd__</code>,
+      <code>__rand__</code>,
+      <code>__rdiv__</code>,
+      <code>__rdivmod__</code>,
+      <code>__reduce__</code>,
+      <code>__repr__</code>,
+      <code>__rfloordiv__</code>,
+      <code>__rlshift__</code>,
+      <code>__rmod__</code>,
+      <code>__rmul__</code>,
+      <code>__ror__</code>,
+      <code>__rpow__</code>,
+      <code>__rrshift__</code>,
+      <code>__rshift__</code>,
+      <code>__rsub__</code>,
+      <code>__rtruediv__</code>,
+      <code>__rxor__</code>,
+      <code>__setitem__</code>,
+      <code>__setslice__</code>,
+      <code>__setstate__</code>,
+      <code>__str__</code>,
+      <code>__sub__</code>,
+      <code>__truediv__</code>,
+      <code>__xor__</code>,
+      <code>all</code>,
+      <code>any</code>,
+      <code>argmax</code>,
+      <code>argmin</code>,
+      <code>argsort</code>,
+      <code>astype</code>,
+      <code>byteswap</code>,
+      <code>choose</code>,
+      <code>clip</code>,
+      <code>compress</code>,
+      <code>conj</code>,
+      <code>conjugate</code>,
+      <code>copy</code>,
+      <code>cumprod</code>,
+      <code>cumsum</code>,
+      <code>diagonal</code>,
+      <code>dot</code>,
+      <code>dump</code>,
+      <code>dumps</code>,
+      <code>fill</code>,
+      <code>flatten</code>,
+      <code>getfield</code>,
+      <code>item</code>,
+      <code>itemset</code>,
+      <code>max</code>,
+      <code>mean</code>,
+      <code>min</code>,
+      <code>newbyteorder</code>,
+      <code>nonzero</code>,
+      <code>prod</code>,
+      <code>ptp</code>,
+      <code>put</code>,
+      <code>ravel</code>,
+      <code>repeat</code>,
+      <code>reshape</code>,
+      <code>resize</code>,
+      <code>round</code>,
+      <code>searchsorted</code>,
+      <code>setfield</code>,
+      <code>setflags</code>,
+      <code>sort</code>,
+      <code>squeeze</code>,
+      <code>std</code>,
+      <code>sum</code>,
+      <code>swapaxes</code>,
+      <code>take</code>,
+      <code>tofile</code>,
+      <code>tolist</code>,
+      <code>tostring</code>,
+      <code>trace</code>,
+      <code>transpose</code>,
+      <code>var</code>,
+      <code>view</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__init__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">a new object with type S, a subtype of T</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Priithon.Mrc.ndarray_inMrcFile-class.html#__new__" class="summary-sig-name">__new__</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">input_array</span>,
+        <span class="summary-sig-arg">mrcInfo</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Priithon.Mrc-pysrc.html#ndarray_inMrcFile.__new__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>numpy.ndarray</code></b>:
+      <code>T</code>,
+      <code>__array_interface__</code>,
+      <code>__array_priority__</code>,
+      <code>__array_struct__</code>,
+      <code>base</code>,
+      <code>ctypes</code>,
+      <code>data</code>,
+      <code>dtype</code>,
+      <code>flags</code>,
+      <code>flat</code>,
+      <code>imag</code>,
+      <code>itemsize</code>,
+      <code>nbytes</code>,
+      <code>ndim</code>,
+      <code>real</code>,
+      <code>shape</code>,
+      <code>size</code>,
+      <code>strides</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__new__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__new__</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">input_array</span>,
+        <span class="sig-arg">mrcInfo</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.Mrc-pysrc.html#ndarray_inMrcFile.__new__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Returns: a new object with type S, a subtype of T</dt>
+    <dt>Overrides:
+        object.__new__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__array_finalize__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__array_finalize__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Priithon.Mrc-pysrc.html#ndarray_inMrcFile.__array_finalize__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>None.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        __array_finalize__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:34 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

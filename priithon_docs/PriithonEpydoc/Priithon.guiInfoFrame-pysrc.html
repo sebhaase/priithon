@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Priithon.guiInfoFrame</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Priithon-module.html">Package&nbsp;Priithon</a> ::
+        Module&nbsp;guiInfoFrame
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Priithon.guiInfoFrame-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Priithon.guiInfoFrame-module.html">Module Priithon.guiInfoFrame</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Priithon excetions show gui exception frame</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">absolute_import</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-name">__author__</tt>  <tt class="py-op">=</tt> <tt class="py-string">"Sebastian Haase &lt;seb.haase+Priithon@gmail.com&gt;"</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Priithon.PriShell.__license__=Priithon.PriShell-module.html#__license__,Variable Priithon.__license__=Priithon-module.html#__license__"><a title="Priithon.PriShell.__license__
+Priithon.__license__" class="py-name" href="#" onclick="return doclink('link-0', '__license__', 'link-0');">__license__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"BSD license - see LICENSE file"</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">wx</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">html</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable Priithon.guiExceptionFrame.id_close=Priithon.guiExceptionFrame-module.html#id_close,Variable Priithon.guiInfoFrame.id_close=Priithon.guiInfoFrame-module.html#id_close"><a title="Priithon.guiExceptionFrame.id_close
+Priithon.guiInfoFrame.id_close" class="py-name" href="#" onclick="return doclink('link-1', 'id_close', 'link-1');">id_close</a></tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">NewId</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable Priithon.guiExceptionFrame.id_print=Priithon.guiExceptionFrame-module.html#id_print,Variable Priithon.guiInfoFrame.id_print=Priithon.guiInfoFrame-module.html#id_print"><a title="Priithon.guiExceptionFrame.id_print
+Priithon.guiInfoFrame.id_print" class="py-name" href="#" onclick="return doclink('link-2', 'id_print', 'link-2');">id_print</a></tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">NewId</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#id_debug = wx.NewId()</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="HtmlWindow"></a><div id="HtmlWindow-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="HtmlWindow-toggle" onclick="return toggle('HtmlWindow');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlWindow-class.html">HtmlWindow</a><tt class="py-op">(</tt><tt class="py-base-class">wx</tt><tt class="py-op">.</tt><tt class="py-base-class">html</tt><tt class="py-op">.</tt><tt class="py-base-class">HtmlWindow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlWindow-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="HtmlWindow-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">    from http://wiki.wxpython.org/wxPython%20by%20Example</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="HtmlWindow.__init__"></a><div id="HtmlWindow.__init__-def"><a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="HtmlWindow.__init__-toggle" onclick="return toggle('HtmlWindow.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlWindow-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">,</tt> <tt class="py-param">id</tt><tt class="py-op">,</tt> <tt class="py-param">size</tt><tt class="py-op">=</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">DefaultSize</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlWindow.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="HtmlWindow.__init__-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">html</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Class Priithon.guiInfoFrame.HtmlWindow=Priithon.guiInfoFrame.HtmlWindow-class.html"><a title="Priithon.guiInfoFrame.HtmlWindow" class="py-name" href="#" onclick="return doclink('link-3', 'HtmlWindow', 'link-3');">HtmlWindow</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method Priithon.DragAndDrop.ClipTextPanel.__init__()=Priithon.DragAndDrop.ClipTextPanel-class.html#__init__,Method Priithon.DragAndDrop.FileDropPanel.__init__()=Priithon.DragAndDrop.FileDropPanel-class.html#__init__,Method Priithon.DragAndDrop.MyFileDropTarget.__init__()=Priithon.DragAndDrop.MyFileDropTarget-class.html#__init__,Method Priithon.Mrc.Mrc.__init__()=Priithon.Mrc.Mrc-class.html#__init__,Method Priithon.Mrc.Mrc2.__init__()=Priithon.Mrc.Mrc2-class.html#__init__,Method Priithon.Scientific_IO_TextFile.TextFile.__init__()=Priithon.Scientific_IO_TextFile.TextFile-class.html#__init__,Method Priithon.buttonbox._buttonBox.__init__()=Priithon.buttonbox._buttonBox-class.html#__init__,Method Priithon.fileDropPopup.FileDropTarget.__init__()=Priithon.fileDropPopup.FileDropTarget-class.html#__init__,Method Priithon.gridviewer.ArrayGrid.__init__()=Priithon.gridviewer.ArrayGrid-class.html#__init__,Method Priithon.gridviewer.HugeTable.__init__()=Priithon.gridviewer.HugeTable-class.html#__init__,Method Priithon.gridviewer.HugeTableGrid.__init__()=Priithon.gridviewer.HugeTableGrid-class.html#__init__,Method Priithon.guiExceptionFrame.MyFrame.__init__()=Priithon.guiExceptionFrame.MyFrame-class.html#__init__,Method Priithon.guiInfoFrame.HtmlInfoFrame.__init__()=Priithon.guiInfoFrame.HtmlInfoFrame-class.html#__init__,Method Priithon.guiInfoFrame.HtmlWindow.__init__()=Priithon.guiInfoFrame.HtmlWindow-class.html#__init__,Method Priithon.guiParams.guiParams.__init__()=Priithon.guiParams.guiParams-class.html#__init__,Method Priithon.histogram.HistogramCanvas.__init__()=Priithon.histogram.HistogramCanvas-class.html#__init__,Method Priithon.histogram.MyCanvasBase.__init__()=Priithon.histogram.MyCanvasBase-class.html#__init__,Method Priithon.mmviewer.GLViewer.__init__()=Priithon.mmviewer.GLViewer-class.html#__init__,Method Priithon.mockNDarray.mockNDarray.__init__()=Priithon.mockNDarray.mockNDarray-class.html#__init__,Method Priithon.ndarray_meta.nd_meta_attribute.__init__()=Priithon.ndarray_meta.nd_meta_attribute-class.html#__init__,Method Priithon.plt.dumb_shelve.DbfilenameShelf.__init__()=Priithon.plt.dumb_shelve.DbfilenameShelf-class.html#__init__,Method Priithon.plt.dumbdbm_patched._Database.__init__()=Priithon.plt.dumbdbm_patched._Database-class.html#__init__,Method Priithon.plt.plot_objects.axis_object.__init__()=Priithon.plt.plot_objects.axis_object-class.html#__init__,Method Priithon.plt.plot_objects.axis_window.__init__()=Priithon.plt.plot_objects.axis_window-class.html#__init__,Method Priithon.plt.plot_objects.border_object.__init__()=Priithon.plt.plot_objects.border_object-class.html#__init__,Method Priithon.plt.plot_objects.graphic_list.__init__()=Priithon.plt.plot_objects.graphic_list-class.html#__init__,Method Priithon.plt.plot_objects.image_object.__init__()=Priithon.plt.plot_objects.image_object-class.html#__init__,Method Priithon.plt.plot_objects.legend_object.__init__()=Priithon.plt.plot_objects.legend_object-class.html#__init__,Method Priithon.plt.plot_objects.line_object.__init__()=Priithon.plt.plot_objects.line_object-class.html#__init__,Method Priithon.plt.plot_objects.poly_line.__init__()=Priithon.plt.plot_objects.poly_line-class.html#__init__,Method Priithon.plt.plot_objects.poly_marker.__init__()=Priithon.plt.plot_objects.poly_marker-class.html#__init__,Method Priithon.plt.plot_objects.poly_points.__init__()=Priithon.plt.plot_objects.poly_points-class.html#__init__,Method Priithon.plt.plot_objects.text_object.__init__()=Priithon.plt.plot_objects.text_object-class.html#__init__,Method Priithon.plt.plot_objects.text_window.__init__()=Priithon.plt.plot_objects.text_window-class.html#__init__,Method Priithon.plt.plot_utility.box_object.__init__()=Priithon.plt.plot_utility.box_object-class.html#__init__,Method Priithon.plt.plot_utility.point_object.__init__()=Priithon.plt.plot_utility.point_object-class.html#__init__,Method Priithon.plt.plot_utility.property_object.__init__()=Priithon.plt.plot_utility.property_object-class.html#__init__,Method Priithon.plt.wxplt.graph_printout.__init__()=Priithon.plt.wxplt.graph_printout-class.html#__init__,Method Priithon.plt.wxplt.plot_canvas.__init__()=Priithon.plt.wxplt.plot_canvas-class.html#__init__,Method Priithon.plt.wxplt.plot_frame.__init__()=Priithon.plt.wxplt.plot_frame-class.html#__init__,Method Priithon.py.PyAlaCarte.App.__init__()=Priithon.py.PyAlaCarte.App-class.html#__init__,Method Priithon.py.PyAlaMode.App.__init__()=Priithon.py.PyAlaMode.App-class.html#__init__,Method Priithon.py.PyAlaModeTest.App.__init__()=Priithon.py.PyAlaModeTest.App-class.html#__init__,Method Priithon.py.buffer.Buffer.__init__()=Priithon.py.buffer.Buffer-class.html#__init__,Method Priithon.py.crust.Calltip.__init__()=Priithon.py.crust.Calltip-class.html#__init__,Method Priithon.py.crust.Crust.__init__()=Priithon.py.crust.Crust-class.html#__init__,Method Priithon.py.crust.CrustFrame.__init__()=Priithon.py.crust.CrustFrame-class.html#__init__,Method Priithon.py.crust.DispatcherListing.__init__()=Priithon.py.crust.DispatcherListing-class.html#__init__,Method Priithon.py.crust.Display.__init__()=Priithon.py.crust.Display-class.html#__init__,Method Priithon.py.crust.SessionListing.__init__()=Priithon.py.crust.SessionListing-class.html#__init__,Method Priithon.py.dispatcher.BoundMethodWeakref.__init__()=Priithon.py.dispatcher.BoundMethodWeakref-class.html#__init__,Method Priithon.py.dispatcher.DispatcherError.__init__()=Priithon.py.dispatcher.DispatcherError-class.html#__init__,Method Priithon.py.document.Document.__init__()=Priithon.py.document.Document-class.html#__init__,Method Priithon.py.editor.DialogResults.__init__()=Priithon.py.editor.DialogResults-class.html#__init__,Method Priithon.py.editor.EditWindow.__init__()=Priithon.py.editor.EditWindow-class.html#__init__,Method Priithon.py.editor.Editor.__init__()=Priithon.py.editor.Editor-class.html#__init__,Method Priithon.py.editor.EditorFrame.__init__()=Priithon.py.editor.EditorFrame-class.html#__init__,Method Priithon.py.editor.EditorNotebook.__init__()=Priithon.py.editor.EditorNotebook-class.html#__init__,Method Priithon.py.editor.EditorNotebookFrame.__init__()=Priithon.py.editor.EditorNotebookFrame-class.html#__init__,Method Priithon.py.editor.EditorShellNotebook.__init__()=Priithon.py.editor.EditorShellNotebook-class.html#__init__,Method Priithon.py.editor.EditorShellNotebookFrame.__init__()=Priithon.py.editor.EditorShellNotebookFrame-class.html#__init__,Method Priithon.py.editwindow.EditWindow.__init__()=Priithon.py.editwindow.EditWindow-class.html#__init__,Method Priithon.py.filling.Filling.__init__()=Priithon.py.filling.Filling-class.html#__init__,Method Priithon.py.filling.FillingFrame.__init__()=Priithon.py.filling.FillingFrame-class.html#__init__,Method Priithon.py.filling.FillingText.__init__()=Priithon.py.filling.FillingText-class.html#__init__,Method Priithon.py.filling.FillingTree.__init__()=Priithon.py.filling.FillingTree-class.html#__init__,Method Priithon.py.frame.Frame.__init__()=Priithon.py.frame.Frame-class.html#__init__,Method Priithon.py.interpreter.Interpreter.__init__()=Priithon.py.interpreter.Interpreter-class.html#__init__,Method Priithon.py.interpreter.InterpreterAlaCarte.__init__()=Priithon.py.interpreter.InterpreterAlaCarte-class.html#__init__,Method Priithon.py.pseudo.PseudoFile.__init__()=Priithon.py.pseudo.PseudoFile-class.html#__init__,Method Priithon.py.pseudo.PseudoFileErr.__init__()=Priithon.py.pseudo.PseudoFileErr-class.html#__init__,Method Priithon.py.pseudo.PseudoFileIn.__init__()=Priithon.py.pseudo.PseudoFileIn-class.html#__init__,Method Priithon.py.pseudo.PseudoFileOut.__init__()=Priithon.py.pseudo.PseudoFileOut-class.html#__init__,Method Priithon.py.pseudo.PseudoKeyword.__init__()=Priithon.py.pseudo.PseudoKeyword-class.html#__init__,Method Priithon.py.shell.Shell.__init__()=Priithon.py.shell.Shell-class.html#__init__,Method Priithon.py.shell.ShellFacade.__init__()=Priithon.py.shell.ShellFacade-class.html#__init__,Method Priithon.py.shell.ShellFrame.__init__()=Priithon.py.shell.ShellFrame-class.html#__init__,Method Priithon.readerSPE.File.__init__()=Priithon.readerSPE.File-class.html#__init__,Method Priithon.scalePanel.scalePanel.__init__()=Priithon.scalePanel.scalePanel-class.html#__init__,Method Priithon.splitND.TestTransientPopup.__init__()=Priithon.splitND.TestTransientPopup-class.html#__init__,Method Priithon.splitND.spv.__init__()=Priithon.splitND.spv-class.html#__init__,Method Priithon.splitND2.spv.__init__()=Priithon.splitND2.spv-class.html#__init__,Method Priithon.splitNDcommon.spvCommon.__init__()=Priithon.splitNDcommon.spvCommon-class.html#__init__,Method Priithon.syncViewersGui.syncViewersGui.__init__()=Priithon.syncViewersGui.syncViewersGui-class.html#__init__,Method Priithon.useful.deco_memoized.__init__()=Priithon.useful.deco_memoized-class.html#__init__,Method Priithon.usefulX._listArrayViewer.__init__()=Priithon.usefulX._listArrayViewer-class.html#__init__,Method Priithon.usefulX._listFilesViewer.MyFileDropTarget.__init__()=Priithon.usefulX._listFilesViewer.MyFileDropTarget-class.html#__init__,Method Priithon.usefulX._listFilesViewer.__init__()=Priithon.usefulX._listFilesViewer-class.html#__init__,Method Priithon.viewer.GLViewer.__init__()=Priithon.viewer.GLViewer-class.html#__init__,Method Priithon.viewer2.GLViewer2.__init__()=Priithon.viewer2.GLViewer2-class.html#__init__,Method Priithon.viewerCommon.GLViewerCommon.__init__()=Priithon.viewerCommon.GLViewerCommon-class.html#__init__,Method Priithon.viewerRubberbandMode.viewerRubberbandMode.__init__()=Priithon.viewerRubberbandMode.viewerRubberbandMode-class.html#__init__,Method Priithon.wxAsyncDispatcher.DispatcherConnection.__init__()=Priithon.wxAsyncDispatcher.DispatcherConnection-class.html#__init__,Method Priithon.wxAsyncDispatcher.DispatcherServer.__init__()=Priithon.wxAsyncDispatcher.DispatcherServer-class.html#__init__,Method Priithon.wxAsyncDispatcher.MainWindow.__init__()=Priithon.wxAsyncDispatcher.MainWindow-class.html#__init__,Method Priithon.wxPyPlot.FloatDCWrapper.__init__()=Priithon.wxPyPlot.FloatDCWrapper-class.html#__init__,Method Priithon.wxPyPlot.PlotCanvas.__init__()=Priithon.wxPyPlot.PlotCanvas-class.html#__init__,Method Priithon.wxPyPlot.PlotGraphics.__init__()=Priithon.wxPyPlot.PlotGraphics-class.html#__init__,Method Priithon.wxPyPlot.PolyLine.__init__()=Priithon.wxPyPlot.PolyLine-class.html#__init__,Method Priithon.wxPyPlot.PolyMarker.__init__()=Priithon.wxPyPlot.PolyMarker-class.html#__init__,Method Priithon.wxPyPlot.PolyPoints.__init__()=Priithon.wxPyPlot.PolyPoints-class.html#__init__,Method Priithon.wxPyPlot.plot_printout.__init__()=Priithon.wxPyPlot.plot_printout-class.html#__init__,Method Priithon.zslider.ZSlider.__init__()=Priithon.zslider.ZSlider-class.html#__init__"><a title="Priithon.DragAndDrop.ClipTextPanel.__init__
+Priithon.DragAndDrop.FileDropPanel.__init__
+Priithon.DragAndDrop.MyFileDropTarget.__init__
+Priithon.Mrc.Mrc.__init__
+Priithon.Mrc.Mrc2.__init__
+Priithon.Scientific_IO_TextFile.TextFile.__init__
+Priithon.buttonbox._buttonBox.__init__
+Priithon.fileDropPopup.FileDropTarget.__init__
+Priithon.gridviewer.ArrayGrid.__init__
+Priithon.gridviewer.HugeTable.__init__
+Priithon.gridviewer.HugeTableGrid.__init__
+Priithon.guiExceptionFrame.MyFrame.__init__
+Priithon.guiInfoFrame.HtmlInfoFrame.__init__
+Priithon.guiInfoFrame.HtmlWindow.__init__
+Priithon.guiParams.guiParams.__init__
+Priithon.histogram.HistogramCanvas.__init__
+Priithon.histogram.MyCanvasBase.__init__
+Priithon.mmviewer.GLViewer.__init__
+Priithon.mockNDarray.mockNDarray.__init__
+Priithon.ndarray_meta.nd_meta_attribute.__init__
+Priithon.plt.dumb_shelve.DbfilenameShelf.__init__
+Priithon.plt.dumbdbm_patched._Database.__init__
+Priithon.plt.plot_objects.axis_object.__init__
+Priithon.plt.plot_objects.axis_window.__init__
+Priithon.plt.plot_objects.border_object.__init__
+Priithon.plt.plot_objects.graphic_list.__init__
+Priithon.plt.plot_objects.image_object.__init__
+Priithon.plt.plot_objects.legend_object.__init__
+Priithon.plt.plot_objects.line_object.__init__
+Priithon.plt.plot_objects.poly_line.__init__
+Priithon.plt.plot_objects.poly_marker.__init__
+Priithon.plt.plot_objects.poly_points.__init__
+Priithon.plt.plot_objects.text_object.__init__
+Priithon.plt.plot_objects.text_window.__init__
+Priithon.plt.plot_utility.box_object.__init__
+Priithon.plt.plot_utility.point_object.__init__
+Priithon.plt.plot_utility.property_object.__init__
+Priithon.plt.wxplt.graph_printout.__init__
+Priithon.plt.wxplt.plot_canvas.__init__
+Priithon.plt.wxplt.plot_frame.__init__
+Priithon.py.PyAlaCarte.App.__init__
+Priithon.py.PyAlaMode.App.__init__
+Priithon.py.PyAlaModeTest.App.__init__
+Priithon.py.buffer.Buffer.__init__
+Priithon.py.crust.Calltip.__init__
+Priithon.py.crust.Crust.__init__
+Priithon.py.crust.CrustFrame.__init__
+Priithon.py.crust.DispatcherListing.__init__
+Priithon.py.crust.Display.__init__
+Priithon.py.crust.SessionListing.__init__
+Priithon.py.dispatcher.BoundMethodWeakref.__init__
+Priithon.py.dispatcher.DispatcherError.__init__
+Priithon.py.document.Document.__init__
+Priithon.py.editor.DialogResults.__init__
+Priithon.py.editor.EditWindow.__init__
+Priithon.py.editor.Editor.__init__
+Priithon.py.editor.EditorFrame.__init__
+Priithon.py.editor.EditorNotebook.__init__
+Priithon.py.editor.EditorNotebookFrame.__init__
+Priithon.py.editor.EditorShellNotebook.__init__
+Priithon.py.editor.EditorShellNotebookFrame.__init__
+Priithon.py.editwindow.EditWindow.__init__
+Priithon.py.filling.Filling.__init__
+Priithon.py.filling.FillingFrame.__init__
+Priithon.py.filling.FillingText.__init__
+Priithon.py.filling.FillingTree.__init__
+Priithon.py.frame.Frame.__init__
+Priithon.py.interpreter.Interpreter.__init__
+Priithon.py.interpreter.InterpreterAlaCarte.__init__
+Priithon.py.pseudo.PseudoFile.__init__
+Priithon.py.pseudo.PseudoFileErr.__init__
+Priithon.py.pseudo.PseudoFileIn.__init__
+Priithon.py.pseudo.PseudoFileOut.__init__
+Priithon.py.pseudo.PseudoKeyword.__init__
+Priithon.py.shell.Shell.__init__
+Priithon.py.shell.ShellFacade.__init__
+Priithon.py.shell.ShellFrame.__init__
+Priithon.readerSPE.File.__init__
+Priithon.scalePanel.scalePanel.__init__
+Priithon.splitND.TestTransientPopup.__init__
+Priithon.splitND.spv.__init__
+Priithon.splitND2.spv.__init__
+Priithon.splitNDcommon.spvCommon.__init__
+Priithon.syncViewersGui.syncViewersGui.__init__
+Priithon.useful.deco_memoized.__init__
+Priithon.usefulX._listArrayViewer.__init__
+Priithon.usefulX._listFilesViewer.MyFileDropTarget.__init__
+Priithon.usefulX._listFilesViewer.__init__
+Priithon.viewer.GLViewer.__init__
+Priithon.viewer2.GLViewer2.__init__
+Priithon.viewerCommon.GLViewerCommon.__init__
+Priithon.viewerRubberbandMode.viewerRubberbandMode.__init__
+Priithon.wxAsyncDispatcher.DispatcherConnection.__init__
+Priithon.wxAsyncDispatcher.DispatcherServer.__init__
+Priithon.wxAsyncDispatcher.MainWindow.__init__
+Priithon.wxPyPlot.FloatDCWrapper.__init__
+Priithon.wxPyPlot.PlotCanvas.__init__
+Priithon.wxPyPlot.PlotGraphics.__init__
+Priithon.wxPyPlot.PolyLine.__init__
+Priithon.wxPyPlot.PolyMarker.__init__
+Priithon.wxPyPlot.PolyPoints.__init__
+Priithon.wxPyPlot.plot_printout.__init__
+Priithon.zslider.ZSlider.__init__" class="py-name" href="#" onclick="return doclink('link-4', '__init__', 'link-4');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt><tt class="py-name">parent</tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Variable Priithon.py.buffer.Buffer.id=Priithon.py.buffer.Buffer-class.html#id"><a title="Priithon.py.buffer.Buffer.id" class="py-name" href="#" onclick="return doclink('link-5', 'id', 'link-5');">id</a></tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Method Priithon.plt.plot_objects.text_object.size()=Priithon.plt.plot_objects.text_object-class.html#size,Method Priithon.plt.plot_utility.box_object.size()=Priithon.plt.plot_utility.box_object-class.html#size,Variable Priithon.viewerRubberbandMode.viewerRubberbandMode.size=Priithon.viewerRubberbandMode.viewerRubberbandMode-class.html#size"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-6', 'size', 'link-6');">size</a></tt><tt class="py-op">=</tt><tt id="link-7" class="py-name"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-7', 'size', 'link-6');">size</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-string">"gtk2"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">PlatformInfo</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">SetStandardFonts</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="HtmlWindow.OnLinkClicked"></a><div id="HtmlWindow.OnLinkClicked-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="HtmlWindow.OnLinkClicked-toggle" onclick="return toggle('HtmlWindow.OnLinkClicked');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlWindow-class.html#OnLinkClicked">OnLinkClicked</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">link</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlWindow.OnLinkClicked-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="HtmlWindow.OnLinkClicked-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">LaunchDefaultBrowser</tt><tt class="py-op">(</tt><tt class="py-name">link</tt><tt class="py-op">.</tt><tt class="py-name">GetHref</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="HtmlInfoFrame"></a><div id="HtmlInfoFrame-def"><a name="L31"></a><tt class="py-lineno"> 31</tt> <a class="py-toggle" href="#" id="HtmlInfoFrame-toggle" onclick="return toggle('HtmlInfoFrame');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html">HtmlInfoFrame</a><tt class="py-op">(</tt><tt class="py-base-class">wx</tt><tt class="py-op">.</tt><tt class="py-base-class">Frame</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlInfoFrame-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="HtmlInfoFrame-expanded"><a name="HtmlInfoFrame.__init__"></a><div id="HtmlInfoFrame.__init__-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="HtmlInfoFrame.__init__-toggle" onclick="return toggle('HtmlInfoFrame.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">htmlTxt</tt><tt class="py-op">,</tt> <tt class="py-param">title</tt><tt class="py-op">=</tt><tt class="py-string">"info"</tt><tt class="py-op">,</tt> <tt class="py-param">size</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-number">600</tt><tt class="py-op">,</tt><tt class="py-number">600</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlInfoFrame.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="HtmlInfoFrame.__init__-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Class Priithon.py.frame.Frame=Priithon.py.frame.Frame-class.html"><a title="Priithon.py.frame.Frame" class="py-name" href="#" onclick="return doclink('link-8', 'Frame', 'link-8');">Frame</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Priithon.DragAndDrop.ClipTextPanel.__init__
+Priithon.DragAndDrop.FileDropPanel.__init__
+Priithon.DragAndDrop.MyFileDropTarget.__init__
+Priithon.Mrc.Mrc.__init__
+Priithon.Mrc.Mrc2.__init__
+Priithon.Scientific_IO_TextFile.TextFile.__init__
+Priithon.buttonbox._buttonBox.__init__
+Priithon.fileDropPopup.FileDropTarget.__init__
+Priithon.gridviewer.ArrayGrid.__init__
+Priithon.gridviewer.HugeTable.__init__
+Priithon.gridviewer.HugeTableGrid.__init__
+Priithon.guiExceptionFrame.MyFrame.__init__
+Priithon.guiInfoFrame.HtmlInfoFrame.__init__
+Priithon.guiInfoFrame.HtmlWindow.__init__
+Priithon.guiParams.guiParams.__init__
+Priithon.histogram.HistogramCanvas.__init__
+Priithon.histogram.MyCanvasBase.__init__
+Priithon.mmviewer.GLViewer.__init__
+Priithon.mockNDarray.mockNDarray.__init__
+Priithon.ndarray_meta.nd_meta_attribute.__init__
+Priithon.plt.dumb_shelve.DbfilenameShelf.__init__
+Priithon.plt.dumbdbm_patched._Database.__init__
+Priithon.plt.plot_objects.axis_object.__init__
+Priithon.plt.plot_objects.axis_window.__init__
+Priithon.plt.plot_objects.border_object.__init__
+Priithon.plt.plot_objects.graphic_list.__init__
+Priithon.plt.plot_objects.image_object.__init__
+Priithon.plt.plot_objects.legend_object.__init__
+Priithon.plt.plot_objects.line_object.__init__
+Priithon.plt.plot_objects.poly_line.__init__
+Priithon.plt.plot_objects.poly_marker.__init__
+Priithon.plt.plot_objects.poly_points.__init__
+Priithon.plt.plot_objects.text_object.__init__
+Priithon.plt.plot_objects.text_window.__init__
+Priithon.plt.plot_utility.box_object.__init__
+Priithon.plt.plot_utility.point_object.__init__
+Priithon.plt.plot_utility.property_object.__init__
+Priithon.plt.wxplt.graph_printout.__init__
+Priithon.plt.wxplt.plot_canvas.__init__
+Priithon.plt.wxplt.plot_frame.__init__
+Priithon.py.PyAlaCarte.App.__init__
+Priithon.py.PyAlaMode.App.__init__
+Priithon.py.PyAlaModeTest.App.__init__
+Priithon.py.buffer.Buffer.__init__
+Priithon.py.crust.Calltip.__init__
+Priithon.py.crust.Crust.__init__
+Priithon.py.crust.CrustFrame.__init__
+Priithon.py.crust.DispatcherListing.__init__
+Priithon.py.crust.Display.__init__
+Priithon.py.crust.SessionListing.__init__
+Priithon.py.dispatcher.BoundMethodWeakref.__init__
+Priithon.py.dispatcher.DispatcherError.__init__
+Priithon.py.document.Document.__init__
+Priithon.py.editor.DialogResults.__init__
+Priithon.py.editor.EditWindow.__init__
+Priithon.py.editor.Editor.__init__
+Priithon.py.editor.EditorFrame.__init__
+Priithon.py.editor.EditorNotebook.__init__
+Priithon.py.editor.EditorNotebookFrame.__init__
+Priithon.py.editor.EditorShellNotebook.__init__
+Priithon.py.editor.EditorShellNotebookFrame.__init__
+Priithon.py.editwindow.EditWindow.__init__
+Priithon.py.filling.Filling.__init__
+Priithon.py.filling.FillingFrame.__init__
+Priithon.py.filling.FillingText.__init__
+Priithon.py.filling.FillingTree.__init__
+Priithon.py.frame.Frame.__init__
+Priithon.py.interpreter.Interpreter.__init__
+Priithon.py.interpreter.InterpreterAlaCarte.__init__
+Priithon.py.pseudo.PseudoFile.__init__
+Priithon.py.pseudo.PseudoFileErr.__init__
+Priithon.py.pseudo.PseudoFileIn.__init__
+Priithon.py.pseudo.PseudoFileOut.__init__
+Priithon.py.pseudo.PseudoKeyword.__init__
+Priithon.py.shell.Shell.__init__
+Priithon.py.shell.ShellFacade.__init__
+Priithon.py.shell.ShellFrame.__init__
+Priithon.readerSPE.File.__init__
+Priithon.scalePanel.scalePanel.__init__
+Priithon.splitND.TestTransientPopup.__init__
+Priithon.splitND.spv.__init__
+Priithon.splitND2.spv.__init__
+Priithon.splitNDcommon.spvCommon.__init__
+Priithon.syncViewersGui.syncViewersGui.__init__
+Priithon.useful.deco_memoized.__init__
+Priithon.usefulX._listArrayViewer.__init__
+Priithon.usefulX._listFilesViewer.MyFileDropTarget.__init__
+Priithon.usefulX._listFilesViewer.__init__
+Priithon.viewer.GLViewer.__init__
+Priithon.viewer2.GLViewer2.__init__
+Priithon.viewerCommon.GLViewerCommon.__init__
+Priithon.viewerRubberbandMode.viewerRubberbandMode.__init__
+Priithon.wxAsyncDispatcher.DispatcherConnection.__init__
+Priithon.wxAsyncDispatcher.DispatcherServer.__init__
+Priithon.wxAsyncDispatcher.MainWindow.__init__
+Priithon.wxPyPlot.FloatDCWrapper.__init__
+Priithon.wxPyPlot.PlotCanvas.__init__
+Priithon.wxPyPlot.PlotGraphics.__init__
+Priithon.wxPyPlot.PolyLine.__init__
+Priithon.wxPyPlot.PolyMarker.__init__
+Priithon.wxPyPlot.PolyPoints.__init__
+Priithon.wxPyPlot.plot_printout.__init__
+Priithon.zslider.ZSlider.__init__" class="py-name" href="#" onclick="return doclink('link-9', '__init__', 'link-4');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt><tt class="py-name">parent</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Function Priithon.plt.interface.title()=Priithon.plt.interface-module.html#title,Method Priithon.plt.wxplt.plot_frame.title()=Priithon.plt.wxplt.plot_frame-class.html#title"><a title="Priithon.plt.interface.title
+Priithon.plt.wxplt.plot_frame.title" class="py-name" href="#" onclick="return doclink('link-10', 'title', 'link-10');">title</a></tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-11', 'size', 'link-6');">size</a></tt><tt class="py-op">=</tt><tt id="link-12" class="py-name"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-12', 'size', 'link-6');">size</a></tt><tt class="py-op">,</tt> <tt class="py-name">style</tt><tt class="py-op">=</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">DEFAULT_FRAME_STYLE</tt><tt class="py-op">|</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">CENTER</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">htmlTxt</tt> <tt class="py-op">=</tt> <tt class="py-name">htmlTxt</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sizer</tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">BoxSizer</tt><tt class="py-op">(</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">VERTICAL</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"># #         hs = wx.BoxSizer(wx.HORIZONTAL)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         self.sizer.Add(hs, 0, wx.EXPAND)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         hs.Add(wx.StaticText(self, -1, "Exc Type:"), 0, wx.ALL, 5)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         self.txtZ = wx.TextCtrl(self, -1, ExcType, size=(40,-1))</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         #wx.EVT_TEXT(self, self.txtZ.GetId(), self.OnTxtZ)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         hs.Add(self.txtZ, 1)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-comment"># #         hs = wx.BoxSizer(wx.HORIZONTAL)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         self.sizer.Add(hs, 0, wx.EXPAND)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         hs.Add(wx.StaticText(self, -1, "Exc Value:"), 0, wx.ALL, 5)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         self.txtZ = wx.TextCtrl(self, -1, ExcVal, size=(40,-1))</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         #wx.EVT_TEXT(self, self.txtZ.GetId(), self.OnTxtZ)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># #         hs.Add(self.txtZ, 1)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-comment">#         hs = wx.BoxSizer(wx.HORIZONTAL)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#         self.sizer.Add(hs, 0, wx.EXPAND)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#         hs.Add(wx.StaticText(self, -1, "Exception:"), 0, wx.ALL, 5)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#         style = wx.TE_MULTILINE if EStr.count('\n')&gt;1 else 0</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#         self.txtZ = wx.TextCtrl(self, -1, EStr, size=(40,-1), style=style)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#         #wx.EVT_TEXT(self, self.txtZ.GetId(), self.OnTxtZ)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#         hs.Add(self.txtZ, 1)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-comment">#hs = wx.BoxSizer(wx.HORIZONTAL)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#self.sizer.Add(hs, 1, wx.EXPAND)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-comment">#self.tc = wx.TextCtrl(self, -1, infoTxt, style=wx.TE_MULTILINE)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tc</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="Priithon.guiInfoFrame.HtmlWindow" class="py-name" href="#" onclick="return doclink('link-13', 'HtmlWindow', 'link-3');">HtmlWindow</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tc</tt><tt class="py-op">.</tt><tt class="py-name">SetPage</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">htmlTxt</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-comment">#tc.SetInsertionPointEnd()</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#hs.Add(tc, 1, wx.ALL, 2)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sizer</tt><tt class="py-op">.</tt><tt class="py-name">Add</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tc</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">EXPAND</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">hs</tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">BoxSizer</tt><tt class="py-op">(</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">HORIZONTAL</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sizer</tt><tt class="py-op">.</tt><tt class="py-name">Add</tt><tt class="py-op">(</tt><tt class="py-name">hs</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">EXPAND</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">b</tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">Button</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-14" class="py-name"><a title="Priithon.guiExceptionFrame.id_close
+Priithon.guiInfoFrame.id_close" class="py-name" href="#" onclick="return doclink('link-14', 'id_close', 'link-1');">id_close</a></tt><tt class="py-op">,</tt> <tt class="py-string">"dismiss [ESC]"</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">EVT_BUTTON</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name"><a title="Priithon.guiExceptionFrame.id_close
+Priithon.guiInfoFrame.id_close" class="py-name" href="#" onclick="return doclink('link-15', 'id_close', 'link-1');">id_close</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Priithon.guiExceptionFrame.MyFrame.OnClose()=Priithon.guiExceptionFrame.MyFrame-class.html#OnClose,Method Priithon.guiInfoFrame.HtmlInfoFrame.OnClose()=Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnClose,Method Priithon.py.crust.CrustFrame.OnClose()=Priithon.py.crust.CrustFrame-class.html#OnClose,Method Priithon.py.editor.EditorFrame.OnClose()=Priithon.py.editor.EditorFrame-class.html#OnClose,Method Priithon.py.frame.Frame.OnClose()=Priithon.py.frame.Frame-class.html#OnClose,Method Priithon.py.shell.ShellFrame.OnClose()=Priithon.py.shell.ShellFrame-class.html#OnClose"><a title="Priithon.guiExceptionFrame.MyFrame.OnClose
+Priithon.guiInfoFrame.HtmlInfoFrame.OnClose
+Priithon.py.crust.CrustFrame.OnClose
+Priithon.py.editor.EditorFrame.OnClose
+Priithon.py.frame.Frame.OnClose
+Priithon.py.shell.ShellFrame.OnClose" class="py-name" href="#" onclick="return doclink('link-16', 'OnClose', 'link-16');">OnClose</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">hs</tt><tt class="py-op">.</tt><tt class="py-name">Add</tt><tt class="py-op">(</tt><tt class="py-name">b</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">ALL</tt><tt class="py-op">,</tt> <tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-name">b</tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">Button</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name"><a title="Priithon.guiExceptionFrame.id_print
+Priithon.guiInfoFrame.id_print" class="py-name" href="#" onclick="return doclink('link-17', 'id_print', 'link-2');">id_print</a></tt><tt class="py-op">,</tt> <tt class="py-string">"print to stderr &amp;&amp; dismiss"</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">EVT_BUTTON</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name"><a title="Priithon.guiExceptionFrame.id_print
+Priithon.guiInfoFrame.id_print" class="py-name" href="#" onclick="return doclink('link-18', 'id_print', 'link-2');">id_print</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method Priithon.guiExceptionFrame.MyFrame.OnPrint()=Priithon.guiExceptionFrame.MyFrame-class.html#OnPrint,Method Priithon.guiInfoFrame.HtmlInfoFrame.OnPrint()=Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnPrint"><a title="Priithon.guiExceptionFrame.MyFrame.OnPrint
+Priithon.guiInfoFrame.HtmlInfoFrame.OnPrint" class="py-name" href="#" onclick="return doclink('link-19', 'OnPrint', 'link-19');">OnPrint</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">hs</tt><tt class="py-op">.</tt><tt class="py-name">Add</tt><tt class="py-op">(</tt><tt class="py-name">b</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">ALL</tt><tt class="py-op">,</tt> <tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">         </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Bind</tt><tt class="py-op">(</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">EVT_KEY_DOWN</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method Priithon.guiExceptionFrame.MyFrame.OnKeyDown()=Priithon.guiExceptionFrame.MyFrame-class.html#OnKeyDown,Method Priithon.guiInfoFrame.HtmlInfoFrame.OnKeyDown()=Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnKeyDown,Method Priithon.py.editor.Editor.OnKeyDown()=Priithon.py.editor.Editor-class.html#OnKeyDown,Method Priithon.py.shell.Shell.OnKeyDown()=Priithon.py.shell.Shell-class.html#OnKeyDown,Method Priithon.splitND.TestTransientPopup.OnKeyDown()=Priithon.splitND.TestTransientPopup-class.html#OnKeyDown,Method Priithon.splitNDcommon.spvCommon.OnKeyDown()=Priithon.splitNDcommon.spvCommon-class.html#OnKeyDown"><a title="Priithon.guiExceptionFrame.MyFrame.OnKeyDown
+Priithon.guiInfoFrame.HtmlInfoFrame.OnKeyDown
+Priithon.py.editor.Editor.OnKeyDown
+Priithon.py.shell.Shell.OnKeyDown
+Priithon.splitND.TestTransientPopup.OnKeyDown
+Priithon.splitNDcommon.spvCommon.OnKeyDown" class="py-name" href="#" onclick="return doclink('link-20', 'OnKeyDown', 'link-20');">OnKeyDown</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">w</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">GetChildren</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">w</tt><tt class="py-op">.</tt><tt class="py-name">Bind</tt><tt class="py-op">(</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">EVT_KEY_DOWN</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Priithon.guiExceptionFrame.MyFrame.OnKeyDown
+Priithon.guiInfoFrame.HtmlInfoFrame.OnKeyDown
+Priithon.py.editor.Editor.OnKeyDown
+Priithon.py.shell.Shell.OnKeyDown
+Priithon.splitND.TestTransientPopup.OnKeyDown
+Priithon.splitNDcommon.spvCommon.OnKeyDown" class="py-name" href="#" onclick="return doclink('link-21', 'OnKeyDown', 'link-20');">OnKeyDown</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">EVT_CLOSE</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Priithon.guiExceptionFrame.MyFrame.OnClose
+Priithon.guiInfoFrame.HtmlInfoFrame.OnClose
+Priithon.py.crust.CrustFrame.OnClose
+Priithon.py.editor.EditorFrame.OnClose
+Priithon.py.frame.Frame.OnClose
+Priithon.py.shell.ShellFrame.OnClose" class="py-name" href="#" onclick="return doclink('link-22', 'OnClose', 'link-16');">OnClose</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-comment">#self.sizer.Fit(self)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">SetAutoLayout</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name" targets="Variable Priithon.wxPyPlot.True=Priithon.wxPyPlot-module.html#True"><a title="Priithon.wxPyPlot.True" class="py-name" href="#" onclick="return doclink('link-23', 'True', 'link-23');">True</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">SetSizer</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sizer</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-comment">#slider.SetBackgroundColour(wx.LIGHT_GREY)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#self.SetBackgroundColour(wx.LIGHT_GREY)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Center</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">CallAfter</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Raise</tt><tt class="py-op">)</tt> <tt class="py-comment"># just to be sure ...</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">CallAfter</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tc</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method Priithon.py.editor.EditorShellNotebook.SetFocus()=Priithon.py.editor.EditorShellNotebook-class.html#SetFocus"><a title="Priithon.py.editor.EditorShellNotebook.SetFocus" class="py-name" href="#" onclick="return doclink('link-24', 'SetFocus', 'link-24');">SetFocus</a></tt><tt class="py-op">)</tt> <tt class="py-comment"># just to be sure ... LinuxGTK (so that pressing [ESC] will close)</tt> </tt>
+</div><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">         </tt>
+<a name="HtmlInfoFrame.OnClose"></a><div id="HtmlInfoFrame.OnClose-def"><a name="L99"></a><tt class="py-lineno"> 99</tt> <a class="py-toggle" href="#" id="HtmlInfoFrame.OnClose-toggle" onclick="return toggle('HtmlInfoFrame.OnClose');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnClose">OnClose</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ev</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlInfoFrame.OnClose-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="HtmlInfoFrame.OnClose-expanded"><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Destroy</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="HtmlInfoFrame.OnPrint"></a><div id="HtmlInfoFrame.OnPrint-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="HtmlInfoFrame.OnPrint-toggle" onclick="return toggle('HtmlInfoFrame.OnPrint');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnPrint">OnPrint</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ev</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlInfoFrame.OnPrint-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="HtmlInfoFrame.OnPrint-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tc</tt><tt class="py-op">.</tt><tt class="py-name">ToText</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-comment">#sys.__excepthook__(self.exctype, self.value, self.tb)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="HtmlInfoFrame.OnKeyDown"></a><div id="HtmlInfoFrame.OnKeyDown-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="HtmlInfoFrame.OnKeyDown-toggle" onclick="return toggle('HtmlInfoFrame.OnKeyDown');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.guiInfoFrame.HtmlInfoFrame-class.html#OnKeyDown">OnKeyDown</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">event</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HtmlInfoFrame.OnKeyDown-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="HtmlInfoFrame.OnKeyDown-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">keycode</tt> <tt class="py-op">=</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt class="py-name">GetKeyCode</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-comment">#print keycode, event.CmdDown(), event.ControlDown()</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">keycode</tt> <tt class="py-op">==</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">WXK_ESCAPE</tt><tt class="py-op">:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">keycode</tt> <tt class="py-op">==</tt> <tt class="py-name">ord</tt><tt class="py-op">(</tt><tt class="py-string">'W'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt class="py-name">CmdDown</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">Close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-name">event</tt><tt class="py-op">.</tt><tt class="py-name">Skip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt>
+<a name="showHtmlInfo"></a><div id="showHtmlInfo-def"><a name="L118"></a><tt class="py-lineno">118</tt> <a class="py-toggle" href="#" id="showHtmlInfo-toggle" onclick="return toggle('showHtmlInfo');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Priithon.guiInfoFrame-module.html#showHtmlInfo">showHtmlInfo</a><tt class="py-op">(</tt><tt class="py-param">htmlTxt</tt><tt class="py-op">,</tt> <tt class="py-param">title</tt><tt class="py-op">=</tt><tt class="py-string">"info"</tt><tt class="py-op">,</tt> <tt class="py-param">size</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-number">600</tt><tt class="py-op">,</tt><tt class="py-number">600</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="showHtmlInfo-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="showHtmlInfo-expanded"><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">    open new frame with given txt</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">    `htmlTxt`: html code of text to be shown</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">              - note that tags like &lt;h1&gt; MUST be followed by a &lt;/h1&gt;</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">    `title`: title of wx-frame</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    `parent`: parent of new frame - default: Priithon's shell frame !!!</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">parent</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">__main__</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-name">parent</tt> <tt class="py-op">=</tt> <tt class="py-name">__main__</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Module Priithon.py.shell=Priithon.py.shell-module.html,Function Priithon.usefulX.shell()=Priithon.usefulX-module.html#shell"><a title="Priithon.py.shell
+Priithon.usefulX.shell" class="py-name" href="#" onclick="return doclink('link-25', 'shell', 'link-25');">shell</a></tt><tt class="py-op">.</tt><tt class="py-name">GetTopLevelParent</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt id="link-26" class="py-name" targets="Class Priithon.guiInfoFrame.HtmlInfoFrame=Priithon.guiInfoFrame.HtmlInfoFrame-class.html"><a title="Priithon.guiInfoFrame.HtmlInfoFrame" class="py-name" href="#" onclick="return doclink('link-26', 'HtmlInfoFrame', 'link-26');">HtmlInfoFrame</a></tt><tt class="py-op">(</tt><tt class="py-name">htmlTxt</tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name"><a title="Priithon.plt.interface.title
+Priithon.plt.wxplt.plot_frame.title" class="py-name" href="#" onclick="return doclink('link-27', 'title', 'link-10');">title</a></tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="Priithon.plt.plot_objects.text_object.size
+Priithon.plt.plot_utility.box_object.size
+Priithon.viewerRubberbandMode.viewerRubberbandMode.size" class="py-name" href="#" onclick="return doclink('link-28', 'size', 'link-6');">size</a></tt><tt class="py-op">,</tt> <tt class="py-name">parent</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Priithon-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://code.google.com/p/priithon">Priithon</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 22 14:59:54 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
