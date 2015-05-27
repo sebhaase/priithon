@@ -1,0 +1,7 @@
+2010-03-04 17:27:06 #25607> cd hg-wiki
+2010-03-04 17:27:17 #25607> svn export --force http://priithon.googlecode.com/svn/wiki .
+2010-03-04 17:27:25 #25607> hg add .
+2010-03-04 17:27:36 #25607> hg commit -m "Initial import of wiki."
+2010-03-04 17:28:34 #25607> hg help config
+2010-03-04 17:29:05 #25607> hg commit -m "Initial import of wiki."
+2010-03-04 17:29:14 #25607> hg help commit
