@@ -30,6 +30,7 @@ While Priithon is mainly used (by myself) as a daily work horse for looking at m
 # Documentation (old)
  - [PriithonHandbook](https://rawgit.com/sebhaase/priithon/master/priithon_docs/PriithonHandbook.html)
  - [PriithonTutorials](https://rawgit.com/sebhaase/priithon/master/priithon_docs/PriithonTutorials.html)
+ - [PriithonModules epydoc](https://rawgit.com/sebhaase/priithon/master/priithon_docs/PriithonEpydoc/index.html)
 
 # priithon
 Automatically exported from code.google.com/p/priithon
