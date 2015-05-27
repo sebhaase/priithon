@@ -27,6 +27,10 @@ While Priithon is mainly used (by myself) as a daily work horse for looking at m
  4. Simple GUI interfaces visualize the set of "most-used" parameters and allow execution per mouse-click
  5. Organizing multiple GUI windows with few-line setup functions into a "drag-into-Priithon-to-execute" script file
 
+__Code license__: _New BSD License_
+
+__Labels__: _Python_, _numpy_, _SWIG_, _image analysis_, _multi dimensional_, _opengl_, _priithon_
+
 # Documentation (old)
  - [PriithonHandbook](https://rawgit.com/sebhaase/priithon/master/priithon_docs/PriithonHandbook.html)
  - [PriithonTutorials](https://rawgit.com/sebhaase/priithon/master/priithon_docs/PriithonTutorials.html)
